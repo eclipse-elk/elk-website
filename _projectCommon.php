@@ -17,7 +17,7 @@
 
   # Define your project-wide Nav bars here.
   # Format is Link text, link URL (can be http://www.someothersite.com/), target (_self, _blank).
-  $Nav->addNavSeparator("Home",   "/elk/");
+  $Nav->addNavSeparator("Home",   "/elk/index.php");
 
   $Nav->addNavSeparator("Getting Started",   "/elk/getting-started.php");
 

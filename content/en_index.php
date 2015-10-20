@@ -87,15 +87,21 @@
           <div class="carousel-caption">
             <a href="https://github.com/OpenKieler/klassviz">KlassViz</a> is a class diagram generator
             that is part of the <a href="https://github.com/OpenKieler">OpenKieler</a> project.
-            KlassViz is using automatic layout to generate class diagrams
+            KlassViz uses automatic layout to generate class diagrams
             either based on what is selected in the Eclipse IDE,
             or based on descriptions put together by the user in an Xtext-based language.
           </div>
         </div>
         <div class="item">
-          <img width="100%" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNDQ0O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+U2Vjb25kIHNsaWRlPC90ZXh0Pjwvc3ZnPg==" alt="Image 2">
+          <img width="100%" src="/elk/img/reel_klassviz.jpg" alt="DebuKViz is using ELK">
           <div class="carousel-caption">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <a href="https://github.com/OpenKieler/debukviz">DebuKViz</a>,
+            a part of the <a href="https://github.com/OpenKieler">OpenKieler</a> project,
+            is a debugging tool for Eclipse
+            that shows a graphical representation of whatever variable is selected
+            in the variables view.
+            DebuKViz uses automatic layout to generate that representation from scratch
+            and still keep it readable and useful.
           </div>
         </div>
       </div>

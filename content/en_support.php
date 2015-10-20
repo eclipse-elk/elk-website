@@ -17,7 +17,7 @@
 
   <h2>Asking Questions</h2>
   <p>
-    We have <a href="https://www.eclipse.org/forums/index.php?t=thread&frm_id=321">a forum</a> available
+    We have <a href="http://eclipse.org/forums/eclipse.elk">a forum</a> available
     for you to ask questions in.
   </p>
 

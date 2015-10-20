@@ -56,7 +56,7 @@
   $html = ob_get_clean();
 
   # Insert extra html before closing </head> tag.
-  //$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="style.css" media="screen" />');
+  $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="carousel_style.css" media="screen" />');
 
   # Insert script/html before closing </body> tag.
   //$App->AddExtraJSFooter('<script type="text/javascript" src="script.min.js"></script>');

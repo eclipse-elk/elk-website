@@ -28,6 +28,11 @@
     The <em>Eclipse Layout Kernel (ELK)</em> provides such layout algorithms,
     as well as an infrastructure to connect them to diagram editors.
   </p>
+  <p>
+    To get started using automatic layout,
+    a developer usually only has to provide a transformation
+    that produces an ElkGraph and applies the computed layout results back to his editor.
+  </p>
   <!-- TODO There needs to be a picture here of a bad and a good layout. -->
 
   <div class="block-box block-box-classic">
@@ -48,9 +53,12 @@
 
 
   <h2>The Parts of ELK</h2>
+  <p>
+    The Eclipse Layout Kernel consists of two parts:
+  </p>
   <ol>
     <li>
-      The kernel provides the basic infrastructure that connects editors with layout algorithms.
+      The kernel itself provides the basic infrastructure that connects editors with layout algorithms.
       Part of that is the <em>ElkGraph</em>,
       a data structure used to pass diagrams to the layout algorithms
       and receive the layout information computed by the algorithms.
@@ -58,11 +66,8 @@
     <li>
       The actual layout algorithms.
       Different layout algorithms specialize in different kinds of diagrams and layout problems.
+      We also provide connections to popular layout libraries.
     </li>
   </ol>
-  <p>
-    To use ELK, a developer usually only has to provide a transformation that produces an ElkGraph
-    and applies the computed layout results back to his editor.
-  </p>
 </div>
 <!-- ./end  #midcolumn -->

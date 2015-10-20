@@ -13,18 +13,9 @@
 
 <!-- Main content area -->
 <div id="midcolumn">
-  <h1><?php print $pageTitle;?></h1>
-  <p><a href="solstice-starterkit.zip" class="btn btn-warning">Download Starterkit</a></p>
+  <h1>Getting Started</h1>
+  <p>
+    Stay tuned while we're working on this part of our home page!
+  </p>
 </div>
 <!-- ./end  #midcolumn -->
-
-<!-- Start of the right column -->
-<div id="rightcolumn">
-  <div class="sideitem">
-    <h2>Related Links</h2>
-    <ul>
-      <li><a target="_self" href="/eclipse.org-common/themes/solstice/docs/">Documentation</a></li>
-    </ul>
-  </div>
-</div>
-<!-- ./end  #rightcolumn -->

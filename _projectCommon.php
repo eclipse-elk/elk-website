@@ -22,10 +22,10 @@
   $Nav->addNavSeparator("Getting Started",   "/elk/getting-started.php");
 
   $Nav->addNavSeparator("Documentation",   "/elk/docs.php");
-  $Nav->addCustomNav("Tutorials and Articles", "/elk/docs_articles.php", "_self", NULL);
+  #$Nav->addCustomNav("Tutorials and Articles", "/elk/docs_articles.php", "_self", NULL);
 
   $Nav->addNavSeparator("Downloads",   "/elk/downloads.php");
 
-  $Nav->addNavSeparator("Support",   "/elk/supp.php");
-  $Nav->addCustomNav("Getting Involved", "/elk/supp_getting-involved.php", "_self", NULL);
+  $Nav->addNavSeparator("Support",   "/elk/support.php");
+  $Nav->addCustomNav("Getting Involved", "/elk/support_getting-involved.php", "_self", NULL);
   $Nav->addCustomNav("About this Project", "https://projects.eclipse.org/projects/modeling.elk", "_self", NULL);

@@ -15,8 +15,8 @@
 <div id="midcolumn">
   <h1><?php print $pageTitle;?></h1>
   <p class="lead">
-    Ever felt like you spent most of your time
-    getting a diagram's layout right
+    Ever feel like you spend most of your time
+    getting a diagram&rsquo;s layout right
     instead of its content?
   </p>
   <p>

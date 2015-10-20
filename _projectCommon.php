@@ -19,7 +19,7 @@
   # Format is Link text, link URL (can be http://www.someothersite.com/), target (_self, _blank).
   $Nav->addNavSeparator("Home",   "/elk/");
 
-  $Nav->addNavSeparator("Getting started",   "/elk/getting-started.php");
+  $Nav->addNavSeparator("Getting Started",   "/elk/getting-started.php");
 
   $Nav->addNavSeparator("Documentation",   "/elk/docs.php");
   $Nav->addCustomNav("Tutorials and Articles", "/elk/docs_articles.php", "_self", NULL);

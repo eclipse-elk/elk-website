@@ -69,5 +69,10 @@
       We also provide connections to popular layout libraries.
     </li>
   </ol>
+
+
+  <!-- TODO Add a slide show of sample applications here. -->
+  <!--      Sample applications can be the Ptolemy Viewer, SCCharts, and the OpenKieler projects. -->
+  <!--      Perhaps some industry partners may want to contribute samples as well later? -->
 </div>
 <!-- ./end  #midcolumn -->

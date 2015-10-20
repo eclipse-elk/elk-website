@@ -93,7 +93,7 @@
           </div>
         </div>
         <div class="item">
-          <img width="100%" src="/elk/img/reel_klassviz.jpg" alt="DebuKViz is using ELK">
+          <img width="100%" src="/elk/img/reel_debukviz.jpg" alt="DebuKViz is using ELK">
           <div class="carousel-caption">
             <a href="https://github.com/OpenKieler/debukviz">DebuKViz</a>,
             a part of the <a href="https://github.com/OpenKieler">OpenKieler</a> project,

@@ -48,23 +48,16 @@
         <div class="item active">
           <img width="100%" src="/elk/img/reel_klassviz.jpg" alt="KlassViz is using ELK">
           <div class="carousel-caption">
-            <a href="https://github.com/OpenKieler/klassviz">KlassViz</a> is a class diagram generator
-            that is part of the <a href="https://github.com/OpenKieler">OpenKieler</a> project.
-            KlassViz uses automatic layout to generate class diagrams
-            either based on what is selected in the Eclipse IDE,
-            or based on descriptions put together by the user in an Xtext-based language.
+            <a href="https://github.com/OpenKieler/klassviz">KlassViz</a>
+            uses automatic layout to generate class diagrams in Eclipse on the fly.
           </div>
         </div>
         <div class="item">
           <img width="100%" src="/elk/img/reel_debukviz.jpg" alt="DebuKViz is using ELK">
           <div class="carousel-caption">
             <a href="https://github.com/OpenKieler/debukviz">DebuKViz</a>,
-            a part of the <a href="https://github.com/OpenKieler">OpenKieler</a> project,
-            is a debugging tool for Eclipse
-            that shows a graphical representation of whatever variable is selected
-            in the variables view.
-            DebuKViz uses automatic layout to generate that representation from scratch
-            and still keep it readable and useful.
+            uses automatic layout to generate visualizations of variables
+            in your Java programs while debugging.
           </div>
         </div>
       </div>

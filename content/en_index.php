@@ -14,7 +14,34 @@
 <!-- Main content area -->
 <div id="midcolumn">
   <h1><?php print $pageTitle;?></h1>
-  <p><a href="solstice-starterkit.zip" class="btn btn-warning">Download Starterkit</a></p>
+  <p>
+    Visual languages are popular for visualizing concepts and systems.
+    However, just being graphical in nature does not automatically make a diagram easy to understand.#
+    Its usefulness much rather depends on the placement of its elements, that is: on its layout.
+    Getting the layout right is labour intensive and time consuming
+    and can be made a lot easier by making algorithms do the work.
+    The <em>Eclipse Layout Kernel (ELK)</em> provides such layout algorithms,
+    as well as an infrastructure to connect them to diagram editors.
+  </p>
+  <p>
+    ELK consists of two parts:
+  </p>
+  <ol>
+    <li>
+      The kernel provides the basic infrastructure that connects editors with layout algorithms.
+      Part of that is the <em>ElkGraph</em>,
+      a data structure used to pass diagrams to the layout algorithms
+      and receive the layout information computed by the algorithms.
+    </li>
+    <li>
+      The actual layout algorithms.
+      Different layout algorithms specialize in different kinds of diagrams and layout problems.
+    </li>
+  </ol>
+  <p>
+    To use ELK, a developer usually only has to provide a transformation that produces an ElkGraph
+    and applies the computed layout results back to his editor.
+  </p>
 </div>
 <!-- ./end  #midcolumn -->
 

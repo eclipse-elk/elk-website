@@ -22,9 +22,9 @@
   require_once('_projectCommon.php');
 
   # Begin: page-specific settings.  Change these.
-  $pageTitle = "ELK: Eclipse Layout Kernel";
+  $pageTitle = "Eclipse Layout Kernel";
   $pageKeywords = "diagrams, automatic layout, layout algorithms, layout infrastructure";
-  $pageAuthor = "ELK Team";
+  $pageAuthor = "Eclipse Layout Kernel Team";
 
   # Initialize custom solstice $variables.
   $variables = array();

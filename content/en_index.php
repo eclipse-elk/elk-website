@@ -19,6 +19,7 @@
     getting a diagram&rsquo;s layout right
     instead of its content?
   </p>
+  <!-- TODO There needs to be a picture here of a bad and a good layout. -->
   <p>
     Diagrams are great for visualizing concepts and systems.
     However, just being graphical in nature does not automatically make a diagram easy to understand.
@@ -33,45 +34,7 @@
     a developer usually only has to provide a transformation
     that produces an ElkGraph and applies the computed layout results back to his editor.
   </p>
-  <!-- TODO There needs to be a picture here of a bad and a good layout. -->
 
-  <div class="block-box block-box-classic">
-    <h3>We're Just Getting Started&hellip;</h3>
-    <div class="content">
-      <p>
-        The Eclipse Layout Kernel
-        used to be the <em>KIELER Infrastructure for Meta Layout (KIML)</em>
-        and was a part of the <a href="http://rtsys.informatik.uni-kiel.de/kieler">KIELER</a> project.
-        We've just started becoming <em>ELK</em>,
-        so everything you see here is still very much work in progress.
-        If you need automatic layout <strong>right now</strong>,
-        you should head over to the KIELER project
-        while we're getting ELK ready for the public.
-      </p>
-    </div>
-  </div>
-
-
-  <h2>The Parts of ELK</h2>
-  <p>
-    The Eclipse Layout Kernel consists of two parts:
-  </p>
-  <ol>
-    <li>
-      The kernel itself provides the basic infrastructure that connects editors with layout algorithms.
-      Part of that is the <em>ElkGraph</em>,
-      a data structure used to pass diagrams to the layout algorithms
-      and receive the layout information computed by the algorithms.
-    </li>
-    <li>
-      The actual layout algorithms.
-      Different layout algorithms specialize in different kinds of diagrams and layout problems.
-      We also provide connections to popular layout libraries.
-    </li>
-  </ol>
-
-
-  <h2>ELK in Action</h2>
   <div class="block-box block-box-classic">
     <div id="demo-reel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -115,5 +78,43 @@
       </a>
     </div>
   </div>
+
+
+  <h2>The Parts of ELK</h2>
+  <p>
+    The Eclipse Layout Kernel consists of two parts:
+  </p>
+  <ol>
+    <li>
+      The kernel itself provides the basic infrastructure that connects editors with layout algorithms.
+      Part of that is the <em>ElkGraph</em>,
+      a data structure used to pass diagrams to the layout algorithms
+      and receive the layout information computed by the algorithms.
+    </li>
+    <li>
+      The actual layout algorithms.
+      Different layout algorithms specialize in different kinds of diagrams and layout problems.
+      We also provide connections to popular layout libraries.
+    </li>
+  </ol>
+
 </div>
 <!-- ./end  #midcolumn -->
+
+<!-- Start of the right column -->
+<div id="rightcolumn">
+  <div class="sideitem">
+    <h3>We're Just Getting Started&hellip;</h3>
+    <p>
+      The Eclipse Layout Kernel
+      used to be the <em>KIELER Infrastructure for Meta Layout (KIML)</em>
+      and was a part of the <a href="http://rtsys.informatik.uni-kiel.de/kieler">KIELER</a> project.
+      We've just started becoming <em>ELK</em>,
+      so everything you see here is still very much work in progress.
+      If you need automatic layout <strong>right now</strong>,
+      you should head over to the KIELER project
+      while we're getting ELK ready for the public.
+    </p>
+  </div>
+</div>
+<!-- ./end  #rightcolumn -->

@@ -18,7 +18,8 @@
     Once ELK is ready for the public
     and has a release available,
     we will publish more detailed information
-    on how to get involved in the project.
+    on how to get involved in the project
+    as well as a proper Oomph setup and everything.
     In the mean-time,
     here's a short list of things you can do
     to start hacking away at our code:

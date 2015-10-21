@@ -118,7 +118,7 @@
     </p>
   </div>
 
-  <div class="sideitem">
+  <div class="sideitem" style="background-color: white;">
     <h6>Incubation</h6>
     <div align="center">
       <a href="/projects/what-is-incubation.php">

@@ -109,5 +109,14 @@
       while we're getting ELK ready for the public.
     </p>
   </div>
+
+  <div class="sideitem">
+    <h6>Incubation</h6>
+    <div align="center">
+      <a href="/projects/what-is-incubation.php">
+        <img align="center" src="/images/egg-incubation.png"border="0" alt="Incubation" />
+      </a>
+    </div>
+  </div>
 </div>
 <!-- ./end  #rightcolumn -->

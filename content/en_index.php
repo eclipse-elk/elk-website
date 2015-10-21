@@ -41,6 +41,7 @@
       <ol class="carousel-indicators">
         <li data-target="#demo-reel" data-slide-to="0" class="active"></li>
         <li data-target="#demo-reel" data-slide-to="1"></li>
+        <li data-target="#demo-reel" data-slide-to="2"></li>
       </ol>
 
       <!-- Wrapper for slides -->
@@ -58,6 +59,13 @@
             <a href="https://github.com/OpenKieler/debukviz">DebuKViz</a>,
             uses automatic layout to generate visualizations of variables
             in your Java programs while debugging.
+          </div>
+        </div>
+        <div class="item">
+          <img width="100%" src="/elk/img/reel_ptolemy.jpg" alt="Ptolemy is using ELK">
+          <div class="carousel-caption">
+            <a href="http://ptolemy.eecs.berkeley.edu/ptolemyII/index.htm">Ptolemy II</a>,
+            uses automatic layout to make developing models graphically easier.
           </div>
         </div>
       </div>

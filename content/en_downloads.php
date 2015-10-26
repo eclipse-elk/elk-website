@@ -16,19 +16,31 @@
   <h1>Downloads</h1>
   <p>
     Since we are just getting started with ELK,
-    there are no downloads yet. Stay tuned!
+    there's not a lot to see here yet, but stay tuned for more!
+    What we do have right now are nightly builds.
   </p>
-  <p>
-    While you're wating,
-    feel free to browse <a href="https://rtsys.informatik.uni-kiel.de/confluence/x/UISQ">our old downloads</a>
-    at the <a href="http://rtsys.informatik.uni-kiel.de/kieler">KIELER project</a>.
-    Look for the <em>Pragmatics update site</em>.
-  </p>
+
+
+  <h2>Nightly Builds</h2>
+  <ul>
+    <li><a href="http://download.eclipse.org/elk/updates/nightly">Update site</a></li>
+    <li><a href="http://www.eclipse.org/downloads/download.php?file=/elk/updates/nightly/elk-nightly.zip">Zipped update site</a> (for offline use)</li>
+  </ul>
 </div>
 <!-- ./end  #midcolumn -->
 
 <!-- Start of the right column -->
 <div id="rightcolumn">
+  <div class="sideitem">
+    <h6>Old Downloads</h6>
+    <p>
+      While you're wating,
+      feel free to browse <a href="https://rtsys.informatik.uni-kiel.de/confluence/x/UISQ">our old downloads</a>
+      at the <a href="http://rtsys.informatik.uni-kiel.de/kieler">KIELER project</a>.
+      Look for the <em>Pragmatics update site</em>.
+    </p>
+  </div>
+
   <div class="sideitem" style="background-color: white;">
     <h6>Incubation</h6>
     <div align="center">

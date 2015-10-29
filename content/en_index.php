@@ -109,10 +109,7 @@
     there's a very high probability
     that simply installing the Eclipse Layout Kernel
     will not add automatic layout to the tool
-    (at least not in a way that will be remotely helpful to you);
-    adding automatic layout to a tool
-    usually requires playing around with layout options for a while
-    until everything works well.
+    (at least not in a way that will be remotely helpful to you).
     Instead,
     ask the developers of your tool
     to look into integrating their tool with the Eclipse Layout Kernel.

@@ -41,18 +41,17 @@
     you will have to actually install ELK.
     Head over to <a href="./downloads.php">our downloads page</a>
     and paste the URL of our update site into your Eclipse installation.
-    You will discover four features,
-    and you will probably want to install at least one of them:
+    You will discover four features:
   </p>
   <ul>
     <li>
-      The core feature contains the basic layout kernel.
+      The core feature contains the basic layout kernel infrastructure.
       This one you definitely need to install.
     </li>
     <li>
-      Depending on what technology your editor is based,
+      Depending on what technology your editor is based on,
       you may be lucky enough to find
-      that we have already done most of the work necessary
+      that we have already done much of the work necessary
       to make your editor work with ELK.
       We provide out-of-the-box interfaces
       for GMF- and Graphiti-based editors
@@ -66,11 +65,20 @@
     </li>
   </ul>
 
+
   <h2>Connecting Your Editor to ELK</h2>
   <p>
     Congratulations, you have just installed ELK!
     (wasn't that hard, I know&hellip;)
     Now it's time to actually enable automatic layout for your editor.
+  </p>
+
+
+  <h2>Customizing Automatic Layout</h2>
+  <p>
+    Chances are that the layouts you're getting at this point
+    are not perfect for your kind of diagram.
+
   </p>
 </div>
 <!-- ./end  #midcolumn -->

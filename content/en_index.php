@@ -47,14 +47,14 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <img width="100%" src="/elk/img/reel_klassviz.jpg" alt="KlassViz is using ELK">
+          <img width="100%" src="/elk/img/reel_klassviz.jpg" alt="KlassViz is using ELK" />
           <div class="carousel-caption">
             <a href="https://github.com/OpenKieler/klassviz">KlassViz</a>
             uses automatic layout to generate class diagrams in Eclipse on the fly.
           </div>
         </div>
         <div class="item">
-          <img width="100%" src="/elk/img/reel_debukviz.jpg" alt="DebuKViz is using ELK">
+          <img width="100%" src="/elk/img/reel_debukviz.jpg" alt="DebuKViz is using ELK" />
           <div class="carousel-caption">
             <a href="https://github.com/OpenKieler/debukviz">DebuKViz</a>,
             uses automatic layout to generate visualizations of variables
@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="item">
-          <img width="100%" src="/elk/img/reel_ptolemy.jpg" alt="Ptolemy is using ELK">
+          <img width="100%" src="/elk/img/reel_ptolemy.jpg" alt="Ptolemy is using ELK" />
           <div class="carousel-caption">
             <a href="http://ptolemy.eecs.berkeley.edu/ptolemyII/index.htm">Ptolemy II</a>,
             uses automatic layout to make developing models graphically easier.

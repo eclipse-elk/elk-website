@@ -91,6 +91,9 @@
     Click it (or press Ctrl+R, L)
     to check if everything works.
   </p>
+  <img width="100%"
+       src="/elk/img/getting_started_layout_button.png"
+       alt="The layout button triggers layout on your diagram." />
 
   <h3>Graphiti-Based Editors</h3>
   <p>
@@ -118,15 +121,13 @@
     create a class <a href="http://rtsys.informatik.uni-kiel.de/confluence/pages/viewpage.action?pageId=328078#InfrastructureforMetaLayout%28KIML%29-ConnectingDiagramEditors">that implements the IDiagramLayoutManager interface</a>.
     Your class needs to be registered with ELK:
   </p>
-  <pre>
-    &lt;extension
-       point="org.eclipse.elk.core.service.layoutManagers"&gt;
+  <pre>&lt;extension
+   point="org.eclipse.elk.core.service.layoutManagers"&gt;
 
-       &lt;manager
-          class="your.layout.manager.implementation"&gt;
-       &lt;/manager&gt;
-    &lt;/extension&gt;
-  </pre>
+   &lt;manager
+      class="your.layout.manager.implementation"&gt;
+   &lt;/manager&gt;
+&lt;/extension&gt;</pre>
 
 
   <h2>Customizing Automatic Layout</h2>
@@ -148,8 +149,8 @@
     and allow you to play around with them.
   </p>
   <img width="100%"
-       src="/elk/img/getting_started_layout_button.png"
-       alt="The layout button triggers layout on your diagram." />
+       src="/elk/img/getting_started_layout_view.png"
+       alt="The layout view allows you to play around with many of the available layout options." />
   <p>
     Once you have found settings you like,
     it's time to configure layout such

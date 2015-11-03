@@ -13,20 +13,6 @@
 
 <!-- Main content area -->
 <div id="midcolumn">
-  <div class="block-box block-box-classic">
-    <h3>Work in Progress</h3>
-    <div class="content">
-      <p>
-        This guide is very much work in progress.
-        We're posting intermediate versions in the hope
-        that they may already be useful to people,
-        but there may be problems and big gaps.
-        We're working on it,
-        and you've been warned!
-      </p>
-    </div>
-  </div>
-
   <h1>Getting Started</h1>
   <p>
     Autoamtic layout can be a complex thing,
@@ -129,11 +115,10 @@
     ELK doesn't have a pre-built layout connection for you;
     you will have to build it yourself.
     To do so,
-    create a class that implements the IDiagramLayoutManager interface.
-    <!-- TODO Add links to Confluence for more information. -->
+    create a class <a href="http://rtsys.informatik.uni-kiel.de/confluence/pages/viewpage.action?pageId=328078#InfrastructureforMetaLayout%28KIML%29-ConnectingDiagramEditors">that implements the IDiagramLayoutManager interface</a>.
     Your class needs to be registered with ELK:
   </p>
-  <p>
+  <pre>
     &lt;extension
        point="org.eclipse.elk.core.service.layoutManagers"&gt;
 
@@ -141,8 +126,7 @@
           class="your.layout.manager.implementation"&gt;
        &lt;/manager&gt;
     &lt;/extension&gt;
-  </p>
-  <!-- TODO Code formatting -->
+  </pre>
 
 
   <h2>Customizing Automatic Layout</h2>
@@ -174,8 +158,8 @@
     having to use the layout view,
     now, do you?)
     There are different ways to do so,
-    and we have more in-depth information on them.
-    <!-- TODO Set link. -->
+    and we have <a href="https://rtsys.informatik.uni-kiel.de/confluence/x/0IF1">more in-depth information on them</a>
+    at the old incarnation of the project.
   </p>
   <p>
     The easiest way is to simply register static configurations with ELK.
@@ -217,3 +201,19 @@
        alt="Finding out more about selected elements and layout options through the layout view." />
 </div>
 <!-- ./end  #midcolumn -->
+
+<!-- Start of the right column -->
+<div id="rightcolumn">
+  <div class="sideitem">
+    <h3>Work in Progress</h3>
+    <p>
+      This guide is very much work in progress.
+      We're posting intermediate versions in the hope
+      that they may already be useful to people,
+      but there may be problems and big gaps.
+      We're working on it,
+      and you've been warned!
+    </p>
+  </div>
+</div>
+<!-- ./end  #rightcolumn -->

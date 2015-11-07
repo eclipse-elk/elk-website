@@ -19,14 +19,15 @@
     getting a diagram&rsquo;s layout right
     instead of its content?
   </p>
-  <!-- TODO There needs to be a picture here of a bad and a good layout. -->
   <p>
     Diagrams are great for visualizing concepts and systems.
     However, just being graphical in nature does not automatically make a diagram easy to understand.
     Its usefulness much rather depends on the placement of its elements, that is: on its layout.
-    Getting the layout right is labour intensive and time consuming
-    and can be made a lot easier by making algorithms do the work.
-    The <em>Eclipse Layout Kernel (ELK)</em> provides such layout algorithms,
+    Getting the layout right is labour intensive and time consuming,
+    so why not make algorithms do the work?
+  </p>
+  <p class="lead">
+    The <em>Eclipse Layout Kernel (ELK)</em> provides layout algorithms,
     as well as an infrastructure to connect them to diagram editors.
   </p>
   <p>

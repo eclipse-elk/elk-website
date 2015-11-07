@@ -26,7 +26,7 @@
     Getting the layout right is labour intensive and time consuming,
     so why not make algorithms do the work?
   </p>
-  <p class="lead">
+  <p>
     The <em>Eclipse Layout Kernel (ELK)</em> provides layout algorithms,
     as well as an infrastructure to connect them to diagram editors.
   </p>

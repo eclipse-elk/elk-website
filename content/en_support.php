@@ -23,7 +23,7 @@
 
   <h2>Reporting Bugs</h2>
   <p>
-    Use our <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Elk&component=General">Bugzilla</a>
+    Use our <a href="https://github.com/eclipse/elk/issues">GitHub Issues</a>
     to report bugs you have found.
     Please provide a reduced example that reproduces the bug
     to give us a chance to find out where things are going wrong.

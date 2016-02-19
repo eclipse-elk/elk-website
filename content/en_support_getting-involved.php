@@ -147,7 +147,7 @@
     <ul>
       <li><a href="https://github.com/eclipse/elk/issues">Bug tracker</a></li>
       <li><a href="https://github.com/eclipse/elk">GitHub repository</a></li>
-      <li><a href="https://dev.eclipse.org/mailman/listinfo/elk-dev">developer mailing list</a></li>
+      <li><a href="https://dev.eclipse.org/mailman/listinfo/elk-dev">Developer mailing list</a></li>
     </ul>
   </div>
 </div>

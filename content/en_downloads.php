@@ -14,17 +14,18 @@
 <!-- Main content area -->
 <div id="midcolumn">
   <h1>Downloads</h1>
-  <p>
-    Since we are just getting started with ELK,
-    there's not a lot to see here yet, but stay tuned for more!
-    What we do have right now are nightly builds.
-  </p>
 
+  <h2>Releases</h2>
+  <p>
+    Since we're still a rather new project,
+    there haven't been any official releases yet.
+    Use the nightly builds in the meantime.
+  </p>
 
   <h2>Nightly Builds</h2>
   <ul>
-    <li><a href="http://download.eclipse.org/elk/updates/nightly">Update site</a></li>
-    <li><a href="http://www.eclipse.org/downloads/download.php?file=/elk/updates/nightly/elk-nightly.zip">Zipped update site</a> (for offline use)</li>
+    <li><a href="http://build.eclipse.org/modeling/elk/updates/nightly">Nightly update site</a></li>
+    <li><a href="http://build.eclipse.org/modeling/elk/updates/nightly/elk-nightly.zip">Zipped nightly update site</a> (for offline use)</li>
   </ul>
 </div>
 <!-- ./end  #midcolumn -->

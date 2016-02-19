@@ -121,10 +121,13 @@
   </p>
   <ol>
     <li>
-      Sign up for an account at <a href="https://eclipse.org">Eclipse</a>
-      and sign a <em>Contributor License Agreement (CLA)</em>.
+      Sign up for an account at <a href="https://eclipse.org">Eclipse</a>.
       Be sure to link your GitHub account with your Eclipse account
       by entering your GitHub account name in your Eclipse account settings.
+      Then, go to <a href="https://projects.eclipse.org/node/8803">our project metadata page</a>
+      and click on the <em>Eclipse CLA</em> link at the top right
+      to sign the <em>Contributor License Agreement (CLA)</em>.
+      This is required for us to accept your contributions.
     </li>
     <li>
       Push your commits to a fork of our repository
@@ -136,3 +139,16 @@
   </ol>
 </div>
 <!-- ./end  #midcolumn -->
+
+<!-- Start of the right column -->
+<div id="rightcolumn">
+  <div class="sideitem">
+    <h6>Too Long, Didn't Read</h6>
+    <ul>
+      <li><a href="https://github.com/eclipse/elk/issues">Bug tracker</a></li>
+      <li><a href="https://github.com/eclipse/elk">GitHub repository</a></li>
+      <li><a href="https://dev.eclipse.org/mailman/listinfo/elk-dev">developer mailing list</a></li>
+    </ul>
+  </div>
+</div>
+<!-- ./end  #rightcolumn -->

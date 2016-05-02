@@ -14,6 +14,12 @@
 <!-- Main content area -->
 <div id="midcolumn">
   <h1>Downloads</h1>
+  <p>
+    All downloads are provided
+    under the terms and conditions
+    of the <a href="https://eclipse.org/legal/epl/notice.php">Eclipse Foundation Software User Agreement</a>
+    unless otherwise specified.
+  </p>
 
   <h2>Releases</h2>
   <p>

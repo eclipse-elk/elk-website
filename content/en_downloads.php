@@ -32,6 +32,7 @@
   <ul>
     <li><a href="http://build.eclipse.org/modeling/elk/updates/nightly">Nightly update site</a></li>
     <li><a href="http://build.eclipse.org/modeling/elk/updates/nightly/elk-nightly.zip">Zipped nightly update site</a> (for offline use)</li>
+    <li><a href="http://build.eclipse.org/modeling/elk/maven/meta/nightly">Maven Repository</a> (for meta data language compiler)</li>
   </ul>
 </div>
 <!-- ./end  #midcolumn -->

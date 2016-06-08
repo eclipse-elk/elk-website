@@ -15,7 +15,7 @@
 <div id="midcolumn">
   <h1>Getting Started</h1>
   <p>
-    Autoamtic layout can be a complex thing,
+    Automatic layout can be a complex thing,
     but starting to use the <em>Eclipse Layout Kernel</em>
     can be as easy as installing a few features from our update site.
     This guide will help get you started with ELK.

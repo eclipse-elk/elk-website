@@ -21,12 +21,14 @@
     unless otherwise specified.
   </p>
 
-  <h2>Releases</h2>
-  <p>
-    Since we're still a rather new project,
-    there haven't been any official releases yet.
-    Use the nightly builds in the meantime.
-  </p>
+
+  <h2>Release 0.1.0</h2>
+  <ul>
+    <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.0/">Nightly update site</a></li>
+    <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.0/elk-0.1.0.zip">Zipped nightly update site</a> (for offline use)</li>
+    <li><a href="http://download.eclipse.org/elk/maven/releases/0.1.0">Maven Repository</a> (for meta data language compiler)</li>
+  </ul>
+
 
   <h2>Nightly Builds</h2>
   <ul>

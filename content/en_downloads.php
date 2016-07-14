@@ -24,8 +24,8 @@
 
   <h2>Release 0.1.0</h2>
   <ul>
-    <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.0/">Nightly update site</a></li>
-    <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.0/elk-0.1.0.zip">Zipped nightly update site</a> (for offline use)</li>
+    <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.0/">Update site</a></li>
+    <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.0/elk-0.1.0.zip">Zipped update site</a> (for offline use)</li>
     <li><a href="http://download.eclipse.org/elk/maven/releases/0.1.0">Maven Repository</a> (for meta data language compiler)</li>
   </ul>
 

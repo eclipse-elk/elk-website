@@ -41,16 +41,6 @@
 
 <!-- Start of the right column -->
 <div id="rightcolumn">
-  <div class="sideitem">
-    <h6>Old Downloads</h6>
-    <p>
-      While you're wating,
-      feel free to browse <a href="https://rtsys.informatik.uni-kiel.de/confluence/x/UISQ">our old downloads</a>
-      at the <a href="http://rtsys.informatik.uni-kiel.de/kieler">KIELER project</a>.
-      Look for the <em>Pragmatics update site</em>.
-    </p>
-  </div>
-
   <div class="sideitem" style="background-color: white;">
     <h6>Incubation</h6>
     <div align="center">

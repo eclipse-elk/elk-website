@@ -122,16 +122,11 @@
 <!-- Start of the right column -->
 <div id="rightcolumn">
   <div class="sideitem">
-    <h3>We're Just Getting Started&hellip;</h3>
+    <h3>What we used to be&hellip;</h3>
     <p>
       The Eclipse Layout Kernel
       used to be the <em>KIELER Infrastructure for Meta Layout (KIML)</em>
       and was a part of the <a href="http://rtsys.informatik.uni-kiel.de/kieler">KIELER</a> project.
-      We've just started becoming <em>ELK</em>,
-      so everything you see here is still very much work in progress.
-      If you need automatic layout <strong>right now</strong>,
-      you should head over to the KIELER project
-      while we're getting ELK ready for the public.
     </p>
   </div>
 

@@ -18,12 +18,21 @@
     Automatic layout can be a complex thing,
     but starting to use the <em>Eclipse Layout Kernel</em>
     can be as easy as installing a few features from our update site.
-    This guide will help get you started with ELK.
-    While we will mostly be focussing
-    on adding automatic layout to GMF-based editors,
-    much of it will apply to other technologies as well.
-    So let's dive right in!
   </p>
+
+
+  <h2>A Quick Warning</h2>
+  <p>
+    This guide refers to the pre-0.1.0 version
+    of the Eclipse Layout Kernel.
+    In release 0.1.0,
+    much has changed.
+    We will try to get this guide updated as soon as possible.
+    In the meantime,
+    you may want to <a href="https://github.com/eclipse/elk/wiki">head over to our GitHub wiki</a>
+    to read documentation.
+  </p>
+
 
   <h2>Installing Necessary Things</h2>
   <p>

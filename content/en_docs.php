@@ -15,9 +15,9 @@
 <div id="midcolumn">
   <h1>Documentation</h1>
 
-  <h2><a href="https://github.com/eclipse/elk/wiki">GitHub Wiki</a></h2>
+  <h2>GitHub Wiki</h2>
   <p>
-    Start here.
+    <a href="https://github.com/eclipse/elk/wiki">Start here</a>.
     This is our main source of documentation.
   </p>
 

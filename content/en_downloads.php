@@ -22,6 +22,14 @@
   </p>
 
 
+  <h2>Release 0.1.1</h2>
+  <ul>
+    <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.1/">Update site</a></li>
+    <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.1/elk-0.1.1.zip">Zipped update site</a> (for offline use)</li>
+    <li><a href="http://download.eclipse.org/elk/maven/releases/0.1.1">Maven Repository</a> (for meta data language compiler)</li>
+  </ul>
+
+
   <h2>Release 0.1.0</h2>
   <ul>
     <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.0/">Update site</a></li>

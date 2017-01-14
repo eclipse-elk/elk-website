@@ -29,6 +29,14 @@
     to give us a chance to find out where things are going wrong.
   </p>
 
+  <h2>Mailing Lists</h2>
+  <p>
+    We have <a href="https://dev.eclipse.org/mailman/listinfo/elk-dev">developer mailing list</a>
+    which we use to discuss development.
+    Feel free to sign up to that list to keep track of what we're doing
+    and to comment on plans we announce there.
+  </p>
+
   <h2>Contributing to the Project</h2>
   <p>
     We have a whole page dedicated to how you can become involved in the project.

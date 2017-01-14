@@ -15,35 +15,8 @@
 <div id="midcolumn">
   <h1>Documentation</h1>
 
-  <h2>GitHub Wiki</h2>
   <p>
-    <a href="https://github.com/eclipse/elk/wiki">Start here</a>.
-    This is our main source of documentation.
+    All of our relevant documentation is kept <a href="https://github.com/eclipse/elk/wiki">at GitHub</a>.
   </p>
-
-  <h2>Legacy Documentation</h2>
-  <p>
-    Documentation from our pre-Eclipse time,
-    in case our Wiki is not sufficient.
-  </p>
-  <ul>
-    <ul>
-      <li>
-        Back then, the <em>Eclipse Layout Kernel (ELK)</em>
-        was called the <em>KIELER Infrastructure for Meta Layout (KIML)</em>.
-        Documentation can be found <a href="https://rtsys.informatik.uni-kiel.de/confluence/x/jgEF">on this page</a>.
-      </li>
-      <li>
-        The layout algorithms were part of the
-        <em>KIELER Layouters (KLay)</em> project.
-        Documentation can be found <a href="https://rtsys.informatik.uni-kiel.de/confluence/x/kAEF">on this page</a>.
-      </li>
-      <li>
-        For those of you who want to migrate from KIML to ELK,
-        we have <a href="https://rtsys.informatik.uni-kiel.de/confluence/x/CQHS">a summary of changes</a>
-        that you will need to adapt to.
-      </li>
-    </ul>
-  </ul>
 </div>
 <!-- ./end  #midcolumn -->

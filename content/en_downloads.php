@@ -24,6 +24,7 @@
 
   <h2>Release 0.1.1</h2>
   <ul>
+    <li><a href="https://github.com/eclipse/elk/issues?utf8=%E2%9C%93&q=is%3Aclosed%20milestone%3A%22Release%200.1.1%22">Release log</a></li>
     <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.1/">Update site</a></li>
     <li><a href="http://download.eclipse.org/elk/updates/releases/0.1.1/elk-0.1.1.zip">Zipped update site</a> (for offline use)</li>
     <li><a href="http://download.eclipse.org/elk/maven/releases/0.1.1">Maven Repository</a> (for meta data language compiler)</li>

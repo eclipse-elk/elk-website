@@ -16,7 +16,7 @@
   <h1>Documentation</h1>
 
   <p>
-    All of our relevant documentation is kept <a href="https://github.com/eclipse/elk/wiki">at GitHub</a>.
+    All of our relevant documentation is kept at <a href="https://eclipse.github.io/elk/">our documentation website</a>.
   </p>
 </div>
 <!-- ./end  #midcolumn -->

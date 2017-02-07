@@ -19,6 +19,7 @@
     under the terms and conditions
     of the <a href="https://eclipse.org/legal/epl/notice.php">Eclipse Foundation Software User Agreement</a>
     unless otherwise specified.
+    See <a href="https://eclipse.github.io/elk/">our documentation website</a> for release notes.
   </p>
 
 

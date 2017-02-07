@@ -15,6 +15,12 @@
 <div id="midcolumn">
   <h1>Support</h1>
 
+  <h2>Documentation</h2>
+  <p>
+    ELK documentation is available at <a href="https://eclipse.github.io/elk/">our documentation website</a>.
+    This is where you should start.
+  </p>
+
   <h2>Asking Questions</h2>
   <p>
     We have <a href="http://eclipse.org/forums/eclipse.elk">a forum</a> available

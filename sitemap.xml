@@ -22,23 +22,23 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/advancedconfiguration/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmdebugging/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/Algorithms/</loc>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/</loc>
   </url>
   
   <url>
@@ -58,7 +58,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/automaticbuilds/</loc>
   </url>
   
   <url>
@@ -86,7 +86,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/contributors/BuildingElk/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/contributors/buildingelk/</loc>
   </url>
   
   <url>
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/ConnectingToELK/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/connectingtoelk/</loc>
   </url>
   
   <url>
@@ -118,11 +118,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/coordinatesystem/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/CreatingANewProject/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/creatinganewproject/</loc>
   </url>
   
   <url>
@@ -142,7 +142,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/DependencyInjection/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/dependencyinjection/</loc>
   </url>
   
   <url>
@@ -150,11 +150,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/contributors/developmentsetup/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/contributors/DevelopmentWorkflow/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/</loc>
   </url>
   
   <url>
@@ -190,7 +190,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/Contributors/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/contributors/</loc>
   </url>
   
   <url>
@@ -202,7 +202,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/</loc>
   </url>
   
   <url>
@@ -306,7 +306,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/GettingEclipseReady/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/gettingeclipseready/</loc>
   </url>
   
   <url>
@@ -314,7 +314,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/GraphDataStructure/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/</loc>
   </url>
   
   <url>
@@ -378,7 +378,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/InstallingWithOomph/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/installingwithoomph/</loc>
   </url>
   
   <url>
@@ -458,15 +458,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/Groups/</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/Options/</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/</loc>
   </url>
   
   <url>
@@ -478,7 +478,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/LayoutViewSupport/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/layoutviewsupport/</loc>
   </url>
   
   <url>
@@ -674,19 +674,19 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/downloads/releasenotes/Release-0.1.0/</loc>
+    <loc>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/downloads/releasenotes/Release-0.1.1/</loc>
+    <loc>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/downloads/releasenotes/Release-0.2.0/</loc>
+    <loc>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/downloads/ReleaseNotes/</loc>
+    <loc>https://www.eclipse.org/elk/downloads/releasenotes/</loc>
   </url>
   
   <url>
@@ -746,7 +746,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/ToolDevelopers/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/</loc>
   </url>
   
   <url>
@@ -762,15 +762,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/UsingAlgorithmsDirectly/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingalgorithmsdirectly/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/UsingEclipseLayout/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/UsingPlainJavaLayout/</loc>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingplainjavalayout/</loc>
   </url>
   
   <url>

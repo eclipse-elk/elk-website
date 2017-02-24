@@ -116,7 +116,7 @@
 
 <h3 id="custom-editors">Custom Editors</h3>
 
-<p>If your editor is based on some other technology, ELK doesn&rsquo;t have a pre-built layout connection for you; you will have to build it yourself. To do so, create a class <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/ConnectingToELK/">that implements the <code>IDiagramLayoutManager</code> interface</a>. Your class needs to be registered with ELK:</p>
+<p>If your editor is based on some other technology, ELK doesn&rsquo;t have a pre-built layout connection for you; you will have to build it yourself. To do so, create a class <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/connectingtoelk/">that implements the <code>IDiagramLayoutManager</code> interface</a>. Your class needs to be registered with ELK:</p>
 
 <pre><code>&lt;extension
    point=&quot;org.eclipse.elk.core.service.layoutManagers&quot;&gt;
@@ -144,7 +144,7 @@
 </p>
 
 
-<p>Once you have found settings you like, it&rsquo;s time to configure layout such that these settings are always applied. (You don&rsquo;t want your users having to use the layout view, now, do you?) There are different ways to do so, and we have <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/">more in-depth information on them</a>.</p>
+<p>Once you have found settings you like, it&rsquo;s time to configure layout such that these settings are always applied. (You don&rsquo;t want your users having to use the layout view, now, do you?) There are different ways to do so, and we have <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions/">more in-depth information on them</a>.</p>
 
 <p>The easiest way is to simply register static configurations with ELK. Static configurations are registered with the org.eclipse.elk.core.layoutConfigs extension point. Each static config consists of three parts:</p>
 

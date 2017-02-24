@@ -305,10 +305,10 @@
     
     <item>
       <title>Algorithms</title>
-      <link>https://www.eclipse.org/elk/reference/Algorithms/</link>
+      <link>https://www.eclipse.org/elk/reference/algorithms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/Algorithms/</guid>
+      <guid>https://www.eclipse.org/elk/reference/algorithms/</guid>
       <description>&lt;p&gt;The following layout algorithms are available in ELK:&lt;/p&gt;
 </description>
     </item>
@@ -351,7 +351,7 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Possible Values:&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;AUTOMATIC&lt;/code&gt;&lt;br&gt;&lt;code&gt;LEFT&lt;/code&gt;&lt;br&gt;&lt;code&gt;RIGHT&lt;/code&gt;&lt;br&gt;&lt;code&gt;TOP&lt;/code&gt;&lt;br&gt;&lt;code&gt;BOTTOM&lt;/code&gt;&lt;br&gt;&lt;code&gt;CENTER&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -601,7 +601,7 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Possible Values:&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;NONE&lt;/code&gt;&lt;br&gt;&lt;code&gt;IMPROVE_STRAIGHTNESS&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -676,7 +676,7 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Possible Values:&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;NONE&lt;/code&gt;&lt;br&gt;&lt;code&gt;LEFTUP&lt;/code&gt;&lt;br&gt;&lt;code&gt;RIGHTUP&lt;/code&gt;&lt;br&gt;&lt;code&gt;LEFTDOWN&lt;/code&gt;&lt;br&gt;&lt;code&gt;RIGHTDOWN&lt;/code&gt;&lt;br&gt;&lt;code&gt;BALANCED&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -910,7 +910,7 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Possible Values:&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;SIMPLE&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_DEC&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_MIXED&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_INC&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 

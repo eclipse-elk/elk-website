@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background: #1B1732 url('https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/template/breadcrumbs-large-bg.jpg') repeat scroll center center / 100% auto;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">Eclipse Layout Kernel</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/downloads.html">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/documentation.html">Documentation</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="https://www.eclipse.org/elk/reference.html">Reference <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/support.html">Support</a>
+        </li>
+      
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>layering</h1>
+
+    
+
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><em>Identifier:</em></td>
+<td><code>org.eclipse.elk.layered.layering</code></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="options">Options</h2>
+
+<ul>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html">Node Layering Strategy</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerConstraint.html">Layer Constraint</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-wideNodesOnMultipleLayers.html">Wide Nodes on Multiple Layers</a></li>
+</ul>
+
+<h2 id="subgroups">Subgroups</h2>
+
+<ul>
+<li><a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-minWidth.html">minWidth</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-nodePromotion.html">nodePromotion</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-coffmanGraham.html">coffmanGraham</a></li>
+</ul>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms.html">
+    <li class="navlevel-1">
+      Algorithms
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html">
+    <li class="navlevel-2">
+      Box Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html">
+    <li class="navlevel-2">
+      Circo
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-dot.html">
+    <li class="navlevel-2">
+      Dot
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-conn-gmf-layouter-Draw2D.html">
+    <li class="navlevel-2">
+      Draw2D Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-force.html">
+    <li class="navlevel-2">
+      ELK Force
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-layered.html">
+    <li class="navlevel-2">
+      ELK Layered
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-mrtree.html">
+    <li class="navlevel-2">
+      ELK Mr. Tree
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-stress.html">
+    <li class="navlevel-2">
+      ELK Stress
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-fdp.html">
+    <li class="navlevel-2">
+      FDP
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html">
+    <li class="navlevel-2">
+      Fixed Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-neato.html">
+    <li class="navlevel-2">
+      Neato
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-random.html">
+    <li class="navlevel-2">
+      Randomizer
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html">
+    <li class="navlevel-2">
+      Twopi
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options.html">
+    <li class="navlevel-1">
+      Layout Options
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate.html">
+    <li class="navlevel-2">
+      Activate Inside Self Loops
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions.html">
+    <li class="navlevel-2">
+      Adapt Port Positions
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints.html">
+    <li class="navlevel-2">
+      Add Unnecessary Bendpoints
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding.html">
+    <li class="navlevel-2">
+      Additional Port Space
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html">
+    <li class="navlevel-2">
+      Additional Wrapped Edges Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment.html">
+    <li class="navlevel-2">
+      Alignment
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate.html">
+    <li class="navlevel-2">
+      Animate
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor.html">
+    <li class="navlevel-2">
+      Animation Time Factor
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html">
+    <li class="navlevel-2">
+      Aspect Ratio
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening.html">
+    <li class="navlevel-2">
+      BK Edge Straightening
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment.html">
+    <li class="navlevel-2">
+      BK Fixed Alignment
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendPoints.html">
+    <li class="navlevel-2">
+      Bend Points
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html">
+    <li class="navlevel-2">
+      Box Layout Mode
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentBox.html">
+    <li class="navlevel-2">
+      Comment Box
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-componentComponent.html">
+    <li class="navlevel-2">
+      Components Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-concentrate.html">
+    <li class="navlevel-2">
+      Concentrate Edges
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-connectedComponents.html">
+    <li class="navlevel-2">
+      Connected Components Compaction
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-contentAlignment.html">
+    <li class="navlevel-2">
+      Content Alignment
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-strategy.html">
+    <li class="navlevel-2">
+      Crossing Minimization Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-strategy.html">
+    <li class="navlevel-2">
+      Cutting Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-cycleBreaking-strategy.html">
+    <li class="navlevel-2">
+      Cycle Breaking Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-debugMode.html">
+    <li class="navlevel-2">
+      Debug Mode
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-desiredEdgeLength.html">
+    <li class="navlevel-2">
+      Desired Edge Length
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-direction.html">
+    <li class="navlevel-2">
+      Direction
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-priority-direction.html">
+    <li class="navlevel-2">
+      Direction Priority
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-neatoModel.html">
+    <li class="navlevel-2">
+      Distance Model
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-distancePenalty.html">
+    <li class="navlevel-2">
+      Distance Penalty When Improving Cuts 
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-repulsion.html">
+    <li class="navlevel-2">
+      Eades Repulsion
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeEdgeBetweenLayers.html">
+    <li class="navlevel-2">
+      Edge Edge Between Layer Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeLabels-placement.html">
+    <li class="navlevel-2">
+      Edge Label Placement
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeCenterLabelPlacementStrategy.html">
+    <li class="navlevel-2">
+      Edge Label Placement Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeLabelSideSelection.html">
+    <li class="navlevel-2">
+      Edge Label Side Selection
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeLabel.html">
+    <li class="navlevel-2">
+      Edge Label Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeNodeBetweenLayers.html">
+    <li class="navlevel-2">
+      Edge Node Between Layers Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeNode.html">
+    <li class="navlevel-2">
+      Edge Node Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeRouting.html">
+    <li class="navlevel-2">
+      Edge Routing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeEdge.html">
+    <li class="navlevel-2">
+      Edge Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edge-thickness.html">
+    <li class="navlevel-2">
+      Edge Thickness
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edge-type.html">
+    <li class="navlevel-2">
+      Edge Type
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-epsilon.html">
+    <li class="navlevel-2">
+      Epsilon
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes.html">
+    <li class="navlevel-2">
+      Expand Nodes
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-temperature.html">
+    <li class="navlevel-2">
+      FR Temperature
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-favorStraightEdges.html">
+    <li class="navlevel-2">
+      Favor Straight Edges Over Balancing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-feedbackEdges.html">
+    <li class="navlevel-2">
+      Feedback Edges
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-fixed.html">
+    <li class="navlevel-2">
+      Fixed Position
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-font-name.html">
+    <li class="navlevel-2">
+      Font Name
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-font-size.html">
+    <li class="navlevel-2">
+      Font Size
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-model.html">
+    <li class="navlevel-2">
+      Force Model
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-strategy.html">
+    <li class="navlevel-2">
+      Graph Wrapping Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-greedySwitch-activationThreshold.html">
+    <li class="navlevel-2">
+      Greedy Switch Activation Threshold
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-greedySwitch-type.html">
+    <li class="navlevel-2">
+      Greedy Switch Crossing Minimization
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-hierarchicalSweepiness.html">
+    <li class="navlevel-2">
+      Hierarchical Sweepiness
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyHandling.html">
+    <li class="navlevel-2">
+      Hierarchy Handling
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highDegreeNodes-treeHeight.html">
+    <li class="navlevel-2">
+      High Degree Node Maximum Tree Height
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highDegreeNodes-threshold.html">
+    <li class="navlevel-2">
+      High Degree Node Threshold
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highDegreeNodes-treatment.html">
+    <li class="navlevel-2">
+      High Degree Node Treatment
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hypernode.html">
+    <li class="navlevel-2">
+      Hypernode
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improveCuts.html">
+    <li class="navlevel-2">
+      Improve Cuts
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improveWrappedEdges.html">
+    <li class="navlevel-2">
+      Improve Wrapped Edges
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualOverride.html">
+    <li class="navlevel-2">
+      Individual Spacing Override
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-yo.html">
+    <li class="navlevel-2">
+      Inside Self Loop
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactive.html">
+    <li class="navlevel-2">
+      Interactive
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-interactiveReferencePoint.html">
+    <li class="navlevel-2">
+      Interactive Reference Point
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-iterationLimit.html">
+    <li class="navlevel-2">
+      Iteration Limit
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-iterations.html">
+    <li class="navlevel-2">
+      Iterations
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-iterationsFactor.html">
+    <li class="navlevel-2">
+      Iterations Factor
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-junctionPoints.html">
+    <li class="navlevel-2">
+      Junction Points
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-labelAngle.html">
+    <li class="navlevel-2">
+      Label Angle
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-labelDistance.html">
+    <li class="navlevel-2">
+      Label Distance
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-labelManager.html">
+    <li class="navlevel-2">
+      Label Manager
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-labels-labelManager.html">
+    <li class="navlevel-2">
+      Label Manager
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelNode.html">
+    <li class="navlevel-2">
+      Label Node Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPort.html">
+    <li class="navlevel-2">
+      Label Port Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelLabel.html">
+    <li class="navlevel-2">
+      Label Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-coffmanGraham-layerBound.html">
+    <li class="navlevel-2">
+      Layer Bound
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerConstraint.html">
+    <li class="navlevel-2">
+      Layer Constraint
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-layerSpacingFactor.html">
+    <li class="navlevel-2">
+      Layer Spacing Factor
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-algorithm.html">
+    <li class="navlevel-2">
+      Layout Algorithm
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layoutAncestors.html">
+    <li class="navlevel-2">
+      Layout Ancestors
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-dimension.html">
+    <li class="navlevel-2">
+      Layout Dimension
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-partitioning-partition.html">
+    <li class="navlevel-2">
+      Layout Partition
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-partitioning-activate.html">
+    <li class="navlevel-2">
+      Layout Partitioning
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-linearSegments-deflectionDampening.html">
+    <li class="navlevel-2">
+      Linear Segments Deflection Dampening
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-msd-freedom.html">
+    <li class="navlevel-2">
+      MSD Freedom
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-cuts.html">
+    <li class="navlevel-2">
+      Manually Specified Cuts
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-margins.html">
+    <li class="navlevel-2">
+      Margins
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodePromotion-maxIterations.html">
+    <li class="navlevel-2">
+      Max Node Promotion Iterations
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-maxiter.html">
+    <li class="navlevel-2">
+      Max. Iterations
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-maxAnimTime.html">
+    <li class="navlevel-2">
+      Maximal Animation Time
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-mergeEdges.html">
+    <li class="navlevel-2">
+      Merge Edges
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-mergeHierarchyEdges.html">
+    <li class="navlevel-2">
+      Merge Hierarchy-Crossing Edges
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minAnimTime.html">
+    <li class="navlevel-2">
+      Minimal Animation Time
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-noLayout.html">
+    <li class="navlevel-2">
+      No Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeLabels-padding.html">
+    <li class="navlevel-2">
+      Node Label Padding
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeLabels-placement.html">
+    <li class="navlevel-2">
+      Node Label Placement
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html">
+    <li class="navlevel-2">
+      Node Layering Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-nodeNodeBetweenLayers.html">
+    <li class="navlevel-2">
+      Node Node Between Layers Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html">
+    <li class="navlevel-2">
+      Node Placement Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodePromotion-strategy.html">
+    <li class="navlevel-2">
+      Node Promotion Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-constraints.html">
+    <li class="navlevel-2">
+      Node Size Constraints
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-minimum.html">
+    <li class="navlevel-2">
+      Node Size Minimum
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-options.html">
+    <li class="navlevel-2">
+      Node Size Options
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeNode.html">
+    <li class="navlevel-2">
+      Node Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-northOrSouthPort.html">
+    <li class="navlevel-2">
+      North or South Port
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapMode.html">
+    <li class="navlevel-2">
+      Overlap Removal
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-padding.html">
+    <li class="navlevel-2">
+      Padding
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-pathLike-validify-strategy.html">
+    <li class="navlevel-2">
+      Path-Like Validify Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-basic.html">
+    <li class="navlevel-2">
+      Port Alignment
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-east.html">
+    <li class="navlevel-2">
+      Port Alignment (East)
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-north.html">
+    <li class="navlevel-2">
+      Port Alignment (North)
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-south.html">
+    <li class="navlevel-2">
+      Port Alignment (South)
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-west.html">
+    <li class="navlevel-2">
+      Port Alignment (West)
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-anchor.html">
+    <li class="navlevel-2">
+      Port Anchor Offset
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-borderOffset.html">
+    <li class="navlevel-2">
+      Port Border Offset
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portConstraints.html">
+    <li class="navlevel-2">
+      Port Constraints
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-index.html">
+    <li class="navlevel-2">
+      Port Index
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portLabels-placement.html">
+    <li class="navlevel-2">
+      Port Label Placement
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-side.html">
+    <li class="navlevel-2">
+      Port Side
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portPort.html">
+    <li class="navlevel-2">
+      Port Spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-position.html">
+    <li class="navlevel-2">
+      Position
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-constraints.html">
+    <li class="navlevel-2">
+      Post Compaction Constraint Calculation
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-strategy.html">
+    <li class="navlevel-2">
+      Post Compaction Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority.html">
+    <li class="navlevel-2">
+      Priority
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-progressBar.html">
+    <li class="navlevel-2">
+      Progress Bar
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-randomSeed.html">
+    <li class="navlevel-2">
+      Randomization Seed
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-repulsivePower.html">
+    <li class="navlevel-2">
+      Repulsive Power
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-scaleFactor.html">
+    <li class="navlevel-2">
+      Scale Factor
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-searchOrder.html">
+    <li class="navlevel-2">
+      Search Order
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-semiInteractive.html">
+    <li class="navlevel-2">
+      Semi-Interactive Crossing Minimization
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateConnectedComponents.html">
+    <li class="navlevel-2">
+      Separate Connected Components
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-priority-shortness.html">
+    <li class="navlevel-2">
+      Shortness Priority
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-sloppySplineLayerSpacing.html">
+    <li class="navlevel-2">
+      Sloppy Spline Layer Spacing Factor
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-sloppySplineRouting.html">
+    <li class="navlevel-2">
+      Sloppy Spline Routing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopPlacement.html">
+    <li class="navlevel-2">
+      Spline Self-Loop Placement
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-priority-straightness.html">
+    <li class="navlevel-2">
+      Straightness Priority
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-epsilon.html">
+    <li class="navlevel-2">
+      Stress Epsilon
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-thoroughness.html">
+    <li class="navlevel-2">
+      Thoroughness
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minWidth-upperBoundOnWidth.html">
+    <li class="navlevel-2">
+      Upper Bound On Width [MinWidth Layerer]
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minWidth-upperLayerEstimationScalingFactor.html">
+    <li class="navlevel-2">
+      Upper Layer Estimation Scaling Factor [MinWidth Layerer]
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validateOptions.html">
+    <li class="navlevel-2">
+      Validate Options
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-weighting.html">
+    <li class="navlevel-2">
+      Weighting of Nodes
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-wideNodesOnMultipleLayers.html">
+    <li class="navlevel-2">
+      Wide Nodes on Multiple Layers
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-zoomToFit.html">
+    <li class="navlevel-2">
+      Zoom to Fit
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups.html">
+    <li class="navlevel-1">
+      Layout Option Groups
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-compaction.html">
+    <li class="navlevel-2">
+      compaction
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-compaction-postCompaction.html">
+    <li class="navlevel-2">
+      compaction.postCompaction
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingMinimization.html">
+    <li class="navlevel-2">
+      crossingMinimization
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingMinimization-greedySwitch.html">
+    <li class="navlevel-2">
+      crossingMinimization.greedySwitch
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-cycleBreaking.html">
+    <li class="navlevel-2">
+      cycleBreaking
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-edge.html">
+    <li class="navlevel-2">
+      edge
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-edgeLabels.html">
+    <li class="navlevel-2">
+      edgeLabels
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgeRouting.html">
+    <li class="navlevel-2">
+      edgeRouting
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-font.html">
+    <li class="navlevel-2">
+      font
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-highDegreeNodes.html">
+    <li class="navlevel-2">
+      highDegreeNodes
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideSelfLoops.html">
+    <li class="navlevel-2">
+      insideSelfLoops
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering.html">
+    <li class="navlevel-2 active">
+      layering
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-coffmanGraham.html">
+    <li class="navlevel-2">
+      layering.coffmanGraham
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-minWidth.html">
+    <li class="navlevel-2">
+      layering.minWidth
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-nodePromotion.html">
+    <li class="navlevel-2">
+      layering.nodePromotion
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodeLabels.html">
+    <li class="navlevel-2">
+      nodeLabels
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html">
+    <li class="navlevel-2">
+      nodePlacement
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html">
+    <li class="navlevel-2">
+      nodePlacement.bk
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-linearSegments.html">
+    <li class="navlevel-2">
+      nodePlacement.linearSegments
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodeSize.html">
+    <li class="navlevel-2">
+      nodeSize
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-partitioning.html">
+    <li class="navlevel-2">
+      partitioning
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-port.html">
+    <li class="navlevel-2">
+      port
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-portAlignment.html">
+    <li class="navlevel-2">
+      portAlignment
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-portLabels.html">
+    <li class="navlevel-2">
+      portLabels
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-priority.html">
+    <li class="navlevel-2">
+      priority
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-spacing.html">
+    <li class="navlevel-2">
+      spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html">
+    <li class="navlevel-2">
+      spacing
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping.html">
+    <li class="navlevel-2">
+      wrapping
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-cutting.html">
+    <li class="navlevel-2">
+      wrapping.cutting
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-cutting-msd.html">
+    <li class="navlevel-2">
+      wrapping.cutting.msd
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-general.html">
+    <li class="navlevel-2">
+      wrapping.general
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathLike.html">
+    <li class="navlevel-2">
+      wrapping.pathLike
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathLike-validify.html">
+    <li class="navlevel-2">
+      wrapping.pathLike.validify
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/elk/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row">
+          <section class="col-3 hidden-print">
+            <h2>Eclipse Foundation</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/org/">About us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/donate">Donate</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Legal</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/epl-v10.php">Eclipse Public License </a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Useful Links</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+              <li class="nav-item pb-2"><a href="//help.eclipse.org/">Documentation</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/forums/">Forums</a></li>
+              <li class="nav-item pb-2"><a href="//marketplace.eclipse.org">Marketplace</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Other</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+            </ul>
+
+            <ul class="list-inline social-media">
+              <li><a href="https://twitter.com/EclipseFdn"><i class="fa fa-twitter-square"></i></a></li>
+              <li><a href="https://plus.google.com/+Eclipse"><i class="fa fa-google-plus-square"></i></a></li>
+              <li><a href="https://www.facebook.com/eclipse.org"><i class="fa fa-facebook-square"></i> </a></li>
+              <li><a href="https://www.youtube.com/user/EclipseFdn"><i class="fa fa-youtube-square"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/eclipse-foundation"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <span class="hidden-print">
+              <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-logo-bw-332x78.png"/></a>
+            </span>
+          </div>
+          <div class="col">
+            <p class="copyright-text">Copyright &copy; 2017 The Eclipse Foundation. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

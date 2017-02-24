@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Downloads on Eclipse Layout Kernel</title>
-    <link>https://www.eclipse.org/elk/downloads/index.xml</link>
+    <link>https://www.eclipse.org/elk/downloads.xml</link>
     <description>Recent content in Downloads on Eclipse Layout Kernel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://www.eclipse.org/elk/downloads/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.eclipse.org/elk/downloads.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Release 0.1.0</title>
-      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0/</link>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0/</guid>
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</guid>
       <description>&lt;p&gt;The initial release under the new Eclipse umbrella.&lt;/p&gt;
 
 &lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.1.0&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
@@ -22,10 +22,10 @@
     
     <item>
       <title>Release 0.1.1</title>
-      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1/</link>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1/</guid>
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1.html</guid>
       <description>&lt;p&gt;A bugfix release.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -38,10 +38,10 @@
     
     <item>
       <title>Release 0.2.0</title>
-      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0/</link>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0/</guid>
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</guid>
       <description>&lt;p&gt;A major overhaul of ELK&amp;rsquo;s infrastructure. This is an API breaking release. The following are probably the biggest issues we tackled:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -57,10 +57,10 @@
     
     <item>
       <title>Release Notes</title>
-      <link>https://www.eclipse.org/elk/downloads/releasenotes/</link>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/downloads/releasenotes/</guid>
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes.html</guid>
       <description>&lt;p&gt;The release notes only list some of the highlights of each release. The &lt;a href=&#34;https://www.eclipse.org/elk/downloads&#34;&gt;downloads page&lt;/a&gt; has links that send you to more detailed information.&lt;/p&gt;
 </description>
     </item>

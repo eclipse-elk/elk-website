@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reference on Eclipse Layout Kernel</title>
-    <link>https://www.eclipse.org/elk/reference/index.xml</link>
+    <link>https://www.eclipse.org/elk/reference.xml</link>
     <description>Recent content in Reference on Eclipse Layout Kernel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://www.eclipse.org/elk/reference/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.eclipse.org/elk/reference.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Activate Inside Self Loops</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate.html</guid>
       <description>
 
 &lt;table&gt;
@@ -62,7 +62,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideSelfLoops/&#34;&gt;insideSelfLoops&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideSelfLoops.html&#34;&gt;insideSelfLoops&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -75,10 +75,10 @@
     
     <item>
       <title>Adapt Port Positions</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions.html</guid>
       <description>
 
 &lt;table&gt;
@@ -130,10 +130,10 @@
     
     <item>
       <title>Add Unnecessary Bendpoints</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints.html</guid>
       <description>
 
 &lt;table&gt;
@@ -190,10 +190,10 @@
     
     <item>
       <title>Additional Port Space</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding.html</guid>
       <description>
 
 &lt;table&gt;
@@ -232,7 +232,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing/&#34;&gt;spacing&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html&#34;&gt;spacing&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -245,10 +245,10 @@
     
     <item>
       <title>Additional Wrapped Edges Spacing</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html</guid>
       <description>
 
 &lt;table&gt;
@@ -292,7 +292,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping/&#34;&gt;wrapping&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping.html&#34;&gt;wrapping&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -305,20 +305,20 @@
     
     <item>
       <title>Algorithms</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/</link>
+      <link>https://www.eclipse.org/elk/reference/algorithms.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/algorithms/</guid>
+      <guid>https://www.eclipse.org/elk/reference/algorithms.html</guid>
       <description>&lt;p&gt;The following layout algorithms are available in ELK:&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Alignment</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment.html</guid>
       <description>
 
 &lt;table&gt;
@@ -380,10 +380,10 @@
     
     <item>
       <title>Animate</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate.html</guid>
       <description>
 
 &lt;table&gt;
@@ -440,10 +440,10 @@
     
     <item>
       <title>Animation Time Factor</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor.html</guid>
       <description>
 
 &lt;table&gt;
@@ -505,10 +505,10 @@
     
     <item>
       <title>Aspect Ratio</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html</guid>
       <description>
 
 &lt;table&gt;
@@ -565,10 +565,10 @@
     
     <item>
       <title>BK Edge Straightening</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening.html</guid>
       <description>
 
 &lt;table&gt;
@@ -627,7 +627,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement/&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk/&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -640,10 +640,10 @@
     
     <item>
       <title>BK Fixed Alignment</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment.html</guid>
       <description>
 
 &lt;table&gt;
@@ -702,7 +702,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement/&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk/&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -715,10 +715,10 @@
     
     <item>
       <title>Bend Points</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendPoints/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendPoints.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendPoints/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendPoints.html</guid>
       <description>
 
 &lt;table&gt;
@@ -770,10 +770,10 @@
     
     <item>
       <title>Box Layout</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box/</link>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box/</guid>
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</guid>
       <description>
 
 &lt;p&gt;
@@ -824,52 +824,52 @@
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio/&#34;&gt;Aspect Ratio&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html&#34;&gt;Aspect Ratio&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;1.3f&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode/&#34;&gt;Box Layout Mode&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html&#34;&gt;Box Layout Mode&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;BoxLayoutProvider.PackingMode.SIMPLE&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes/&#34;&gt;Expand Nodes&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes.html&#34;&gt;Expand Nodes&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactive/&#34;&gt;Interactive&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactive.html&#34;&gt;Interactive&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-constraints/&#34;&gt;Node Size Constraints&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-constraints.html&#34;&gt;Node Size Constraints&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;EnumSet.noneOf(SizeConstraint)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-minimum/&#34;&gt;Node Size Minimum&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-minimum.html&#34;&gt;Node Size Minimum&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;new KVector(0, 0)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-options/&#34;&gt;Node Size Options&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-options.html&#34;&gt;Node Size Options&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeNode/&#34;&gt;Node Spacing&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeNode.html&#34;&gt;Node Spacing&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;15&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-padding/&#34;&gt;Padding&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-padding.html&#34;&gt;Padding&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;new ElkPadding(15)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box/&#34;&gt;Priority&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html&#34;&gt;Priority&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -879,10 +879,10 @@
     
     <item>
       <title>Box Layout Mode</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode/</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode/</guid>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html</guid>
       <description>
 
 &lt;table&gt;
@@ -926,7 +926,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-box/&#34;&gt;box&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-box.html&#34;&gt;box&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

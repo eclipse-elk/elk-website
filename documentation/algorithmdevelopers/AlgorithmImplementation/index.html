@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background: #1B1732 url('https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/template/breadcrumbs-large-bg.jpg') repeat scroll center center / 100% auto;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">Eclipse Layout Kernel</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/downloads/">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/gettingstarted/">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="https://www.eclipse.org/elk/documentation/">Documentation <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/reference/">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/support/">Support</a>
+        </li>
+      
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Algorithm Implementation</h1>
+
+    
+
+<p>Once everything is set up, it is time to actually implement your algorithm. The problem your layout algorithm has to solve can be summarized as follows: given an input graph (possibly with existing coordinates), compute coordinates for all graph elements and routings for all edges (subject to layout properties the graph is annotated with) and annotate the layout graph accordingly. Note that the input graph defines the layout problem, but also carries the resulting coordinate assignment after your algorithm has executed.</p>
+
+<p>While developing your algorithm, you will regularly switch back and forth between doing that and changing <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/">your metadata</a>.</p>
+
+<h2 id="your-algorithm-s-main-class">Your Algorithm&rsquo;s Main Class</h2>
+
+<p>However many classes a layout algorithm consists of, it always provides one entry class that inherits from <code>AbstractLayoutProvider</code> and implements the single most important method for your algorithm:</p>
+
+<pre><code class="language-java">void layout(KNode layoutGraph, IElkProgressMonitor progressMonitor);
+</code></pre>
+
+<p>Let&rsquo;s go through the parameters in reverse order (because of reasons). The <code>progressMonitor</code> parameter should be used to track progress and check if the user wants to cancel the layout operation. Actually canceling when the user wants to cancel is one of those features that will help your software stand out from many other programs, so take this opportunity to shine!</p>
+
+<p>The <code>layoutGraph</code> parameter is more important, however. It defines the layout problem your algorithm should solve, in several ways. First, it defines the structure of the graph to be laid out: which nodes exist, how are they connected, and so on. Second, each graph element can have <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/">layout options</a> attached to it that are supposed to influence what your layout algorithm does with them. And third, each element may have pre-existing <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/">coordinates or bend points</a> associated with it that your algorithm may want to make use of. Those existing coordinates will be overwritten by your algorithm to hold the new, computed coordinates.</p>
+
+<p>Note that the layout graph may contain nodes that themselves contain further nodes. By default, layout algorithms are only supposed to compute coordinates for the direct children of the <code>layoutGraph</code> and then set the size for the <code>layoutGraph</code> itself. However, if your layout algorithm supports hierarchical layout, and if hierarchical layout is requested (which is done through the <code>CoreOptions.HIERARCHY_HANDLING</code> layout option), you will also compute coordinates for children of children.</p>
+
+<p>There are two more methods your algorithm can, but does not have to implement:</p>
+
+<ul>
+<li><p><code>void initialize(String parameter);</code></p>
+
+<p>This method can be used to initialize data structures and prepare things. This method is called exactly once when an instance of your <code>AbstractLayoutProvider</code> subclass is created. Note that a single instance of your class can be used for multiple layout runs.</p>
+
+<p>The <code>parameter</code> parameter is a bit tricky. Most layout algorithms won&rsquo;t have any need for it, but some may adjust their behavior depending on its value. One example is our interface to the <a href="http://www.graphviz.org/">Graphviz</a> library that provides different layout algorithms. We only implement a single subclass of <code>AbstractLayoutProvider</code>, but each instance is passed a parameter value that indicates which of the Graphviz algorithms it will execute when the <code>layout(...)</code> method is called. Of course, which parameter to pass must be defined in <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/">your metadata file</a>.</p></li>
+
+<li><p><code>void dispose();</code></p>
+
+<p>Called before your <code>AbstractLayoutProvider</code> subclass is thrown towards the garbage collector.</p></li>
+</ul>
+
+<h2 id="layout-options">Layout Options</h2>
+
+<p>It is worth reiterating here that it is important which <code>IProperty</code> instance your algorithm uses to retrieve the value of a layout option set on a graph element. Since the <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/">ELK metadata tooling</a> generates a separate class with a complete set of <code>IProperty</code> instances for each algorithm, it makes sense to use these instances. The reason is that using them ensures that you get the correct default values configured for your layout algorithm when accessing layout options that were not set on a graph element.</p>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/ToolDevelopers/">
+    <li class="navlevel-1">
+      Tool Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/GraphDataStructure/">
+    <li class="navlevel-2">
+      Graph Data Structure
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/">
+    <li class="navlevel-3">
+      Coordinate System
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/">
+    <li class="navlevel-3">
+      Layout Options
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingAlgorithmsDirectly/">
+    <li class="navlevel-2">
+      Using Algorithms Directly
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingPlainJavaLayout/">
+    <li class="navlevel-2">
+      Using Plain Java Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingEclipseLayout/">
+    <li class="navlevel-2">
+      Using Eclipse Layout
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/ConnectingToELK/">
+    <li class="navlevel-3">
+      Connecting to ELK
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/">
+    <li class="navlevel-3">
+      Advanced Configuration
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/LayoutViewSupport/">
+    <li class="navlevel-3">
+      Layout View Support
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/DependencyInjection/">
+    <li class="navlevel-3">
+      Dependency Injection
+    </li>
+  </a>
+  
+
+
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/">
+    <li class="navlevel-1">
+      Algorithm Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/GettingEclipseReady/">
+    <li class="navlevel-2">
+      Getting Eclipse Ready
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/CreatingANewProject/">
+    <li class="navlevel-2">
+      Creating a New Project
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/">
+    <li class="navlevel-2">
+      ELK Metadata Language
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/">
+    <li class="navlevel-3">
+      Automatic Builds
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/">
+    <li class="navlevel-2 active">
+      Algorithm Implementation
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/">
+    <li class="navlevel-2">
+      Algorithm Debugging
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/Contributors/">
+    <li class="navlevel-1">
+      ELK Contributors
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/">
+    <li class="navlevel-2">
+      Development Setup
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/DevelopmentWorkflow/">
+    <li class="navlevel-2">
+      Development Workflow
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/InstallingWithOomph/">
+    <li class="navlevel-3">
+      Installing With Oomph
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/BuildingElk/">
+    <li class="navlevel-2">
+      Building ELK
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/elk/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row">
+          <section class="col-3 hidden-print">
+            <h2>Eclipse Foundation</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/org/">About us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/donate">Donate</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Legal</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/epl-v10.php">Eclipse Public License </a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Useful Links</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+              <li class="nav-item pb-2"><a href="//help.eclipse.org/">Documentation</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/forums/">Forums</a></li>
+              <li class="nav-item pb-2"><a href="//marketplace.eclipse.org">Marketplace</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Other</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+            </ul>
+
+            <ul class="list-inline social-media">
+              <li><a href="https://twitter.com/EclipseFdn"><i class="fa fa-twitter-square"></i></a></li>
+              <li><a href="https://plus.google.com/+Eclipse"><i class="fa fa-google-plus-square"></i></a></li>
+              <li><a href="https://www.facebook.com/eclipse.org"><i class="fa fa-facebook-square"></i> </a></li>
+              <li><a href="https://www.youtube.com/user/EclipseFdn"><i class="fa fa-youtube-square"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/eclipse-foundation"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <span class="hidden-print">
+              <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-logo-bw-332x78.png"/></a>
+            </span>
+          </div>
+          <div class="col">
+            <p class="copyright-text">Copyright &copy; 2017 The Eclipse Foundation. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

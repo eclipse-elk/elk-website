@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background: #1B1732 url('https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/template/breadcrumbs-large-bg.jpg') repeat scroll center center / 100% auto;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">Eclipse Layout Kernel</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/downloads/">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/gettingstarted/">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="https://www.eclipse.org/elk/documentation/">Documentation <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/reference/">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/support/">Support</a>
+        </li>
+      
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Graph Data Structure</h1>
+
+    
+
+<p>To represent graphs that should be laid out, the Eclipse Layout Kernel provides a robust EMF-based data structure. This page is about describing that graph data structure.</p>
+
+<h2 id="terminology">Terminology</h2>
+
+<h3 id="graphs">Graphs</h3>
+
+<p>This is a simple example graph along with the terminology that goes with it.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="https://www.eclipse.org/elk/img/graph_graph.png"
+    
+     alt="Terminology relating to graphs."
+  />
+</p>
+
+
+<h3 id="inclusion-trees">Inclusion Trees</h3>
+
+<p>Inclusion trees capture the hierarchical structure of a graph. See below for the inclusion tree of the graph we just saw, along with the terminology that goes with it.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="https://www.eclipse.org/elk/img/graph_inclusionTree.png"
+    
+     alt="Terminology relating to the inclusion tree."
+  />
+</p>
+
+
+<h3 id="definitions">Definitions</h3>
+
+<ul>
+<li><p><strong>Inclusion Tree:</strong> The parent-child relationships of all nodes. This is basically the node containments in the EMF data structure. Note that in an ELK graph, the tree always has a single root node that represents the drawing area. Top-level nodes are children of that root node.</p></li>
+
+<li><p><strong>Graph:</strong> A set of nodes and edges and whatever else belongs to them (labels, ports, &hellip;).</p>
+
+<ul>
+<li><p><em>Simple Graph:</em> All children of a single node. The node represents that simple graph. This means that if the objects that the graph consists of are to be passed to a layout algorithm, this is done by simply passing the node object that represents that graph.</p></li>
+
+<li><p><em>Hierarchical Graph:</em> All descendants of a single node. Although the word &ldquo;all&rdquo; is a bit too strong here: we may choose to exclude all descendants of one of the node&rsquo;s descendants. Similar to simple graphs, that single node represents the hierarchical graph. The root node represents the whole graph (see below) and is simply a special case of this rule.</p></li>
+</ul></li>
+
+<li><p><strong>Node:</strong></p>
+
+<ul>
+<li><p><em>Simple Node:</em> A node that does not contain child nodes.</p></li>
+
+<li><p><em>Hierarchical Node:</em> A node that contains child nodes.</p></li>
+</ul></li>
+
+<li><p><strong>Edge:</strong></p>
+
+<ul>
+<li><p><em>Simple Edge:</em> An edge that connects two nodes in the same simple graph. This of course implies that the edge&rsquo;s source and target nodes both have the same parent node.</p></li>
+
+<li><p><em>Hierarchical Edge:</em> An edge that is not simple.</p>
+
+<ul>
+<li><p><em>Short Hierarchical Edge:</em> A hierarchical edge that only has to leave (or enter) a single hierarchical node to get to its target. Thus, a short hierarchical edge connects nodes in adjacent layers of hierarchy.</p></li>
+
+<li><p><em>Long Hierarchical Edge:</em> A hierarchical edge that is not a short hierarchical edge.</p></li>
+</ul></li>
+</ul></li>
+
+<li><p><strong>Port:</strong> An explicit connection point on a node for edges to connect to.</p>
+
+<ul>
+<li><p><em>Simple Port:</em> A port on a simple node, or a port that does not have incident hierarchical edges.</p></li>
+
+<li><p><em>Hierarchical Port:</em> A port on a hierarchical node that has incident hierarchical edges.</p></li>
+</ul></li>
+
+<li><p><strong>Root Node:</strong> The root of the inclusion tree.</p>
+
+<ul>
+<li><em>Root Node of a Graph:</em> The lowest common ancestor of all nodes in the graph.</li>
+</ul></li>
+</ul>
+
+<h2 id="graph-data-structure">Graph Data Structure</h2>
+
+<h3 id="the-meta-model">The Meta Model</h3>
+
+<p>TODO Describe</p>
+
+<h3 id="programming-with-the-graph-data-structure">Programming With the Graph Data Structure</h3>
+
+<p>TODO Describe</p>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/ToolDevelopers/">
+    <li class="navlevel-1">
+      Tool Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/GraphDataStructure/">
+    <li class="navlevel-2 active">
+      Graph Data Structure
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/">
+    <li class="navlevel-3">
+      Coordinate System
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/">
+    <li class="navlevel-3">
+      Layout Options
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingAlgorithmsDirectly/">
+    <li class="navlevel-2">
+      Using Algorithms Directly
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingPlainJavaLayout/">
+    <li class="navlevel-2">
+      Using Plain Java Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingEclipseLayout/">
+    <li class="navlevel-2">
+      Using Eclipse Layout
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/ConnectingToELK/">
+    <li class="navlevel-3">
+      Connecting to ELK
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/">
+    <li class="navlevel-3">
+      Advanced Configuration
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/LayoutViewSupport/">
+    <li class="navlevel-3">
+      Layout View Support
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/DependencyInjection/">
+    <li class="navlevel-3">
+      Dependency Injection
+    </li>
+  </a>
+  
+
+
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/">
+    <li class="navlevel-1">
+      Algorithm Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/GettingEclipseReady/">
+    <li class="navlevel-2">
+      Getting Eclipse Ready
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/CreatingANewProject/">
+    <li class="navlevel-2">
+      Creating a New Project
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/">
+    <li class="navlevel-2">
+      ELK Metadata Language
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/">
+    <li class="navlevel-3">
+      Automatic Builds
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/">
+    <li class="navlevel-2">
+      Algorithm Implementation
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/">
+    <li class="navlevel-2">
+      Algorithm Debugging
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/Contributors/">
+    <li class="navlevel-1">
+      ELK Contributors
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/">
+    <li class="navlevel-2">
+      Development Setup
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/DevelopmentWorkflow/">
+    <li class="navlevel-2">
+      Development Workflow
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/InstallingWithOomph/">
+    <li class="navlevel-3">
+      Installing With Oomph
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/BuildingElk/">
+    <li class="navlevel-2">
+      Building ELK
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/elk/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row">
+          <section class="col-3 hidden-print">
+            <h2>Eclipse Foundation</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/org/">About us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/donate">Donate</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Legal</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/epl-v10.php">Eclipse Public License </a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Useful Links</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+              <li class="nav-item pb-2"><a href="//help.eclipse.org/">Documentation</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/forums/">Forums</a></li>
+              <li class="nav-item pb-2"><a href="//marketplace.eclipse.org">Marketplace</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Other</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+            </ul>
+
+            <ul class="list-inline social-media">
+              <li><a href="https://twitter.com/EclipseFdn"><i class="fa fa-twitter-square"></i></a></li>
+              <li><a href="https://plus.google.com/+Eclipse"><i class="fa fa-google-plus-square"></i></a></li>
+              <li><a href="https://www.facebook.com/eclipse.org"><i class="fa fa-facebook-square"></i> </a></li>
+              <li><a href="https://www.youtube.com/user/EclipseFdn"><i class="fa fa-youtube-square"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/eclipse-foundation"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <span class="hidden-print">
+              <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-logo-bw-332x78.png"/></a>
+            </span>
+          </div>
+          <div class="col">
+            <p class="copyright-text">Copyright &copy; 2017 The Eclipse Foundation. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

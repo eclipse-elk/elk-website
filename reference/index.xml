@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reference on Eclipse Layout Kernel</title>
+    <link>https://www.eclipse.org/elk/reference/index.xml</link>
+    <description>Recent content in Reference on Eclipse Layout Kernel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://www.eclipse.org/elk/reference/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Activate Inside Self Loops</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.insideSelfLoops.activate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;nodes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.selfLoopInside&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideSelfLoops/&#34;&gt;insideSelfLoops&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Whether this node allows to route self loops inside of it instead of around it. If set to true, this will make the node a compound node if it isn&amp;rsquo;t already, and will require the layout algorithm to support compound nodes with hierarchical ports.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Adapt Port Positions</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.graphviz.adaptPortPositions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;layouter.GraphvizMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.graphviz&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Whether ports should be moved to the point where edges cross the node&amp;rsquo;s bounds.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Add Unnecessary Bendpoints</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.layered.unnecessaryBendpoints&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;options.LayeredMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.layered&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.klay.layered.unnecessaryBendpoints&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Adds bend points even if an edge does not change direction. If true, each long edge dummy will contribute a bend point to its edges and hierarchy-crossing edges will always get a bend point where they cross hierarchy boundaries. By default, bend points are only added where an edge changes direction.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Additional Port Space</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.spacing.portSurrounding&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.math.ElkMargin&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;nodes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing/&#34;&gt;spacing&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Additional space around the sets of ports on each node side. For each side of a node, this option can reserve additional space before and after the ports on each side. For example, a top spacing of 20 makes sure that the first port on the western and eastern side is 20 units away from the northern border.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Additional Wrapped Edges Spacing</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.layered.wrapping.additionalEdgeSpacing&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;options.LayeredMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;double&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;10&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.layered&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping/&#34;&gt;wrapping&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;To visually separate edges that are wrapped from regularly routed edges an additional spacing value can be specified in form of this layout option. The spacing is added to the regular edgeNode spacing.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>https://www.eclipse.org/elk/reference/Algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/Algorithms/</guid>
+      <description>&lt;p&gt;The following layout algorithms are available in ELK:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Alignment</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.alignment&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.options.Alignment&lt;/code&gt; (Enum)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;AUTOMATIC&lt;/code&gt;&lt;br&gt;&lt;code&gt;LEFT&lt;/code&gt;&lt;br&gt;&lt;code&gt;RIGHT&lt;/code&gt;&lt;br&gt;&lt;code&gt;TOP&lt;/code&gt;&lt;br&gt;&lt;code&gt;BOTTOM&lt;/code&gt;&lt;br&gt;&lt;code&gt;CENTER&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Alignment.AUTOMATIC&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;nodes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.animate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Alignment of the selected node relative to other nodes, the exact meaning depends on the used algorithm.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Animate</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;global&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.animate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.animate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Whether the shift from the old layout to the new computed layout shall be animated.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Animation Time Factor</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;global&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.animTimeFactor&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;100&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Lower Bound:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.animTimeFactor&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Factor for computation of animation time. The higher the value, the longer the animation time. If the value is 0, the resulting time is always equal to the minimum defined by &amp;lsquo;Minimal Animation Time&amp;rsquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Aspect Ratio</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.aspectRatio&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;double&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Lower Bound:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ExclusiveBounds.greaterThan(0)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.aspectRatio&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;The desired aspect ratio of the drawing, that is the quotient of width by height.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BK Edge Straightening</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;options.LayeredMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.alg.layered.p4nodes.bk.EdgeStraighteningStrategy&lt;/code&gt; (Enum)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;NONE&lt;/code&gt;&lt;br&gt;&lt;code&gt;IMPROVE_STRAIGHTNESS&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;EdgeStraighteningStrategy.IMPROVE_STRAIGHTNESS&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.layered&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.klay.layered.nodeplace.compactionStrategy&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Dependencies:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;org-eclipse-elk-layered-nodePlacement-strategy&#34;&gt;org.eclipse.elk.layered.nodePlacement.strategy&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement/&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk/&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Specifies whether the Brandes Koepf node placer tries to increase the number of straight edges at the expense of diagram size. There is a subtle difference to the &amp;lsquo;favorStraightEdges&amp;rsquo; option, which decides whether a balanced placement of the nodes is desired, or not. In bk terms this means combining the four alignments into a single balanced one, or not. This option on the other hand tries to straighten additional edges during the creation of each of the four alignments.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BK Fixed Alignment</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;options.LayeredMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.alg.layered.options.FixedAlignment&lt;/code&gt; (Enum)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;NONE&lt;/code&gt;&lt;br&gt;&lt;code&gt;LEFTUP&lt;/code&gt;&lt;br&gt;&lt;code&gt;RIGHTUP&lt;/code&gt;&lt;br&gt;&lt;code&gt;LEFTDOWN&lt;/code&gt;&lt;br&gt;&lt;code&gt;RIGHTDOWN&lt;/code&gt;&lt;br&gt;&lt;code&gt;BALANCED&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;FixedAlignment.NONE&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.layered&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.klay.layered.fixedAlignment&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Dependencies:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;org-eclipse-elk-layered-nodePlacement-strategy&#34;&gt;org.eclipse.elk.layered.nodePlacement.strategy&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement/&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk/&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Tells the BK node placer to use a certain alignment (out of its four) instead of the one producing the smallest height, or the combination of all four.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bend Points</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendPoints/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendPoints/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;programmatic&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.bendPoints&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.math.KVectorChain&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;edges&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.bendPoints&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;A fixed list of bend points for the edge. This is used by the &amp;lsquo;Fixed Layout&amp;rsquo; algorithm to specify a pre-defined routing for an edge. The vector chain must include the source point, any bend points, and the target point, so it must have at least two points.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Box Layout</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box/</guid>
+      <description>
+
+&lt;p&gt;
+  &lt;img
+    class=&#34;img-fluid&#34;
+    
+      src=&#34;https://www.eclipse.org/elk/img_gen/org-eclipse-elk-box_preview_box_layout.png&#34;
+    
+     alt=&#34;Preview Image&#34;
+  /&gt;
+&lt;/p&gt;
+
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.box&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;Algorithm for packing of unconnected boxes, i.e. graphs without edges.&lt;/p&gt;
+
+&lt;h2 id=&#34;supported-options&#34;&gt;Supported Options&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Option&lt;/th&gt;
+&lt;th&gt;Default Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio/&#34;&gt;Aspect Ratio&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1.3f&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode/&#34;&gt;Box Layout Mode&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;BoxLayoutProvider.PackingMode.SIMPLE&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes/&#34;&gt;Expand Nodes&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactive/&#34;&gt;Interactive&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-constraints/&#34;&gt;Node Size Constraints&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;EnumSet.noneOf(SizeConstraint)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-minimum/&#34;&gt;Node Size Minimum&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;new KVector(0, 0)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-options/&#34;&gt;Node Size Options&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeNode/&#34;&gt;Node Spacing&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;15&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-padding/&#34;&gt;Padding&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;new ElkPadding(15)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box/&#34;&gt;Priority&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Box Layout Mode</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.box.packingMode&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.util.BoxLayoutProvider$PackingMode&lt;/code&gt; (Enum)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SIMPLE&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_DEC&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_MIXED&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_INC&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;BoxLayoutProvider.PackingMode.SIMPLE&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-box/&#34;&gt;box&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Configures the packing mode used by the {@link BoxLayoutProvider}. If SIMPLE is not required (neither priorities are used nor the interactive mode), GROUP_DEC can improve the packing and decrease the area. GROUP_MIXED and GROUP_INC may, in very specific scenarios, work better.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

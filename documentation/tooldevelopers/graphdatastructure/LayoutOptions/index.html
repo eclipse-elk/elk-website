@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background: #1B1732 url('https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/template/breadcrumbs-large-bg.jpg') repeat scroll center center / 100% auto;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">Eclipse Layout Kernel</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/downloads/">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/gettingstarted/">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="https://www.eclipse.org/elk/documentation/">Documentation <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/reference/">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/support/">Support</a>
+        </li>
+      
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Layout Options</h1>
+
+    
+
+<p>Layout options are key-value pairs that configure the behavior of automatic layout algorithms. Let&rsquo;s look at all of the involved classes first before we concentrate on how to actually use them in practice.</p>
+
+<h2 id="involved-classes">Involved Classes</h2>
+
+<p>Layout options are represented by annotating objects with properties. There are two main types we need to cover: the properties themselves, and the objects we can configure through properties.</p>
+
+<h3 id="properties">Properties</h3>
+
+<p>The most important type when it comes to properties is the <code>IProperty</code> interface. Instances of that interface describe the abstract attributes of each kind of property has:</p>
+
+<ol>
+<li>An identifier that, well, identifies the kind of property.</li>
+<li>A default value that is used if a property has not been explicitly set.</li>
+<li>Optional lower and upper bounds that define the valid range of values for that property.</li>
+</ol>
+
+<p>Note the <code>IProperty</code> is actually <code>IProperty&lt;T&gt;</code>, whose type parameter <code>T</code> corresponds to the type of the property&rsquo;s values.</p>
+
+<p>The most important implementation of <code>IProperty</code> is the <code>Property</code> class. Chances are you won&rsquo;t have to provide your own implementation of <code>IProperty</code> since the <code>Property</code> class should cover all your needs.</p>
+
+<h3 id="property-holders">Property Holders</h3>
+
+<p>Classes that implement <code>IPropertyHolder</code> are basically maps from properties (described by <code>IProperty</code> instances) to property values (objects whose type depends on the property). All graph elements are usually annotated with an instance of <code>KLayoutData</code>, which implements the <code>IPropertyHolder</code> interface (this will actually change with the upcoming iteration of our graph data structure, in which all elements are <code>IPropertyHolders</code> themselves, which will make working with them a lot easier). Thus, every graph element has properties associated with it.</p>
+
+<p>Here&rsquo;s one more detail that will become interesting when we talk about retrieving property values. We just said that property holders are maps from properties to property values. But if properties are described by <code>IProperty</code> instances, why not simply say that property holders map <code>IProperty</code> instances to property values? To answer that question we have to return to what actually identifies a property: its identifier. Accordingly, if multiple <code>IProperty</code> instances share the same identifier, they effectively describe the same property and are treated by property holders as such. Why this is important will become clearer once we get around to retrieving property values below.</p>
+
+<h2 id="working-with-properties">Working With Properties</h2>
+
+<p>There are two aspects of working with properties: accessing them (which is what both users and developers of layout algorithms usually do) and defining properties (which is what developers of layout algorithms sometimes do).</p>
+
+<h3 id="setting-property-values">Setting Property Values</h3>
+
+<p>To set a property&rsquo;s value on a property holder, use this code:</p>
+
+<pre><code class="language-java">ElkGraphElement graphElement = ...;
+graphElement.setProperty(CoreOptions.DEBUG_MODE, true);
+</code></pre>
+
+<p>Note that the available property objects used to set property values are</p>
+
+<h3 id="retrieving-property-values">Retrieving Property Values</h3>
+
+<p>To get hold of the properties of a graph element, use code such as this:</p>
+
+<pre><code class="language-java">ElkGraphElement graphElement = ...;
+// Note that we do not use CoreOptions to access the property
+// (see below for why that is)
+boolean debugMode = graphElement.getProperty(MyAlgorithmOptions.DEBUG_MODE);
+</code></pre>
+
+<p>Of course, since <code>IProperty</code> is a generic type, there is no explicit type casting involved here. Also, if the <code>MyAlgorithmOptions.DEBUG_MODE</code> property is not set on <code>graphElement</code>, the <code>getProperty(...)</code> method will simply return the property&rsquo;s default value, which in this case is <code>false</code>. Why is it <code>false</code>, though? Where does the default value come from?</p>
+
+<p>When the <code>getProperty(...)</code> method determines that the property whose value it should retrieve is not actually configured, it asks the passed <code>IProperty</code> instance for the default value to be returned. This has an important consequence. Consider the following code:</p>
+
+<pre><code class="language-java">final IProperty&lt;Boolean&gt; FALSE_DEFAULT = new Property&lt;&gt;(
+    &quot;an.excellent.example.property&quot;,
+    false);
+final IProperty&lt;Boolean&gt; TRUE_DEFAULT = new Property&lt;&gt;(
+    &quot;an.excellent.example.property&quot;,
+    true);
+
+// Setting the property value to null effectively undefines the
+// property for the property holder
+propertyHolder.setProperty(FALSE_DEFAULT, null);
+System.out.println(propertyHolder.getProperty(FALSE_DEFAULT));
+propertyHolder.setProperty(FALSE_DEFAULT, null);
+System.out.println(propertyHolder.getProperty(TRUE_DEFAULT));
+</code></pre>
+
+<p>This code will produce the following output:</p>
+
+<pre><code class="language-plain">false
+true
+</code></pre>
+
+<p>This means that you can define multiple <code>IProperty</code> instances that describe the same property, but with different default values. That seems like an inconsistency, but it has an important reason. The layout options known to the Eclipse Layout Kernel are registered with the <code>LayoutMetaDataService</code>. Most are registered with a global default value. Layout algorithms declare which of those options they support, and in doing so can override that default value. Accordingly, they need their own <code>IProperty</code> instance with their own default value to retrieve property values. This is why the ELK metadata tooling generates a separate layout metadata provider for each layout algorithm, complete <code>IProperty</code> objects for each supported layout option to retrieve its value with. Which <code>IProperty</code> object is used to <em>set</em> the property value does not matter, though.</p>
+
+<p>That is the reason why the first example above does not use <code>CoreOptions.DEBUG_MODE</code> to retrieve the property value, but <code>MyAlgorithmOptions.DEBUG_MODE</code> (where <code>MyAlgorithmOptions</code> is the metadata class generated for your layout algorithm).</p>
+
+<h2 id="defining-properties">Defining Properties</h2>
+
+<p>Most of the time, algorithm developers do not have to worry about declaring their own <code>IProperty</code> objects. The options officially supported by a layout algorithm constitute a part of the algorithm&rsquo;s interface and metadata and are thus declared in the algorithm&rsquo;s <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/">metadata file</a>. The ELK SDK automatically generates the required <code>IProperty</code> instances.</p>
+
+<p>The only time custom <code>IProperty</code> instances have to be declared is when an algorithm uses internal properties during its execution to pass information between its different phases. Internal options do not have to be declared anywhere since they are not supposed to be set by users anyway. To define such options, simply add new <code>Property</code> instances to any one of your internally used classes. Use these instances to set and retrieve options.</p>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/ToolDevelopers/">
+    <li class="navlevel-1">
+      Tool Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/GraphDataStructure/">
+    <li class="navlevel-2">
+      Graph Data Structure
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/">
+    <li class="navlevel-3">
+      Coordinate System
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/">
+    <li class="navlevel-3 active">
+      Layout Options
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingAlgorithmsDirectly/">
+    <li class="navlevel-2">
+      Using Algorithms Directly
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingPlainJavaLayout/">
+    <li class="navlevel-2">
+      Using Plain Java Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingEclipseLayout/">
+    <li class="navlevel-2">
+      Using Eclipse Layout
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/ConnectingToELK/">
+    <li class="navlevel-3">
+      Connecting to ELK
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/">
+    <li class="navlevel-3">
+      Advanced Configuration
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/LayoutViewSupport/">
+    <li class="navlevel-3">
+      Layout View Support
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/DependencyInjection/">
+    <li class="navlevel-3">
+      Dependency Injection
+    </li>
+  </a>
+  
+
+
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/">
+    <li class="navlevel-1">
+      Algorithm Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/GettingEclipseReady/">
+    <li class="navlevel-2">
+      Getting Eclipse Ready
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/CreatingANewProject/">
+    <li class="navlevel-2">
+      Creating a New Project
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/">
+    <li class="navlevel-2">
+      ELK Metadata Language
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/">
+    <li class="navlevel-3">
+      Automatic Builds
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/">
+    <li class="navlevel-2">
+      Algorithm Implementation
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/">
+    <li class="navlevel-2">
+      Algorithm Debugging
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/Contributors/">
+    <li class="navlevel-1">
+      ELK Contributors
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/">
+    <li class="navlevel-2">
+      Development Setup
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/DevelopmentWorkflow/">
+    <li class="navlevel-2">
+      Development Workflow
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/InstallingWithOomph/">
+    <li class="navlevel-3">
+      Installing With Oomph
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/BuildingElk/">
+    <li class="navlevel-2">
+      Building ELK
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/elk/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row">
+          <section class="col-3 hidden-print">
+            <h2>Eclipse Foundation</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/org/">About us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/donate">Donate</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Legal</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/epl-v10.php">Eclipse Public License </a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Useful Links</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+              <li class="nav-item pb-2"><a href="//help.eclipse.org/">Documentation</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/forums/">Forums</a></li>
+              <li class="nav-item pb-2"><a href="//marketplace.eclipse.org">Marketplace</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Other</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+            </ul>
+
+            <ul class="list-inline social-media">
+              <li><a href="https://twitter.com/EclipseFdn"><i class="fa fa-twitter-square"></i></a></li>
+              <li><a href="https://plus.google.com/+Eclipse"><i class="fa fa-google-plus-square"></i></a></li>
+              <li><a href="https://www.facebook.com/eclipse.org"><i class="fa fa-facebook-square"></i> </a></li>
+              <li><a href="https://www.youtube.com/user/EclipseFdn"><i class="fa fa-youtube-square"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/eclipse-foundation"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <span class="hidden-print">
+              <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-logo-bw-332x78.png"/></a>
+            </span>
+          </div>
+          <div class="col">
+            <p class="copyright-text">Copyright &copy; 2017 The Eclipse Foundation. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

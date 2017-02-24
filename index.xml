@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bla bla bla on Eclipse Layout Kernel</title>
+    <link>https://www.eclipse.org/elk/index.xml</link>
+    <description>Recent content in Bla bla bla on Eclipse Layout Kernel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://www.eclipse.org/elk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Activate Inside Self Loops</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.insideSelfLoops.activate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;nodes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.selfLoopInside&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideSelfLoops/&#34;&gt;insideSelfLoops&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Whether this node allows to route self loops inside of it instead of around it. If set to true, this will make the node a compound node if it isn&amp;rsquo;t already, and will require the layout algorithm to support compound nodes with hierarchical ports.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Adapt Port Positions</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.graphviz.adaptPortPositions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;layouter.GraphvizMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.graphviz&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Whether ports should be moved to the point where edges cross the node&amp;rsquo;s bounds.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Add Unnecessary Bendpoints</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.layered.unnecessaryBendpoints&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;options.LayeredMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.layered&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.klay.layered.unnecessaryBendpoints&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Adds bend points even if an edge does not change direction. If true, each long edge dummy will contribute a bend point to its edges and hierarchy-crossing edges will always get a bend point where they cross hierarchy boundaries. By default, bend points are only added where an edge changes direction.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Additional Port Space</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.spacing.portSurrounding&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.math.ElkMargin&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;nodes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing/&#34;&gt;spacing&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Additional space around the sets of ports on each node side. For each side of a node, this option can reserve additional space before and after the ports on each side. For example, a top spacing of 20 makes sure that the first port on the western and eastern side is 20 units away from the northern border.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Additional Wrapped Edges Spacing</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.layered.wrapping.additionalEdgeSpacing&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;options.LayeredMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;double&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;10&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.layered&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping/&#34;&gt;wrapping&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;To visually separate edges that are wrapped from regularly routed edges an additional spacing value can be specified in form of this layout option. The spacing is added to the regular edgeNode spacing.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Advanced Configuration</title>
+      <link>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/</guid>
+      <description>
+
+&lt;p&gt;What we have learned so far about how automatic layout in Eclipse works was comparatively straightforward: the diagram layout engine looks for a diagram layout connector to get its hands at a configured KGraph, invokes the recursive graph layout engine, and asks the diagram layout connector to apply the results back to the original diagram. As you will have guessed, things &lt;em&gt;can&lt;/em&gt; become quite a bit more complex than that.&lt;/p&gt;
+
+&lt;p&gt;On this page, we will look at customizing how layout runs are executed, including more advanced options as well as building up chains of layout algorithms executed in series as part of a single layout run.&lt;/p&gt;
+
+&lt;h2 id=&#34;parameters&#34;&gt;Parameters&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;Parameters&lt;/code&gt; class is used to control how layout is executed on a graph. So far, we have only looked at doing a single layout pass over a graph. Parameters allow to add further layout runs afterwards, with the result of one layout run fed into the next. To see why this may be interesting, let&amp;rsquo;s take a layout algorithm that places nodes just the way you like it, but produces edge crossings or slanted edges. Parameters would allow us to add a specialized edge routing algorithm that takes care of producing proper edge routes.&lt;/p&gt;
+
+&lt;p&gt;Let us examine the &lt;code&gt;Parameters&lt;/code&gt; class a bit more closely. Here&amp;rsquo;s what it can do:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;It lets you specify layout runs. Of course, each layout algorithm may expect the graph to be configured differently, so each layout run is specified by adding a &lt;code&gt;LayoutConfigurator&lt;/code&gt; which is used to configure layout options on the graph before the next layout algorithm is run. We will examine layout configurators in a bit more detail below.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ELK distinguishes layout options that layout algorithms care about from layout options that may have more meaning for the layout engine or your layout connectors. The latter are called &lt;em&gt;global settings&lt;/em&gt; and are stored in the parameters as well. This may for example include settings such as whether to animate the application of layout results, so that your diagram&amp;rsquo;s elements neatly morph into their new places. Of course you are free to introduce your own global settings and feed them into your parameters.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s come back to layout configurators and see how they work. Basically, each layout configurator added to your parameters can set an arbitrary number of layout options on different elements of your KGraph. Also, it can be configured to clear all previous configuration stored in the graph. To specify the options to set, there are two possibilities. First, you can specify concrete objects in the graph structure to set options on. And second, you can specify whole classes of graph elements to set options on. Here&amp;rsquo;s some example code that should make everything a bit clearer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;LayoutConfigurator configurator = new LayoutConfigurator();
+
+// Configure layout options for a concrete graph object
+configurator.configure(myVerySpecialNode)
+    .setProperty(CoreOptions.INTERACTIVE, true)
+    .setProperty(CoreOptions.PORT_CONSTRAINTS, PortConstraints.FIXED);
+
+// Configure layout options for all nodes
+configurator.configure(KNode.class)
+    .setProperty(CoreOptions.ALGORITHM, &amp;quot;org.eclipse.elk.layered&amp;quot;)
+    .setProperty(CoreOptions.SPACING_NODE, 30.0f);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This configurator can then be put into a &lt;code&gt;Parameters&lt;/code&gt; object that can be passed to the &lt;code&gt;DiagramLayoutEngine&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;DiagramLayoutEngine.Parameters params = new DiagramLayoutEngine.Parameters();
+params.addLayoutRun(configurator);
+DiagramLayoutEngine.invokeLayout(workbenchPart, diagramPart, params);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The concept of using layout configurators to set layout options on your KGraph seems to contradict what we have said so far: that the layout connector is responsible for producing a KGraph with options already set. In fact, these do not contradict each other, but are simply two different (but combinable) ways of doing things. There are basically three ways of going about it:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Having your layout connector set all options on your KGraph, and not using any layout configurator. This is the approach we first learned about.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Having your layout connector set only some of the options on your KGraph and using at least one layout configurator to fill in the rest.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Having your layout connector set no options at all and using at least one layout configurator to configure everything.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In most cases, the first approach will work perfectly fine. Once your layout process consists of more than one layout run, however, you will probably want to go with either option 2 or option 3. Which of these you take depends on what layout options the involved layout algorithms expect.&lt;/p&gt;
+
+&lt;h2 id=&#34;layout-configuration-management&#34;&gt;Layout Configuration Management&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;TODO:&lt;/strong&gt; Explain what the layout configuration manager does and what layout configuration stores do.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithm Debugging</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/</guid>
+      <description>
+
+&lt;p&gt;The Eclipse Layout Kernel SDK provides two views built specifically for debugging your layout algorithm: the layout graph view and the execution time view.&lt;/p&gt;
+
+&lt;h1 id=&#34;layout-graph-view&#34;&gt;Layout Graph View&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;img
+    class=&#34;img-fluid&#34;
+    
+      src=&#34;https://www.eclipse.org/elk/img/layout_graph_view.png&#34;
+    
+     alt=&#34;Layout Graph View&#34;
+  /&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;The layout graph view registers with the &lt;code&gt;DiagramLayoutEngine&lt;/code&gt; to be notified whenever a layout run finishes and displays the layout graph exactly as it comes out of the layout algorithm, without any modifications applied. Use this view to check if your algorithm works and if you got the coordinate system right.&lt;/p&gt;
+
+&lt;p&gt;Note that the layout graph view allows you to export the displayed graph as a PNG image file. It also allows you to display debug graph files (see below).&lt;/p&gt;
+
+&lt;p&gt;Open the layout graph view by clicking &lt;em&gt;Window&lt;/em&gt; -&amp;gt; &lt;em&gt;Show View&lt;/em&gt; -&amp;gt; &lt;em&gt;Other&lt;/em&gt; and select &lt;em&gt;Layout Graph&lt;/em&gt; from the &lt;em&gt;Eclipse Diagram Layout&lt;/em&gt; category.&lt;/p&gt;
+
+&lt;h1 id=&#34;layout-time-view&#34;&gt;Layout Time View&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;img
+    class=&#34;img-fluid&#34;
+    
+      src=&#34;https://www.eclipse.org/elk/img/layout_time_view.png&#34;
+    
+     alt=&#34;Layout Time View&#34;
+  /&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;The layout time view registers with the &lt;code&gt;DiagramLayoutEngine&lt;/code&gt; to be notified whenever a layout run finishes and displays which steps the layout run consisted of and, if enabled, how much time each step took to run. Measuring these execution times has to be explicitly enabled in the preferences:&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;img
+    class=&#34;img-fluid&#34;
+    
+      src=&#34;https://www.eclipse.org/elk/img/layout_time_view_enable.png&#34;
+    
+     alt=&#34;Enabling layout time measurements&#34;
+  /&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;Once enabled, the view displays two values for each item: the &lt;em&gt;time&lt;/em&gt; and the &lt;em&gt;local time&lt;/em&gt;. The former is the amount of time spent for an item and all of its sub-items. Local time is the time spent on the item alone, without any sub-items (this value is omitted for items that do not have any sub-items, since it would be equal to the normal time value anyway).&lt;/p&gt;
+
+&lt;p&gt;To take advantage of the layout time view, your algorithm must make proper use of the &lt;code&gt;IElkProgressMonitor&lt;/code&gt; passed to it. The tree of progress monitors (and sub-monitors) is what gets displayed in the layout time view. Be sure to do something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;monitor.begin(&amp;quot;My rather good layout algorithm&amp;quot;, 2);
+
+executePhase1(monitor.subTask(1));
+executePhase2(monitor.subTask(1));
+
+monitor.done();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Open the layout graph view by clicking &lt;em&gt;Window&lt;/em&gt; -&amp;gt; &lt;em&gt;Show View&lt;/em&gt; -&amp;gt; &lt;em&gt;Other&lt;/em&gt; and select &lt;em&gt;Layout Time&lt;/em&gt; from the &lt;em&gt;Eclipse Diagram Layout&lt;/em&gt; category.&lt;/p&gt;
+
+&lt;h1 id=&#34;debug-files&#34;&gt;Debug Files&lt;/h1&gt;
+
+&lt;p&gt;The ELK preference page (see above) contains another setting: &lt;em&gt;Debug graph output&lt;/em&gt;. Enabling this will cause the &lt;code&gt;DiagramLayoutEngine&lt;/code&gt; to save the layout graph just before automatic layout is run. The graphs are placed in your user folder, in a subfolder called &lt;code&gt;elk/diagram_layout_engine&lt;/code&gt;. The graph files can be displayed by the layout graph view, even though that usually is not very helpful since they may not contain any valid layout data yet.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithm Developers</title>
+      <link>https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/</guid>
+      <description>&lt;p&gt;While the layout algorithms implemented in ELK already cover a wide range of layout styles, your particular application may have more specific requirements. In these cases, it may become necessary to implement your own layout algorithm, which is what this part of the documentation is all about.&lt;/p&gt;
+
+&lt;p&gt;Implementing your own layout algorithm basically consists of the following steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install the &lt;em&gt;Eclipse Layout Kernel SDK&lt;/em&gt; into your Eclipse development environment.&lt;/li&gt;
+&lt;li&gt;Create and configure a new Eclipse plug-in project.&lt;/li&gt;
+&lt;li&gt;Create and register a &lt;code&gt;melk&lt;/code&gt; file that describes your algorithm and its support of layout properties.&lt;/li&gt;
+&lt;li&gt;Implement your algorithm, updating the &lt;code&gt;melk&lt;/code&gt; file along the way.&lt;/li&gt;
+&lt;li&gt;Debug your algorithm.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Note that we have deliberately left out the part of &amp;ldquo;pulling your hair out while trying to understand which wretched detail of your complicated algorithm causes it to fail spectacularly&amp;rdquo; (we&amp;rsquo;ve been there&amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Before you start:&lt;/strong&gt;
+This section assumes that you have basic knowledge of how the &lt;em&gt;Eclipse Layout Kernel&lt;/em&gt; works. You should at least have worked through the &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/GraphDataStructure/&#34;&gt;Graph Data Structure&lt;/a&gt; and &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/UsingAlgorithmsDirectly/&#34;&gt;Using Algorithms Directly&lt;/a&gt; sections.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Once you are ready to start:&lt;/strong&gt;
+Use the navigation bar to the right to work your way through each of those steps.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithm Implementation</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/</guid>
+      <description>
+
+&lt;p&gt;Once everything is set up, it is time to actually implement your algorithm. The problem your layout algorithm has to solve can be summarized as follows: given an input graph (possibly with existing coordinates), compute coordinates for all graph elements and routings for all edges (subject to layout properties the graph is annotated with) and annotate the layout graph accordingly. Note that the input graph defines the layout problem, but also carries the resulting coordinate assignment after your algorithm has executed.&lt;/p&gt;
+
+&lt;p&gt;While developing your algorithm, you will regularly switch back and forth between doing that and changing &lt;a href=&#34;https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/&#34;&gt;your metadata&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;your-algorithm-s-main-class&#34;&gt;Your Algorithm&amp;rsquo;s Main Class&lt;/h2&gt;
+
+&lt;p&gt;However many classes a layout algorithm consists of, it always provides one entry class that inherits from &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; and implements the single most important method for your algorithm:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void layout(KNode layoutGraph, IElkProgressMonitor progressMonitor);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go through the parameters in reverse order (because of reasons). The &lt;code&gt;progressMonitor&lt;/code&gt; parameter should be used to track progress and check if the user wants to cancel the layout operation. Actually canceling when the user wants to cancel is one of those features that will help your software stand out from many other programs, so take this opportunity to shine!&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;layoutGraph&lt;/code&gt; parameter is more important, however. It defines the layout problem your algorithm should solve, in several ways. First, it defines the structure of the graph to be laid out: which nodes exist, how are they connected, and so on. Second, each graph element can have &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/&#34;&gt;layout options&lt;/a&gt; attached to it that are supposed to influence what your layout algorithm does with them. And third, each element may have pre-existing &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/&#34;&gt;coordinates or bend points&lt;/a&gt; associated with it that your algorithm may want to make use of. Those existing coordinates will be overwritten by your algorithm to hold the new, computed coordinates.&lt;/p&gt;
+
+&lt;p&gt;Note that the layout graph may contain nodes that themselves contain further nodes. By default, layout algorithms are only supposed to compute coordinates for the direct children of the &lt;code&gt;layoutGraph&lt;/code&gt; and then set the size for the &lt;code&gt;layoutGraph&lt;/code&gt; itself. However, if your layout algorithm supports hierarchical layout, and if hierarchical layout is requested (which is done through the &lt;code&gt;CoreOptions.HIERARCHY_HANDLING&lt;/code&gt; layout option), you will also compute coordinates for children of children.&lt;/p&gt;
+
+&lt;p&gt;There are two more methods your algorithm can, but does not have to implement:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;void initialize(String parameter);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This method can be used to initialize data structures and prepare things. This method is called exactly once when an instance of your &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; subclass is created. Note that a single instance of your class can be used for multiple layout runs.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;parameter&lt;/code&gt; parameter is a bit tricky. Most layout algorithms won&amp;rsquo;t have any need for it, but some may adjust their behavior depending on its value. One example is our interface to the &lt;a href=&#34;http://www.graphviz.org/&#34;&gt;Graphviz&lt;/a&gt; library that provides different layout algorithms. We only implement a single subclass of &lt;code&gt;AbstractLayoutProvider&lt;/code&gt;, but each instance is passed a parameter value that indicates which of the Graphviz algorithms it will execute when the &lt;code&gt;layout(...)&lt;/code&gt; method is called. Of course, which parameter to pass must be defined in &lt;a href=&#34;https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/&#34;&gt;your metadata file&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;void dispose();&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Called before your &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; subclass is thrown towards the garbage collector.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;layout-options&#34;&gt;Layout Options&lt;/h2&gt;
+
+&lt;p&gt;It is worth reiterating here that it is important which &lt;code&gt;IProperty&lt;/code&gt; instance your algorithm uses to retrieve the value of a layout option set on a graph element. Since the &lt;a href=&#34;https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/&#34;&gt;ELK metadata tooling&lt;/a&gt; generates a separate class with a complete set of &lt;code&gt;IProperty&lt;/code&gt; instances for each algorithm, it makes sense to use these instances. The reason is that using them ensures that you get the correct default values configured for your layout algorithm when accessing layout options that were not set on a graph element.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>https://www.eclipse.org/elk/reference/Algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/Algorithms/</guid>
+      <description>&lt;p&gt;The following layout algorithms are available in ELK:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Alignment</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.alignment&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.options.Alignment&lt;/code&gt; (Enum)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Possible Values:&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;AUTOMATIC&lt;/code&gt;&lt;br&gt;&lt;code&gt;LEFT&lt;/code&gt;&lt;br&gt;&lt;code&gt;RIGHT&lt;/code&gt;&lt;br&gt;&lt;code&gt;TOP&lt;/code&gt;&lt;br&gt;&lt;code&gt;BOTTOM&lt;/code&gt;&lt;br&gt;&lt;code&gt;CENTER&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Alignment.AUTOMATIC&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;nodes&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.animate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Alignment of the selected node relative to other nodes, the exact meaning depends on the used algorithm.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Animate</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;global&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.animate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.animate&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Whether the shift from the old layout to the new computed layout shall be animated.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Animation Time Factor</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;global&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.animTimeFactor&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;100&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Lower Bound:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.animTimeFactor&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Factor for computation of animation time. The higher the value, the longer the animation time. If the value is 0, the resulting time is always equal to the minimum defined by &amp;lsquo;Minimal Animation Time&amp;rsquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Aspect Ratio</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio/</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.aspectRatio&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;double&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Lower Bound:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ExclusiveBounds.greaterThan(0)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.aspectRatio&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;The desired aspect ratio of the drawing, that is the quotient of width by height.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Automatic Builds</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/</guid>
+      <description>&lt;p&gt;Since &lt;code&gt;.melk&lt;/code&gt; files result in code being generated, you may not want to check that code into your repository. Instead, the code should probably be generated as part of your automatic build. Indeed, the ELK metadata language compiler is available through a Maven repository. You can find the repository URLs on our &lt;a href=&#34;https://www.eclipse.org/elk/downloads&#34;&gt;Downloads&lt;/a&gt; page. Note that we provide a separate repository for nightly builds and for each release.&lt;/p&gt;
+
+&lt;p&gt;To use the compiler, add the following to your &lt;code&gt;pom.xml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;pluginRepositories&amp;gt;
+  &amp;lt;!-- Xtext is required to invoke our compiler. --&amp;gt;
+  &amp;lt;pluginRepository&amp;gt;
+    &amp;lt;id&amp;gt;xtend&amp;lt;/id&amp;gt;
+    &amp;lt;name&amp;gt;Xtend Maven Repository&amp;lt;/name&amp;gt;
+    &amp;lt;layout&amp;gt;default&amp;lt;/layout&amp;gt;
+    &amp;lt;url&amp;gt;http://build.eclipse.org/common/xtend/maven&amp;lt;/url&amp;gt;
+  &amp;lt;/pluginRepository&amp;gt;
+
+  &amp;lt;!-- This is where our compiler is. --&amp;gt;
+  &amp;lt;pluginRepository&amp;gt;
+    &amp;lt;id&amp;gt;eclipse-elk-meta&amp;lt;/id&amp;gt;
+    &amp;lt;name&amp;gt;ELK Meta Data Language Compiler Maven Repository&amp;lt;/name&amp;gt;
+    &amp;lt;url&amp;gt;http://the.repository.url.you.want/see.download.page.for.details&amp;lt;/url&amp;gt;
+  &amp;lt;/pluginRepository&amp;gt;
+&amp;lt;/pluginRepositories&amp;gt;
+
+&amp;lt;build&amp;gt;
+  &amp;lt;plugins&amp;gt;
+    &amp;lt;!-- Configure the Xtext plugin to invoke our compiler. --&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;groupId&amp;gt;org.eclipse.xtext&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;xtext-maven-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;2.7.2&amp;lt;/version&amp;gt;
+      &amp;lt;executions&amp;gt;
+        &amp;lt;execution&amp;gt;
+          &amp;lt;goals&amp;gt;
+            &amp;lt;goal&amp;gt;generate&amp;lt;/goal&amp;gt;
+          &amp;lt;/goals&amp;gt;
+        &amp;lt;/execution&amp;gt;
+      &amp;lt;/executions&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;languages&amp;gt;
+          &amp;lt;language&amp;gt;
+            &amp;lt;setup&amp;gt;org.eclipse.elk.core.meta.MetaDataStandaloneSetup&amp;lt;/setup&amp;gt;
+            &amp;lt;outputConfigurations&amp;gt;
+              &amp;lt;outputConfiguration&amp;gt;
+                &amp;lt;outputDirectory&amp;gt;${basedir}/src-gen/&amp;lt;/outputDirectory&amp;gt;
+              &amp;lt;/outputConfiguration&amp;gt;
+            &amp;lt;/outputConfigurations&amp;gt;
+          &amp;lt;/language&amp;gt;
+        &amp;lt;/languages&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+      &amp;lt;dependencies&amp;gt;
+        &amp;lt;dependency&amp;gt;
+          &amp;lt;groupId&amp;gt;org.eclipse.elk&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;org.eclipse.elk.graph&amp;lt;/artifactId&amp;gt;
+          &amp;lt;version&amp;gt;THE_VERSION_YOU_WANT-SNAPSHOT&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+          &amp;lt;groupId&amp;gt;org.eclipse.elk&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;org.eclipse.elk.core.meta&amp;lt;/artifactId&amp;gt;
+          &amp;lt;version&amp;gt;THE_VERSION_YOU_WANT-SNAPSHOT&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+      &amp;lt;/dependencies&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+  &amp;lt;/plugins&amp;gt;
+&amp;lt;/build&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

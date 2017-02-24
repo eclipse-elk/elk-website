@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentation on Eclipse Layout Kernel</title>
+    <link>https://www.eclipse.org/elk/documentation/index.xml</link>
+    <description>Recent content in Documentation on Eclipse Layout Kernel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://www.eclipse.org/elk/documentation/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Advanced Configuration</title>
+      <link>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/</guid>
+      <description>
+
+&lt;p&gt;What we have learned so far about how automatic layout in Eclipse works was comparatively straightforward: the diagram layout engine looks for a diagram layout connector to get its hands at a configured KGraph, invokes the recursive graph layout engine, and asks the diagram layout connector to apply the results back to the original diagram. As you will have guessed, things &lt;em&gt;can&lt;/em&gt; become quite a bit more complex than that.&lt;/p&gt;
+
+&lt;p&gt;On this page, we will look at customizing how layout runs are executed, including more advanced options as well as building up chains of layout algorithms executed in series as part of a single layout run.&lt;/p&gt;
+
+&lt;h2 id=&#34;parameters&#34;&gt;Parameters&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;Parameters&lt;/code&gt; class is used to control how layout is executed on a graph. So far, we have only looked at doing a single layout pass over a graph. Parameters allow to add further layout runs afterwards, with the result of one layout run fed into the next. To see why this may be interesting, let&amp;rsquo;s take a layout algorithm that places nodes just the way you like it, but produces edge crossings or slanted edges. Parameters would allow us to add a specialized edge routing algorithm that takes care of producing proper edge routes.&lt;/p&gt;
+
+&lt;p&gt;Let us examine the &lt;code&gt;Parameters&lt;/code&gt; class a bit more closely. Here&amp;rsquo;s what it can do:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;It lets you specify layout runs. Of course, each layout algorithm may expect the graph to be configured differently, so each layout run is specified by adding a &lt;code&gt;LayoutConfigurator&lt;/code&gt; which is used to configure layout options on the graph before the next layout algorithm is run. We will examine layout configurators in a bit more detail below.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ELK distinguishes layout options that layout algorithms care about from layout options that may have more meaning for the layout engine or your layout connectors. The latter are called &lt;em&gt;global settings&lt;/em&gt; and are stored in the parameters as well. This may for example include settings such as whether to animate the application of layout results, so that your diagram&amp;rsquo;s elements neatly morph into their new places. Of course you are free to introduce your own global settings and feed them into your parameters.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s come back to layout configurators and see how they work. Basically, each layout configurator added to your parameters can set an arbitrary number of layout options on different elements of your KGraph. Also, it can be configured to clear all previous configuration stored in the graph. To specify the options to set, there are two possibilities. First, you can specify concrete objects in the graph structure to set options on. And second, you can specify whole classes of graph elements to set options on. Here&amp;rsquo;s some example code that should make everything a bit clearer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;LayoutConfigurator configurator = new LayoutConfigurator();
+
+// Configure layout options for a concrete graph object
+configurator.configure(myVerySpecialNode)
+    .setProperty(CoreOptions.INTERACTIVE, true)
+    .setProperty(CoreOptions.PORT_CONSTRAINTS, PortConstraints.FIXED);
+
+// Configure layout options for all nodes
+configurator.configure(KNode.class)
+    .setProperty(CoreOptions.ALGORITHM, &amp;quot;org.eclipse.elk.layered&amp;quot;)
+    .setProperty(CoreOptions.SPACING_NODE, 30.0f);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This configurator can then be put into a &lt;code&gt;Parameters&lt;/code&gt; object that can be passed to the &lt;code&gt;DiagramLayoutEngine&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;DiagramLayoutEngine.Parameters params = new DiagramLayoutEngine.Parameters();
+params.addLayoutRun(configurator);
+DiagramLayoutEngine.invokeLayout(workbenchPart, diagramPart, params);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The concept of using layout configurators to set layout options on your KGraph seems to contradict what we have said so far: that the layout connector is responsible for producing a KGraph with options already set. In fact, these do not contradict each other, but are simply two different (but combinable) ways of doing things. There are basically three ways of going about it:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Having your layout connector set all options on your KGraph, and not using any layout configurator. This is the approach we first learned about.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Having your layout connector set only some of the options on your KGraph and using at least one layout configurator to fill in the rest.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Having your layout connector set no options at all and using at least one layout configurator to configure everything.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In most cases, the first approach will work perfectly fine. Once your layout process consists of more than one layout run, however, you will probably want to go with either option 2 or option 3. Which of these you take depends on what layout options the involved layout algorithms expect.&lt;/p&gt;
+
+&lt;h2 id=&#34;layout-configuration-management&#34;&gt;Layout Configuration Management&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;TODO:&lt;/strong&gt; Explain what the layout configuration manager does and what layout configuration stores do.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithm Debugging</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/</guid>
+      <description>
+
+&lt;p&gt;The Eclipse Layout Kernel SDK provides two views built specifically for debugging your layout algorithm: the layout graph view and the execution time view.&lt;/p&gt;
+
+&lt;h1 id=&#34;layout-graph-view&#34;&gt;Layout Graph View&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;img
+    class=&#34;img-fluid&#34;
+    
+      src=&#34;https://www.eclipse.org/elk/img/layout_graph_view.png&#34;
+    
+     alt=&#34;Layout Graph View&#34;
+  /&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;The layout graph view registers with the &lt;code&gt;DiagramLayoutEngine&lt;/code&gt; to be notified whenever a layout run finishes and displays the layout graph exactly as it comes out of the layout algorithm, without any modifications applied. Use this view to check if your algorithm works and if you got the coordinate system right.&lt;/p&gt;
+
+&lt;p&gt;Note that the layout graph view allows you to export the displayed graph as a PNG image file. It also allows you to display debug graph files (see below).&lt;/p&gt;
+
+&lt;p&gt;Open the layout graph view by clicking &lt;em&gt;Window&lt;/em&gt; -&amp;gt; &lt;em&gt;Show View&lt;/em&gt; -&amp;gt; &lt;em&gt;Other&lt;/em&gt; and select &lt;em&gt;Layout Graph&lt;/em&gt; from the &lt;em&gt;Eclipse Diagram Layout&lt;/em&gt; category.&lt;/p&gt;
+
+&lt;h1 id=&#34;layout-time-view&#34;&gt;Layout Time View&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;img
+    class=&#34;img-fluid&#34;
+    
+      src=&#34;https://www.eclipse.org/elk/img/layout_time_view.png&#34;
+    
+     alt=&#34;Layout Time View&#34;
+  /&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;The layout time view registers with the &lt;code&gt;DiagramLayoutEngine&lt;/code&gt; to be notified whenever a layout run finishes and displays which steps the layout run consisted of and, if enabled, how much time each step took to run. Measuring these execution times has to be explicitly enabled in the preferences:&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;img
+    class=&#34;img-fluid&#34;
+    
+      src=&#34;https://www.eclipse.org/elk/img/layout_time_view_enable.png&#34;
+    
+     alt=&#34;Enabling layout time measurements&#34;
+  /&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;Once enabled, the view displays two values for each item: the &lt;em&gt;time&lt;/em&gt; and the &lt;em&gt;local time&lt;/em&gt;. The former is the amount of time spent for an item and all of its sub-items. Local time is the time spent on the item alone, without any sub-items (this value is omitted for items that do not have any sub-items, since it would be equal to the normal time value anyway).&lt;/p&gt;
+
+&lt;p&gt;To take advantage of the layout time view, your algorithm must make proper use of the &lt;code&gt;IElkProgressMonitor&lt;/code&gt; passed to it. The tree of progress monitors (and sub-monitors) is what gets displayed in the layout time view. Be sure to do something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;monitor.begin(&amp;quot;My rather good layout algorithm&amp;quot;, 2);
+
+executePhase1(monitor.subTask(1));
+executePhase2(monitor.subTask(1));
+
+monitor.done();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Open the layout graph view by clicking &lt;em&gt;Window&lt;/em&gt; -&amp;gt; &lt;em&gt;Show View&lt;/em&gt; -&amp;gt; &lt;em&gt;Other&lt;/em&gt; and select &lt;em&gt;Layout Time&lt;/em&gt; from the &lt;em&gt;Eclipse Diagram Layout&lt;/em&gt; category.&lt;/p&gt;
+
+&lt;h1 id=&#34;debug-files&#34;&gt;Debug Files&lt;/h1&gt;
+
+&lt;p&gt;The ELK preference page (see above) contains another setting: &lt;em&gt;Debug graph output&lt;/em&gt;. Enabling this will cause the &lt;code&gt;DiagramLayoutEngine&lt;/code&gt; to save the layout graph just before automatic layout is run. The graphs are placed in your user folder, in a subfolder called &lt;code&gt;elk/diagram_layout_engine&lt;/code&gt;. The graph files can be displayed by the layout graph view, even though that usually is not very helpful since they may not contain any valid layout data yet.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithm Developers</title>
+      <link>https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/</guid>
+      <description>&lt;p&gt;While the layout algorithms implemented in ELK already cover a wide range of layout styles, your particular application may have more specific requirements. In these cases, it may become necessary to implement your own layout algorithm, which is what this part of the documentation is all about.&lt;/p&gt;
+
+&lt;p&gt;Implementing your own layout algorithm basically consists of the following steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install the &lt;em&gt;Eclipse Layout Kernel SDK&lt;/em&gt; into your Eclipse development environment.&lt;/li&gt;
+&lt;li&gt;Create and configure a new Eclipse plug-in project.&lt;/li&gt;
+&lt;li&gt;Create and register a &lt;code&gt;melk&lt;/code&gt; file that describes your algorithm and its support of layout properties.&lt;/li&gt;
+&lt;li&gt;Implement your algorithm, updating the &lt;code&gt;melk&lt;/code&gt; file along the way.&lt;/li&gt;
+&lt;li&gt;Debug your algorithm.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Note that we have deliberately left out the part of &amp;ldquo;pulling your hair out while trying to understand which wretched detail of your complicated algorithm causes it to fail spectacularly&amp;rdquo; (we&amp;rsquo;ve been there&amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Before you start:&lt;/strong&gt;
+This section assumes that you have basic knowledge of how the &lt;em&gt;Eclipse Layout Kernel&lt;/em&gt; works. You should at least have worked through the &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/GraphDataStructure/&#34;&gt;Graph Data Structure&lt;/a&gt; and &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/UsingAlgorithmsDirectly/&#34;&gt;Using Algorithms Directly&lt;/a&gt; sections.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Once you are ready to start:&lt;/strong&gt;
+Use the navigation bar to the right to work your way through each of those steps.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Algorithm Implementation</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/</guid>
+      <description>
+
+&lt;p&gt;Once everything is set up, it is time to actually implement your algorithm. The problem your layout algorithm has to solve can be summarized as follows: given an input graph (possibly with existing coordinates), compute coordinates for all graph elements and routings for all edges (subject to layout properties the graph is annotated with) and annotate the layout graph accordingly. Note that the input graph defines the layout problem, but also carries the resulting coordinate assignment after your algorithm has executed.&lt;/p&gt;
+
+&lt;p&gt;While developing your algorithm, you will regularly switch back and forth between doing that and changing &lt;a href=&#34;https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/&#34;&gt;your metadata&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;your-algorithm-s-main-class&#34;&gt;Your Algorithm&amp;rsquo;s Main Class&lt;/h2&gt;
+
+&lt;p&gt;However many classes a layout algorithm consists of, it always provides one entry class that inherits from &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; and implements the single most important method for your algorithm:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void layout(KNode layoutGraph, IElkProgressMonitor progressMonitor);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go through the parameters in reverse order (because of reasons). The &lt;code&gt;progressMonitor&lt;/code&gt; parameter should be used to track progress and check if the user wants to cancel the layout operation. Actually canceling when the user wants to cancel is one of those features that will help your software stand out from many other programs, so take this opportunity to shine!&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;layoutGraph&lt;/code&gt; parameter is more important, however. It defines the layout problem your algorithm should solve, in several ways. First, it defines the structure of the graph to be laid out: which nodes exist, how are they connected, and so on. Second, each graph element can have &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/&#34;&gt;layout options&lt;/a&gt; attached to it that are supposed to influence what your layout algorithm does with them. And third, each element may have pre-existing &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/&#34;&gt;coordinates or bend points&lt;/a&gt; associated with it that your algorithm may want to make use of. Those existing coordinates will be overwritten by your algorithm to hold the new, computed coordinates.&lt;/p&gt;
+
+&lt;p&gt;Note that the layout graph may contain nodes that themselves contain further nodes. By default, layout algorithms are only supposed to compute coordinates for the direct children of the &lt;code&gt;layoutGraph&lt;/code&gt; and then set the size for the &lt;code&gt;layoutGraph&lt;/code&gt; itself. However, if your layout algorithm supports hierarchical layout, and if hierarchical layout is requested (which is done through the &lt;code&gt;CoreOptions.HIERARCHY_HANDLING&lt;/code&gt; layout option), you will also compute coordinates for children of children.&lt;/p&gt;
+
+&lt;p&gt;There are two more methods your algorithm can, but does not have to implement:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;void initialize(String parameter);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This method can be used to initialize data structures and prepare things. This method is called exactly once when an instance of your &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; subclass is created. Note that a single instance of your class can be used for multiple layout runs.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;parameter&lt;/code&gt; parameter is a bit tricky. Most layout algorithms won&amp;rsquo;t have any need for it, but some may adjust their behavior depending on its value. One example is our interface to the &lt;a href=&#34;http://www.graphviz.org/&#34;&gt;Graphviz&lt;/a&gt; library that provides different layout algorithms. We only implement a single subclass of &lt;code&gt;AbstractLayoutProvider&lt;/code&gt;, but each instance is passed a parameter value that indicates which of the Graphviz algorithms it will execute when the &lt;code&gt;layout(...)&lt;/code&gt; method is called. Of course, which parameter to pass must be defined in &lt;a href=&#34;https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/&#34;&gt;your metadata file&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;void dispose();&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Called before your &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; subclass is thrown towards the garbage collector.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;layout-options&#34;&gt;Layout Options&lt;/h2&gt;
+
+&lt;p&gt;It is worth reiterating here that it is important which &lt;code&gt;IProperty&lt;/code&gt; instance your algorithm uses to retrieve the value of a layout option set on a graph element. Since the &lt;a href=&#34;https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/&#34;&gt;ELK metadata tooling&lt;/a&gt; generates a separate class with a complete set of &lt;code&gt;IProperty&lt;/code&gt; instances for each algorithm, it makes sense to use these instances. The reason is that using them ensures that you get the correct default values configured for your layout algorithm when accessing layout options that were not set on a graph element.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Automatic Builds</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/</guid>
+      <description>&lt;p&gt;Since &lt;code&gt;.melk&lt;/code&gt; files result in code being generated, you may not want to check that code into your repository. Instead, the code should probably be generated as part of your automatic build. Indeed, the ELK metadata language compiler is available through a Maven repository. You can find the repository URLs on our &lt;a href=&#34;https://www.eclipse.org/elk/downloads&#34;&gt;Downloads&lt;/a&gt; page. Note that we provide a separate repository for nightly builds and for each release.&lt;/p&gt;
+
+&lt;p&gt;To use the compiler, add the following to your &lt;code&gt;pom.xml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;pluginRepositories&amp;gt;
+  &amp;lt;!-- Xtext is required to invoke our compiler. --&amp;gt;
+  &amp;lt;pluginRepository&amp;gt;
+    &amp;lt;id&amp;gt;xtend&amp;lt;/id&amp;gt;
+    &amp;lt;name&amp;gt;Xtend Maven Repository&amp;lt;/name&amp;gt;
+    &amp;lt;layout&amp;gt;default&amp;lt;/layout&amp;gt;
+    &amp;lt;url&amp;gt;http://build.eclipse.org/common/xtend/maven&amp;lt;/url&amp;gt;
+  &amp;lt;/pluginRepository&amp;gt;
+
+  &amp;lt;!-- This is where our compiler is. --&amp;gt;
+  &amp;lt;pluginRepository&amp;gt;
+    &amp;lt;id&amp;gt;eclipse-elk-meta&amp;lt;/id&amp;gt;
+    &amp;lt;name&amp;gt;ELK Meta Data Language Compiler Maven Repository&amp;lt;/name&amp;gt;
+    &amp;lt;url&amp;gt;http://the.repository.url.you.want/see.download.page.for.details&amp;lt;/url&amp;gt;
+  &amp;lt;/pluginRepository&amp;gt;
+&amp;lt;/pluginRepositories&amp;gt;
+
+&amp;lt;build&amp;gt;
+  &amp;lt;plugins&amp;gt;
+    &amp;lt;!-- Configure the Xtext plugin to invoke our compiler. --&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;groupId&amp;gt;org.eclipse.xtext&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;xtext-maven-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;2.7.2&amp;lt;/version&amp;gt;
+      &amp;lt;executions&amp;gt;
+        &amp;lt;execution&amp;gt;
+          &amp;lt;goals&amp;gt;
+            &amp;lt;goal&amp;gt;generate&amp;lt;/goal&amp;gt;
+          &amp;lt;/goals&amp;gt;
+        &amp;lt;/execution&amp;gt;
+      &amp;lt;/executions&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;languages&amp;gt;
+          &amp;lt;language&amp;gt;
+            &amp;lt;setup&amp;gt;org.eclipse.elk.core.meta.MetaDataStandaloneSetup&amp;lt;/setup&amp;gt;
+            &amp;lt;outputConfigurations&amp;gt;
+              &amp;lt;outputConfiguration&amp;gt;
+                &amp;lt;outputDirectory&amp;gt;${basedir}/src-gen/&amp;lt;/outputDirectory&amp;gt;
+              &amp;lt;/outputConfiguration&amp;gt;
+            &amp;lt;/outputConfigurations&amp;gt;
+          &amp;lt;/language&amp;gt;
+        &amp;lt;/languages&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+      &amp;lt;dependencies&amp;gt;
+        &amp;lt;dependency&amp;gt;
+          &amp;lt;groupId&amp;gt;org.eclipse.elk&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;org.eclipse.elk.graph&amp;lt;/artifactId&amp;gt;
+          &amp;lt;version&amp;gt;THE_VERSION_YOU_WANT-SNAPSHOT&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+          &amp;lt;groupId&amp;gt;org.eclipse.elk&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;org.eclipse.elk.core.meta&amp;lt;/artifactId&amp;gt;
+          &amp;lt;version&amp;gt;THE_VERSION_YOU_WANT-SNAPSHOT&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+      &amp;lt;/dependencies&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+  &amp;lt;/plugins&amp;gt;
+&amp;lt;/build&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building ELK</title>
+      <link>https://www.eclipse.org/elk/documentation/contributors/BuildingElk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/contributors/BuildingElk/</guid>
+      <description>
+
+&lt;p&gt;ELK is built using &lt;a href=&#34;https://maven.apache.org/&#34;&gt;Apache Maven&lt;/a&gt; in conjunction with &lt;a href=&#34;https://eclipse.org/tycho/&#34;&gt;Tycho&lt;/a&gt; to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the &lt;code&gt;build/&lt;/code&gt; directory inside your clone of the ELK repository.&lt;/p&gt;
+
+&lt;h2 id=&#34;building-elk&#34;&gt;Building ELK&lt;/h2&gt;
+
+&lt;p&gt;Execute Maven using the following command line (note that the command line is split in order to improve readability):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mvn
+    --define elkMeta.repositoryUrl=META_REPOSITORY_URL
+    clean
+    ADDITIONAL_PHASES
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;clean&lt;/code&gt; is not strictly necessary.&lt;/p&gt;
+
+&lt;p&gt;For &lt;code&gt;META_REPOSITORY_URL&lt;/code&gt;, insert the URL of the Maven repository where the ELK Metadata compiler can be found. If you have &lt;em&gt;not&lt;/em&gt; touched the thing (if in doubt, this is the case), the &lt;a href=&#34;https://www.eclipse.org/elk/downloads&#34;&gt;Downloads&lt;/a&gt; page will tell you which repository to use to build different releases (to build the current development version, use the nightly build repository). If you &lt;em&gt;have&lt;/em&gt; touched the metadata compiler, the repository URL should be the same as in the metadata compiler build (see below).&lt;/p&gt;
+
+&lt;p&gt;For &lt;code&gt;ADDITIONAL_PHASES&lt;/code&gt;, the following are typical choices:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Phase&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;package&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Simply compile everything. You will find the result in the update site placed in the &lt;code&gt;org.eclipse.elk.repository/target/&lt;/code&gt; directory.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;verify&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Compile ELK and execute the unit tests.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;building-documentation-for-elk&#34;&gt;Building Documentation for ELK&lt;/h3&gt;
+
+&lt;p&gt;If the ELK build should also generate documentation from all metadata files (usually to be put into our website), Maven needs to be supplied with the path to the ELK repository&amp;rsquo;s &lt;code&gt;doc/&lt;/code&gt; folder (or to whereever the documentation should be placed). Do so by adding another command-line parameter to the Maven call:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;--define elk.metadata.documentation.outputPath=/path/to/docs/folder
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;building-the-metadata-compiler&#34;&gt;Building the Metadata Compiler&lt;/h2&gt;
+
+&lt;p&gt;Execute Maven using the following command line (note that the command line is split in order to improve readability):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mvn
+    -P elk-meta
+    --define elkMeta.repositoryUrl=META_REPOSITORY_URL
+    --define elkMeta.publishUrl=META_REPOSITORY_URL
+    clean
+    ADDITIONAL_PHASES
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;clean&lt;/code&gt; is not strictly necessary.&lt;/p&gt;
+
+&lt;p&gt;Maven will build a Maven repository that can be used by the main build to compile &lt;code&gt;.elkm&lt;/code&gt; files. For &lt;code&gt;META_REPOSITORY_URL&lt;/code&gt;, insert the URL where you want that repository to be placed. If you&amp;rsquo;re building locally, this should be a path on your local file system. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;--define elkMeta.repositoryUrl=file:///home/user/elkmetarepository
+--define elkMeta.publishUrl=file:///home/user/elkmetarepository
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For &lt;code&gt;ADDITIONAL_PHASES&lt;/code&gt;, the following are typical choices:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Phase&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;deploy&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Compile the metadata compiler and put it into a Maven repository at &lt;code&gt;META_REPOSITORY_URL&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Connecting to ELK</title>
+      <link>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/ConnectingToELK/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/ConnectingToELK/</guid>
+      <description>
+
+&lt;p&gt;In our &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/UsingEclipseLayout/&#34;&gt;our basic introduction to automatic layout in Eclipse&lt;/a&gt;, we have seen how the diagram layout engine needs someone to extract a proper KGraph from whatever layout is invoked on. This is what you, as a tool developer, have to supply. While there are already implementations for different graph editing frameworks to build upon, this page describes how doing so from scratch works.&lt;/p&gt;
+
+&lt;p&gt;To connect to ELK, there are two things you will have to do:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create an &lt;code&gt;ILayoutSetup&lt;/code&gt; implementation and register it with out extension point.&lt;/li&gt;
+&lt;li&gt;Create an &lt;code&gt;IDiagramLayoutConnector&lt;/code&gt; implementation.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The rest of this page will look at each of these in turn.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-layout-setup&#34;&gt;The Layout Setup&lt;/h2&gt;
+
+&lt;p&gt;An &lt;code&gt;ILayoutSetup&lt;/code&gt; implementation consists of just two methods:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;boolean supports(Object object);
+Injector createInjector(Module defaultModule);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;the-supports-method&#34;&gt;The &lt;code&gt;supports(...)&lt;/code&gt; Method&lt;/h3&gt;
+
+&lt;p&gt;This method is called by the diagram layout engine to determine if a given setup instance supports extracting a KGraph from the given object. The question now of course becomes what that object is. There are two cases. In the first case, it will be an implementation of &lt;code&gt;IWorkbenchPart&lt;/code&gt;. This is the case if layout is invoked on a diagram editor. If the setup states that it supports that workbench part, the diagram layout connector it supplies knows how to get its hands at the editor&amp;rsquo;s content and how to turn that content into a KGraph. In the second case, the object passed to &lt;code&gt;supports(...)&lt;/code&gt; will be an object from that editor&amp;rsquo;s content. For GMF editors, this will be an implementation of &lt;code&gt;IGraphicalEditPart&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A typical implementation of this method will look something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public boolean supports(final Object object) {
+    // This method may be invoked on a whole collection of elements selected
+    // in an editor
+    if (object instanceof Collection) {
+        // Check if we support layout on at least one of the selected objects
+        for (Object o : (Collection&amp;lt;?&amp;gt;) object) {
+            if (o instanceof SomeDiagramElementClassWeSupport) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // If it is not a collection, it may be either a workbench part we support
+    // or the diagram element class we already checked for above
+    return object instanceof WorkbenchPartImplementation
+        || object instanceof SomeDiagramClassWeSupport;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;the-createinjector-method&#34;&gt;The &lt;code&gt;createInjector(...)&lt;/code&gt; Method&lt;/h3&gt;
+
+&lt;p&gt;If the diagram layout engine has determined which setup supports layout on a given object, it will use that setup to get its hands on an injector that can supply implementations of the different components involved in the layout process. The most important of these is an implementation of &lt;code&gt;IDiagramLayoutConnector&lt;/code&gt;, which we will look at in a minute. A typical implementation will look something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public Injector createInjector(final Module defaultModule) {
+    // Modules basically provide a mapping between types and implementations
+    // to instantiate whenever an instance of the type is requested. We use
+    // the default module supplied by ELK and override that with custom
+    // overrides to get our IDiagramLayoutConnector to enter the picture.
+    return Guice.createInjector(
+        Modules.override(defaultModule).with(new AwesomeLayoutModule()));
+}
+
+public static class AwesomeLayoutModule implements Module {
+    @Override
+    public void configure(final Binder binder) {
+        // This is the most important binding
+        binder.bind(IDiagramLayoutConnector.class)
+              .to(MyAwesomeDiagramLayoutConnector.class);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;An implementation can of course add more bindings. See our section on dependency injection for more information on what makes sense here.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-layout-connector&#34;&gt;The Layout Connector&lt;/h2&gt;
+
+&lt;p&gt;An &lt;code&gt;IDiagramLayoutConnector&lt;/code&gt; implementation consists of the following methods:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;LayoutMapping buildLayoutGraph(IWorkbenchPart workbenchPart, Object diagramPart);
+void applyLayout(LayoutMapping mapping, IPropertyHolder settings);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These methods pretty much correspond to the beginning and the end of the layout process: extracting the layout graph from whatever layout is invoked on, and applying the layout information back to the diagram. Let&amp;rsquo;s take a look at how these methods should be implemented.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-buildlayoutgraph-method&#34;&gt;The &lt;code&gt;buildLayoutGraph(...)&lt;/code&gt; Method&lt;/h3&gt;
+
+&lt;p&gt;This is the method that turns a diagram into a KGraph that ELK can then work with. It produces an instance of the &lt;code&gt;LayoutMapping&lt;/code&gt; class, which contains information so important to the layout process that we should list them all:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The root of the created KGraph. This is what is later fed into the recursive diagram layout engine to run automatic layout on.&lt;/li&gt;
+&lt;li&gt;The top-level diagram part that layout was originally invoked on. This will usually be something that represents the diagram or a part of it in the diagram editor (think &lt;code&gt;IGraphicalEditPart&lt;/code&gt; for GMF).&lt;/li&gt;
+&lt;li&gt;A bi-directional mapping between diagram parts and the KGraph elements that were created for them. This is probably the most important bit: it will later allow us to apply the layout information contained in the KGraph back to the correct diagram elements.&lt;/li&gt;
+&lt;li&gt;The workbench part layout was invoked on, if any. Admittedly, this is less important, which is why it comes last in this list.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since this method determines the structure of the graph layout algorithms will be run on, it is what has the most impact on what your results will look like. It is thus a good idea to spend some time (and thought) on how to implement it. You should think about the following two aspects: the layout graph&amp;rsquo;s structure, and the layout configuration.&lt;/p&gt;
+
+&lt;p&gt;Regarding the layout graph&amp;rsquo;s structure, the main task is to decide which of your diagram elements map to which kinds of layout graph elements. Should an element be represented as a node? Is it a label? Should my nodes have explicit points for edges to attach to? Do certain nodes contain other nodes? Which diagram elements need to be represented in the layout graph in the first place?&lt;/p&gt;
+
+&lt;p&gt;Regarding the layout configuration, your layout connector is expected to build a fully configured KGraph (except for some advanced configuration issues, which we will look at on another page). This primarily includes setting the correct layout options that yield the results you want. However, this may also include writing the current coordinates of diagram elements into the KGraph. This is mostly important for what we call &lt;em&gt;interactive layout algorithms&lt;/em&gt;: layout algorithms that take current positions into account when calculating new ones instead of simply calculating new coordinates from scratch.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-applylayout-method&#34;&gt;The &lt;code&gt;applyLayout(...)&lt;/code&gt; Method&lt;/h3&gt;
+
+&lt;p&gt;This method accepts two arguments: the &lt;code&gt;LayoutMapping&lt;/code&gt; created by &lt;code&gt;buildLayoutGraph(...)&lt;/code&gt;, and an &lt;code&gt;IPropertyHolder&lt;/code&gt; that may hold additional options controlling the layout process. These options will usually include things such as whether the application of the layout should be animated and whether the diagram zoomed and positioned such that it is completely visible in the editor.&lt;/p&gt;
+
+&lt;p&gt;The most important thing the &lt;code&gt;applyLayout(...)&lt;/code&gt; implementation will do is to iterate over the diagram elements and to apply the layout results back to them. At best, this just means copying values over. At worst, this will include transforming coordinates from the KGraph coordinate system back to whatever coordinate system the diagram editor uses.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Coordinate System</title>
+      <link>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/</guid>
+      <description>&lt;p&gt;When talking about the layout of a graph, we have to agree on how coordinates of graph elements are to be stored and interpreted. For the ELK graph, this is how it works:&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;img
+    class=&#34;img-fluid&#34;
+    
+      src=&#34;https://www.eclipse.org/elk/img/layout-reference-points.png&#34;
+    
+     alt=&#34;Coordinate system reference.&#34;
+  /&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;The coordinates of most elements are relative to their parent element. There are a few exceptions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Edge labels are relative to the coordinate system their edge is relative to.&lt;/li&gt;
+&lt;li&gt;Source points, bend points, and target points of edges are relative to the edge&amp;rsquo;s containing node. Following the usual containment conventions (as implemented in &lt;code&gt;ElkGraphUtil&lt;/code&gt;) results in what is displayed in the image above.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating a New Project</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/CreatingANewProject/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/CreatingANewProject/</guid>
+      <description>
+
+&lt;p&gt;Layout algorithms are developed as &lt;em&gt;Eclipse Plug-in Projects&lt;/em&gt;. There&amp;rsquo;s a few things to setup to get your project ready, which is what we will work through here.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;alert alert-info&#34;&gt;
+  &lt;h5&gt;If you have nothing better to do…&lt;/h5&gt;
+
+  &lt;p&gt;&lt;a href=&#34;https://github.com/eclipse/elk/issues/29&#34;&gt;This ticket&lt;/a&gt; is all about adding an &lt;em&gt;ELK Project Wizard&lt;/em&gt; to the ELK SDK that will help people create new layout algorithm projects that are already perfectly setup. If you want to make people&amp;rsquo;s lifes better but don&amp;rsquo;t know how, here&amp;rsquo;s your chance!&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;creating-a-new-plug-in&#34;&gt;Creating a New Plug-in&lt;/h2&gt;
+
+&lt;p&gt;Follow these steps to create a new plug-in:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;From the &lt;em&gt;File&lt;/em&gt; menu, select &lt;em&gt;New - Project&amp;hellip;&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;From the &lt;em&gt;Plug-in Development&lt;/em&gt; category, select &lt;em&gt;Plug-in Project&lt;/em&gt; and click &lt;em&gt;Next&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Configure your project&amp;rsquo;s basic settings, in particular its name, and click &lt;em&gt;Next&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Configure your project&amp;rsquo;s content. The &lt;em&gt;Properties&lt;/em&gt; should be somewhat sensible, but don&amp;rsquo;t really matter all that much. In the &lt;em&gt;Options&lt;/em&gt; section, uncheck everything. Layout algorithm projects normally don&amp;rsquo;t need an activator class, and don&amp;rsquo;t normally make contributions to the UI. Also, don&amp;rsquo;t create a rich client application. Click &lt;em&gt;Finish&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The &lt;em&gt;Package Explorer&lt;/em&gt; now shows a new project for your plug-in which we will configure in the next section.&lt;/p&gt;
+
+&lt;h2 id=&#34;setting-up-your-plug-in&#34;&gt;Setting Up Your Plug-in&lt;/h2&gt;
+
+&lt;p&gt;Your plug-in needs to declare dependencies to ELK&amp;rsquo;s most important plug-ins: &lt;code&gt;org.eclipse.elk.graph&lt;/code&gt; (which contains the graph model that will be the input to your layout algorithm) and &lt;code&gt;org.eclipse.elk.core&lt;/code&gt; (which contains the core ELK code). Follow these steps to add the dependencies:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open the &lt;code&gt;MANIFEST.MF&lt;/code&gt; file, located in your plug-in&amp;rsquo;s &lt;code&gt;META_INF&lt;/code&gt; folder. The &lt;em&gt;Plug-in Manifest Editor&lt;/em&gt; will open up, which is divided into several pages that you can switch between using the controls at the bottom of the editor.&lt;/li&gt;
+&lt;li&gt;Open the editor&amp;rsquo;s &lt;em&gt;Dependencies&lt;/em&gt; tab.&lt;/li&gt;
+&lt;li&gt;Click the left &lt;em&gt;Add&amp;hellip;&lt;/em&gt; button to add a dependency. In the dialog that pops up, search for the &lt;code&gt;org.eclipse.elk.graph&lt;/code&gt; plug-in and click &lt;em&gt;OK&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Repeat for ELK&amp;rsquo;s core plug-in, &lt;code&gt;org.eclipse.elk.core&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dependency Injection</title>
+      <link>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/DependencyInjection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/DependencyInjection/</guid>
+      <description>
+
+&lt;p&gt;As you have learned, the basic connection between a diagram editor and the Eclipse Layout Kernel is established through an &lt;code&gt;ILayoutSetup&lt;/code&gt; implementation registered with an extension point. What an &lt;code&gt;ILayoutSetup&lt;/code&gt; basically does is to provide a Google Guice dependency injector that is then used to instantiate all the classes that play a part in making layout happen in the Eclipse layer.&lt;/p&gt;
+
+&lt;p&gt;If you have not used dependency injection yet: ELK will ask the injector to retrieve an implementation of a particular type, and the injector knows which implementation to retrieve. It is the mapping between types and implementations that you can customize in the injector your &lt;code&gt;ILayoutSetup&lt;/code&gt; returns. By having it retrieve different implementations, you can change how ELK behaves.&lt;/p&gt;
+
+&lt;p&gt;The rest of this page tries to give you an idea of what types ELK will request and when you may want to change to different implementations.&lt;/p&gt;
+
+&lt;h2 id=&#34;absolutely-necessary&#34;&gt;Absolutely Necessary&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;IDiagramLayoutConnector&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the one interface you will definitely want to implement. Your connector will tell ELK how to turn your diagrams into a KGraph that ELK knows how to work with. Also, your connector knows how to apply the computed layout information back to your diagram.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;nice-to-have&#34;&gt;Nice to Have&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;ILayoutConfigurationStore.Provider&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ELK&amp;rsquo;s &lt;em&gt;Layout View&lt;/em&gt; allows users to configure layout properties for diagram elements. The layout view needs to know how to actually apply and possibly persist property settings for each element. This is what a &lt;code&gt;ILayoutConfigurationStore&lt;/code&gt; does. Each configuration store is responsible for a single diagram element. The &lt;code&gt;ILayoutConfigurationStore.Provider&lt;/code&gt; knows how to retrieve the configuration store for a given element.&lt;/p&gt;
+
+&lt;p&gt;Not every application will want to add support for the layout view. In fact, it can be argued that layout should just work instead of overwhelming the user with too many cryptic options. If you do not need the layout view, you do not need to supply an implementation of &lt;code&gt;ILayoutConfigurationStore.Provider&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;Provider&amp;lt;LayoutOptionValidator&amp;gt;&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;not-that-important&#34;&gt;Not That Important&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;LayoutConfigurationManager&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;LayoutPropertySourceProvider&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;DiagramLayoutEngine&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The diagram layout engine provides static methods as entry points to layout. Those static methods use your injector to obtain a diagram layout engine instance, which you can use to return a specialized subclass. You will usually not feel the need to do so, though.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;IGraphLayoutEngine&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bound to the &lt;code&gt;RecursiveDiagramLayoutEngine&lt;/code&gt; by default. You will usually not have to provide any special implementations, the reason being that this engine already knows how to invoke layout on hierarchical graphs. But you could!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Development Setup</title>
+      <link>https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/</guid>
+      <description>&lt;p&gt;Before you can start development, follow this list of steps. Not doing so may result in us having to reject your contributions, which would make everyone sad.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Register with GitHub&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Chances are that you already have a GitHub account. If you don&amp;rsquo;t, go to &lt;a href=&#34;https://github.com&#34;&gt;GitHub.com&lt;/a&gt; and click &lt;em&gt;Sign up&lt;/em&gt; in the upper right corner.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Register with Eclipse&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You need an account at &lt;a href=&#34;https://www.eclipse.org/&#34;&gt;Eclipse.org&lt;/a&gt;. Create one by going to that site and clicking &lt;em&gt;Create account&lt;/em&gt; in the upper right corner of the site.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Link Eclipse and GitHub&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Once your account is set up, select &lt;em&gt;Edit my account&lt;/em&gt; in the upper right corner of &lt;a href=&#34;https://www.eclipse.org/&#34;&gt;Eclipse.org&lt;/a&gt;. On the &lt;em&gt;My Account&lt;/em&gt; page, select the &lt;em&gt;Account Settings&lt;/em&gt; tab, enter the name of your GitHub account in the &lt;em&gt;GitHub ID&lt;/em&gt; field and click &lt;em&gt;Update Account&lt;/em&gt; (you may have to provide more info for the site to accept the update). This will allow us to recognize your GitHub account as belonging to an Eclipse developer.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;Sign&amp;rdquo; the Eclipse ECA&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While still on the &lt;em&gt;My Account&lt;/em&gt; page, go to the &lt;em&gt;Eclipse ECA&lt;/em&gt; tab and follow the instructions to &amp;ldquo;sign&amp;rdquo; the &lt;em&gt;Eclipse Contributor Agreement&lt;/em&gt;. This is a necessary piece of legal paperwork that basically says that you as a contributor certify that the code you contribute is actually yours to contribute and will be made available under an open source license.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Sign Up to Our Development Mailing List&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It would probably be a good idea to sign up for &lt;a href=&#34;https://dev.eclipse.org/mailman/listinfo/elk-dev&#34;&gt;developer mailing list&lt;/a&gt;. This ensures that you are up to date on current developments, and that you can get in touch with us easily. Just say hello!&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Development Workflow</title>
+      <link>https://www.eclipse.org/elk/documentation/contributors/DevelopmentWorkflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/contributors/DevelopmentWorkflow/</guid>
+      <description>&lt;p&gt;Once you &lt;a href=&#34;https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/&#34;&gt;have everything set up&lt;/a&gt; it is time to start getting your hands at the code. The exact steps depend on how you have set up your development environment and your taste in things (and stuff), but here&amp;rsquo;s what you will generally want to do.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Set Up an Eclipse Installation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This used to be rather hard, but thankfully people have seen that problem and started to do something about it. The result is the &lt;em&gt;Oomph Eclipse Installer&lt;/em&gt;. The easiest way now is to go &lt;a href=&#34;https://www.eclipse.org/downloads/index.php&#34;&gt;to the Eclipse Downloads page&lt;/a&gt; and click the prominent &lt;em&gt;Download&lt;/em&gt; button there. Execute the installer and &lt;a href=&#34;https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/InstallingWithOomph/&#34;&gt;follow this guide&lt;/a&gt; (includes pictures!).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Find a Git Repository to Work With&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While working you will probably want to create a bunch of commits and push them to a repository. However, our installer by default simply clones our official ELK repository at GitHub, which you don&amp;rsquo;t have permission to write to. What you will want to do, thus, is to get your hands on another GitHub repository that you do have permission to write to. The best way is to simply fork our main repository by clicking the &lt;em&gt;Fork&lt;/em&gt; link at the upper right corner of &lt;a href=&#34;https://github.com/eclipse/elk&#34;&gt;our repository page&lt;/a&gt;. Add your new repository as a second remote to your local clone and push your commits there.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tickets&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course we have &lt;a href=&#34;https://github.com/eclipse/elk/issues&#34;&gt;a list of issues&lt;/a&gt;. If you want to work on one of them, you should mention your intentions there to let us know that we should not start working on the issue ourselves. Also, we might have helpful input for you to think about. If you want to implement a feature that we do not have an issue for yet, open one.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Proper Commit Messages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an example of what we consider to be a proper commit message:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-plain&#34;&gt;Core, Layered: Fix labels with layout directions #58
+
+Using node labels inside compound nodes that are configured to use
+different layout directions resulted in problems with calculated insets.
+
+Signed-off-by: Christoph Daniel Schulze &amp;lt;cds@informatik.uni-kiel.de&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It consists of three parts:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;A first line that summarizes the commit. The summary starts by mentioning the general parts of the project that the commit affects, followed by a summary and a reference to the issue the commit is associated with. If there is no such issue, you can of course omit that.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;An optional paragraph (separated from the first line by a blank line) that provides more information, if necessary.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A sign-off, preceded by a blank line. This is your name followed by the e-mail address that belongs to your &lt;a href=&#34;https://www.eclipse.org/&#34;&gt;Eclipse.org&lt;/a&gt; account. The sign-off is important. With this, you confirm that to the best of your knowledge your commit complies with the &lt;a href=&#34;http://www.eclipse.org/legal/CoO.php&#34;&gt;Certificate of Origin&lt;/a&gt; that you promised to honor when you signed the Eclipse ECA.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Contributing Your Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To actually contribute your code to the ELK project, go &lt;a href=&#34;https://github.com/eclipse/elk/pulls&#34;&gt;to our pull requests page&lt;/a&gt; and click &lt;em&gt;New pull request&lt;/em&gt;. Since you want us to pull in changes from your fork, click the &lt;em&gt;Compare across forks&lt;/em&gt; link and select the branch that contains the relevant changes. We will then review your code. Chances are that we will reject your pull request on your first try and ask you to make some changes. Don&amp;rsquo;t let that discourage you (also, we try to be nice about it). Simply make the changes and create another pull request.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ELK Contributors</title>
+      <link>https://www.eclipse.org/elk/documentation/Contributors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/Contributors/</guid>
+      <description>&lt;p&gt;You want to contribute to the &lt;em&gt;Eclipse Layout Kernel&lt;/em&gt;? Excellent! Here&amp;rsquo;s what you need to do:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/&#34;&gt;Setting Everything Up&lt;/a&gt;: Get necessary accounts and prepare everything for us to be able to accept your contributions.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.eclipse.org/elk/documentation/contributors/DevelopmentWorkflow/&#34;&gt;Development Workflow&lt;/a&gt;: Understand how development works at the &lt;em&gt;ELK&lt;/em&gt; project and how to get your code submitted.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ELK Metadata Language</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/</guid>
+      <description>
+
+&lt;p&gt;As described &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/UsingPlainJavaLayout/&#34;&gt;in other parts of the documentation&lt;/a&gt;, the &lt;em&gt;Eclipse Layout Kernel&lt;/em&gt; relies on metadata about all available layout algorithms and the layout options they support. Supplying metadata for your layout algorithm is done by writing an &lt;em&gt;ELK Metadata File&lt;/em&gt; in our textual metadata language. The file is used by the ELK SDK to generate the following Java classes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;An &lt;code&gt;ILayoutMetaDataProvider&lt;/code&gt; that contains &lt;code&gt;IProperty&lt;/code&gt; objects for each layout option you declare, along with a method that registers these options and layout algorithm categories with the &lt;code&gt;LayoutMetaDataService&lt;/code&gt;. It is this class that needs to be registered with ELK&amp;rsquo;s extension point.&lt;/li&gt;
+&lt;li&gt;One &lt;code&gt;ILayoutMetaDataProvider&lt;/code&gt; for each algorithm you declare. This contains one &lt;code&gt;IProperty&lt;/code&gt; object for each layout option your algorithm supports (with the configured default value), as well as a method that registers your algorithm and its supported options with the &lt;code&gt;LayoutMetaDataService&lt;/code&gt;. You should use the &lt;code&gt;IProperty&lt;/code&gt; objects in this class to retrieve layout option values to ensure that you get correct defaults if an option is not set. These classes do not have to be registered with ELK&amp;rsquo;s extension point because they are automatically registered through the main metadata class.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This page explains how to write a metadata file. (Imagine the guy that narrates action film trailers reading the previous sentence to make it that much more compelling.)&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-and-registering-your-metadata-file&#34;&gt;Creating and Registering Your Metadata File&lt;/h2&gt;
+
+&lt;p&gt;Follow these steps to add a metadata file to your layout algorithm project:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Right-click your project&amp;rsquo;s base package (which should have the same name as your plug-in project), and click &lt;em&gt;New - File&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Give your file a sensible name (which is usually the name of your algorithm), and add the file extension &lt;code&gt;.melk&lt;/code&gt;. Click &lt;em&gt;Finish&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;If Eclipse asks you whether you want to add the &lt;em&gt;Xtext nature&lt;/em&gt; to your project, click &lt;em&gt;Yes&lt;/em&gt;.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The ELK SDK needs some basic information in your file to generate your
+&lt;code&gt;ILayoutMetaDataProvider&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-melk&#34;&gt;package package.the.melk.file.is.in
+
+bundle {
+    // Change the following line according to what you want the
+    // package and name of your meta data provider to be
+    metadataClass properties.AwesomeOptions
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See below for details on what this is doing.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open the &lt;code&gt;MANIFEST.MF&lt;/code&gt; file, located in your plug-in&amp;rsquo;s &lt;code&gt;META_INF&lt;/code&gt; folder. The &lt;em&gt;Plug-in Manifest Editor&lt;/em&gt; will open up, which is divided into several pages that you can switch between using the controls at the bottom of the editor.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open the editor&amp;rsquo;s &lt;em&gt;Extensions&lt;/em&gt; tab.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Click the &lt;em&gt;Add&amp;hellip;&lt;/em&gt; button, look for the &lt;code&gt;org.eclipse.elk.core.layoutProviders&lt;/code&gt; extension point and click &lt;em&gt;Finish&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The editor now shows the extension point in the list. Right-click the list entry and select &lt;em&gt;New - provider&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Select the new entry and configure the &lt;em&gt;class&lt;/em&gt; attribute on the right to point to your new &lt;code&gt;ILayoutMetaDataProvider&lt;/code&gt; that was generated for you by the ELK SDK.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Save and close the editor.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;the-metadata-language&#34;&gt;The Metadata Language&lt;/h2&gt;
+
+&lt;p&gt;The ELK metadata language contains everything you need to make the following information available to ELK:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Which layout algorithms your plug-in provides, and which classes implement them.&lt;/li&gt;
+&lt;li&gt;Which layout options your plug-in contributes, and which layout options your algorithms support.&lt;/li&gt;
+&lt;li&gt;Which layout algorithm categories your plug-in contributes, and which of them your algorithms belong to.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The basic layout of a &lt;code&gt;melk&lt;/code&gt; file looks something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-plain&#34;&gt;&amp;lt;package declaration&amp;gt;
+
+&amp;lt;imports section&amp;gt;
+
+&amp;lt;bundle information&amp;gt;
+
+&amp;lt;metadata declarations&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The package declaration and imports section work the same way as they do in Java: the package declaration indicates where the metadata file lies, and the imports import classes used in the file&amp;rsquo;s declarations.The rest of this page will walk you through the remaining parts.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Feel free to use comments. The metadata language supports Java-style single-line comments (&lt;code&gt;//&lt;/code&gt;) and multi-line comments (&lt;code&gt;/* */&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h3 id=&#34;bundle-information&#34;&gt;Bundle Information&lt;/h3&gt;
+
+&lt;p&gt;To be able to turn your metadata file into an &lt;code&gt;ILayoutMetaDataProvider&lt;/code&gt;, ELK needs some basic information. This is what the bundle information section is all about. Here&amp;rsquo;s what it would look like for a typical metadata file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-melk&#34;&gt;/**
+ * An optional bunch of Javadoc that will end up as the Javadoc for the
+ * generated class.
+ */
+bundle {
+    // The sub-package and name of the ILayoutMetaDataProvider that will be
+    // generated for you. This is required for the generation process to
+    // work.
+    metadataClass properties.AwesomeOptions
+
+    // A prefix that will automatically be added to the IDs of new layout
+    // options declared in this metadata file. To save your a bit of typing.
+    // Not strictly required, but highly recommended.
+    idPrefix org.eclipse.elk.awesome
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;options&#34;&gt;Options&lt;/h3&gt;
+
+&lt;p&gt;While &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/&#34;&gt;this section of our documentation&lt;/a&gt; describes what layout options are and how to use them, this section focuses on making their mere existence known to the world. Doing so will cause the ELK SDK to generate &lt;code&gt;IProperty&lt;/code&gt; constants in your generated &lt;code&gt;ILayoutMetaDataProvider&lt;/code&gt; that you can use &lt;a href=&#34;https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/&#34;&gt;as described&lt;/a&gt; to set layout option values. An option declaration can become rather complex, so here&amp;rsquo;s what it generally looks like (we will go into the missing details below):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-melk&#34;&gt;// The option&#39;s ID, appended to the idPrefix declared in the bundle information
+&amp;lt;deprecated&amp;gt; &amp;lt;modifier&amp;gt; option myLayoutOptionId : &amp;lt;type&amp;gt; {
+    // A user-readable label for the layout option
+    label &amp;quot;Wobblyness Factor&amp;quot;
+
+    // A short user-readable description. This will also become the property
+    // constant&#39;s Javadoc comment.
+    description
+        &amp;quot;Controls the overall wobblyness of edges when connected
+         to wobbles.&amp;quot;
+
+    // An optional default value used when the option is not configured
+    // for a given graph. Of course, the given expression must evaluate
+    // to the layout option&#39;s type as specified above.
+    default = Direction.UNDEFINED
+
+    // Optional lower and upper bounds option values must satisfy to be
+    // valid. These must be comparable to the layout option&#39;s type as
+    // specified above.
+    lowerBound = 3
+    upperBound = 5
+
+    // Which graph elements the option can be meaningfully applied to.
+    targets &amp;lt;targets&amp;gt;
+
+    // An optional list of an arbitrary number of alternate IDs your
+    // layout option should be accessible under. You should probably
+    // not use this. We introduced this feature to ease the process of
+    // transitioning when our project became the Eclipse Layout Kernel,
+    // which caused all layout option IDs to change.
+    legacyIds the.first.old.id.of.our.option,
+              the.second.old.id.of.our.option
+
+    // Some layout options only make sense if another option has a certain
+    // value. Add a &#39;requires&#39; declaration to each such dependency.
+    requires some.other.layout.option.id == 42
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go through what the sample code didn&amp;rsquo;t explain:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;lt;deprecated&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Prepending the option declaration with the &lt;code&gt;deprecated&lt;/code&gt; keyword will mark the generated property constant as being deprecated in its Javadoc comment.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;lt;modifier&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Option declarations support the following modifiers, of which one can be used:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Modifier&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;advanced&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt; Advanced layout options are not shown in the &lt;em&gt;Layout&lt;/em&gt; view by default. The user has to explicitly instruct the view to show advanced layout options.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;programmatic&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Programmatic layout options are not shown in the &lt;em&gt;Layout&lt;/em&gt; view at all, but only set through programmatic layout configuration. The reason is often that they are either highly specialized, or that values of their data type cannot be properly entered in the layout view.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;output&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Output options are not really layout options at all, but are used by layout algorithms to annotate the input graph with further layout information that could not be returned otherwise. Not being input options at all, these options are of course not shown in the layout view.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;global&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A layout option that is global can be understood as a layout option that guides ELK&amp;rsquo;s implementation of the layout process rather than influencing what a single layout algorithm does. You should not need to declare global options.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;lt;type&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The data type of a layout option. This can be any valid and visible Java type. Note that primitive types will be replaced by their object counterparts (for example, &lt;code&gt;int&lt;/code&gt; will become &lt;code&gt;Integer&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;lt;targets&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Defines which graph elements a layout option can meaningfully be applied to. This mainly influences which layout options the &lt;em&gt;Layout&lt;/em&gt; view shows depending on the currently selected diagram element. An option can have zero or more targets, defined as a comma-separated list. The following are valid targets:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Target&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;parents&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The option makes sense for nodes that contain further nodes themselves (&lt;em&gt;parent nodes&lt;/em&gt;).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nodes&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The option makes sense for nodes (which also includes parent nodes).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;edges&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The option makes sense for edges.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ports&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The option makes sense for ports.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;labels&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The option makes sense for labels.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Note that there is nothing that stops programmers from setting a port option on a node. All you are saying with your declaration is that doing so won&amp;rsquo;t make any difference because you will only interpret the option when it is set on ports.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;grouping-layout-options&#34;&gt;Grouping Layout Options&lt;/h4&gt;
+
+&lt;p&gt;Everyone likes things to be neat and tidy. Well, alright, &lt;em&gt;we&lt;/em&gt; like things to be neat and tidy, which is why related options can be grouped together:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-melk&#34;&gt;group thegroupname {
+    // Your options and nested groups go here
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Groups do not just make the metadata file more readable, but also have an effect on the identifiers of your options: all the names of groups your options are in will be placed between the option ID prefix and the option&amp;rsquo;s actual name, thus reflecting the grouping in option IDs as well.&lt;/p&gt;
+
+&lt;h4 id=&#34;a-note-on-enumerations&#34;&gt;A Note on Enumerations&lt;/h4&gt;
+
+&lt;p&gt;Layout options may well have an enumeration value type. Just as layout options can be declared to be advanced, this may also be true for enumeration values. Take for example a layout algorithm that offers different implementations of a certain feature. The implementation to be used is specified through a layout option that enumerates all possibilities. However, let us assume that some of the implementations are not quite ready for the public. (Homework assignment: work out five reasons why this could be the case.) The corresponding enumeration values can be annotated to make this clear:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public enum Strategy {
+    WORKS_ALWAYS,
+    WORKS_ON_SUNDAYS,
+    @AdvancedPropertyValue
+    WORKS_IF_YOU_ARE_CAREFUL,
+    @ExperimentalPropertyValue
+    WORKS_IN_EXPERIMENTAL_CONDITIONS
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;categories&#34;&gt;Categories&lt;/h3&gt;
+
+&lt;p&gt;Each layout algorithm can be assigned to a layout algorithm category. The categorization is for example used by the layout algorithm selection dialog or the documentation. While ELK already provides a number of predefined categories, this is how you would define your own:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-melk&#34;&gt;// The category&#39;s ID, appended to the idPrefix declared in the bundle information
+category awesome {
+    // A short category label that can be shown to users.
+    label &amp;quot;Awesome Algorithms&amp;quot;
+
+    description
+        &amp;quot;A not-too-long but totally meaningful description of what this category
+         of layout algorithms is all about. Will be shown to users.&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;algorithms&#34;&gt;Algorithms&lt;/h3&gt;
+
+&lt;p&gt;Of course, everything we have done so far was simply in support of the main act: declaring the layout algorithms you have worked hard to develop (just to find out that there&amp;rsquo;s hundreds of little details you got wrong; we&amp;rsquo;ve been there&amp;hellip;). Here&amp;rsquo;s what an algorithm declaration looks like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-melk&#34;&gt;// The algorithm&#39;s ID
+algorithm algorithmid(&amp;lt;class&amp;gt;) {
+    // User-readable short name for the algorithm
+    label &amp;quot;Excellent Algorithm&amp;quot;
+
+    description
+        &amp;quot;A brief and completely sensible description of what this algorithm
+         does. Will be shown to users.&amp;quot;
+
+    // The name of the ILayoutMetaDataProvider class generated for this
+    // algorithm. Use the constants defined in that class from within your
+    // algorithm to access layout option values.
+    metadataClass properties.AlgorithmProperties
+
+    // Optional path to an image that provides a preview of the kinds of
+    // layouts this algorithm will produce. Relative to the plug-in&#39;s
+    // root folder.
+    preview path/to/preview/image.png
+
+    // Optional ID of a category of layout algorithms this algorithm belongs to.
+    category the.category.id
+
+    // List of graph features this algorithm explicitly supports (see below)
+    features &amp;lt;features&amp;gt;
+
+    // Declarations for each layout option this algorithm supports (see below)
+    &amp;lt;supportedOptions&amp;gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Three details deserve more explanation:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;class&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The main class that provides the entry to your layout algorithm. This must be a subclass of &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; and may have to be imported in your metadata file&amp;rsquo;s import section. &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; has an &lt;code&gt;initialize(String)&lt;/code&gt; method that expects a &lt;code&gt;String&lt;/code&gt; parameter to customize its behavior. You can define that parameter&amp;rsquo;s value for your algorithm like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-melk&#34;&gt;algorithm myAlgorithm(TheAbstractLayoutProviderSubclass#TheParamterValue)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;features&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This is a comma-separated list of structural graph features that an algorithm explicitly supports. Most of these declarations are purely informational, but graph layout engines might decide to change the layout graph passed to your algorithm depending on whether it supports the original graph&amp;rsquo;s features or not. At the time of writing, these are the possible graph features:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Feature&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;clusters&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt; &lt;strong&gt;TODO: Document&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;compound&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Whether an algorithm supports the layout of hierarchical graphs. If it does not, the ELK graph layout engine will only ever give the algorithm a single level of hierarchy to be laid out at a time, regardless of what the user requests.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;disconnected&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Whether an algorithm has explicit support for disconnected components (groups of nodes without connection to other groups of nodes).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;edge_labels&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt; Whether an algorithm knows how to place edge labels or not. A graph layout engine may decide to run a post-processing on your algorithm&amp;rsquo;s result to place edge labels afterwards.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;inside_self_loops&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Whether an algorithm supports routing a self loop through the inside of a node instead of around it.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;multi_edges&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Whether an algorithm supports edges that have the same source and target.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ports&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Whether an algorithm supports edges connected to nodes through explicit ports.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;self_loops&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Whether an algorithm supports self loops (edges that connect a node to itself).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;supportedOptions&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Algorithms declare which layout options they support, either with their default values as originally declared or with overridden default values. Each supported option ends up as an &lt;code&gt;IProperty&lt;/code&gt; constant in the algorithm&amp;rsquo;s layout meta data provider, complete with correct default values. These constants should be used to retrieve option values from within the algorithm code.&lt;/p&gt;
+
+&lt;p&gt;An option support declaration looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-melk&#34;&gt;supports the.option.id          // Standard default value
+supports the.option.id = 42     // Overridden default value
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Eclipse Ready</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/GettingEclipseReady/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/GettingEclipseReady/</guid>
+      <description>&lt;p&gt;Developing layout algorithms requires you to have the &lt;em&gt;Eclipse Layout Kernel SDK&lt;/em&gt; installed in your Eclipse installation. Follow these steps to install it:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Start Eclipse and select &lt;em&gt;Help - Install New Software&amp;hellip;&lt;/em&gt; from the menu.&lt;/li&gt;
+&lt;li&gt;In the &lt;em&gt;Work with:&lt;/em&gt; field, enter the address of our release or nightly update site, which you can find &lt;a href=&#34;https://www.eclipse.org/elk/downloads&#34;&gt;on our Downloads page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;From the &lt;em&gt;Eclipse Layout Kernel&lt;/em&gt; category, check &lt;em&gt;Eclipse Layout Kernel (Incubation) - SDK&lt;/em&gt; as well as &lt;em&gt;Eclipse Layout Kernel (Incubation) - SDK (sources)&lt;/em&gt; and click &lt;em&gt;Next&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the instructions of the installation wizard, accepting all of the license agreements.&lt;/li&gt;
+&lt;li&gt;Restart Eclipse.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;After the restart, there won&amp;rsquo;t seem to be much of a difference. Because there isn&amp;rsquo;t. But rest assured that your development environment is now perfectly prepared for what is about to come.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

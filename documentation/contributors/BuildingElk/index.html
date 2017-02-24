@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background: #1B1732 url('https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/template/breadcrumbs-large-bg.jpg') repeat scroll center center / 100% auto;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">Eclipse Layout Kernel</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/downloads/">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/gettingstarted/">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="https://www.eclipse.org/elk/documentation/">Documentation <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/reference/">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.eclipse.org/elk/support/">Support</a>
+        </li>
+      
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Building ELK</h1>
+
+    
+
+<p>ELK is built using <a href="https://maven.apache.org/">Apache Maven</a> in conjunction with <a href="https://eclipse.org/tycho/">Tycho</a> to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the <code>build/</code> directory inside your clone of the ELK repository.</p>
+
+<h2 id="building-elk">Building ELK</h2>
+
+<p>Execute Maven using the following command line (note that the command line is split in order to improve readability):</p>
+
+<pre><code class="language-bash">mvn
+    --define elkMeta.repositoryUrl=META_REPOSITORY_URL
+    clean
+    ADDITIONAL_PHASES
+</code></pre>
+
+<p><code>clean</code> is not strictly necessary.</p>
+
+<p>For <code>META_REPOSITORY_URL</code>, insert the URL of the Maven repository where the ELK Metadata compiler can be found. If you have <em>not</em> touched the thing (if in doubt, this is the case), the <a href="https://www.eclipse.org/elk/downloads">Downloads</a> page will tell you which repository to use to build different releases (to build the current development version, use the nightly build repository). If you <em>have</em> touched the metadata compiler, the repository URL should be the same as in the metadata compiler build (see below).</p>
+
+<p>For <code>ADDITIONAL_PHASES</code>, the following are typical choices:</p>
+
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>package</code></td>
+<td>Simply compile everything. You will find the result in the update site placed in the <code>org.eclipse.elk.repository/target/</code> directory.</td>
+</tr>
+
+<tr>
+<td><code>verify</code></td>
+<td>Compile ELK and execute the unit tests.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="building-documentation-for-elk">Building Documentation for ELK</h3>
+
+<p>If the ELK build should also generate documentation from all metadata files (usually to be put into our website), Maven needs to be supplied with the path to the ELK repository&rsquo;s <code>doc/</code> folder (or to whereever the documentation should be placed). Do so by adding another command-line parameter to the Maven call:</p>
+
+<pre><code class="language-bash">--define elk.metadata.documentation.outputPath=/path/to/docs/folder
+</code></pre>
+
+<h2 id="building-the-metadata-compiler">Building the Metadata Compiler</h2>
+
+<p>Execute Maven using the following command line (note that the command line is split in order to improve readability):</p>
+
+<pre><code class="language-bash">mvn
+    -P elk-meta
+    --define elkMeta.repositoryUrl=META_REPOSITORY_URL
+    --define elkMeta.publishUrl=META_REPOSITORY_URL
+    clean
+    ADDITIONAL_PHASES
+</code></pre>
+
+<p><code>clean</code> is not strictly necessary.</p>
+
+<p>Maven will build a Maven repository that can be used by the main build to compile <code>.elkm</code> files. For <code>META_REPOSITORY_URL</code>, insert the URL where you want that repository to be placed. If you&rsquo;re building locally, this should be a path on your local file system. For example:</p>
+
+<pre><code class="language-bash">--define elkMeta.repositoryUrl=file:///home/user/elkmetarepository
+--define elkMeta.publishUrl=file:///home/user/elkmetarepository
+</code></pre>
+
+<p>For <code>ADDITIONAL_PHASES</code>, the following are typical choices:</p>
+
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>deploy</code></td>
+<td>Compile the metadata compiler and put it into a Maven repository at <code>META_REPOSITORY_URL</code>.</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/ToolDevelopers/">
+    <li class="navlevel-1">
+      Tool Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/GraphDataStructure/">
+    <li class="navlevel-2">
+      Graph Data Structure
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/CoordinateSystem/">
+    <li class="navlevel-3">
+      Coordinate System
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/LayoutOptions/">
+    <li class="navlevel-3">
+      Layout Options
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingAlgorithmsDirectly/">
+    <li class="navlevel-2">
+      Using Algorithms Directly
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingPlainJavaLayout/">
+    <li class="navlevel-2">
+      Using Plain Java Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/UsingEclipseLayout/">
+    <li class="navlevel-2">
+      Using Eclipse Layout
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/ConnectingToELK/">
+    <li class="navlevel-3">
+      Connecting to ELK
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/AdvancedConfiguration/">
+    <li class="navlevel-3">
+      Advanced Configuration
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/LayoutViewSupport/">
+    <li class="navlevel-3">
+      Layout View Support
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/DependencyInjection/">
+    <li class="navlevel-3">
+      Dependency Injection
+    </li>
+  </a>
+  
+
+
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/AlgorithmDevelopers/">
+    <li class="navlevel-1">
+      Algorithm Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/GettingEclipseReady/">
+    <li class="navlevel-2">
+      Getting Eclipse Ready
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/CreatingANewProject/">
+    <li class="navlevel-2">
+      Creating a New Project
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/MetadataLanguage/">
+    <li class="navlevel-2">
+      ELK Metadata Language
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/AutomaticBuilds/">
+    <li class="navlevel-3">
+      Automatic Builds
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmImplementation/">
+    <li class="navlevel-2">
+      Algorithm Implementation
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/AlgorithmDebugging/">
+    <li class="navlevel-2">
+      Algorithm Debugging
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/Contributors/">
+    <li class="navlevel-1">
+      ELK Contributors
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/DevelopmentSetup/">
+    <li class="navlevel-2">
+      Development Setup
+    </li>
+  </a>
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/DevelopmentWorkflow/">
+    <li class="navlevel-2">
+      Development Workflow
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/InstallingWithOomph/">
+    <li class="navlevel-3">
+      Installing With Oomph
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="https://www.eclipse.org/elk/documentation/contributors/BuildingElk/">
+    <li class="navlevel-2 active">
+      Building ELK
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/elk/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row">
+          <section class="col-3 hidden-print">
+            <h2>Eclipse Foundation</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/org/">About us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/donate">Donate</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Legal</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/epl-v10.php">Eclipse Public License </a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Useful Links</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+              <li class="nav-item pb-2"><a href="//help.eclipse.org/">Documentation</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/forums/">Forums</a></li>
+              <li class="nav-item pb-2"><a href="//marketplace.eclipse.org">Marketplace</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Other</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+            </ul>
+
+            <ul class="list-inline social-media">
+              <li><a href="https://twitter.com/EclipseFdn"><i class="fa fa-twitter-square"></i></a></li>
+              <li><a href="https://plus.google.com/+Eclipse"><i class="fa fa-google-plus-square"></i></a></li>
+              <li><a href="https://www.facebook.com/eclipse.org"><i class="fa fa-facebook-square"></i> </a></li>
+              <li><a href="https://www.youtube.com/user/EclipseFdn"><i class="fa fa-youtube-square"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/eclipse-foundation"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <span class="hidden-print">
+              <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-logo-bw-332x78.png"/></a>
+            </span>
+          </div>
+          <div class="col">
+            <p class="copyright-text">Copyright &copy; 2017 The Eclipse Foundation. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

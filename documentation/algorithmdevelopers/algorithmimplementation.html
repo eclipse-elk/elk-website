@@ -27,27 +27,27 @@
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/downloads.html">Downloads</a>
+          <a class="nav-link" href="../../downloads.html">Downloads</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/gettingstarted.html">Getting Started</a>
+          <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
         </li>
       
         
         <li class="nav-item active">
-          <a class="nav-link" href="https://www.eclipse.org/elk/documentation.html">Documentation <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../documentation.html">Documentation <span class="sr-only">(current)</span></a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/reference.html">Reference</a>
+          <a class="nav-link" href="../../reference.html">Reference</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/support.html">Support</a>
+          <a class="nav-link" href="../../support.html">Support</a>
         </li>
       
 
@@ -67,7 +67,7 @@
 
 <p>Once everything is set up, it is time to actually implement your algorithm. The problem your layout algorithm has to solve can be summarized as follows: given an input graph (possibly with existing coordinates), compute coordinates for all graph elements and routings for all edges (subject to layout properties the graph is annotated with) and annotate the layout graph accordingly. Note that the input graph defines the layout problem, but also carries the resulting coordinate assignment after your algorithm has executed.</p>
 
-<p>While developing your algorithm, you will regularly switch back and forth between doing that and changing <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage.html">your metadata</a>.</p>
+<p>While developing your algorithm, you will regularly switch back and forth between doing that and changing <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">your metadata</a>.</p>
 
 <h2 id="your-algorithm-s-main-class">Your Algorithm&rsquo;s Main Class</h2>
 
@@ -78,7 +78,7 @@
 
 <p>Let&rsquo;s go through the parameters in reverse order (because of reasons). The <code>progressMonitor</code> parameter should be used to track progress and check if the user wants to cancel the layout operation. Actually canceling when the user wants to cancel is one of those features that will help your software stand out from many other programs, so take this opportunity to shine!</p>
 
-<p>The <code>layoutGraph</code> parameter is more important, however. It defines the layout problem your algorithm should solve, in several ways. First, it defines the structure of the graph to be laid out: which nodes exist, how are they connected, and so on. Second, each graph element can have <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions.html">layout options</a> attached to it that are supposed to influence what your layout algorithm does with them. And third, each element may have pre-existing <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">coordinates or bend points</a> associated with it that your algorithm may want to make use of. Those existing coordinates will be overwritten by your algorithm to hold the new, computed coordinates.</p>
+<p>The <code>layoutGraph</code> parameter is more important, however. It defines the layout problem your algorithm should solve, in several ways. First, it defines the structure of the graph to be laid out: which nodes exist, how are they connected, and so on. Second, each graph element can have <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">layout options</a> attached to it that are supposed to influence what your layout algorithm does with them. And third, each element may have pre-existing <a href="../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">coordinates or bend points</a> associated with it that your algorithm may want to make use of. Those existing coordinates will be overwritten by your algorithm to hold the new, computed coordinates.</p>
 
 <p>Note that the layout graph may contain nodes that themselves contain further nodes. By default, layout algorithms are only supposed to compute coordinates for the direct children of the <code>layoutGraph</code> and then set the size for the <code>layoutGraph</code> itself. However, if your layout algorithm supports hierarchical layout, and if hierarchical layout is requested (which is done through the <code>CoreOptions.HIERARCHY_HANDLING</code> layout option), you will also compute coordinates for children of children.</p>
 
@@ -89,7 +89,7 @@
 
 <p>This method can be used to initialize data structures and prepare things. This method is called exactly once when an instance of your <code>AbstractLayoutProvider</code> subclass is created. Note that a single instance of your class can be used for multiple layout runs.</p>
 
-<p>The <code>parameter</code> parameter is a bit tricky. Most layout algorithms won&rsquo;t have any need for it, but some may adjust their behavior depending on its value. One example is our interface to the <a href="http://www.graphviz.org/">Graphviz</a> library that provides different layout algorithms. We only implement a single subclass of <code>AbstractLayoutProvider</code>, but each instance is passed a parameter value that indicates which of the Graphviz algorithms it will execute when the <code>layout(...)</code> method is called. Of course, which parameter to pass must be defined in <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage.html">your metadata file</a>.</p></li>
+<p>The <code>parameter</code> parameter is a bit tricky. Most layout algorithms won&rsquo;t have any need for it, but some may adjust their behavior depending on its value. One example is our interface to the <a href="http://www.graphviz.org/">Graphviz</a> library that provides different layout algorithms. We only implement a single subclass of <code>AbstractLayoutProvider</code>, but each instance is passed a parameter value that indicates which of the Graphviz algorithms it will execute when the <code>layout(...)</code> method is called. Of course, which parameter to pass must be defined in <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">your metadata file</a>.</p></li>
 
 <li><p><code>void dispose();</code></p>
 
@@ -98,7 +98,7 @@
 
 <h2 id="layout-options">Layout Options</h2>
 
-<p>It is worth reiterating here that it is important which <code>IProperty</code> instance your algorithm uses to retrieve the value of a layout option set on a graph element. Since the <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage.html">ELK metadata tooling</a> generates a separate class with a complete set of <code>IProperty</code> instances for each algorithm, it makes sense to use these instances. The reason is that using them ensures that you get the correct default values configured for your layout algorithm when accessing layout options that were not set on a graph element.</p>
+<p>It is worth reiterating here that it is important which <code>IProperty</code> instance your algorithm uses to retrieve the value of a layout option set on a graph element. Since the <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">ELK metadata tooling</a> generates a separate class with a complete set of <code>IProperty</code> instances for each algorithm, it makes sense to use these instances. The reason is that using them ensures that you get the correct default values configured for your layout algorithm when accessing layout options that were not set on a graph element.</p>
 
   </div>
 
@@ -117,7 +117,7 @@
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers.html">
+  <a href="../../documentation/tooldevelopers.html">
     <li class="navlevel-1">
       Tool Developers
     </li>
@@ -130,7 +130,7 @@
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure.html">
+  <a href="../../documentation/tooldevelopers/graphdatastructure.html">
     <li class="navlevel-2">
       Graph Data Structure
     </li>
@@ -143,7 +143,7 @@
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
+  <a href="../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
     <li class="navlevel-3">
       Coordinate System
     </li>
@@ -151,7 +151,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
+  <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
     <li class="navlevel-3">
       Layout Options
     </li>
@@ -162,7 +162,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingalgorithmsdirectly.html">
+  <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">
     <li class="navlevel-2">
       Using Algorithms Directly
     </li>
@@ -170,7 +170,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingplainjavalayout.html">
+  <a href="../../documentation/tooldevelopers/usingplainjavalayout.html">
     <li class="navlevel-2">
       Using Plain Java Layout
     </li>
@@ -178,7 +178,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout.html">
     <li class="navlevel-2">
       Using Eclipse Layout
     </li>
@@ -191,7 +191,7 @@
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
     <li class="navlevel-3">
       Connecting to ELK
     </li>
@@ -199,7 +199,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
     <li class="navlevel-3">
       Advanced Configuration
     </li>
@@ -207,7 +207,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
     <li class="navlevel-3">
       Layout View Support
     </li>
@@ -215,7 +215,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
     <li class="navlevel-3">
       Dependency Injection
     </li>
@@ -229,7 +229,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers.html">
+  <a href="../../documentation/algorithmdevelopers.html">
     <li class="navlevel-1">
       Algorithm Developers
     </li>
@@ -242,7 +242,7 @@
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/gettingeclipseready.html">
+  <a href="../../documentation/algorithmdevelopers/gettingeclipseready.html">
     <li class="navlevel-2">
       Getting Eclipse Ready
     </li>
@@ -250,7 +250,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/creatinganewproject.html">
+  <a href="../../documentation/algorithmdevelopers/creatinganewproject.html">
     <li class="navlevel-2">
       Creating a New Project
     </li>
@@ -258,7 +258,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage.html">
+  <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">
     <li class="navlevel-2">
       ELK Metadata Language
     </li>
@@ -271,7 +271,7 @@
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
+  <a href="../../documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
     <li class="navlevel-3">
       Automatic Builds
     </li>
@@ -282,7 +282,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation.html">
+  <a href="../../documentation/algorithmdevelopers/algorithmimplementation.html">
     <li class="navlevel-2 active">
       Algorithm Implementation
     </li>
@@ -290,7 +290,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmdebugging.html">
+  <a href="../../documentation/algorithmdevelopers/algorithmdebugging.html">
     <li class="navlevel-2">
       Algorithm Debugging
     </li>
@@ -301,7 +301,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors.html">
+  <a href="../../documentation/contributors.html">
     <li class="navlevel-1">
       ELK Contributors
     </li>
@@ -314,7 +314,7 @@
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentsetup.html">
+  <a href="../../documentation/contributors/developmentsetup.html">
     <li class="navlevel-2">
       Development Setup
     </li>
@@ -322,7 +322,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentworkflow.html">
+  <a href="../../documentation/contributors/developmentworkflow.html">
     <li class="navlevel-2">
       Development Workflow
     </li>
@@ -335,7 +335,7 @@
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/installingwithoomph.html">
+  <a href="../../documentation/contributors/developmentworkflow/installingwithoomph.html">
     <li class="navlevel-3">
       Installing With Oomph
     </li>
@@ -346,7 +346,7 @@
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors/buildingelk.html">
+  <a href="../../documentation/contributors/buildingelk.html">
     <li class="navlevel-2">
       Building ELK
     </li>
@@ -366,7 +366,7 @@
   </ul>
 
   <div class="incubation-egg">
-    <a href="https://www.eclipse.org/elk/projects/what-is-incubation.php">
+    <a href="../../projects/what-is-incubation.php">
       <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
     </a>
   </div>

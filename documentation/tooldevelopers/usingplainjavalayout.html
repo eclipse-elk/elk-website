@@ -27,27 +27,27 @@
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/downloads.html">Downloads</a>
+          <a class="nav-link" href="../../downloads.html">Downloads</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/gettingstarted.html">Getting Started</a>
+          <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
         </li>
       
         
         <li class="nav-item active">
-          <a class="nav-link" href="https://www.eclipse.org/elk/documentation.html">Documentation <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../documentation.html">Documentation <span class="sr-only">(current)</span></a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/reference.html">Reference</a>
+          <a class="nav-link" href="../../reference.html">Reference</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/support.html">Support</a>
+          <a class="nav-link" href="../../support.html">Support</a>
         </li>
       
 
@@ -65,7 +65,7 @@
 
     
 
-<p>While layout algorithms <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingalgorithmsdirectly.html">can be called directly</a>, it is usually a better idea not to do so except in the simplest of cases. There are several reasons for that:</p>
+<p>While layout algorithms <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">can be called directly</a>, it is usually a better idea not to do so except in the simplest of cases. There are several reasons for that:</p>
 
 <ol>
 <li><p>When calling a layout algorithm directly, your code is hardwired to that implementation and looses a bit of flexibility.</p></li>
@@ -97,9 +97,9 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 <p>This method provides the entry point to automatic layout and applies the layout algorithms as configured in the layout graph (more details below). To get everything working, follow these steps after you have populated the layout meta data service:</p>
 
 <ol>
-<li><p>Create an ElkGraph to be laid out (see our <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure.html">graph documentation</a> for how to do so). The KGraph will be based on the diagram you want your application to display.</p></li>
+<li><p>Create an ElkGraph to be laid out (see our <a href="../../documentation/tooldevelopers/graphdatastructure.html">graph documentation</a> for how to do so). The KGraph will be based on the diagram you want your application to display.</p></li>
 
-<li><p>Configure which layout algorithm should be used to layout your graph and how the layout algorithm should layout your graph by setting <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions.html">layout options</a> on the graph&rsquo;s elements. Check the documentation of the layout algorithm you want to use for which layout properties it supports and what they do, exactly.</p></li>
+<li><p>Configure which layout algorithm should be used to layout your graph and how the layout algorithm should layout your graph by setting <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">layout options</a> on the graph&rsquo;s elements. Check the documentation of the layout algorithm you want to use for which layout properties it supports and what they do, exactly.</p></li>
 
 <li><p>Obtain an instance of <code>RecursiveGraphLayoutEngine</code> and call its <code>layout(...)</code> method. Pass it the graph to be laid out as well as a progress monitor to track progress. The progress monitor will allow users to see how long layout will take and to cancel the operation. If you do not care to provide your own progress monitor, simply use <code>BasicProgressMonitor</code>, which is our default implementation. Once the <code>layout(...)</code> method returns, the result will be stored in the layout-related fields of the graph.</p></li>
 
@@ -123,7 +123,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers.html">
+  <a href="../../documentation/tooldevelopers.html">
     <li class="navlevel-1">
       Tool Developers
     </li>
@@ -136,7 +136,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure.html">
+  <a href="../../documentation/tooldevelopers/graphdatastructure.html">
     <li class="navlevel-2">
       Graph Data Structure
     </li>
@@ -149,7 +149,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
+  <a href="../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
     <li class="navlevel-3">
       Coordinate System
     </li>
@@ -157,7 +157,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
+  <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
     <li class="navlevel-3">
       Layout Options
     </li>
@@ -168,7 +168,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingalgorithmsdirectly.html">
+  <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">
     <li class="navlevel-2">
       Using Algorithms Directly
     </li>
@@ -176,7 +176,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingplainjavalayout.html">
+  <a href="../../documentation/tooldevelopers/usingplainjavalayout.html">
     <li class="navlevel-2 active">
       Using Plain Java Layout
     </li>
@@ -184,7 +184,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout.html">
     <li class="navlevel-2">
       Using Eclipse Layout
     </li>
@@ -197,7 +197,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
     <li class="navlevel-3">
       Connecting to ELK
     </li>
@@ -205,7 +205,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
     <li class="navlevel-3">
       Advanced Configuration
     </li>
@@ -213,7 +213,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
     <li class="navlevel-3">
       Layout View Support
     </li>
@@ -221,7 +221,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
     <li class="navlevel-3">
       Dependency Injection
     </li>
@@ -235,7 +235,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers.html">
+  <a href="../../documentation/algorithmdevelopers.html">
     <li class="navlevel-1">
       Algorithm Developers
     </li>
@@ -248,7 +248,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/gettingeclipseready.html">
+  <a href="../../documentation/algorithmdevelopers/gettingeclipseready.html">
     <li class="navlevel-2">
       Getting Eclipse Ready
     </li>
@@ -256,7 +256,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/creatinganewproject.html">
+  <a href="../../documentation/algorithmdevelopers/creatinganewproject.html">
     <li class="navlevel-2">
       Creating a New Project
     </li>
@@ -264,7 +264,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage.html">
+  <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">
     <li class="navlevel-2">
       ELK Metadata Language
     </li>
@@ -277,7 +277,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
+  <a href="../../documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
     <li class="navlevel-3">
       Automatic Builds
     </li>
@@ -288,7 +288,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation.html">
+  <a href="../../documentation/algorithmdevelopers/algorithmimplementation.html">
     <li class="navlevel-2">
       Algorithm Implementation
     </li>
@@ -296,7 +296,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmdebugging.html">
+  <a href="../../documentation/algorithmdevelopers/algorithmdebugging.html">
     <li class="navlevel-2">
       Algorithm Debugging
     </li>
@@ -307,7 +307,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors.html">
+  <a href="../../documentation/contributors.html">
     <li class="navlevel-1">
       ELK Contributors
     </li>
@@ -320,7 +320,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentsetup.html">
+  <a href="../../documentation/contributors/developmentsetup.html">
     <li class="navlevel-2">
       Development Setup
     </li>
@@ -328,7 +328,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentworkflow.html">
+  <a href="../../documentation/contributors/developmentworkflow.html">
     <li class="navlevel-2">
       Development Workflow
     </li>
@@ -341,7 +341,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
 
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/installingwithoomph.html">
+  <a href="../../documentation/contributors/developmentworkflow/installingwithoomph.html">
     <li class="navlevel-3">
       Installing With Oomph
     </li>
@@ -352,7 +352,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   
 
   
-  <a href="https://www.eclipse.org/elk/documentation/contributors/buildingelk.html">
+  <a href="../../documentation/contributors/buildingelk.html">
     <li class="navlevel-2">
       Building ELK
     </li>
@@ -372,7 +372,7 @@ service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
   </ul>
 
   <div class="incubation-egg">
-    <a href="https://www.eclipse.org/elk/projects/what-is-incubation.php">
+    <a href="../../projects/what-is-incubation.php">
       <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
     </a>
   </div>

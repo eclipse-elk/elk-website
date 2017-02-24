@@ -62,7 +62,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideSelfLoops.html&#34;&gt;insideSelfLoops&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/groups/org-eclipse-elk-insideSelfLoops.html&#34;&gt;insideSelfLoops&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -232,7 +232,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html&#34;&gt;spacing&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/groups/org-eclipse-elk-spacing.html&#34;&gt;spacing&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -292,7 +292,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping.html&#34;&gt;wrapping&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/groups/org-eclipse-elk-layered-wrapping.html&#34;&gt;wrapping&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -627,7 +627,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/groups/org-eclipse-elk-layered-nodePlacement.html&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;../reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -702,7 +702,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/groups/org-eclipse-elk-layered-nodePlacement.html&#34;&gt;nodePlacement&lt;/a&gt; -&amp;gt; &lt;a href=&#34;../reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html&#34;&gt;bk&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -780,7 +780,7 @@
   &lt;img
     class=&#34;img-fluid&#34;
     
-      src=&#34;https://www.eclipse.org/elk/img_gen/org-eclipse-elk-box_preview_box_layout.png&#34;
+      src=&#34;../img_gen/org-eclipse-elk-box_preview_box_layout.png&#34;
     
      alt=&#34;Preview Image&#34;
   /&gt;
@@ -824,52 +824,52 @@
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html&#34;&gt;Aspect Ratio&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-aspectRatio.html&#34;&gt;Aspect Ratio&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;1.3f&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html&#34;&gt;Box Layout Mode&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-box-packingMode.html&#34;&gt;Box Layout Mode&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;BoxLayoutProvider.PackingMode.SIMPLE&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes.html&#34;&gt;Expand Nodes&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-expandNodes.html&#34;&gt;Expand Nodes&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactive.html&#34;&gt;Interactive&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-interactive.html&#34;&gt;Interactive&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-constraints.html&#34;&gt;Node Size Constraints&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-nodeSize-constraints.html&#34;&gt;Node Size Constraints&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;EnumSet.noneOf(SizeConstraint)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-minimum.html&#34;&gt;Node Size Minimum&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-nodeSize-minimum.html&#34;&gt;Node Size Minimum&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;new KVector(0, 0)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-options.html&#34;&gt;Node Size Options&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-nodeSize-options.html&#34;&gt;Node Size Options&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeNode.html&#34;&gt;Node Spacing&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-spacing-nodeNode.html&#34;&gt;Node Spacing&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;15&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-padding.html&#34;&gt;Padding&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-padding.html&#34;&gt;Padding&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;new ElkPadding(15)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html&#34;&gt;Priority&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html&#34;&gt;Priority&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -926,7 +926,7 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-box.html&#34;&gt;box&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/groups/org-eclipse-elk-box.html&#34;&gt;box&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

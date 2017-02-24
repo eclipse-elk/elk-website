@@ -27,27 +27,27 @@
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/downloads.html">Downloads</a>
+          <a class="nav-link" href="./downloads.html">Downloads</a>
         </li>
       
         
         <li class="nav-item active">
-          <a class="nav-link" href="https://www.eclipse.org/elk/gettingstarted.html">Getting Started <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="./gettingstarted.html">Getting Started <span class="sr-only">(current)</span></a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/documentation.html">Documentation</a>
+          <a class="nav-link" href="./documentation.html">Documentation</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/reference.html">Reference</a>
+          <a class="nav-link" href="./reference.html">Reference</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="https://www.eclipse.org/elk/support.html">Support</a>
+          <a class="nav-link" href="./support.html">Support</a>
         </li>
       
 
@@ -72,14 +72,14 @@
 <div class="alert alert-danger">
   <h5>A Quick Warning</h5>
 
-  <p>This guide refers to the pre-0.1.0 version of the Eclipse Layout Kernel. Since then, much has changed. We will try to get this guide updated as soon as possible. In the meantime, you may want to check out <a href="https://www.eclipse.org/elk/documentation">the rest of the documentation</a>.</p>
+  <p>This guide refers to the pre-0.1.0 version of the Eclipse Layout Kernel. Since then, much has changed. We will try to get this guide updated as soon as possible. In the meantime, you may want to check out the rest of the documentation.</p>
 
 </div>
 
 
 <h2 id="installing-necessary-things">Installing Necessary Things</h2>
 
-<p>First off, you will have to actually install ELK. Head over to <a href="https://www.eclipse.org/elk/downloads">our downloads page</a> and paste the URL of our update site into your Eclipse installation. You will discover four features:</p>
+<p>First off, you will have to actually install ELK. Head over to our downloads section and paste the URL of our update site into your Eclipse installation. You will discover four features:</p>
 
 <ul>
 <li>The core feature contains the basic layout kernel infrastructure. This one you definitely need to install.</li>
@@ -103,7 +103,7 @@
   <img
     class="img-fluid"
     
-      src="https://www.eclipse.org/elk/img/getting_started_layout_button.png"
+      src="./img/getting_started_layout_button.png"
     
      alt="The layout button triggers layout on your diagram."
   />
@@ -116,7 +116,7 @@
 
 <h3 id="custom-editors">Custom Editors</h3>
 
-<p>If your editor is based on some other technology, ELK doesn&rsquo;t have a pre-built layout connection for you; you will have to build it yourself. To do so, create a class <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">that implements the <code>IDiagramLayoutManager</code> interface</a>. Your class needs to be registered with ELK:</p>
+<p>If your editor is based on some other technology, ELK doesn&rsquo;t have a pre-built layout connection for you; you will have to build it yourself. To do so, create a class <a href="./documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">that implements the <code>IDiagramLayoutManager</code> interface</a>. Your class needs to be registered with ELK:</p>
 
 <pre><code>&lt;extension
    point=&quot;org.eclipse.elk.core.service.layoutManagers&quot;&gt;
@@ -137,14 +137,14 @@
   <img
     class="img-fluid"
     
-      src="https://www.eclipse.org/elk/img/getting_started_layout_view.png"
+      src="./img/getting_started_layout_view.png"
     
      alt="The layout view allows you to play around with many of the available layout options."
   />
 </p>
 
 
-<p>Once you have found settings you like, it&rsquo;s time to configure layout such that these settings are always applied. (You don&rsquo;t want your users having to use the layout view, now, do you?) There are different ways to do so, and we have <a href="https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions.html">more in-depth information on them</a>.</p>
+<p>Once you have found settings you like, it&rsquo;s time to configure layout such that these settings are always applied. (You don&rsquo;t want your users having to use the layout view, now, do you?) There are different ways to do so, and we have <a href="./documentation/tooldevelopers/graphdatastructure/layoutoptions.html">more in-depth information on them</a>.</p>
 
 <p>The easiest way is to simply register static configurations with ELK. Static configurations are registered with the org.eclipse.elk.core.layoutConfigs extension point. Each static config consists of three parts:</p>
 
@@ -160,7 +160,7 @@
   <img
     class="img-fluid"
     
-      src="https://www.eclipse.org/elk/img/getting_started_layout_view_info.png"
+      src="./img/getting_started_layout_view_info.png"
     
      alt="Finding out more about selected elements and layout options through the layout view."
   />
@@ -193,7 +193,7 @@
   </ul>
 
   <div class="incubation-egg">
-    <a href="https://www.eclipse.org/elk/projects/what-is-incubation.php">
+    <a href="./projects/what-is-incubation.php">
       <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
     </a>
   </div>

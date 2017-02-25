@@ -67,7 +67,7 @@
 
 <p>ELK is built using <a href="https://maven.apache.org/">Apache Maven</a> in conjunction with <a href="https://eclipse.org/tycho/">Tycho</a> to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the <code>build/</code> directory inside your clone of the ELK repository.</p>
 
-<h2 id="building-elk">Building ELK</h2>
+<h2 id="the-main-build-process">The Main Build Process</h2>
 
 <p>Execute Maven using the following command line (note that the command line is split in order to improve readability):</p>
 
@@ -103,13 +103,6 @@
 </tr>
 </tbody>
 </table>
-
-<h3 id="building-documentation-for-elk">Building Documentation for ELK</h3>
-
-<p>If the ELK build should also generate documentation from all metadata files (usually to be put into our website), Maven needs to be supplied with the path to the ELK repository&rsquo;s <code>doc/</code> folder (or to whereever the documentation should be placed). Do so by adding another command-line parameter to the Maven call:</p>
-
-<pre><code class="language-bash">--define elk.metadata.documentation.outputPath=/path/to/docs/folder
-</code></pre>
 
 <h2 id="building-the-metadata-compiler">Building the Metadata Compiler</h2>
 
@@ -148,6 +141,18 @@
 </tr>
 </tbody>
 </table>
+
+<h2 id="building-the-documentation">Building the Documentation</h2>
+
+<p>The documentation website is our source of documentation. The main build can be configured to generate the reference documentation which is part of the website from our metadata files. To do so, add the following command-line argument to the main build call:</p>
+
+<pre><code class="language-bash">--define elk.metadata.documentation.outputPath=/path/to/docs/folder
+</code></pre>
+
+<p>The documentation website itself is built with <a href="https://gohugo.io/">Hugo</a>, a static website generator. The website is setup in a way to be browsable both online and offline. To actually build the documentation website, go to the repository&rsquo;s <code>docs/</code> folder and simply execute the following command:</p>
+
+<pre><code class="language-bash">hugo
+</code></pre>
 
   </div>
 

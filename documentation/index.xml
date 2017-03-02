@@ -302,7 +302,7 @@ Use the navigation bar to the right to work your way through each of those steps
 
 &lt;p&gt;ELK is built using &lt;a href=&#34;https://maven.apache.org/&#34;&gt;Apache Maven&lt;/a&gt; in conjunction with &lt;a href=&#34;https://eclipse.org/tycho/&#34;&gt;Tycho&lt;/a&gt; to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the &lt;code&gt;build/&lt;/code&gt; directory inside your clone of the ELK repository.&lt;/p&gt;
 
-&lt;h2 id=&#34;building-elk&#34;&gt;Building ELK&lt;/h2&gt;
+&lt;h2 id=&#34;the-main-build-process&#34;&gt;The Main Build Process&lt;/h2&gt;
 
 &lt;p&gt;Execute Maven using the following command line (note that the command line is split in order to improve readability):&lt;/p&gt;
 
@@ -338,13 +338,6 @@ Use the navigation bar to the right to work your way through each of those steps
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;h3 id=&#34;building-documentation-for-elk&#34;&gt;Building Documentation for ELK&lt;/h3&gt;
-
-&lt;p&gt;If the ELK build should also generate documentation from all metadata files (usually to be put into our website), Maven needs to be supplied with the path to the ELK repository&amp;rsquo;s &lt;code&gt;doc/&lt;/code&gt; folder (or to whereever the documentation should be placed). Do so by adding another command-line parameter to the Maven call:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;--define elk.metadata.documentation.outputPath=/path/to/docs/folder
-&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;building-the-metadata-compiler&#34;&gt;Building the Metadata Compiler&lt;/h2&gt;
 
@@ -383,6 +376,18 @@ Use the navigation bar to the right to work your way through each of those steps
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h2 id=&#34;building-the-documentation&#34;&gt;Building the Documentation&lt;/h2&gt;
+
+&lt;p&gt;The documentation website is our source of documentation. The main build can be configured to generate the reference documentation which is part of the website from our metadata files. To do so, add the following command-line argument to the main build call:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;--define elk.metadata.documentation.outputPath=/path/to/docs/folder
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The documentation website itself is built with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, a static website generator. The website is setup in a way to be browsable both online and offline. To actually build the documentation website, go to the repository&amp;rsquo;s &lt;code&gt;docs/&lt;/code&gt; folder and simply execute the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

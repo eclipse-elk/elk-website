@@ -87,7 +87,7 @@
 
 <h3 id="property-holders">Property Holders</h3>
 
-<p>Classes that implement <code>IPropertyHolder</code> are basically maps from properties (described by <code>IProperty</code> instances) to property values (objects whose type depends on the property). All graph elements are usually annotated with an instance of <code>KLayoutData</code>, which implements the <code>IPropertyHolder</code> interface (this will actually change with the upcoming iteration of our graph data structure, in which all elements are <code>IPropertyHolders</code> themselves, which will make working with them a lot easier). Thus, every graph element has properties associated with it.</p>
+<p>Classes that implement <code>IPropertyHolder</code> are basically maps from properties (described by <code>IProperty</code> instances) to property values (objects whose type depends on the property). All graph elements implement the <code>IPropertyHolder</code> interface. Thus, every graph element has properties associated with it.</p>
 
 <p>Here&rsquo;s one more detail that will become interesting when we talk about retrieving property values. We just said that property holders are maps from properties to property values. But if properties are described by <code>IProperty</code> instances, why not simply say that property holders map <code>IProperty</code> instances to property values? To answer that question we have to return to what actually identifies a property: its identifier. Accordingly, if multiple <code>IProperty</code> instances share the same identifier, they effectively describe the same property and are treated by property holders as such. Why this is important will become clearer once we get around to retrieving property values below.</p>
 
@@ -119,12 +119,8 @@ boolean debugMode = graphElement.getProperty(MyAlgorithmOptions.DEBUG_MODE);
 
 <p>When the <code>getProperty(...)</code> method determines that the property whose value it should retrieve is not actually configured, it asks the passed <code>IProperty</code> instance for the default value to be returned. This has an important consequence. Consider the following code:</p>
 
-<pre><code class="language-java">final IProperty&lt;Boolean&gt; FALSE_DEFAULT = new Property&lt;&gt;(
-    &quot;an.excellent.example.property&quot;,
-    false);
-final IProperty&lt;Boolean&gt; TRUE_DEFAULT = new Property&lt;&gt;(
-    &quot;an.excellent.example.property&quot;,
-    true);
+<pre><code class="language-java">final IProperty&lt;Boolean&gt; FALSE_DEFAULT = new Property&lt;&gt;(&quot;an.excellent.example.property&quot;, false);
+final IProperty&lt;Boolean&gt; TRUE_DEFAULT = new Property&lt;&gt;(&quot;an.excellent.example.property&quot;, true);
 
 // Setting the property value to null effectively undefines the
 // property for the property holder

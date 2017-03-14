@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background: #1B1732 url('https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/template/breadcrumbs-large-bg.jpg') repeat scroll center center / 100% auto;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">Eclipse Layout Kernel</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../downloads.html">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="../../../documentation.html">Documentation <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../reference.html">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../support.html">Support</a>
+        </li>
+      
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Structuring Algorithms</h1>
+
+    
+
+<p>Often enough, algorithms can be divided into a number of <em>layout phases</em> which, executed as a pipeline, compute a layout. If your algorithm falls into this category, read on; ELK provides things you might want to use.</p>
+
+<h2 id="layout-phases-and-layout-processors">Layout Phases and Layout Processors</h2>
+
+<p>Structuring the algorithm into phases has several advantages. First, it effectively divides the big layout problem into simpler sub problems. Second, it allows the algorithm to be more flexible. Since the division into phases already forces developers to think about what exactly each phase does, it is easy to add different implementations for each phase for clients to switch between. ELK Layered, for example, implements different edge routing styles (polylines, orthogonal routing, or splines) as different implementations of its edge routing phase.</p>
+
+<p>So far, the algorithm is composed of a pipeline of layout phases. Let&rsquo;s take this concept one step further: what stops us from inserting pre or post processing in between the phases? If we add <em>intermediate processing slots</em> before, between, and after the layout phases, we arrive at the following structure:</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/architecture_phases.png"
+    
+     alt="Algorithms can be structured into phases and layout processors."
+  />
+</p>
+
+
+<p>Each processing slot can hold an arbitrary number of <em>intermediate processors</em>, also called <em>layout processors</em>, but what for? Imagine that your algorithm&rsquo;s first phase needs to eliminate cycles in the input graph by reversing edges. Of course, the edges need to be restored to their original direction once the algorithm has finished. If we only had layout phases, the last phase would be responsible for doing so. With intermediate processors, the first phase can simply request a processors to be executed in the last processing slot that restores edges to their original position. This way of doing things has two advantages. First, the processor has a well-defined purpose and is easy to implement. Second, if there were several different implementations of the last phase, all of them would have to include code to restore reversed edges, thereby introducing code duplication as well as a possible source for bugs.</p>
+
+<p>This example already highlights a difference between layout phases and layout processors: layout phases can request layout processors to be executed in a specific processing slot. Of course, different layout phase implementations can request different processors, resulting in different pipelines. Also, if multiple processors are to be executed in a pipeline, they usually need to be sorted according to their dependencies. A processor that calculates the amount of space around a node required by labels will need a processor that places these labels to have finished executing.</p>
+
+<h2 id="the-implementation">The Implementation</h2>
+
+<p>ELK contains everything required to implement layout algorithms this way in its <code>org.eclipse.elk.core.alg</code> package. To use that, the first thing you should start with is to write an enumeration that lists all the phases your algorithm will consist of. For example:</p>
+
+<pre><code class="language-java">public enum LayoutPhases {
+
+    P1_TREEIFICATION,
+    P2_NODE_ORDERING,
+    P3_NODE_PLACEMENT,
+    P4_EDGE_ROUTING;
+
+}
+</code></pre>
+
+<h3 id="layout-phases">Layout Phases</h3>
+
+<p>It is now time to start writing your phases. Implementing a layout phase is, in principle, easy: simply have your phase class implement the <code>ILayoutPhase&lt;P, G&gt;</code> interface, where <code>P</code> is the enumeration of layout phases you just wrote, and <code>G</code> is the type of the graph processed by the phase. For example:</p>
+
+<pre><code class="language-java">public class NodeOrderer implements ILayoutPhase&lt;LayoutPhases, TGraph&gt; {
+
+    @Override
+    public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutProcessorConfiguration(TGraph graph) {
+        // To start with, the phase won't require any layout processors
+        return LayoutProcessorConfiguration.&lt;TreeLayoutPhases, TGraph&gt;create();
+    }
+
+    public void process(TGraph tGraph, IElkProgressMonitor progressMonitor) {
+        // This will be the entry point to your phase
+    }
+</code></pre>
+
+<p>Besides the actual implementation in its <code>process(...)</code> method, a layout phase has one other interesting method: <code>getLayoutProcessorConfiguration(...)</code>. We will take a closer look at that a bit later. Before we can do that, we need to take a look at how to implement intermediate processors.</p>
+
+<h3 id="layout-processors">Layout Processors</h3>
+
+<p>Implementing a layout processor is, again, easy: simply have your processor class implement the <code>ILayoutProcessor&lt;G&gt;</code> interface, where <code>G</code> is the type of the graph processed by the processor. For example:</p>
+
+<pre><code class="language-java">public class RatherExcellentProcessor implements ILayoutProcessor&lt;ElkNode&gt; {
+
+    public void process(ElkNode theGraph, IElkProgressMonitor monitor) {
+        // This will be the entry point to your processor
+    }
+
+}
+</code></pre>
+
+<h3 id="specifying-dependencies-from-phases-to-processors">Specifying Dependencies from Phases to Processors</h3>
+
+<p>Before we can specify dependencies, we will need an enumeration of all available layout processors. In fact, we will need factories to instantiate those processors, but using an enumeration can give us a simple way to implement those. For example:</p>
+
+<pre><code class="language-java">public enum IntermediateProcessorStrategy implements ILayoutProcessorFactory&lt;TGraph&gt; {
+
+    // Before Phase 2
+    ROOT_PROC,
+    FAN_PROC,
+    NEIGHBORS_PROC,
+
+    // Before Phase 3
+    LEVEL_HEIGHT,
+
+    // Before Phase 4
+    NODE_POSITION_PROC,
+
+    // After Phase 4
+    DETREEIFYING_PROC;
+
+    public ILayoutProcessor&lt;TGraph&gt; create() {
+        switch (this) {
+        case ROOT_PROC:
+            return new RootProcessor();
+
+        case FAN_PROC:
+            return new FanProcessor();
+
+        case NEIGHBORS_PROC:
+            return new NeighborsProcessor();
+
+        case LEVEL_HEIGHT:
+            return new LevelHeightProcessor();
+
+        case NODE_POSITION_PROC:
+            return new NodePositionProcessor();
+
+        case DETREEIFYING_PROC:
+            return new Untreeifyer();
+
+        default:
+            throw new IllegalArgumentException(
+                    &quot;No implementation is available for the layout processor &quot; + this.toString());
+        }
+    }
+}
+</code></pre>
+
+<p>We are now ready to specify which layout processors a layout phase needs to be executed in which intermediate processing slots. This is what the phase&rsquo;s <code>getLayoutProcessorConfiguration(...)</code> method is for. That method returns an instance of <code>LayoutProcessorConfiguration&lt;P, G&gt;</code>, which specifies exactly that: the intermediate processors to add to the different processing slots. Which processors are required may well depend on the input graph, which explains why that graph is passed to the method. A simple implementation could look like this:</p>
+
+<pre><code class="language-java">private static final LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; INTERMEDIATE_PROCESSING_CONFIG =
+        LayoutProcessorConfiguration.&lt;TreeLayoutPhases, TGraph&gt;create()
+            .addBefore(TreeLayoutPhases.P2_NODE_ORDERING, IntermediateProcessorStrategy.ROOT_PROC)
+            .addBefore(TreeLayoutPhases.P2_NODE_ORDERING, IntermediateProcessorStrategy.FAN_PROC);
+
+@Override
+public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutProcessorConfiguration(TGraph graph) {
+    return INTERMEDIATE_PROCESSING_CONFIG;
+}
+</code></pre>
+
+<p>This implementation specifies that the processing slot before phase 2 should contain the <code>ROOT_PROC</code> and the <code>FAN_PROC</code> intermediate processors (whatever those are). If multiple processors should be added to the same slots, the following provides a marginally easier way to do so:</p>
+
+<pre><code class="language-java">private static final LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; INTERMEDIATE_PROCESSING_CONFIG =
+        LayoutProcessorConfiguration.&lt;TreeLayoutPhases, TGraph&gt;create()
+            .before(TreeLayoutPhases.P2_NODE_ORDERING)
+                .add(IntermediateProcessorStrategy.ROOT_PROC)
+                .add(IntermediateProcessorStrategy.FAN_PROC);
+</code></pre>
+
+<p>It can be necessary to keep different configurations in our phase and assemble them depending on different graph features. <code>LayoutProcessorConfiguration</code> provides a way to do so, using the <code>addAll(...)</code> method:</p>
+
+<pre><code class="language-java">public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutProcessorConfiguration(TGraph graph) {
+    // Basic configuration
+    LayoutProcessorConfiguration&lt;LayeredPhases, LGraph&gt; configuration =
+            LayoutProcessorConfiguration.&lt;LayeredPhases, LGraph&gt;createFrom(
+                    INTERMEDIATE_PROCESSING_CONFIG);
+
+    // Additional dependencies
+    if (foo) {
+        configuration.addAll(FOO_PROCESSING_ADDITIONS);
+    }
+
+    return configuration;
+}
+</code></pre>
+
+<h3 id="assembling-the-algorithm">Assembling the Algorithm</h3>
+
+<p>By now, we have phases, processors, a processor enumeration, and dependencies from phases to processors. What we do not have yet is a way to turn those configurations into a pipeline of layout processors that we can execute to compute a layout. What we are looking for is the <code>AlgorithmAssembler</code> class. But before we can use that, we need factories to create our layout phases.</p>
+
+<p>Again, enumerations are a good way to implement those factories. For example:</p>
+
+<pre><code class="language-java">public enum NodeOrderStrategy implements ILayoutPhaseFactory&lt;LayeredPhases, LGraph&gt; {
+
+    NODE_ORDERER,
+    ORDER_BALANCER;
+
+    /**
+     * {@inheritDoc}
+     */
+    public ILayoutPhase&lt;LayeredPhases, LGraph&gt; create() {
+        switch (this) {
+        case NODE_ORDERER:
+            return new NodeOrderer();
+
+        case ORDER_BALANCER:
+            return new OrderBalancer();
+
+        default:
+            throw new IllegalArgumentException(
+                    &quot;No implementation is available for the node orderer &quot; + this.toString());
+        }
+    }
+
+}
+</code></pre>
+
+<p>Turning this into a separate enumeration allows this enumeration to be used as a layout option value for clients to specify which implementation they want.</p>
+
+<p>We are now ready to assemble the whole algorithm, for example like this:</p>
+
+<pre><code class="language-java">private final AlgorithmAssembler&lt;TreeLayoutPhases, TGraph&gt; algorithmAssembler =
+    AlgorithmAssembler.&lt;TreeLayoutPhases, TGraph&gt;create(TreeLayoutPhases.class);
+
+public void layout(TGraph graph, IElkProgressMonitor progressMonitor) {
+    List&lt;ILayoutProcessor&lt;TGraph&gt;&gt; algorithm =
+        assembleAlgorithm(graph);
+
+    progressMonitor.begin(&quot;Tree layout&quot;, algorithm.size());
+
+    for (ILayoutProcessor&lt;TGraph&gt; processor : assembleAlgorithm(graph)) {
+        processor.process(graph, progressMonitor.subTask(1));
+    }
+
+    progressMonitor.done();
+}
+
+public List&lt;ILayoutProcessor&lt;TGraph&gt;&gt; assembleAlgorithm(TGraph graph) {
+    algorithmAssembler.reset();
+
+    // Configure phases
+    algorithmAssembler.setPhase(TreeLayoutPhases.P1_TREEIFICATION,
+            graph.getProperty(MrTreeOptions.TREEIFICATION_STRATEGY));
+    algorithmAssembler.setPhase(TreeLayoutPhases.P2_NODE_ORDERING,
+            graph.getProperty(MrTreeOptions.NODE_ORDERING_STRATEGY));
+    algorithmAssembler.setPhase(TreeLayoutPhases.P3_NODE_PLACEMENT,
+            graph.getProperty(MrTreeOptions.NODE_PLACEMENT_STRATEGY));
+    algorithmAssembler.setPhase(TreeLayoutPhases.P4_EDGE_ROUTING,
+            graph.getProperty(MrTreeOptions.EDGE_ROUTING_STRATEGY));
+
+    // Some algorithms need to add custom processors, independent of
+    // layout phases
+    algorithmAssembler.addProcessorConfiguration(OTHER_PROCESSORS);
+
+    // Assemble the algorithm
+    algorithm = algorithmAssembler.build(graph);
+}
+</code></pre>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers.html">
+    <li class="navlevel-1">
+      Tool Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure.html">
+    <li class="navlevel-2">
+      Graph Data Structure
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
+    <li class="navlevel-3">
+      Coordinate System
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
+    <li class="navlevel-3">
+      Layout Options
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingalgorithmsdirectly.html">
+    <li class="navlevel-2">
+      Using Algorithms Directly
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingplainjavalayout.html">
+    <li class="navlevel-2">
+      Using Plain Java Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout.html">
+    <li class="navlevel-2">
+      Using Eclipse Layout
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
+    <li class="navlevel-3">
+      Connecting to ELK
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
+    <li class="navlevel-3">
+      Advanced Configuration
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
+    <li class="navlevel-3">
+      Layout View Support
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
+    <li class="navlevel-3">
+      Dependency Injection
+    </li>
+  </a>
+  
+
+
+  
+
+
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers.html">
+    <li class="navlevel-1">
+      Algorithm Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/algorithmdevelopers/gettingeclipseready.html">
+    <li class="navlevel-2">
+      Getting Eclipse Ready
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/creatinganewproject.html">
+    <li class="navlevel-2">
+      Creating a New Project
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/metadatalanguage.html">
+    <li class="navlevel-2">
+      ELK Metadata Language
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
+    <li class="navlevel-3">
+      Automatic Builds
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/algorithmimplementation.html">
+    <li class="navlevel-2">
+      Algorithm Implementation
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html">
+    <li class="navlevel-3 active">
+      Structuring Algorithms
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/algorithmdebugging.html">
+    <li class="navlevel-2">
+      Algorithm Debugging
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/contributors.html">
+    <li class="navlevel-1">
+      ELK Contributors
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/contributors/developmentsetup.html">
+    <li class="navlevel-2">
+      Development Setup
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/contributors/developmentworkflow.html">
+    <li class="navlevel-2">
+      Development Workflow
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/contributors/developmentworkflow/installingwithoomph.html">
+    <li class="navlevel-3">
+      Installing With Oomph
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/contributors/buildingelk.html">
+    <li class="navlevel-2">
+      Building ELK
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="../../../projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row">
+          <section class="col-3 hidden-print">
+            <h2>Eclipse Foundation</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/org/">About us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/contact.php">Contact Us</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/donate">Donate</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/">Governance</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/artwork/">Logo and Artwork</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/foundation/directors.php">Board of Directors</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Legal</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/documents/epl-v10.php">Eclipse Public License </a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/legal/">Legal Resources </a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Useful Links</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://bugs.eclipse.org/bugs/">Report a Bug</a></li>
+              <li class="nav-item pb-2"><a href="//help.eclipse.org/">Documentation</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/contribute/">How to Contribute</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/mail/">Mailing Lists</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/forums/">Forums</a></li>
+              <li class="nav-item pb-2"><a href="//marketplace.eclipse.org">Marketplace</a></li>
+            </ul>
+          </section>
+          <section class="col-3 hidden-print">
+            <h2>Other</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item py-2"><a href="https://www.eclipse.org/ide/">IDE and Tools</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/projects">Community of Projects</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/workinggroups/">Working Groups</a></li>
+              <li class="nav-item pb-2"><a href="https://www.eclipse.org/org/research/">Research@Eclipse</a></li>
+            </ul>
+
+            <ul class="list-inline social-media">
+              <li><a href="https://twitter.com/EclipseFdn"><i class="fa fa-twitter-square"></i></a></li>
+              <li><a href="https://plus.google.com/+Eclipse"><i class="fa fa-google-plus-square"></i></a></li>
+              <li><a href="https://www.facebook.com/eclipse.org"><i class="fa fa-facebook-square"></i> </a></li>
+              <li><a href="https://www.youtube.com/user/EclipseFdn"><i class="fa fa-youtube-square"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/eclipse-foundation"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <span class="hidden-print">
+              <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-logo-bw-332x78.png"/></a>
+            </span>
+          </div>
+          <div class="col">
+            <p class="copyright-text">Copyright &copy; 2017 The Eclipse Foundation. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

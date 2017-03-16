@@ -106,22 +106,22 @@
 
 <p>It is now time to start writing your phases. Implementing a layout phase is, in principle, easy: simply have your phase class implement the <code>ILayoutPhase&lt;P, G&gt;</code> interface, where <code>P</code> is the enumeration of layout phases you just wrote, and <code>G</code> is the type of the graph processed by the phase. For example:</p>
 
-<pre><code class="language-java">public class NodeOrderer implements ILayoutPhase&lt;LayoutPhases, TGraph&gt; {
+<pre><code class="language-java">public class NodeOrderer implements ILayoutPhase&lt;LayoutPhases, ElkNode&gt; {
 
     @Override
-    public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutProcessorConfiguration(TGraph graph) {
+    public LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; getLayoutProcessorConfiguration(ElkNode graph) {
         // To start with, the phase won't require any layout processors
-        return LayoutProcessorConfiguration.&lt;TreeLayoutPhases, TGraph&gt;create();
+        return LayoutProcessorConfiguration.&lt;LayoutPhases, ElkNode&gt;create();
     }
 
-    public void process(TGraph tGraph, IElkProgressMonitor progressMonitor) {
+    public void process(ElkNode ElkNode, IElkProgressMonitor progressMonitor) {
         // This will be the entry point to your phase
     }
 </code></pre>
 
 <p>Besides the actual implementation in its <code>process(...)</code> method, a layout phase has one other interesting method: <code>getLayoutProcessorConfiguration(...)</code>. We will take a closer look at that a bit later. Before we can do that, we need to take a look at how to implement intermediate processors.</p>
 
-<h3 id="layout-processors">Layout Processors</h3>
+<h3 id="intermediate-processors">Intermediate Processors</h3>
 
 <p>Implementing a layout processor is, again, easy: simply have your processor class implement the <code>ILayoutProcessor&lt;G&gt;</code> interface, where <code>G</code> is the type of the graph processed by the processor. For example:</p>
 
@@ -138,7 +138,7 @@
 
 <p>Before we can specify dependencies, we will need an enumeration of all available layout processors. In fact, we will need factories to instantiate those processors, but using an enumeration can give us a simple way to implement those. For example:</p>
 
-<pre><code class="language-java">public enum IntermediateProcessorStrategy implements ILayoutProcessorFactory&lt;TGraph&gt; {
+<pre><code class="language-java">public enum IntermediateProcessorStrategy implements ILayoutProcessorFactory&lt;ElkNode&gt; {
 
     // Before Phase 2
     ROOT_PROC,
@@ -154,7 +154,7 @@
     // After Phase 4
     DETREEIFYING_PROC;
 
-    public ILayoutProcessor&lt;TGraph&gt; create() {
+    public ILayoutProcessor&lt;ElkNode&gt; create() {
         switch (this) {
         case ROOT_PROC:
             return new RootProcessor();
@@ -184,32 +184,37 @@
 
 <p>We are now ready to specify which layout processors a layout phase needs to be executed in which intermediate processing slots. This is what the phase&rsquo;s <code>getLayoutProcessorConfiguration(...)</code> method is for. That method returns an instance of <code>LayoutProcessorConfiguration&lt;P, G&gt;</code>, which specifies exactly that: the intermediate processors to add to the different processing slots. Which processors are required may well depend on the input graph, which explains why that graph is passed to the method. A simple implementation could look like this:</p>
 
-<pre><code class="language-java">private static final LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; INTERMEDIATE_PROCESSING_CONFIG =
-        LayoutProcessorConfiguration.&lt;TreeLayoutPhases, TGraph&gt;create()
-            .addBefore(TreeLayoutPhases.P2_NODE_ORDERING, IntermediateProcessorStrategy.ROOT_PROC)
-            .addBefore(TreeLayoutPhases.P2_NODE_ORDERING, IntermediateProcessorStrategy.FAN_PROC);
+<pre><code class="language-java">private static final LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; INTERMEDIATE_PROCESSING_CONFIG =
+        LayoutProcessorConfiguration.&lt;LayoutPhases, ElkNode&gt;create()
+            .addBefore(LayoutPhases.P2_NODE_ORDERING, IntermediateProcessorStrategy.ROOT_PROC)
+            .addBefore(LayoutPhases.P2_NODE_ORDERING, IntermediateProcessorStrategy.FAN_PROC);
 
 @Override
-public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutProcessorConfiguration(TGraph graph) {
+public LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; getLayoutProcessorConfiguration(ElkNode graph) {
     return INTERMEDIATE_PROCESSING_CONFIG;
 }
 </code></pre>
 
 <p>This implementation specifies that the processing slot before phase 2 should contain the <code>ROOT_PROC</code> and the <code>FAN_PROC</code> intermediate processors (whatever those are). If multiple processors should be added to the same slots, the following provides a marginally easier way to do so:</p>
 
-<pre><code class="language-java">private static final LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; INTERMEDIATE_PROCESSING_CONFIG =
-        LayoutProcessorConfiguration.&lt;TreeLayoutPhases, TGraph&gt;create()
-            .before(TreeLayoutPhases.P2_NODE_ORDERING)
+<pre><code class="language-java">private static final LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; INTERMEDIATE_PROCESSING_CONFIG =
+        LayoutProcessorConfiguration.&lt;LayoutPhases, ElkNode&gt;create()
+            .before(LayoutPhases.P2_NODE_ORDERING)
                 .add(IntermediateProcessorStrategy.ROOT_PROC)
                 .add(IntermediateProcessorStrategy.FAN_PROC);
 </code></pre>
 
 <p>It can be necessary to keep different configurations in our phase and assemble them depending on different graph features. <code>LayoutProcessorConfiguration</code> provides a way to do so, using the <code>addAll(...)</code> method:</p>
 
-<pre><code class="language-java">public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutProcessorConfiguration(TGraph graph) {
+<pre><code class="language-java">private static final LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; FOO_PROCESSING_ADDITIONS =
+        LayoutProcessorConfiguration.&lt;LayoutPhases, ElkNode&gt;create()
+            .addBefore(LayoutPhases.P3_NODE_PLACEMENT, IntermediateProcessorStrategy.LEVEL_HEIGHT)
+            .addBefore(LayoutPhases.P4_EDGE_ROUTING, IntermediateProcessorStrategy.NODE_POSITION_PROC);
+
+public LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; getLayoutProcessorConfiguration(ElkNode graph) {
     // Basic configuration
-    LayoutProcessorConfiguration&lt;LayeredPhases, LGraph&gt; configuration =
-            LayoutProcessorConfiguration.&lt;LayeredPhases, LGraph&gt;createFrom(
+    LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; configuration =
+            LayoutProcessorConfiguration.&lt;LayoutPhases, ElkNode&gt;createFrom(
                     INTERMEDIATE_PROCESSING_CONFIG);
 
     // Additional dependencies
@@ -227,7 +232,7 @@ public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutPro
 
 <p>Again, enumerations are a good way to implement those factories. For example:</p>
 
-<pre><code class="language-java">public enum NodeOrderStrategy implements ILayoutPhaseFactory&lt;LayeredPhases, LGraph&gt; {
+<pre><code class="language-java">public enum NodeOrderStrategy implements ILayoutPhaseFactory&lt;LayoutPhases, ElkNode&gt; {
 
     NODE_ORDERER,
     ORDER_BALANCER;
@@ -235,7 +240,7 @@ public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutPro
     /**
      * {@inheritDoc}
      */
-    public ILayoutPhase&lt;LayeredPhases, LGraph&gt; create() {
+    public ILayoutPhase&lt;LayoutPhases, ElkNode&gt; create() {
         switch (this) {
         case NODE_ORDERER:
             return new NodeOrderer();
@@ -256,33 +261,37 @@ public LayoutProcessorConfiguration&lt;TreeLayoutPhases, TGraph&gt; getLayoutPro
 
 <p>We are now ready to assemble the whole algorithm, for example like this:</p>
 
-<pre><code class="language-java">private final AlgorithmAssembler&lt;TreeLayoutPhases, TGraph&gt; algorithmAssembler =
-    AlgorithmAssembler.&lt;TreeLayoutPhases, TGraph&gt;create(TreeLayoutPhases.class);
+<pre><code class="language-java">private static final LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; OTHER_PROCESSORS =
+        LayoutProcessorConfiguration.&lt;LayoutPhases, ElkNode&gt;create()
+            .addAfter(LayoutPhases.P4_EDGE_ROUTING, IntermediateProcessorStrategy.DETREEIFYING_PROC);
 
-public void layout(TGraph graph, IElkProgressMonitor progressMonitor) {
-    List&lt;ILayoutProcessor&lt;TGraph&gt;&gt; algorithm =
+private final AlgorithmAssembler&lt;LayoutPhases, ElkNode&gt; algorithmAssembler =
+    AlgorithmAssembler.&lt;LayoutPhases, ElkNode&gt;create(LayoutPhases.class);
+
+public void layout(ElkNode graph, IElkProgressMonitor progressMonitor) {
+    List&lt;ILayoutProcessor&lt;ElkNode&gt;&gt; algorithm =
         assembleAlgorithm(graph);
 
     progressMonitor.begin(&quot;Tree layout&quot;, algorithm.size());
 
-    for (ILayoutProcessor&lt;TGraph&gt; processor : assembleAlgorithm(graph)) {
+    for (ILayoutProcessor&lt;ElkNode&gt; processor : assembleAlgorithm(graph)) {
         processor.process(graph, progressMonitor.subTask(1));
     }
 
     progressMonitor.done();
 }
 
-public List&lt;ILayoutProcessor&lt;TGraph&gt;&gt; assembleAlgorithm(TGraph graph) {
+public List&lt;ILayoutProcessor&lt;ElkNode&gt;&gt; assembleAlgorithm(ElkNode graph) {
     algorithmAssembler.reset();
 
     // Configure phases
-    algorithmAssembler.setPhase(TreeLayoutPhases.P1_TREEIFICATION,
+    algorithmAssembler.setPhase(LayoutPhases.P1_TREEIFICATION,
             graph.getProperty(MrTreeOptions.TREEIFICATION_STRATEGY));
-    algorithmAssembler.setPhase(TreeLayoutPhases.P2_NODE_ORDERING,
+    algorithmAssembler.setPhase(LayoutPhases.P2_NODE_ORDERING,
             graph.getProperty(MrTreeOptions.NODE_ORDERING_STRATEGY));
-    algorithmAssembler.setPhase(TreeLayoutPhases.P3_NODE_PLACEMENT,
+    algorithmAssembler.setPhase(LayoutPhases.P3_NODE_PLACEMENT,
             graph.getProperty(MrTreeOptions.NODE_PLACEMENT_STRATEGY));
-    algorithmAssembler.setPhase(TreeLayoutPhases.P4_EDGE_ROUTING,
+    algorithmAssembler.setPhase(LayoutPhases.P4_EDGE_ROUTING,
             graph.getProperty(MrTreeOptions.EDGE_ROUTING_STRATEGY));
 
     // Some algorithms need to add custom processors, independent of
@@ -293,6 +302,16 @@ public List&lt;ILayoutProcessor&lt;TGraph&gt;&gt; assembleAlgorithm(TGraph graph
     algorithm = algorithmAssembler.build(graph);
 }
 </code></pre>
+
+<h2 id="going-further">Going Further</h2>
+
+<p>There are still some subtle points that we have left out so far. The following are a few pointers for things that are possible:</p>
+
+<ul>
+<li>The question of what should be a phase and what should be an intermediate processor is a somewhat philosophical one. A rough guideline is whether something is <em>always</em> part of the algorithm. If so, it might be a good candidate for a phase. As another rough guideline, ask yourself whether different implementations are possible for something. If so, it should probably be a phase.</li>
+<li>The <code>AlgorithmAssembler</code> sorts intermediate processors in the same processing slot by the order in which they appear in the intermediate processor enumeration, but that can be changed. In fact, all you need to do is throw a custom <code>Comparator</code> at the <code>AlgorithmAssembler</code>. Your comparator might use other meta data available on the processors to sort them properly. The comparator only needs to be able to compare processors that will end up in the same processing slot.</li>
+<li>It is possible for phases to be optional. While the <code>AlgorithmAssembler</code> usually throws an exception if the <code>build(...)</code> method is called while some phases are not yet configured, this behavior can be changed by calling <code>withFailOnMissingPhase(false)</code>.</li>
+</ul>
 
   </div>
 

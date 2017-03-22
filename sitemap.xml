@@ -530,6 +530,14 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility-default.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeLabels-padding.html</loc>
   </url>
   
@@ -871,6 +879,14 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-linearSegments.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-networkSimplex.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html</loc>
   </url>
   
   <url>

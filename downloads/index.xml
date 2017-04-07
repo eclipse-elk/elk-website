@@ -9,24 +9,46 @@
     <atom:link href="https://www.eclipse.org/elk/downloads.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Release 0.1.0</title>
+      <title>0.1.0</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</guid>
-      <description>&lt;p&gt;The initial release under the new Eclipse umbrella.&lt;/p&gt;
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.1.0&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.1.0/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.1.0/elk-0.1.0.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.1.0&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;The initial release under the new Eclipse umbrella.&lt;/p&gt;
 
 &lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.1.0&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Release 0.1.1</title>
+      <title>0.1.1</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1.html</guid>
-      <description>&lt;p&gt;A bugfix release.&lt;/p&gt;
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.1.1&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.1.1/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.1.1/elk-0.1.1.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.1.1&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;A bugfix release.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Fixed a problem where edges with labels end up being routed in an ambiguous way. (&lt;a href=&#34;https://github.com/eclipse/elk/issues/96&#34;&gt;#96&lt;/a&gt;).&lt;/li&gt;
@@ -37,12 +59,23 @@
     </item>
     
     <item>
-      <title>Release 0.2.0</title>
+      <title>0.2.0</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</guid>
-      <description>&lt;p&gt;A major overhaul of ELK&amp;rsquo;s infrastructure. This is an API breaking release. The following are probably the biggest issues we tackled:&lt;/p&gt;
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.0&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.0/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.0/elk-0.2.0.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.2.0&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;DEtails&lt;/h2&gt;
+
+&lt;p&gt;A major overhaul of ELK&amp;rsquo;s infrastructure. This is an API breaking release. The following are probably the biggest issues we tackled:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Refactored the central graph data structure. This is a biggie: we made the whole graph data structure easier to understand and easier to use, but of course broke compatibility with old diagram layout connectors in the process.&lt;/li&gt;
@@ -56,7 +89,30 @@
     </item>
     
     <item>
-      <title>Release Notes</title>
+      <title>0.2.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.1.html</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.1&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.1/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.1/elk-0.2.1.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.2.1&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.&lt;/p&gt;
+
+&lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.1&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

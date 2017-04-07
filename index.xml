@@ -9,6 +9,109 @@
     <atom:link href="https://www.eclipse.org/elk/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>0.1.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.1.0&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.1.0/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.1.0/elk-0.1.0.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.1.0&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;The initial release under the new Eclipse umbrella.&lt;/p&gt;
+
+&lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.1.0&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>0.1.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1.html</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.1.1&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.1.1/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.1.1/elk-0.1.1.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.1.1&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;A bugfix release.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fixed a problem where edges with labels end up being routed in an ambiguous way. (&lt;a href=&#34;https://github.com/eclipse/elk/issues/96&#34;&gt;#96&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.1.1&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>0.2.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.0&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.0/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.0/elk-0.2.0.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.2.0&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;DEtails&lt;/h2&gt;
+
+&lt;p&gt;A major overhaul of ELK&amp;rsquo;s infrastructure. This is an API breaking release. The following are probably the biggest issues we tackled:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Refactored the central graph data structure. This is a biggie: we made the whole graph data structure easier to understand and easier to use, but of course broke compatibility with old diagram layout connectors in the process.&lt;/li&gt;
+&lt;li&gt;The layout options have been cleaned up. This means that existing code may have to be updated to use the new options.&lt;/li&gt;
+&lt;li&gt;We now have generated reference documentation for layout algorithms and layout options.&lt;/li&gt;
+&lt;li&gt;A textual language to specify ELK graphs is now part of the ELK SDK.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.0&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>0.2.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.1.html</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.1&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.1/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.1/elk-0.2.1.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.2.1&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.&lt;/p&gt;
+
+&lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.1&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Activate Inside Self Loops</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -587,263 +690,6 @@ Use the navigation bar to the right to work your way through each of those steps
 &lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
 
 &lt;p&gt;Alignment of the selected node relative to other nodes, the exact meaning depends on the used algorithm.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Animate</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate.html</guid>
-      <description>
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Property&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;global&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;org.eclipse.elk.animate&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;true&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;parents&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.animate&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
-
-&lt;p&gt;Whether the shift from the old layout to the new computed layout shall be animated.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Animation Time Factor</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor.html</guid>
-      <description>
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Property&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;global&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;org.eclipse.elk.animTimeFactor&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;100&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Lower Bound:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;parents&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.animTimeFactor&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
-
-&lt;p&gt;Factor for computation of animation time. The higher the value, the longer the animation time. If the value is 0, the resulting time is always equal to the minimum defined by &amp;lsquo;Minimal Animation Time&amp;rsquo;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Aspect Ratio</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html</guid>
-      <description>
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Property&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;advanced&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;org.eclipse.elk.aspectRatio&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;double&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Lower Bound:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;ExclusiveBounds.greaterThan(0)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;parents&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Legacy Id:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;de.cau.cs.kieler.aspectRatio&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
-
-&lt;p&gt;The desired aspect ratio of the drawing, that is the quotient of width by height.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Automatic Builds</title>
-      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html</guid>
-      <description>&lt;p&gt;Since &lt;code&gt;.melk&lt;/code&gt; files result in code being generated, you may not want to check that code into your repository. Instead, the code should probably be generated as part of your automatic build. Indeed, the ELK metadata language compiler is available through a Maven repository. You can find the repository URLs in our Downloads section. Note that we provide a separate repository for nightly builds and for each release.&lt;/p&gt;
-
-&lt;p&gt;To use the compiler, add the following to your &lt;code&gt;pom.xml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;pluginRepositories&amp;gt;
-  &amp;lt;!-- Xtext is required to invoke our compiler. --&amp;gt;
-  &amp;lt;pluginRepository&amp;gt;
-    &amp;lt;id&amp;gt;xtend&amp;lt;/id&amp;gt;
-    &amp;lt;name&amp;gt;Xtend Maven Repository&amp;lt;/name&amp;gt;
-    &amp;lt;layout&amp;gt;default&amp;lt;/layout&amp;gt;
-    &amp;lt;url&amp;gt;http://build.eclipse.org/common/xtend/maven&amp;lt;/url&amp;gt;
-  &amp;lt;/pluginRepository&amp;gt;
-
-  &amp;lt;!-- This is where our compiler is. --&amp;gt;
-  &amp;lt;pluginRepository&amp;gt;
-    &amp;lt;id&amp;gt;eclipse-elk-meta&amp;lt;/id&amp;gt;
-    &amp;lt;name&amp;gt;ELK Meta Data Language Compiler Maven Repository&amp;lt;/name&amp;gt;
-    &amp;lt;url&amp;gt;http://the.repository.url.you.want/see.download.page.for.details&amp;lt;/url&amp;gt;
-  &amp;lt;/pluginRepository&amp;gt;
-&amp;lt;/pluginRepositories&amp;gt;
-
-&amp;lt;build&amp;gt;
-  &amp;lt;plugins&amp;gt;
-    &amp;lt;!-- Configure the Xtext plugin to invoke our compiler. --&amp;gt;
-    &amp;lt;plugin&amp;gt;
-      &amp;lt;groupId&amp;gt;org.eclipse.xtext&amp;lt;/groupId&amp;gt;
-      &amp;lt;artifactId&amp;gt;xtext-maven-plugin&amp;lt;/artifactId&amp;gt;
-      &amp;lt;version&amp;gt;2.7.2&amp;lt;/version&amp;gt;
-      &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-          &amp;lt;goals&amp;gt;
-            &amp;lt;goal&amp;gt;generate&amp;lt;/goal&amp;gt;
-          &amp;lt;/goals&amp;gt;
-        &amp;lt;/execution&amp;gt;
-      &amp;lt;/executions&amp;gt;
-      &amp;lt;configuration&amp;gt;
-        &amp;lt;languages&amp;gt;
-          &amp;lt;language&amp;gt;
-            &amp;lt;setup&amp;gt;org.eclipse.elk.core.meta.MetaDataStandaloneSetup&amp;lt;/setup&amp;gt;
-            &amp;lt;outputConfigurations&amp;gt;
-              &amp;lt;outputConfiguration&amp;gt;
-                &amp;lt;outputDirectory&amp;gt;${basedir}/src-gen/&amp;lt;/outputDirectory&amp;gt;
-              &amp;lt;/outputConfiguration&amp;gt;
-            &amp;lt;/outputConfigurations&amp;gt;
-          &amp;lt;/language&amp;gt;
-        &amp;lt;/languages&amp;gt;
-      &amp;lt;/configuration&amp;gt;
-      &amp;lt;dependencies&amp;gt;
-        &amp;lt;dependency&amp;gt;
-          &amp;lt;groupId&amp;gt;org.eclipse.elk&amp;lt;/groupId&amp;gt;
-          &amp;lt;artifactId&amp;gt;org.eclipse.elk.graph&amp;lt;/artifactId&amp;gt;
-          &amp;lt;version&amp;gt;THE_VERSION_YOU_WANT-SNAPSHOT&amp;lt;/version&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-          &amp;lt;groupId&amp;gt;org.eclipse.elk&amp;lt;/groupId&amp;gt;
-          &amp;lt;artifactId&amp;gt;org.eclipse.elk.core.meta&amp;lt;/artifactId&amp;gt;
-          &amp;lt;version&amp;gt;THE_VERSION_YOU_WANT-SNAPSHOT&amp;lt;/version&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-      &amp;lt;/dependencies&amp;gt;
-    &amp;lt;/plugin&amp;gt;
-  &amp;lt;/plugins&amp;gt;
-&amp;lt;/build&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

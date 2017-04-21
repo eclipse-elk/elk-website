@@ -16,7 +16,7 @@
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html</guid>
       <description>
 
-&lt;p&gt;What we have learned so far about how automatic layout in Eclipse works was comparatively straightforward: the diagram layout engine looks for a diagram layout connector to get its hands at a configured KGraph, invokes the recursive graph layout engine, and asks the diagram layout connector to apply the results back to the original diagram. As you will have guessed, things &lt;em&gt;can&lt;/em&gt; become quite a bit more complex than that.&lt;/p&gt;
+&lt;p&gt;What we have learned so far about how automatic layout in Eclipse works was comparatively straightforward: the diagram layout engine looks for a diagram layout connector to get its hands at a configured ElkGraph, invokes the recursive graph layout engine, and asks the diagram layout connector to apply the results back to the original diagram. As you will have guessed, things &lt;em&gt;can&lt;/em&gt; become quite a bit more complex than that.&lt;/p&gt;
 
 &lt;p&gt;On this page, we will look at customizing how layout runs are executed, including more advanced options as well as building up chains of layout algorithms executed in series as part of a single layout run.&lt;/p&gt;
 
@@ -32,7 +32,7 @@
 &lt;li&gt;&lt;p&gt;ELK distinguishes layout options that layout algorithms care about from layout options that may have more meaning for the layout engine or your layout connectors. The latter are called &lt;em&gt;global settings&lt;/em&gt; and are stored in the parameters as well. This may for example include settings such as whether to animate the application of layout results, so that your diagram&amp;rsquo;s elements neatly morph into their new places. Of course you are free to introduce your own global settings and feed them into your parameters.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Let&amp;rsquo;s come back to layout configurators and see how they work. Basically, each layout configurator added to your parameters can set an arbitrary number of layout options on different elements of your KGraph. Also, it can be configured to clear all previous configuration stored in the graph. To specify the options to set, there are two possibilities. First, you can specify concrete objects in the graph structure to set options on. And second, you can specify whole classes of graph elements to set options on. Here&amp;rsquo;s some example code that should make everything a bit clearer:&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s come back to layout configurators and see how they work. Basically, each layout configurator added to your parameters can set an arbitrary number of layout options on different elements of your ElkGraph. Also, it can be configured to clear all previous configuration stored in the graph. To specify the options to set, there are two possibilities. First, you can specify concrete objects in the graph structure to set options on. And second, you can specify whole classes of graph elements to set options on. Here&amp;rsquo;s some example code that should make everything a bit clearer:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;LayoutConfigurator configurator = new LayoutConfigurator();
 
@@ -54,12 +54,12 @@ params.addLayoutRun(configurator);
 DiagramLayoutEngine.invokeLayout(workbenchPart, diagramPart, params);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The concept of using layout configurators to set layout options on your KGraph seems to contradict what we have said so far: that the layout connector is responsible for producing a KGraph with options already set. In fact, these do not contradict each other, but are simply two different (but combinable) ways of doing things. There are basically three ways of going about it:&lt;/p&gt;
+&lt;p&gt;The concept of using layout configurators to set layout options on your ElkGraph seems to contradict what we have said so far: that the layout connector is responsible for producing an ElkGraph with options already set. In fact, these do not contradict each other, but are simply two different (but combinable) ways of doing things. There are basically three ways of going about it:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Having your layout connector set all options on your KGraph, and not using any layout configurator. This is the approach we first learned about.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Having your layout connector set all options on your ElkGraph, and not using any layout configurator. This is the approach we first learned about.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Having your layout connector set only some of the options on your KGraph and using at least one layout configurator to fill in the rest.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Having your layout connector set only some of the options on your ElkGraph and using at least one layout configurator to fill in the rest.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Having your layout connector set no options at all and using at least one layout configurator to configure everything.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -399,7 +399,7 @@ Use the navigation bar to the right to work your way through each of those steps
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html</guid>
       <description>
 
-&lt;p&gt;In our &lt;a href=&#34;../documentation/tooldevelopers/usingeclipselayout.html&#34;&gt;our basic introduction to automatic layout in Eclipse&lt;/a&gt;, we have seen how the diagram layout engine needs someone to extract a proper KGraph from whatever layout is invoked on. This is what you, as a tool developer, have to supply. While there are already implementations for different graph editing frameworks to build upon, this page describes how doing so from scratch works.&lt;/p&gt;
+&lt;p&gt;In our &lt;a href=&#34;../documentation/tooldevelopers/usingeclipselayout.html&#34;&gt;our basic introduction to automatic layout in Eclipse&lt;/a&gt;, we have seen how the diagram layout engine needs someone to extract a proper ElkGraph from whatever layout is invoked on. This is what you, as a tool developer, have to supply. While there are already implementations for different graph editing frameworks to build upon, this page describes how doing so from scratch works.&lt;/p&gt;
 
 &lt;p&gt;To connect to ELK, there are two things you will have to do:&lt;/p&gt;
 
@@ -420,7 +420,7 @@ Injector createInjector(Module defaultModule);
 
 &lt;h3 id=&#34;the-supports-method&#34;&gt;The &lt;code&gt;supports(...)&lt;/code&gt; Method&lt;/h3&gt;
 
-&lt;p&gt;This method is called by the diagram layout engine to determine if a given setup instance supports extracting a KGraph from the given object. The question now of course becomes what that object is. There are two cases. In the first case, it will be an implementation of &lt;code&gt;IWorkbenchPart&lt;/code&gt;. This is the case if layout is invoked on a diagram editor. If the setup states that it supports that workbench part, the diagram layout connector it supplies knows how to get its hands at the editor&amp;rsquo;s content and how to turn that content into a KGraph. In the second case, the object passed to &lt;code&gt;supports(...)&lt;/code&gt; will be an object from that editor&amp;rsquo;s content. For GMF editors, this will be an implementation of &lt;code&gt;IGraphicalEditPart&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This method is called by the diagram layout engine to determine if a given setup instance supports extracting an ElkGraph from the given object. The question now of course becomes what that object is. There are two cases. In the first case, it will be an implementation of &lt;code&gt;IWorkbenchPart&lt;/code&gt;. This is the case if layout is invoked on a diagram editor. If the setup states that it supports that workbench part, the diagram layout connector it supplies knows how to get its hands at the editor&amp;rsquo;s content and how to turn that content into an ElkGraph. In the second case, the object passed to &lt;code&gt;supports(...)&lt;/code&gt; will be an object from that editor&amp;rsquo;s content. For GMF editors, this will be an implementation of &lt;code&gt;IGraphicalEditPart&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;A typical implementation of this method will look something like this:&lt;/p&gt;
 
@@ -481,12 +481,12 @@ void applyLayout(LayoutMapping mapping, IPropertyHolder settings);
 
 &lt;h3 id=&#34;the-buildlayoutgraph-method&#34;&gt;The &lt;code&gt;buildLayoutGraph(...)&lt;/code&gt; Method&lt;/h3&gt;
 
-&lt;p&gt;This is the method that turns a diagram into a KGraph that ELK can then work with. It produces an instance of the &lt;code&gt;LayoutMapping&lt;/code&gt; class, which contains information so important to the layout process that we should list them all:&lt;/p&gt;
+&lt;p&gt;This is the method that turns a diagram into an ElkGraph that ELK can then work with. It produces an instance of the &lt;code&gt;LayoutMapping&lt;/code&gt; class, which contains information so important to the layout process that we should list them all:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;The root of the created KGraph. This is what is later fed into the recursive diagram layout engine to run automatic layout on.&lt;/li&gt;
+&lt;li&gt;The root of the created ElkGraph. This is what is later fed into the recursive diagram layout engine to run automatic layout on.&lt;/li&gt;
 &lt;li&gt;The top-level diagram part that layout was originally invoked on. This will usually be something that represents the diagram or a part of it in the diagram editor (think &lt;code&gt;IGraphicalEditPart&lt;/code&gt; for GMF).&lt;/li&gt;
-&lt;li&gt;A bi-directional mapping between diagram parts and the KGraph elements that were created for them. This is probably the most important bit: it will later allow us to apply the layout information contained in the KGraph back to the correct diagram elements.&lt;/li&gt;
+&lt;li&gt;A bi-directional mapping between diagram parts and the ElkGraph elements that were created for them. This is probably the most important bit: it will later allow us to apply the layout information contained in the ElkGraph back to the correct diagram elements.&lt;/li&gt;
 &lt;li&gt;The workbench part layout was invoked on, if any. Admittedly, this is less important, which is why it comes last in this list.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -494,13 +494,13 @@ void applyLayout(LayoutMapping mapping, IPropertyHolder settings);
 
 &lt;p&gt;Regarding the layout graph&amp;rsquo;s structure, the main task is to decide which of your diagram elements map to which kinds of layout graph elements. Should an element be represented as a node? Is it a label? Should my nodes have explicit points for edges to attach to? Do certain nodes contain other nodes? Which diagram elements need to be represented in the layout graph in the first place?&lt;/p&gt;
 
-&lt;p&gt;Regarding the layout configuration, your layout connector is expected to build a fully configured KGraph (except for some advanced configuration issues, which we will look at on another page). This primarily includes setting the correct layout options that yield the results you want. However, this may also include writing the current coordinates of diagram elements into the KGraph. This is mostly important for what we call &lt;em&gt;interactive layout algorithms&lt;/em&gt;: layout algorithms that take current positions into account when calculating new ones instead of simply calculating new coordinates from scratch.&lt;/p&gt;
+&lt;p&gt;Regarding the layout configuration, your layout connector is expected to build a fully configured ElkGraph (except for some advanced configuration issues, which we will look at on another page). This primarily includes setting the correct layout options that yield the results you want. However, this may also include writing the current coordinates of diagram elements into the ElkGraph. This is mostly important for what we call &lt;em&gt;interactive layout algorithms&lt;/em&gt;: layout algorithms that take current positions into account when calculating new ones instead of simply calculating new coordinates from scratch.&lt;/p&gt;
 
 &lt;h3 id=&#34;the-applylayout-method&#34;&gt;The &lt;code&gt;applyLayout(...)&lt;/code&gt; Method&lt;/h3&gt;
 
 &lt;p&gt;This method accepts two arguments: the &lt;code&gt;LayoutMapping&lt;/code&gt; created by &lt;code&gt;buildLayoutGraph(...)&lt;/code&gt;, and an &lt;code&gt;IPropertyHolder&lt;/code&gt; that may hold additional options controlling the layout process. These options will usually include things such as whether the application of the layout should be animated and whether the diagram zoomed and positioned such that it is completely visible in the editor.&lt;/p&gt;
 
-&lt;p&gt;The most important thing the &lt;code&gt;applyLayout(...)&lt;/code&gt; implementation will do is to iterate over the diagram elements and to apply the layout results back to them. At best, this just means copying values over. At worst, this will include transforming coordinates from the KGraph coordinate system back to whatever coordinate system the diagram editor uses.&lt;/p&gt;
+&lt;p&gt;The most important thing the &lt;code&gt;applyLayout(...)&lt;/code&gt; implementation will do is to iterate over the diagram elements and to apply the layout results back to them. At best, this just means copying values over. At worst, this will include transforming coordinates from the ElkGraph coordinate system back to whatever coordinate system the diagram editor uses.&lt;/p&gt;
 </description>
     </item>
     
@@ -597,7 +597,7 @@ void applyLayout(LayoutMapping mapping, IPropertyHolder settings);
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;IDiagramLayoutConnector&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;This is the one interface you will definitely want to implement. Your connector will tell ELK how to turn your diagrams into a KGraph that ELK knows how to work with. Also, your connector knows how to apply the computed layout information back to your diagram.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;This is the one interface you will definitely want to implement. Your connector will tell ELK how to turn your diagrams into an ElkGraph that ELK knows how to work with. Also, your connector knows how to apply the computed layout information back to your diagram.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;nice-to-have&#34;&gt;Nice to Have&lt;/h2&gt;

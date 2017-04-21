@@ -65,7 +65,7 @@
 
     
 
-<p>In our <a href="../../../documentation/tooldevelopers/usingeclipselayout.html">our basic introduction to automatic layout in Eclipse</a>, we have seen how the diagram layout engine needs someone to extract a proper KGraph from whatever layout is invoked on. This is what you, as a tool developer, have to supply. While there are already implementations for different graph editing frameworks to build upon, this page describes how doing so from scratch works.</p>
+<p>In our <a href="../../../documentation/tooldevelopers/usingeclipselayout.html">our basic introduction to automatic layout in Eclipse</a>, we have seen how the diagram layout engine needs someone to extract a proper ElkGraph from whatever layout is invoked on. This is what you, as a tool developer, have to supply. While there are already implementations for different graph editing frameworks to build upon, this page describes how doing so from scratch works.</p>
 
 <p>To connect to ELK, there are two things you will have to do:</p>
 
@@ -86,7 +86,7 @@ Injector createInjector(Module defaultModule);
 
 <h3 id="the-supports-method">The <code>supports(...)</code> Method</h3>
 
-<p>This method is called by the diagram layout engine to determine if a given setup instance supports extracting a KGraph from the given object. The question now of course becomes what that object is. There are two cases. In the first case, it will be an implementation of <code>IWorkbenchPart</code>. This is the case if layout is invoked on a diagram editor. If the setup states that it supports that workbench part, the diagram layout connector it supplies knows how to get its hands at the editor&rsquo;s content and how to turn that content into a KGraph. In the second case, the object passed to <code>supports(...)</code> will be an object from that editor&rsquo;s content. For GMF editors, this will be an implementation of <code>IGraphicalEditPart</code>.</p>
+<p>This method is called by the diagram layout engine to determine if a given setup instance supports extracting an ElkGraph from the given object. The question now of course becomes what that object is. There are two cases. In the first case, it will be an implementation of <code>IWorkbenchPart</code>. This is the case if layout is invoked on a diagram editor. If the setup states that it supports that workbench part, the diagram layout connector it supplies knows how to get its hands at the editor&rsquo;s content and how to turn that content into an ElkGraph. In the second case, the object passed to <code>supports(...)</code> will be an object from that editor&rsquo;s content. For GMF editors, this will be an implementation of <code>IGraphicalEditPart</code>.</p>
 
 <p>A typical implementation of this method will look something like this:</p>
 
@@ -147,12 +147,12 @@ void applyLayout(LayoutMapping mapping, IPropertyHolder settings);
 
 <h3 id="the-buildlayoutgraph-method">The <code>buildLayoutGraph(...)</code> Method</h3>
 
-<p>This is the method that turns a diagram into a KGraph that ELK can then work with. It produces an instance of the <code>LayoutMapping</code> class, which contains information so important to the layout process that we should list them all:</p>
+<p>This is the method that turns a diagram into an ElkGraph that ELK can then work with. It produces an instance of the <code>LayoutMapping</code> class, which contains information so important to the layout process that we should list them all:</p>
 
 <ul>
-<li>The root of the created KGraph. This is what is later fed into the recursive diagram layout engine to run automatic layout on.</li>
+<li>The root of the created ElkGraph. This is what is later fed into the recursive diagram layout engine to run automatic layout on.</li>
 <li>The top-level diagram part that layout was originally invoked on. This will usually be something that represents the diagram or a part of it in the diagram editor (think <code>IGraphicalEditPart</code> for GMF).</li>
-<li>A bi-directional mapping between diagram parts and the KGraph elements that were created for them. This is probably the most important bit: it will later allow us to apply the layout information contained in the KGraph back to the correct diagram elements.</li>
+<li>A bi-directional mapping between diagram parts and the ElkGraph elements that were created for them. This is probably the most important bit: it will later allow us to apply the layout information contained in the ElkGraph back to the correct diagram elements.</li>
 <li>The workbench part layout was invoked on, if any. Admittedly, this is less important, which is why it comes last in this list.</li>
 </ul>
 
@@ -160,13 +160,13 @@ void applyLayout(LayoutMapping mapping, IPropertyHolder settings);
 
 <p>Regarding the layout graph&rsquo;s structure, the main task is to decide which of your diagram elements map to which kinds of layout graph elements. Should an element be represented as a node? Is it a label? Should my nodes have explicit points for edges to attach to? Do certain nodes contain other nodes? Which diagram elements need to be represented in the layout graph in the first place?</p>
 
-<p>Regarding the layout configuration, your layout connector is expected to build a fully configured KGraph (except for some advanced configuration issues, which we will look at on another page). This primarily includes setting the correct layout options that yield the results you want. However, this may also include writing the current coordinates of diagram elements into the KGraph. This is mostly important for what we call <em>interactive layout algorithms</em>: layout algorithms that take current positions into account when calculating new ones instead of simply calculating new coordinates from scratch.</p>
+<p>Regarding the layout configuration, your layout connector is expected to build a fully configured ElkGraph (except for some advanced configuration issues, which we will look at on another page). This primarily includes setting the correct layout options that yield the results you want. However, this may also include writing the current coordinates of diagram elements into the ElkGraph. This is mostly important for what we call <em>interactive layout algorithms</em>: layout algorithms that take current positions into account when calculating new ones instead of simply calculating new coordinates from scratch.</p>
 
 <h3 id="the-applylayout-method">The <code>applyLayout(...)</code> Method</h3>
 
 <p>This method accepts two arguments: the <code>LayoutMapping</code> created by <code>buildLayoutGraph(...)</code>, and an <code>IPropertyHolder</code> that may hold additional options controlling the layout process. These options will usually include things such as whether the application of the layout should be animated and whether the diagram zoomed and positioned such that it is completely visible in the editor.</p>
 
-<p>The most important thing the <code>applyLayout(...)</code> implementation will do is to iterate over the diagram elements and to apply the layout results back to them. At best, this just means copying values over. At worst, this will include transforming coordinates from the KGraph coordinate system back to whatever coordinate system the diagram editor uses.</p>
+<p>The most important thing the <code>applyLayout(...)</code> implementation will do is to iterate over the diagram elements and to apply the layout results back to them. At best, this just means copying values over. At worst, this will include transforming coordinates from the ElkGraph coordinate system back to whatever coordinate system the diagram editor uses.</p>
 
   </div>
 

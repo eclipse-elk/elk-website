@@ -226,6 +226,11 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;new ElkMargin(4)&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;nodes&lt;/td&gt;
 &lt;/tr&gt;

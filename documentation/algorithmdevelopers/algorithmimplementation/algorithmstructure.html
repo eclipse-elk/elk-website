@@ -299,7 +299,7 @@ public List&lt;ILayoutProcessor&lt;ElkNode&gt;&gt; assembleAlgorithm(ElkNode gra
     algorithmAssembler.addProcessorConfiguration(OTHER_PROCESSORS);
 
     // Assemble the algorithm
-    algorithm = algorithmAssembler.build(graph);
+    return algorithmAssembler.build(graph);
 }
 </code></pre>
 

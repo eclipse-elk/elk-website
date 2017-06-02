@@ -84,7 +84,7 @@
 <p>One such meta data provider is always automatically registered: <code>CoreOptions</code>. This will give you access to our most basic layout algorithms: <em>Fixed Layout</em>, <em>Box Layout</em>, and <em>Random Layout</em> (at the time of writing). To use more layout algorithms, you will have to find the algorithm&rsquo;s implementation of <code>ILayoutMetaDataProvider</code> and register that. For example, using <em>ELK Layered</em> requires the following registration:</p>
 
 <pre><code class="language-java">LayoutMetaDataService service = LayoutMetaDataService.getInstance();
-service.registerLayoutMetaDataProvider(new LayeredMetaDataService());
+service.registerLayoutMetaDataProviders(new LayeredMetaDataProvider());
 </code></pre>
 
 <h2 id="using-the-recursive-graph-layout-engines">Using the Recursive Graph Layout Engines</h2>

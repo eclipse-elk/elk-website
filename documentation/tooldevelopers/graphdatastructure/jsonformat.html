@@ -61,70 +61,182 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Automatic Builds</h1>
+    <h1>JSON Format</h1>
 
-    <p>Since <code>.melk</code> files result in code being generated, you may not want to check that code into your repository. Instead, the code should probably be generated as part of your automatic build. Indeed, the ELK metadata language compiler is available through a Maven repository. You can find the repository URLs in our Downloads section. Note that we provide a separate repository for nightly builds and for each release.</p>
+    
 
-<p>To use the compiler, add the following to your <code>pom.xml</code>:</p>
+<p>The JSON graph format has five basic elements: nodes, ports,
+labels, edges, and edge sections. Details about each element can be found below, with some
+sections describing features common to multiple elements. Note that in the JSON code, <em>mandatory</em>
+fields are marked with an <em>asterisk</em>.</p>
 
-<pre><code class="language-xml">&lt;pluginRepositories&gt;
-  &lt;!-- Xtext is required to invoke our compiler. --&gt;
-  &lt;pluginRepository&gt;
-    &lt;id&gt;xtend&lt;/id&gt;
-    &lt;name&gt;Xtend Maven Repository&lt;/name&gt;
-    &lt;layout&gt;default&lt;/layout&gt;
-    &lt;url&gt;http://build.eclipse.org/common/xtend/maven&lt;/url&gt;
-  &lt;/pluginRepository&gt;
+<h2 id="nodes-ports-labels-edges-and-edge-sections">Nodes, Ports, Labels, Edges, and Edge Sections</h2>
 
-  &lt;!-- This is where our compiler is. --&gt;
-  &lt;pluginRepository&gt;
-    &lt;id&gt;eclipse-elk-meta&lt;/id&gt;
-    &lt;name&gt;ELK Meta Data Language Compiler Maven Repository&lt;/name&gt;
-    &lt;url&gt;http://the.repository.url.you.want/see.download.page.for.details&lt;/url&gt;
-  &lt;/pluginRepository&gt;
-&lt;/pluginRepositories&gt;
+<p>All elements, except labels, must have an <code>id</code> that uniquely identifies them.
+Labels are usually not referred to from other parts of the graph,
+which is why the id is optional.
+The id can be a string or an integer.
+All elements furthermore can have properties.
+Properties are basically a list of key-value pairs that are usually used to
+assign layout option values to the element.</p>
 
-&lt;build&gt;
-  &lt;plugins&gt;
-    &lt;!-- Configure the Xtext plugin to invoke our compiler. --&gt;
-    &lt;plugin&gt;
-      &lt;groupId&gt;org.eclipse.xtext&lt;/groupId&gt;
-      &lt;artifactId&gt;xtext-maven-plugin&lt;/artifactId&gt;
-      &lt;version&gt;2.7.2&lt;/version&gt;
-      &lt;executions&gt;
-        &lt;execution&gt;
-          &lt;goals&gt;
-            &lt;goal&gt;generate&lt;/goal&gt;
-          &lt;/goals&gt;
-        &lt;/execution&gt;
-      &lt;/executions&gt;
-      &lt;configuration&gt;
-        &lt;languages&gt;
-          &lt;language&gt;
-            &lt;setup&gt;org.eclipse.elk.core.meta.MetaDataStandaloneSetup&lt;/setup&gt;
-            &lt;outputConfigurations&gt;
-              &lt;outputConfiguration&gt;
-                &lt;outputDirectory&gt;${basedir}/src-gen/&lt;/outputDirectory&gt;
-              &lt;/outputConfiguration&gt;
-            &lt;/outputConfigurations&gt;
-          &lt;/language&gt;
-        &lt;/languages&gt;
-      &lt;/configuration&gt;
-      &lt;dependencies&gt;
-        &lt;dependency&gt;
-          &lt;groupId&gt;org.eclipse.elk&lt;/groupId&gt;
-          &lt;artifactId&gt;org.eclipse.elk.graph&lt;/artifactId&gt;
-          &lt;version&gt;THE_VERSION_YOU_WANT-SNAPSHOT&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-          &lt;groupId&gt;org.eclipse.elk&lt;/groupId&gt;
-          &lt;artifactId&gt;org.eclipse.elk.core.meta&lt;/artifactId&gt;
-          &lt;version&gt;THE_VERSION_YOU_WANT-SNAPSHOT&lt;/version&gt;
-        &lt;/dependency&gt;
-      &lt;/dependencies&gt;
-    &lt;/plugin&gt;
-  &lt;/plugins&gt;
-&lt;/build&gt;
+<pre><code class="language-json">{
+  id*: &quot;ID&quot;,
+  properties: { ..object with key value pairs.. }
+}
+</code></pre>
+
+<h2 id="nodes-ports-and-labels">Nodes, Ports, and Labels</h2>
+
+<p>Nodes, ports, and labels have a two-dimensional location and size. Each of these elements
+can also have an arbitrary number of labels to describe them properly. Yes, even labels can
+have labels, although it depends on the layout algorithm whether or not it supports labeled
+labels.</p>
+
+<pre><code class="language-json">{
+  x: ...,
+  y: ...,
+  width: ...,
+  height: ...,
+  labels: [ ..array of label objects.. ],
+}
+</code></pre>
+
+<h2 id="nodes">Nodes</h2>
+
+<p>Nodes can have an arbitrary number of ports. Edges can connect to a node either directly or
+through one of its ports. A node can also contain an arbitrary number of child nodes. A graph
+is actually nothing more than a simple node whose children are the top-level nodes of the graph.
+Finally, a node can contain edges. These edges do not necessarily connect to the node, but will
+usually connect its children. The edge coordinates will be interpreted relative to the upper
+left corner of the node which contains it.</p>
+
+<pre><code class="language-javascript">{
+  ports: [ ..array of port objects.. ],
+  children: [ ..array of child node objects.. ],
+  edges: [ ..array of edge objects.. ]
+}
+</code></pre>
+
+<h2 id="ports">Ports</h2>
+
+<p>Ports do not have any more interesting properties. Ports are boring.</p>
+
+<h2 id="labels">Labels</h2>
+
+<p>Labels can additionally contain text. Note that layout algorithms
+generally don&rsquo;t perform any size estimation of the text.
+Therefore you should specify a reasonable width and height.</p>
+
+<pre><code class="language-json">{
+  text: &quot;A magnificent text&quot;
+}
+</code></pre>
+
+<h2 id="edges">Edges</h2>
+
+<p>There are two types of edges: primitive edges and extended edges.
+Primitive edges are solely supported for legacy models to work.
+Exported graphs will always be made up of extended edges</p>
+
+<h3 id="primitive-edges">Primitive Edges</h3>
+
+<p>Primitive edges have a source and target node and can optionally connect
+to a source port and target port.</p>
+
+<pre><code class="language-json">{
+  source*: node identifier,
+  sourcePort: port identifier,
+  target*: node identifier,
+  targetPort: port identifier,
+  sourcePoint: {x,y},
+  targetPoint: {x,y},
+  bendPoints: [ .. {x,y} pairs .. ]
+}
+</code></pre>
+
+<h3 id="extended-edges">Extended Edges</h3>
+
+<p>Extended edges have two mandatory arrays consisting of the identifiers of nodes and ports. One
+array defines the edge&rsquo;s source elements, the other defines its target elements. Edges may well
+connect more than one source to more than one target, making them hyperedges.
+Note that many layout algorithms don&rsquo;t support hyperedges.
+If an edge has a layout, it can specify an arbitrary number of edge sections
+that define said layout. A simple edge with one source and one target only needs a single section.</p>
+
+<pre><code class="language-json">{
+ sources*: [ ..array of node and / or port identifiers.. ],
+ targets*: [ ..array of node and / or port identifiers.. ],
+ sections: [ ..array of edge sections.. ]
+}
+</code></pre>
+
+<h2 id="edge-sections">Edge Sections</h2>
+
+<p>Edge sections are only used in conjunction with extended edges and
+capture the routing of an edge through a drawing. Each section connects two
+end points. An end point can be one of the end points of the section&rsquo;s edge (a node or a port),
+or one or more other edge sections. The points where edge sections meet are <em>junction
+points</em> where one part of the edge branches off. An edge section can only have either an
+incoming shape or incoming edge sections (the same is true of course for outgoing shapes and
+outgoing edge sections). In the simplest case, an edge only has a single edge section which
+runs from the edge&rsquo;s single source to its single target. In this case, it is enough to define
+the section&rsquo;s start and end point and possibly bendpoints.
+Incoming and outgoing shapes are then filled in automatically by the importer.</p>
+
+<pre><code class="language-json">{
+ startPoint*: {x, y},
+ endPoint*: {x, y},
+ bendPoints: [ ..array of {x, y} pairs.. ],
+ incomingShape: node and / or port identifier,
+ outgoingShape: node and / or port identifier,
+ incomingSections: [ ..array of edge section identifiers.. ],
+ outgoingSections: [ ..array of edge section identifiers.. ]
+}
+</code></pre>
+
+<h1 id="api">API</h1>
+
+<p>Importing and exporting can be done using the <code>ElkGraphJson</code> utility class.
+It provides a set of methods that are outlined next.</p>
+
+<h2 id="json-to-elk-graph">JSON to ELK Graph</h2>
+
+<p>Simple import using a json string as input:</p>
+
+<pre><code class="language-java">ElkNode root = ElkGraphJson.forGraph(jsonString)
+                           .toElk();
+</code></pre>
+
+<p>Sometimes one desires to transfer the computed layout back to
+the initial json graph.
+This is possible if the graph is already available
+as <code>JsonObject</code>. Pass a
+<code>Maybe</code> instance to the builder which is populated with
+the <code>JsonImporter</code> instance that has been used to
+import the json graph. Internally, the importer maintains
+several maps from json elements to ELK graph elements.</p>
+
+<pre><code class="language-java">JsonObject jsonGraph = ...;
+Maybe&lt;JsonImporter&gt; importerMaybe = new Maybe&lt;&gt;();
+ElkNode root = ElkGraphJson.forGraph(jsonGraph)
+                           .rememberImporter(importerMaybe)
+                           .toElk();
+// [ perform layout ]
+
+importerMaybe.get().transferLayout(root);
+</code></pre>
+
+<h2 id="elk-graph-to-json">ELK Graph to JSON</h2>
+
+<pre><code class="language-java">ElkNode root = ...;
+String json = ElkGraphJson.forGraph(root)
+                          .omitLayout(true)
+                          .omitZeroDimension(true)
+                          .omitZeroPositions(true)
+                          .shortLayoutOptionKeys(false)
+                          .prettyPrint(true)
+                          .toJson();
 </code></pre>
 
   </div>
@@ -187,7 +299,7 @@
 
   
   <a href="../../../documentation/tooldevelopers/graphdatastructure/jsonformat.html">
-    <li class="navlevel-3">
+    <li class="navlevel-3 active">
       JSON Format
     </li>
   </a>
@@ -315,7 +427,7 @@
 
   
   <a href="../../../documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
-    <li class="navlevel-3 active">
+    <li class="navlevel-3">
       Automatic Builds
     </li>
   </a>

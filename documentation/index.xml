@@ -1112,22 +1112,13 @@ supports the.option.id = 42     // Overridden default value
     </item>
     
     <item>
-      <title>Getting Eclipse Ready</title>
-      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/gettingeclipseready.html</link>
+      <title>ELK Text Format</title>
+      <link>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/elktextformat.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/gettingeclipseready.html</guid>
-      <description>&lt;p&gt;Developing layout algorithms requires you to have the &lt;em&gt;Eclipse Layout Kernel SDK&lt;/em&gt; installed in your Eclipse installation. Follow these steps to install it:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Start Eclipse and select &lt;em&gt;Help - Install New Software&amp;hellip;&lt;/em&gt; from the menu.&lt;/li&gt;
-&lt;li&gt;In the &lt;em&gt;Work with:&lt;/em&gt; field, enter the address of our release or nightly update site, which you can find in our Downloads section.&lt;/li&gt;
-&lt;li&gt;From the &lt;em&gt;Eclipse Layout Kernel&lt;/em&gt; category, check &lt;em&gt;Eclipse Layout Kernel (Incubation) - SDK&lt;/em&gt; as well as &lt;em&gt;Eclipse Layout Kernel (Incubation) - SDK (sources)&lt;/em&gt; and click &lt;em&gt;Next&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Follow the instructions of the installation wizard, accepting all of the license agreements.&lt;/li&gt;
-&lt;li&gt;Restart Eclipse.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;After the restart, there won&amp;rsquo;t seem to be much of a difference. Because there isn&amp;rsquo;t. But rest assured that your development environment is now perfectly prepared for what is about to come.&lt;/p&gt;
+      <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/elktextformat.html</guid>
+      <description>&lt;p&gt;Documentation is coming soon. For the moment you can find an example
+on &lt;a href=&#34;https://github.com/eclipse/elk/pull/106#issuecomment-268772479&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

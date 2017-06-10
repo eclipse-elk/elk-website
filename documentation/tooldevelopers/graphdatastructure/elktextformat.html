@@ -27,27 +27,27 @@
       
         
         <li class="nav-item">
-          <a class="nav-link" href="../../downloads.html">Downloads</a>
+          <a class="nav-link" href="../../../downloads.html">Downloads</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+          <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
         </li>
       
         
         <li class="nav-item active">
-          <a class="nav-link" href="../../documentation.html">Documentation <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../../documentation.html">Documentation <span class="sr-only">(current)</span></a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="../../reference.html">Reference</a>
+          <a class="nav-link" href="../../../reference.html">Reference</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="../../support.html">Support</a>
+          <a class="nav-link" href="../../../support.html">Support</a>
         </li>
       
 
@@ -61,74 +61,10 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Algorithm Debugging</h1>
+    <h1>ELK Text Format</h1>
 
-    
-
-<p>The Eclipse Layout Kernel SDK provides two views built specifically for debugging your layout algorithm: the layout graph view and the execution time view.</p>
-
-<h1 id="layout-graph-view">Layout Graph View</h1>
-
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img/layout_graph_view.png"
-    
-     alt="Layout Graph View"
-  />
-</p>
-
-
-<p>The layout graph view registers with the <code>DiagramLayoutEngine</code> to be notified whenever a layout run finishes and displays the layout graph exactly as it comes out of the layout algorithm, without any modifications applied. Use this view to check if your algorithm works and if you got the coordinate system right.</p>
-
-<p>Note that the layout graph view allows you to export the displayed graph as a PNG image file. It also allows you to display debug graph files (see below).</p>
-
-<p>Open the layout graph view by clicking <em>Window</em> -&gt; <em>Show View</em> -&gt; <em>Other</em> and select <em>Layout Graph</em> from the <em>Eclipse Diagram Layout</em> category.</p>
-
-<h1 id="layout-time-view">Layout Time View</h1>
-
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img/layout_time_view.png"
-    
-     alt="Layout Time View"
-  />
-</p>
-
-
-<p>The layout time view registers with the <code>DiagramLayoutEngine</code> to be notified whenever a layout run finishes and displays which steps the layout run consisted of and, if enabled, how much time each step took to run. Measuring these execution times has to be explicitly enabled in the preferences:</p>
-
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img/layout_time_view_enable.png"
-    
-     alt="Enabling layout time measurements"
-  />
-</p>
-
-
-<p>Once enabled, the view displays two values for each item: the <em>time</em> and the <em>local time</em>. The former is the amount of time spent for an item and all of its sub-items. Local time is the time spent on the item alone, without any sub-items (this value is omitted for items that do not have any sub-items, since it would be equal to the normal time value anyway).</p>
-
-<p>To take advantage of the layout time view, your algorithm must make proper use of the <code>IElkProgressMonitor</code> passed to it. The tree of progress monitors (and sub-monitors) is what gets displayed in the layout time view. Be sure to do something like this:</p>
-
-<pre><code class="language-java">monitor.begin(&quot;My rather good layout algorithm&quot;, 2);
-
-executePhase1(monitor.subTask(1));
-executePhase2(monitor.subTask(1));
-
-monitor.done();
-</code></pre>
-
-<p>Open the layout graph view by clicking <em>Window</em> -&gt; <em>Show View</em> -&gt; <em>Other</em> and select <em>Layout Time</em> from the <em>Eclipse Diagram Layout</em> category.</p>
-
-<h1 id="debug-files">Debug Files</h1>
-
-<p>The ELK preference page (see above) contains another setting: <em>Debug graph output</em>. Enabling this will cause the <code>DiagramLayoutEngine</code> to save the layout graph just before automatic layout is run. The graphs are placed in your user folder, in a subfolder called <code>elk/diagram_layout_engine</code>. The graph files can be displayed by the layout graph view, even though that usually is not very helpful since they may not contain any valid layout data yet.</p>
+    <p>Documentation is coming soon. For the moment you can find an example
+on <a href="https://github.com/eclipse/elk/pull/106#issuecomment-268772479">github</a>.</p>
 
   </div>
 
@@ -147,7 +83,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/tooldevelopers.html">
+  <a href="../../../documentation/tooldevelopers.html">
     <li class="navlevel-1">
       Tool Developers
     </li>
@@ -160,7 +96,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/tooldevelopers/graphdatastructure.html">
+  <a href="../../../documentation/tooldevelopers/graphdatastructure.html">
     <li class="navlevel-2">
       Graph Data Structure
     </li>
@@ -173,7 +109,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
     <li class="navlevel-3">
       Coordinate System
     </li>
@@ -181,7 +117,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
     <li class="navlevel-3">
       Layout Options
     </li>
@@ -189,7 +125,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/graphdatastructure/jsonformat.html">
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/jsonformat.html">
     <li class="navlevel-3">
       JSON Format
     </li>
@@ -197,8 +133,8 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/graphdatastructure/elktextformat.html">
-    <li class="navlevel-3">
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/elktextformat.html">
+    <li class="navlevel-3 active">
       ELK Text Format
     </li>
   </a>
@@ -208,7 +144,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">
+  <a href="../../../documentation/tooldevelopers/usingalgorithmsdirectly.html">
     <li class="navlevel-2">
       Using Algorithms Directly
     </li>
@@ -216,7 +152,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/usingplainjavalayout.html">
+  <a href="../../../documentation/tooldevelopers/usingplainjavalayout.html">
     <li class="navlevel-2">
       Using Plain Java Layout
     </li>
@@ -224,7 +160,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/usingeclipselayout.html">
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout.html">
     <li class="navlevel-2">
       Using Eclipse Layout
     </li>
@@ -237,7 +173,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
     <li class="navlevel-3">
       Connecting to ELK
     </li>
@@ -245,7 +181,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
     <li class="navlevel-3">
       Advanced Configuration
     </li>
@@ -253,7 +189,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
     <li class="navlevel-3">
       Layout View Support
     </li>
@@ -261,7 +197,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
     <li class="navlevel-3">
       Dependency Injection
     </li>
@@ -275,7 +211,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/algorithmdevelopers.html">
+  <a href="../../../documentation/algorithmdevelopers.html">
     <li class="navlevel-1">
       Algorithm Developers
     </li>
@@ -288,7 +224,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/algorithmdevelopers/gettingeclipseready.html">
+  <a href="../../../documentation/algorithmdevelopers/gettingeclipseready.html">
     <li class="navlevel-2">
       Getting Eclipse Ready
     </li>
@@ -296,7 +232,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/algorithmdevelopers/creatinganewproject.html">
+  <a href="../../../documentation/algorithmdevelopers/creatinganewproject.html">
     <li class="navlevel-2">
       Creating a New Project
     </li>
@@ -304,7 +240,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">
+  <a href="../../../documentation/algorithmdevelopers/metadatalanguage.html">
     <li class="navlevel-2">
       ELK Metadata Language
     </li>
@@ -317,7 +253,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
+  <a href="../../../documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
     <li class="navlevel-3">
       Automatic Builds
     </li>
@@ -328,7 +264,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/algorithmdevelopers/algorithmimplementation.html">
+  <a href="../../../documentation/algorithmdevelopers/algorithmimplementation.html">
     <li class="navlevel-2">
       Algorithm Implementation
     </li>
@@ -341,7 +277,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html">
+  <a href="../../../documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html">
     <li class="navlevel-3">
       Structuring Algorithms
     </li>
@@ -352,8 +288,8 @@ monitor.done();
   
 
   
-  <a href="../../documentation/algorithmdevelopers/algorithmdebugging.html">
-    <li class="navlevel-2 active">
+  <a href="../../../documentation/algorithmdevelopers/algorithmdebugging.html">
+    <li class="navlevel-2">
       Algorithm Debugging
     </li>
   </a>
@@ -363,7 +299,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/contributors.html">
+  <a href="../../../documentation/contributors.html">
     <li class="navlevel-1">
       ELK Contributors
     </li>
@@ -376,7 +312,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/contributors/developmentsetup.html">
+  <a href="../../../documentation/contributors/developmentsetup.html">
     <li class="navlevel-2">
       Development Setup
     </li>
@@ -384,7 +320,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/contributors/developmentworkflow.html">
+  <a href="../../../documentation/contributors/developmentworkflow.html">
     <li class="navlevel-2">
       Development Workflow
     </li>
@@ -397,7 +333,7 @@ monitor.done();
 
 
   
-  <a href="../../documentation/contributors/developmentworkflow/installingwithoomph.html">
+  <a href="../../../documentation/contributors/developmentworkflow/installingwithoomph.html">
     <li class="navlevel-3">
       Installing With Oomph
     </li>
@@ -408,7 +344,7 @@ monitor.done();
   
 
   
-  <a href="../../documentation/contributors/buildingelk.html">
+  <a href="../../../documentation/contributors/buildingelk.html">
     <li class="navlevel-2">
       Building ELK
     </li>

@@ -788,6 +788,9 @@
       src=&#34;../img_gen/org-eclipse-elk-box_preview_box_layout.png&#34;
     
      alt=&#34;Preview Image&#34;
+    style = &#34;max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;&#34;
   /&gt;
 &lt;/p&gt;
 

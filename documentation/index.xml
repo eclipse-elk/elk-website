@@ -91,6 +91,9 @@ DiagramLayoutEngine.invokeLayout(workbenchPart, diagramPart, params);
       src=&#34;../img/layout_graph_view.png&#34;
     
      alt=&#34;Layout Graph View&#34;
+    style = &#34;max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;&#34;
   /&gt;
 &lt;/p&gt;
 
@@ -110,6 +113,9 @@ DiagramLayoutEngine.invokeLayout(workbenchPart, diagramPart, params);
       src=&#34;../img/layout_time_view.png&#34;
     
      alt=&#34;Layout Time View&#34;
+    style = &#34;max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;&#34;
   /&gt;
 &lt;/p&gt;
 
@@ -123,6 +129,9 @@ DiagramLayoutEngine.invokeLayout(workbenchPart, diagramPart, params);
       src=&#34;../img/layout_time_view_enable.png&#34;
     
      alt=&#34;Enabling layout time measurements&#34;
+    style = &#34;max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;&#34;
   /&gt;
 &lt;/p&gt;
 
@@ -519,6 +528,9 @@ void applyLayout(LayoutMapping mapping, IPropertyHolder settings);
       src=&#34;../img/layout-reference-points.png&#34;
     
      alt=&#34;Coordinate system reference.&#34;
+    style = &#34;max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;&#34;
   /&gt;
 &lt;/p&gt;
 

@@ -509,6 +509,61 @@
     </item>
     
     <item>
+      <title>Annulus Wedge Criteria</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-wedgeCriteria.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-wedgeCriteria.html</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.radial.wedgeCriteria&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;RadialMetaDataProvider&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.alg.radial.options.AnnulusWedgeCriteria&lt;/code&gt; (Enum)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Possible Values:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;LEAF_NUMBER&lt;/code&gt;&lt;br&gt;&lt;code&gt;NODE_SIZE&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;AnnulusWedgeCriteria.NODE_SIZE&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk.radial&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Determine how the wedge for the node placement is calculated. It can be chosen between wedge determination by the number of leaves or by the maximum sum of diagonals.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Aspect Ratio</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -882,66 +937,6 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Box Layout Mode</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html</guid>
-      <description>
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Property&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;org.eclipse.elk.box.packingMode&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.util.BoxLayoutProvider$PackingMode&lt;/code&gt; (Enum)&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Possible Values:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;SIMPLE&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_DEC&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_MIXED&lt;/code&gt;&lt;br&gt;&lt;code&gt;GROUP_INC&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;BoxLayoutProvider.PackingMode.SIMPLE&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;parents&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/groups/org-eclipse-elk-box.html&#34;&gt;box&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
-
-&lt;p&gt;Configures the packing mode used by the {@link BoxLayoutProvider}. If SIMPLE is not required (neither priorities are used nor the interactive mode), GROUP_DEC can improve the packing and decrease the area. GROUP_MIXED and GROUP_INC may, in very specific scenarios, work better.&lt;/p&gt;
 </description>
     </item>
     

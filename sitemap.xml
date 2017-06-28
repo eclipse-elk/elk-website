@@ -70,6 +70,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-wedgeCriteria.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html</loc>
   </url>
   
@@ -111,6 +115,14 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentBox.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactor.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactionStepSize.html</loc>
   </url>
   
   <url>
@@ -606,6 +618,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-orderId.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapMode.html</loc>
   </url>
   
@@ -694,6 +710,14 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-radial.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-radius.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-randomSeed.html</loc>
   </url>
   
@@ -746,6 +770,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-sorter.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopPlacement.html</loc>
   </url>
   
@@ -771,6 +799,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-optimizationCriteria.html</loc>
   </url>
   
   <url>

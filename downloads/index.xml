@@ -112,6 +112,29 @@
     </item>
     
     <item>
+      <title>0.2.2</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.2.html</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.2&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.2/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.2.2/elk-0.2.2.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.2.2&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.&lt;/p&gt;
+
+&lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.2.2&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

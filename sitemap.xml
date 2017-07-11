@@ -242,6 +242,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-radial.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-stress.html</loc>
   </url>
   
@@ -711,10 +715,6 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-progressBar.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-radial.html</loc>
   </url>
   
   <url>

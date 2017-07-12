@@ -154,6 +154,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-correctionFactor.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/creatinganewproject.html</loc>
   </url>
   
@@ -203,6 +207,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-distancePenalty.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-distancePenalty.html</loc>
   </url>
   
   <url>
@@ -402,7 +410,15 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveCuts.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improveWrappedEdges.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveWrappedEdges.html</loc>
   </url>
   
   <url>
@@ -639,6 +655,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-pathLike-validify-strategy.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-singleEdge-validify-strategy.html</loc>
   </url>
   
   <url>
@@ -986,11 +1006,23 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-multiEdge.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathLike.html</loc>
   </url>
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathLike-validify.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleEdge.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleEdge-validify.html</loc>
   </url>
   
 </urlset>

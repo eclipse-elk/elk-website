@@ -61,7 +61,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Straightness Priority</h1>
+    <h1>Edge Label Side Selection</h1>
 
     
 
@@ -75,13 +75,8 @@
 
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.priority.straightness</code></td>
+<td><code>org.eclipse.elk.layered.edgeLabels.sideSelection</code></td>
 </tr>
 
 <tr>
@@ -91,34 +86,39 @@
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>int</code></td>
+<td><code>org.eclipse.elk.alg.layered.options.EdgeLabelSideSelection</code> (Enum)</td>
+</tr>
+
+<tr>
+<td><em>Possible Values:</em></td>
+<td><code>ALWAYS_UP</code><br><code>ALWAYS_DOWN</code><br><code>DIRECTION_UP</code><br><code>DIRECTION_DOWN</code><br><code>SMART_UP</code><br><code>SMART_DOWN</code></td>
 </tr>
 
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>0</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
-</tr>
-
-<tr>
-<td><em>Lower Bound:</em></td>
-<td><code>0</code></td>
+<td><code>EdgeLabelSideSelection.SMART_DOWN</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
 </tr>
 
 <tr>
 <td><em>Applies To:</em></td>
-<td>edges</td>
+<td>parents</td>
+</tr>
+
+<tr>
+<td><em>Legacy Id:</em></td>
+<td><code>de.cau.cs.kieler.klay.layered.edgeLabelSideSelection</code></td>
 </tr>
 
 <tr>
 <td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-layered-priority.html">priority</a></td>
+<td><a href="../../reference/groups/org-eclipse-elk-layered-edgeLabels.html">edgeLabels</a></td>
 </tr>
 </tbody>
 </table>
 
 <h3 id="description">Description</h3>
 
-<p>Defines how important it is to keep an edge straight, i.e. aligned with one of the two axes. This option is evaluated during node placement.</p>
+<p>Method to decide on edge label sides.</p>
 
   </div>
 
@@ -585,7 +585,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-edgeLabels-sideSelection.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Edge Label Side Selection
     </li>
   </a>
@@ -1473,7 +1473,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-priority-straightness.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Straightness Priority
     </li>
   </a>

@@ -72,17 +72,17 @@ fields are marked with an <em>asterisk</em>.</p>
 
 <h2 id="nodes-ports-labels-edges-and-edge-sections">Nodes, Ports, Labels, Edges, and Edge Sections</h2>
 
-<p>All elements, except labels, must have an <code>id</code> that uniquely identifies them.
+<p>All elements, except labels, must have an <em>id</em> that uniquely identifies them.
 Labels are usually not referred to from other parts of the graph,
 which is why the id is optional.
 The id can be a string or an integer.
-All elements furthermore can have properties.
-Properties are basically a list of key-value pairs that are usually used to
+All elements furthermore can have <a href="../../../reference/options.html"><em>layout options</em></a>.
+Layout options are basically a list of key-value pairs that are used to
 assign layout option values to the element.</p>
 
 <pre><code class="language-json">{
   id*: &quot;ID&quot;,
-  properties: { ..object with key value pairs.. }
+  layoutOptions: { ..object with key value pairs.. }
 }
 </code></pre>
 
@@ -111,7 +111,7 @@ Finally, a node can contain edges. These edges do not necessarily connect to the
 usually connect its children. The edge coordinates will be interpreted relative to the upper
 left corner of the node which contains it.</p>
 
-<pre><code class="language-javascript">{
+<pre><code class="language-json">{
   ports: [ ..array of port objects.. ],
   children: [ ..array of child node objects.. ],
   edges: [ ..array of edge objects.. ]
@@ -195,7 +195,49 @@ Incoming and outgoing shapes are then filled in automatically by the importer.</
 }
 </code></pre>
 
+<h2 id="junction-points">Junction Points</h2>
+
+<p><em>Junction points</em> are the split and merge points of hyperedges.
+Layout algorithms supporting hyperedges may compute these points
+such that a rendering framework can use them to position visual cues,
+for instance, small circles.
+In case an algorithm computes junction points,
+an edge&rsquo;s representation might look like the following after layout.</p>
+
+<pre><code class="language-json">{
+  id: 'edge0',
+  junctionPoints: [ ..array of {x, y} pairs.. ]
+}
+</code></pre>
+
+<h1 id="small-example">Small Example</h1>
+
+<pre><code class="language-json">{
+  id: &quot;root&quot;,
+  properties: { 'elk.direction': 'RIGHT' },
+  children: [
+    { id: &quot;n1&quot;, width: 10, height: 10 },
+    { id: &quot;n2&quot;, width: 10, height: 10 }
+  ],
+  edges: [{
+    id: &quot;e1&quot;, sources: [ &quot;n1&quot; ], targets: [ &quot;n2&quot; ]
+  }]
+}
+</code></pre>
+
 <h1 id="api">API</h1>
+
+
+
+<div class="alert alert-info">
+  <h5>Info</h5>
+
+  <p>The following explanations
+concern only the Java API,
+not elk.js.</p>
+
+</div>
+
 
 <p>Importing and exporting can be done using the <code>ElkGraphJson</code> utility class.
 It provides a set of methods that are outlined next.</p>

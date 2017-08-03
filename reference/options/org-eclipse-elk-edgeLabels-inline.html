@@ -61,7 +61,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Priority (Box Layout)</h1>
+    <h1>Inline Edge Labels</h1>
 
     
 
@@ -75,13 +75,8 @@
 
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.priority</code></td>
+<td><code>org.eclipse.elk.edgeLabels.inline</code></td>
 </tr>
 
 <tr>
@@ -91,28 +86,29 @@
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>int</code></td>
+<td><code>boolean</code></td>
+</tr>
+
+<tr>
+<td><em>Default Value:</em></td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk</code>)</td>
 </tr>
 
 <tr>
 <td><em>Applies To:</em></td>
-<td>nodes, edges</td>
+<td>labels</td>
 </tr>
 
 <tr>
-<td><em>Legacy Id:</em></td>
-<td><code>de.cau.cs.kieler.priority</code></td>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-edgeLabels.html">edgeLabels</a></td>
 </tr>
 </tbody>
 </table>
 
 <h3 id="description">Description</h3>
 
-<p>Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.</p>
-
-<h2 id="additional-documentation">Additional Documentation</h2>
-
-<p>The box layouter sorts the boxes based on their size. The priority value takes precedence in this sorting.</p>
+<p>If true, an edge label is placed directly on its edge. May only apply to center edge labels. This kind of label placement is only advisable if the label&rsquo;s rendering is such that it is not crossed by its edge and thus stays legible.</p>
 
   </div>
 
@@ -827,7 +823,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-edgeLabels-inline.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Inline Edge Labels
     </li>
   </a>
@@ -1363,7 +1359,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-priority.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Priority
     </li>
   </a>

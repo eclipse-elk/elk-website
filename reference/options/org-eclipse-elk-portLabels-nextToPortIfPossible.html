@@ -61,7 +61,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>compaction</h1>
+    <h1>Port Labels Next to Port</h1>
 
     
 
@@ -76,22 +76,39 @@
 <tbody>
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.compaction</code></td>
+<td><code>org.eclipse.elk.portLabels.nextToPortIfPossible</code></td>
+</tr>
+
+<tr>
+<td><em>Meta Data Provider:</em></td>
+<td><code>core.options.CoreOptions</code></td>
+</tr>
+
+<tr>
+<td><em>Value Type:</em></td>
+<td><code>boolean</code></td>
+</tr>
+
+<tr>
+<td><em>Default Value:</em></td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk</code>)</td>
+</tr>
+
+<tr>
+<td><em>Applies To:</em></td>
+<td>nodes</td>
+</tr>
+
+<tr>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-portLabels.html">portLabels</a></td>
 </tr>
 </tbody>
 </table>
 
-<h2 id="options">Options</h2>
+<h3 id="description">Description</h3>
 
-<ul>
-<li><a href="../../reference/options/org-eclipse-elk-layered-compaction-connectedComponents.html">Connected Components Compaction</a></li>
-</ul>
-
-<h2 id="subgroups">Subgroups</h2>
-
-<ul>
-<li><a href="../../reference/groups/org-eclipse-elk-layered-compaction-postCompaction.html">postCompaction</a></li>
-</ul>
+<p>Usually, inside port labels of hierarchical nodes are placed not next to their port, but with an offset to avoid edge-label crossings. The offset is not necessary if the port has no connections that would cross the label, but is usually applied anyway to keep things uniform. Setting this option to true places labels next to their ports if they won&rsquo;t be crossed by edges.</p>
 
   </div>
 
@@ -1302,7 +1319,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-portLabels-nextToPortIfPossible.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Port Labels Next to Port
     </li>
   </a>
@@ -1558,7 +1575,7 @@
 
   
   <a href="../../reference/groups/org-eclipse-elk-layered-compaction.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       compaction
     </li>
   </a>

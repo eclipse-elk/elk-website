@@ -142,6 +142,14 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-componentCompaction-strategy.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-componentCompaction-componentLayoutAlgorithm.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html</loc>
   </url>
   
@@ -171,6 +179,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-cycleBreaking-strategy.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-debug-discoGraph.html</loc>
   </url>
   
   <url>
@@ -231,6 +243,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/documentation/contributors.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-disco.html</loc>
   </url>
   
   <url>
@@ -339,6 +355,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-feedbackEdges.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-fill.html</loc>
   </url>
   
   <url>
@@ -558,6 +578,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-debug-discoPolys.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-msd-freedom.html</loc>
   </url>
   
@@ -671,6 +695,18 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-singleEdge-validify-strategy.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-highLevelSort.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-lowLevelSort.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-traversalStrategy.html</loc>
   </url>
   
   <url>
@@ -898,6 +934,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-disco-componentCompaction.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingMinimization.html</loc>
   </url>
   
@@ -907,6 +947,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-cycleBreaking.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-disco-debug.html</loc>
   </url>
   
   <url>
@@ -983,6 +1027,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-partitioning.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-polyomino.html</loc>
   </url>
   
   <url>

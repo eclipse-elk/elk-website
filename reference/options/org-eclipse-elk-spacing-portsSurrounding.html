@@ -61,7 +61,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>High Degree Node Treatment</h1>
+    <h1>Additional Port Space</h1>
 
     
 
@@ -81,22 +81,22 @@
 
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.highDegreeNodes.treatment</code></td>
+<td><code>org.eclipse.elk.spacing.portsSurrounding</code></td>
 </tr>
 
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>options.LayeredMetaDataProvider</code></td>
+<td><code>core.options.CoreOptions</code></td>
 </tr>
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>boolean</code></td>
+<td><code>org.eclipse.elk.core.math.ElkMargin</code></td>
 </tr>
 
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>false</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+<td><code>new ElkMargin(0)</code> (as defined in <code>org.eclipse.elk</code>)</td>
 </tr>
 
 <tr>
@@ -105,20 +105,15 @@
 </tr>
 
 <tr>
-<td><em>Legacy Id:</em></td>
-<td><code>de.cau.cs.kieler.klay.layered.highDegreeNode.treatment</code></td>
-</tr>
-
-<tr>
 <td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-layered-highDegreeNodes.html">highDegreeNodes</a></td>
+<td><a href="../../reference/groups/org-eclipse-elk-spacing.html">spacing</a></td>
 </tr>
 </tbody>
 </table>
 
 <h3 id="description">Description</h3>
 
-<p>Makes room around high degree nodes to place leafs and trees.</p>
+<p>Additional space around the sets of ports on each node side. For each side of a node, this option can reserve additional space before and after the ports on each side. For example, a top spacing of 20 makes sure that the first port on the western and eastern side is 20 units away from the northern border.</p>
 
   </div>
 
@@ -321,7 +316,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-spacing-portsSurrounding.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Additional Port Space
     </li>
   </a>
@@ -825,7 +820,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-highDegreeNodes-treatment.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       High Degree Node Treatment
     </li>
   </a>

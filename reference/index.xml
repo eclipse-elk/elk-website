@@ -249,6 +249,66 @@
     </item>
     
     <item>
+      <title>Additional Port Space</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsSurrounding.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsSurrounding.html</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.spacing.portsSurrounding&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.math.ElkMargin&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;new ElkMargin(0)&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../reference/groups/org-eclipse-elk-spacing.html&#34;&gt;spacing&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Additional space around the sets of ports on each node side. For each side of a node, this option can reserve additional space before and after the ports on each side. For example, a top spacing of 20 makes sure that the first port on the western and eastern side is 20 units away from the northern border.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Additional Wrapped Edges Spacing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -825,118 +885,6 @@
 &lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
 
 &lt;p&gt;A fixed list of bend points for the edge. This is used by the &amp;lsquo;Fixed Layout&amp;rsquo; algorithm to specify a pre-defined routing for an edge. The vector chain must include the source point, any bend points, and the target point, so it must have at least two points.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Box Layout</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</guid>
-      <description>
-
-&lt;p&gt;
-  &lt;img
-    class=&#34;img-fluid&#34;
-    
-      src=&#34;../img_gen/org-eclipse-elk-box_preview_box_layout.png&#34;
-    
-     alt=&#34;Preview Image&#34;
-    style = &#34;max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;&#34;
-  /&gt;
-&lt;/p&gt;
-
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Property&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;org.eclipse.elk.box&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
-
-&lt;p&gt;Algorithm for packing of unconnected boxes, i.e. graphs without edges.&lt;/p&gt;
-
-&lt;h2 id=&#34;supported-options&#34;&gt;Supported Options&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Option&lt;/th&gt;
-&lt;th&gt;Default Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-aspectRatio.html&#34;&gt;Aspect Ratio&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;1.3f&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-box-packingMode.html&#34;&gt;Box Layout Mode&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;BoxLayoutProvider.PackingMode.SIMPLE&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-expandNodes.html&#34;&gt;Expand Nodes&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-interactive.html&#34;&gt;Interactive&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-nodeSize-constraints.html&#34;&gt;Node Size Constraints&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;EnumSet.noneOf(SizeConstraint)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-nodeSize-minimum.html&#34;&gt;Node Size Minimum&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;new KVector(0, 0)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-nodeSize-options.html&#34;&gt;Node Size Options&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-spacing-nodeNode.html&#34;&gt;Node Spacing&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;15&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-padding.html&#34;&gt;Padding&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;new ElkPadding(15)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;../reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html&#34;&gt;Priority&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 </description>
     </item>
     

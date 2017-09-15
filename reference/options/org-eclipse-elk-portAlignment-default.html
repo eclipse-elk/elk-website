@@ -61,7 +61,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>High Degree Node Treatment</h1>
+    <h1>Port Alignment</h1>
 
     
 
@@ -75,50 +75,50 @@
 
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.highDegreeNodes.treatment</code></td>
+<td><code>org.eclipse.elk.portAlignment.default</code></td>
 </tr>
 
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>options.LayeredMetaDataProvider</code></td>
+<td><code>core.options.CoreOptions</code></td>
 </tr>
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>boolean</code></td>
+<td><code>org.eclipse.elk.core.options.PortAlignment</code> (Enum)</td>
+</tr>
+
+<tr>
+<td><em>Possible Values:</em></td>
+<td><code>DISTRIBUTED</code><br><code>JUSTIFIED</code><br><code>BEGIN</code><br><code>CENTER</code><br><code>END</code></td>
 </tr>
 
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>false</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+<td><code>PortAlignment.DISTRIBUTED</code> (as defined in <code>org.eclipse.elk</code>)</td>
 </tr>
 
 <tr>
 <td><em>Applies To:</em></td>
-<td>parents</td>
+<td>nodes</td>
 </tr>
 
 <tr>
 <td><em>Legacy Id:</em></td>
-<td><code>de.cau.cs.kieler.klay.layered.highDegreeNode.treatment</code></td>
+<td><code>de.cau.cs.kieler.portAlignment</code></td>
 </tr>
 
 <tr>
 <td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-layered-highDegreeNodes.html">highDegreeNodes</a></td>
+<td><a href="../../reference/groups/org-eclipse-elk-portAlignment.html">portAlignment</a></td>
 </tr>
 </tbody>
 </table>
 
 <h3 id="description">Description</h3>
 
-<p>Makes room around high degree nodes to place leafs and trees.</p>
+<p>Defines the default port distribution for a node. May be overridden for each side individually.</p>
 
   </div>
 
@@ -825,7 +825,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-highDegreeNodes-treatment.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       High Degree Node Treatment
     </li>
   </a>
@@ -1337,7 +1337,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-portAlignment-default.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Port Alignment
     </li>
   </a>

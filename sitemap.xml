@@ -38,6 +38,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsSurrounding.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html</loc>
   </url>
   
@@ -711,6 +715,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-basic.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-default.html</loc>
   </url>
   
   <url>

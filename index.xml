@@ -375,6 +375,66 @@
     </item>
     
     <item>
+      <title>Additional Port Space</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsSurrounding.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsSurrounding.html</guid>
+      <description>
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;advanced&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Identifier:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.spacing.portsSurrounding&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Meta Data Provider:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;core.options.CoreOptions&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Value Type:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;org.eclipse.elk.core.math.ElkMargin&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Default Value:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;new ElkMargin(0)&lt;/code&gt; (as defined in &lt;code&gt;org.eclipse.elk&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Applies To:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;parents&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Containing Group:&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;./reference/groups/org-eclipse-elk-spacing.html&#34;&gt;spacing&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Additional space around the sets of ports on each node side. For each side of a node, this option can reserve additional space before and after the ports on each side. For example, a top spacing of 20 makes sure that the first port on the western and eastern side is 20 units away from the northern border.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Additional Wrapped Edges Spacing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -652,16 +712,6 @@ Use the navigation bar to the right to work your way through each of those steps
 &lt;h2 id=&#34;layout-options&#34;&gt;Layout Options&lt;/h2&gt;
 
 &lt;p&gt;It is worth reiterating here that it is important which &lt;code&gt;IProperty&lt;/code&gt; instance your algorithm uses to retrieve the value of a layout option set on a graph element. Since the &lt;a href=&#34;./documentation/algorithmdevelopers/metadatalanguage.html&#34;&gt;ELK metadata tooling&lt;/a&gt; generates a separate class with a complete set of &lt;code&gt;IProperty&lt;/code&gt; instances for each algorithm, it makes sense to use these instances. The reason is that using them ensures that you get the correct default values configured for your layout algorithm when accessing layout options that were not set on a graph element.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Algorithms</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms.html</guid>
-      <description>&lt;p&gt;The following layout algorithms are available in ELK:&lt;/p&gt;
 </description>
     </item>
     

@@ -135,6 +135,31 @@
     </item>
     
     <item>
+      <title>0.3.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.3.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.3.0.html</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.3.0&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.3.0/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.3.0/elk-0.3.0.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.3.0&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;After the major overhaul of the project&amp;rsquo;s main data structure for the previous release, this release concentrates on fixing bugs and adding major new features. This includes a complete rewrite of the code responsible for placing ports and labels and calculating the size of nodes, the addition of new layout algorithms, and various improvements to the flagship layout algorithm, ELK Layered.&lt;/p&gt;
+
+&lt;p&gt;The changes can cause clients of older releases to break.&lt;/p&gt;
+
+&lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.3.0&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Activate Inside Self Loops</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -667,51 +692,6 @@ This section assumes that you have basic knowledge of how the &lt;em&gt;Eclipse 
 
 &lt;p&gt;&lt;strong&gt;Once you are ready to start:&lt;/strong&gt;
 Use the navigation bar to the right to work your way through each of those steps.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Algorithm Implementation</title>
-      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation.html</guid>
-      <description>
-
-&lt;p&gt;Once everything is set up, it is time to actually implement your algorithm. The problem your layout algorithm has to solve can be summarized as follows: given an input graph (possibly with existing coordinates), compute coordinates for all graph elements and routings for all edges (subject to layout properties the graph is annotated with) and annotate the layout graph accordingly. Note that the input graph defines the layout problem, but also carries the resulting coordinate assignment after your algorithm has executed.&lt;/p&gt;
-
-&lt;p&gt;While developing your algorithm, you will regularly switch back and forth between doing that and changing &lt;a href=&#34;./documentation/algorithmdevelopers/metadatalanguage.html&#34;&gt;your metadata&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;your-algorithm-s-main-class&#34;&gt;Your Algorithm&amp;rsquo;s Main Class&lt;/h2&gt;
-
-&lt;p&gt;However many classes a layout algorithm consists of, it always provides one entry class that inherits from &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; and implements the single most important method for your algorithm:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void layout(KNode layoutGraph, IElkProgressMonitor progressMonitor);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Let&amp;rsquo;s go through the parameters in reverse order (because of reasons). The &lt;code&gt;progressMonitor&lt;/code&gt; parameter should be used to track progress and check if the user wants to cancel the layout operation. Actually canceling when the user wants to cancel is one of those features that will help your software stand out from many other programs, so take this opportunity to shine!&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;layoutGraph&lt;/code&gt; parameter is more important, however. It defines the layout problem your algorithm should solve, in several ways. First, it defines the structure of the graph to be laid out: which nodes exist, how are they connected, and so on. Second, each graph element can have &lt;a href=&#34;./documentation/tooldevelopers/graphdatastructure/layoutoptions.html&#34;&gt;layout options&lt;/a&gt; attached to it that are supposed to influence what your layout algorithm does with them. And third, each element may have pre-existing &lt;a href=&#34;./documentation/tooldevelopers/graphdatastructure/coordinatesystem.html&#34;&gt;coordinates or bend points&lt;/a&gt; associated with it that your algorithm may want to make use of. Those existing coordinates will be overwritten by your algorithm to hold the new, computed coordinates.&lt;/p&gt;
-
-&lt;p&gt;Note that the layout graph may contain nodes that themselves contain further nodes. By default, layout algorithms are only supposed to compute coordinates for the direct children of the &lt;code&gt;layoutGraph&lt;/code&gt; and then set the size for the &lt;code&gt;layoutGraph&lt;/code&gt; itself. However, if your layout algorithm supports hierarchical layout, and if hierarchical layout is requested (which is done through the &lt;code&gt;CoreOptions.HIERARCHY_HANDLING&lt;/code&gt; layout option), you will also compute coordinates for children of children.&lt;/p&gt;
-
-&lt;p&gt;There are two more methods your algorithm can, but does not have to implement:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;void initialize(String parameter);&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This method can be used to initialize data structures and prepare things. This method is called exactly once when an instance of your &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; subclass is created. Note that a single instance of your class can be used for multiple layout runs.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;parameter&lt;/code&gt; parameter is a bit tricky. Most layout algorithms won&amp;rsquo;t have any need for it, but some may adjust their behavior depending on its value. One example is our interface to the &lt;a href=&#34;http://www.graphviz.org/&#34;&gt;Graphviz&lt;/a&gt; library that provides different layout algorithms. We only implement a single subclass of &lt;code&gt;AbstractLayoutProvider&lt;/code&gt;, but each instance is passed a parameter value that indicates which of the Graphviz algorithms it will execute when the &lt;code&gt;layout(...)&lt;/code&gt; method is called. Of course, which parameter to pass must be defined in &lt;a href=&#34;./documentation/algorithmdevelopers/metadatalanguage.html&#34;&gt;your metadata file&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;void dispose();&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Called before your &lt;code&gt;AbstractLayoutProvider&lt;/code&gt; subclass is thrown towards the garbage collector.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;layout-options&#34;&gt;Layout Options&lt;/h2&gt;
-
-&lt;p&gt;It is worth reiterating here that it is important which &lt;code&gt;IProperty&lt;/code&gt; instance your algorithm uses to retrieve the value of a layout option set on a graph element. Since the &lt;a href=&#34;./documentation/algorithmdevelopers/metadatalanguage.html&#34;&gt;ELK metadata tooling&lt;/a&gt; generates a separate class with a complete set of &lt;code&gt;IProperty&lt;/code&gt; instances for each algorithm, it makes sense to use these instances. The reason is that using them ensures that you get the correct default values configured for your layout algorithm when accessing layout options that were not set on a graph element.&lt;/p&gt;
 </description>
     </item>
     

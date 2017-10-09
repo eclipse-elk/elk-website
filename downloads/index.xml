@@ -135,6 +135,31 @@
     </item>
     
     <item>
+      <title>0.3.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.3.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.3.0.html</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.3.0&#34;&gt;Release log&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.3.0/&#34;&gt;Update site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/updates/releases/0.3.0/elk-0.3.0.zip&#34;&gt;Zipped update site&lt;/a&gt; (for offline use)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://download.eclipse.org/elk/maven/releases/0.3.0&#34;&gt;Maven Repository&lt;/a&gt; (for meta data language compiler)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+
+&lt;p&gt;After the major overhaul of the project&amp;rsquo;s main data structure for the previous release, this release concentrates on fixing bugs and adding major new features. This includes a complete rewrite of the code responsible for placing ports and labels and calculating the size of nodes, the addition of new layout algorithms, and various improvements to the flagship layout algorithm, ELK Layered.&lt;/p&gt;
+
+&lt;p&gt;The changes can cause clients of older releases to break.&lt;/p&gt;
+
+&lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.3.0&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -153,6 +153,8 @@
 
 &lt;p&gt;After the major overhaul of the project&amp;rsquo;s main data structure for the previous release, this release concentrates on fixing bugs and adding major new features. This includes a complete rewrite of the code responsible for placing ports and labels and calculating the size of nodes, the addition of new layout algorithms, and various improvements to the flagship layout algorithm, ELK Layered.&lt;/p&gt;
 
+&lt;p&gt;This release is also the first to be released on Maven Central.&lt;/p&gt;
+
 &lt;p&gt;The changes can cause clients of older releases to break.&lt;/p&gt;
 
 &lt;p&gt;View the release &lt;a href=&#34;https://projects.eclipse.org/projects/modeling.elk/releases/0.3.0&#34;&gt;at Eclipse&lt;/a&gt; for links to the list of closed issues.&lt;/p&gt;

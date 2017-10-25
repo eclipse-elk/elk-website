@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</loc>
@@ -26,27 +27,27 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideselfloops-activate.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptportpositions.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessaryBendpoints.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessarybendpoints.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portSurrounding.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsurrounding.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsSurrounding.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portssurrounding.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionaledgespacing.html</loc>
   </url>
   
   <url>
@@ -78,15 +79,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animtimefactor.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-wedgeCriteria.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-wedgecriteria.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectRatio.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectratio.html</loc>
   </url>
   
   <url>
@@ -94,15 +95,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-bk-edgestraightening.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-bk-fixedalignment.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendPoints.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendpoints.html</loc>
   </url>
   
   <url>
@@ -114,7 +115,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingmode.html</loc>
   </url>
   
   <url>
@@ -122,11 +123,16 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/categories.html</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentBox.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentbox.html</loc>
   </url>
   
   <url>
@@ -134,11 +140,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactionStepSize.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactionstepsize.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-componentComponent.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-componentcomponent.html</loc>
   </url>
   
   <url>
@@ -146,15 +152,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-connectedComponents.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-connectedcomponents.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-componentCompaction-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-componentcompaction-strategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-componentCompaction-componentLayoutAlgorithm.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-componentcompaction-componentlayoutalgorithm.html</loc>
   </url>
   
   <url>
@@ -162,7 +168,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-contentAlignment.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-contentalignment.html</loc>
   </url>
   
   <url>
@@ -170,7 +176,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-correctionFactor.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-correctionfactor.html</loc>
   </url>
   
   <url>
@@ -178,7 +184,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-strategy.html</loc>
   </url>
   
   <url>
@@ -186,15 +192,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-cycleBreaking-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-cyclebreaking-strategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-debug-discoGraph.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-debug-discograph.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-debugMode.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-debugmode.html</loc>
   </url>
   
   <url>
@@ -202,7 +208,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-desiredEdgeLength.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-desirededgelength.html</loc>
   </url>
   
   <url>
@@ -222,15 +228,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-neatoModel.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-neatomodel.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-distancePenalty.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-distancepenalty.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-distancePenalty.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiedge-distancepenalty.html</loc>
   </url>
   
   <url>
@@ -246,7 +252,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-conn-gmf-layouter-Draw2D.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-conn-gmf-layouter-draw2d.html</loc>
   </url>
   
   <url>
@@ -290,47 +296,47 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeLabels-centerLabelPlacementStrategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgelabels-centerlabelplacementstrategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeEdgeBetweenLayers.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeedgebetweenlayers.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeLabels-placement.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgelabels-placement.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeCenterLabelPlacementStrategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgecenterlabelplacementstrategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeLabelSideSelection.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgelabelsideselection.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeLabels-sideSelection.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgelabels-sideselection.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeLabel.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgelabel.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeNodeBetweenLayers.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgenodebetweenlayers.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeNode.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgenode.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeRouting.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgerouting.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeEdge.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeedge.html</loc>
   </url>
   
   <url>
@@ -346,7 +352,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandnodes.html</loc>
   </url>
   
   <url>
@@ -358,11 +364,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-favorStraightEdges.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-favorstraightedges.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-feedbackEdges.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-feedbackedges.html</loc>
   </url>
   
   <url>
@@ -406,35 +412,35 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-greedySwitch-activationThreshold.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitch-activationthreshold.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-greedySwitch-type.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitch-type.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-hierarchicalSweepiness.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-hierarchicalsweepiness.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyHandling.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyhandling.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyHandling_org-eclipse-elk-graphviz-dot.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyhandling_org-eclipse-elk-graphviz-dot.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highDegreeNodes-treeHeight.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highdegreenodes-treeheight.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highDegreeNodes-threshold.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highdegreenodes-threshold.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highDegreeNodes-treatment.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highdegreenodes-treatment.html</loc>
   </url>
   
   <url>
@@ -442,35 +448,35 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improveCuts.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improvecuts.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveCuts.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiedge-improvecuts.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improveWrappedEdges.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improvewrappededges.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveWrappedEdges.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiedge-improvewrappededges.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualOverride.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualoverride.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualOverride_org-eclipse-elk-layered.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualoverride_org-eclipse-elk-layered.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeLabels-inline.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgelabels-inline.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-yo.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideselfloops-yo.html</loc>
   </url>
   
   <url>
@@ -482,11 +488,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-interactiveReferencePoint.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-interactivereferencepoint.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-iterationLimit.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-iterationlimit.html</loc>
   </url>
   
   <url>
@@ -494,7 +500,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-iterationsFactor.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-iterationsfactor.html</loc>
   </url>
   
   <url>
@@ -502,47 +508,47 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-junctionPoints.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-junctionpoints.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-labelAngle.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-labelangle.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-labelDistance.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-labeldistance.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-labelManager.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-labelmanager.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-labels-labelManager.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-labels-labelmanager.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelNode.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelnode.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPort.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelport.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelLabel.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labellabel.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-coffmanGraham-layerBound.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-coffmangraham-layerbound.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerConstraint.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerconstraint.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-layerSpacingFactor.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-layerspacingfactor.html</loc>
   </url>
   
   <url>
@@ -550,7 +556,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layoutAncestors.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layoutancestors.html</loc>
   </url>
   
   <url>
@@ -582,11 +588,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-linearSegments-deflectionDampening.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-linearsegments-deflectiondampening.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-debug-discoPolys.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-debug-discopolys.html</loc>
   </url>
   
   <url>
@@ -602,7 +608,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodePromotion-maxIterations.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodepromotion-maxiterations.html</loc>
   </url>
   
   <url>
@@ -610,19 +616,19 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-maxAnimTime.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-maxanimtime.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-mergeEdges.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-mergeedges.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-mergeHierarchyEdges.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-mergehierarchyedges.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minAnimTime.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minanimtime.html</loc>
   </url>
   
   <url>
@@ -630,23 +636,23 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-noLayout.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nolayout.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-networksimplex-nodeflexibility.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility-default.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-networksimplex-nodeflexibility-default.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeLabels-padding.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodelabels-padding.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeLabels-placement.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodelabels-placement.html</loc>
   </url>
   
   <url>
@@ -654,43 +660,43 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-nodeNodeBetweenLayers.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-nodenodebetweenlayers.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodePromotion-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodepromotion-strategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-constraints.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodesize-constraints.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-minimum.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodesize-minimum.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-options.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodesize-options.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeNode.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodenode.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-northOrSouthPort.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-northorsouthport.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-orderId.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-orderid.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapMode.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapmode.html</loc>
   </url>
   
   <url>
@@ -698,47 +704,47 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-pathLike-validify-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-pathlike-validify-strategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-singleEdge-validify-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-singleedge-validify-strategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-highLevelSort.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-highlevelsort.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-lowLevelSort.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-lowlevelsort.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-traversalStrategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-traversalstrategy.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-basic.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portalignment-basic.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-default.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portalignment-default.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-east.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portalignment-east.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-north.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portalignment-north.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-south.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portalignment-south.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-west.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portalignment-west.html</loc>
   </url>
   
   <url>
@@ -746,23 +752,23 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-borderOffset.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-borderoffset.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portConstraints.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portconstraints.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-index.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portLabels-placement.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portlabels-placement.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portLabels-nextToPortIfPossible.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portlabels-nexttoportifpossible.html</loc>
   </url>
   
   <url>
@@ -770,7 +776,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portPort.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portport.html</loc>
   </url>
   
   <url>
@@ -778,11 +784,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-constraints.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postcompaction-constraints.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postcompaction-strategy.html</loc>
   </url>
   
   <url>
@@ -798,7 +804,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-progressBar.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-progressbar.html</loc>
   </url>
   
   <url>
@@ -806,7 +812,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-randomSeed.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-randomseed.html</loc>
   </url>
   
   <url>
@@ -822,23 +828,23 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-repulsivePower.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-repulsivepower.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-scaleFactor.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-scalefactor.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-searchOrder.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-searchorder.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-semiInteractive.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-semiinteractive.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateConnectedComponents.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateconnectedcomponents.html</loc>
   </url>
   
   <url>
@@ -850,11 +856,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-sloppySplineLayerSpacing.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-sloppysplinelayerspacing.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-sloppySplineRouting.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-sloppysplinerouting.html</loc>
   </url>
   
   <url>
@@ -862,7 +868,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopPlacement.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopplacement.html</loc>
   </url>
   
   <url>
@@ -882,6 +888,11 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/tags.html</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-thoroughness.html</loc>
   </url>
   
@@ -890,7 +901,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-optimizationCriteria.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-optimizationcriteria.html</loc>
   </url>
   
   <url>
@@ -898,11 +909,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minWidth-upperBoundOnWidth.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minwidth-upperboundonwidth.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minWidth-upperLayerEstimationScalingFactor.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minwidth-upperlayerestimationscalingfactor.html</loc>
   </url>
   
   <url>
@@ -918,7 +929,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validateOptions.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validateoptions.html</loc>
   </url>
   
   <url>
@@ -926,11 +937,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-wideNodesOnMultipleLayers.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-widenodesonmultiplelayers.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-zoomToFit.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-zoomtofit.html</loc>
   </url>
   
   <url>
@@ -942,23 +953,23 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-compaction-postCompaction.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-compaction-postcompaction.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-disco-componentCompaction.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-disco-componentcompaction.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingMinimization.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingminimization.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingMinimization-greedySwitch.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingminimization-greedyswitch.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-cycleBreaking.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-cyclebreaking.html</loc>
   </url>
   
   <url>
@@ -970,15 +981,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-edgeLabels.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-edgelabels.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgeLabels.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgelabels.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgeRouting.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting.html</loc>
   </url>
   
   <url>
@@ -986,11 +997,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-highDegreeNodes.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-highdegreenodes.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideSelfLoops.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideselfloops.html</loc>
   </url>
   
   <url>
@@ -998,43 +1009,43 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-coffmanGraham.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-coffmangraham.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-minWidth.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-minwidth.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-nodePromotion.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-nodepromotion.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodeLabels.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodelabels.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodeplacement.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodeplacement-bk.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-linearSegments.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodeplacement-linearsegments.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-networkSimplex.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodeplacement-networksimplex.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodeplacement-networksimplex-nodeflexibility.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodeSize.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodesize.html</loc>
   </url>
   
   <url>
@@ -1050,11 +1061,11 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-portAlignment.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-portalignment.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-portLabels.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-portlabels.html</loc>
   </url>
   
   <url>
@@ -1086,23 +1097,23 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-multiEdge.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-multiedge.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathLike.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathlike.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathLike-validify.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathlike-validify.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleEdge.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleedge.html</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleEdge-validify.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleedge-validify.html</loc>
   </url>
   
 </urlset>

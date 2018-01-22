@@ -218,6 +218,15 @@ WEDGE_COMPACTION   Default Value: CompactionStrategy.NONE (as defined in org.ecl
     </item>
     
     <item>
+      <title>Compaction Strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-compactionstrategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-compactionstrategy.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.compaction.compactionStrategy   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.CompactionStrategy (Enum)   Possible Values: DEPTH_FIRST   Default Value: CompactionStrategy.DEPTH_FIRST (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: compaction    Description This option defines how the compaction is applied.</description>
+    </item>
+    
+    <item>
       <title>Components Spacing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-componentcomponent.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -283,6 +292,19 @@ H_RIGHT   Default Value: EnumSet.noneOf(ContentAlignment) (as defined in org.ecl
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-correctionfactor.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.correctionFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 1.0 (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: wrapping    Description At times and for certain types of graphs the executed wrapping may produce results that are consistently biased in the same fashion: either wrapping to often or to rarely.</description>
+    </item>
+    
+    <item>
+      <title>Cost Function for Spanning Tree</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-spanningtreecostfunction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-spanningtreecostfunction.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.processingOrder.spanningTreeCostFunction   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.SpanningTreeCostFunction (Enum)   Possible Values: CENTER_DISTANCE
+CIRCLE_UNDERLAP
+RECTANGLE_UNDERLAP
+INVERTED_OVERLAP
+MINIMUM_ROOT_DISTANCE   Default Value: SpanningTreeCostFunction.CIRCLE_UNDERLAP (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description The cost function is used in the creation of the spanning tree.</description>
     </item>
     
     <item>
@@ -460,6 +482,27 @@ Category: Tree Specialized layout methods for trees, i.e. acyclic graphs. The re
       
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-radial.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.radial   Meta Data Provider: options.RadialMetaDataProvider    Description A radial layout provider which is based on the algorithm of Peter Eades published in &amp;ldquo;Drawing free trees.&amp;rdquo;, published by International Institute for Advanced Study of Social Information Science, Fujitsu Limited in 1991. The radial layouter takes a tree and places the nodes in radial order around the root.</description>
+    </item>
+    
+    <item>
+      <title>ELK SPOrE Compaction</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-sporecompaction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-sporecompaction.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.sporeCompaction   Meta Data Provider: options.SporeMetaDataProvider    Description ShrinkTree is a compaction algorithm that maintains the topology of a layout. The relocation of diagram elements is based on contracting a spanning tree.
+Additional Documentation The algorithm uses the programmatic structure of SPOrE, which stands for Structure, Processing Order, and Execution.
+The Three Phases  The structure phase extracts geometric information from the given layout to capture the topology that should be preserved during the subsequent adjustment of the layout.</description>
+    </item>
+    
+    <item>
+      <title>ELK SPOrE Overlap Removal</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-sporeoverlap.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-sporeoverlap.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.sporeOverlap   Meta Data Provider: options.SporeMetaDataProvider    Description A node overlap removal algorithm proposed by Nachmanson et al. in &amp;ldquo;Node overlap removal by growing a tree&amp;rdquo;.
+Supported Options    Option Default Value     Debug Mode false   Node Spacing 8   Padding new ElkPadding(8)   Structure Extraction Strategy StructureExtractionStrategy.</description>
     </item>
     
     <item>
@@ -1405,6 +1448,15 @@ ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as d
     </item>
     
     <item>
+      <title>Orthogonal Compaction</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-orthogonal.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-orthogonal.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.compaction.orthogonal   Meta Data Provider: options.SporeMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: compaction    Description Restricts the translation of nodes to orthogonal directions in the compaction phase.</description>
+    </item>
+    
+    <item>
       <title>Overlap Removal</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapmode.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1771,6 +1823,25 @@ Supported Options    Option Default Value     Aspect Ratio 1.6f   Node Spacing 1
     </item>
     
     <item>
+      <title>Root node for spanning tree construction</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-preferredroot.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-preferredroot.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.preferredRoot   Meta Data Provider: options.SporeMetaDataProvider   Value Type: java.lang.String   Default Value: null (as defined in org.eclipse.elk)   Applies To: parents   Dependencies: org.eclipse.elk.processingOrder.rootSelection   Containing Group: processingOrder    Description The identifier of the node that is preferred as the root of the spanning tree. If this is null, the first node is chosen.</description>
+    </item>
+    
+    <item>
+      <title>Root selection for spanning tree</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-rootselection.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-rootselection.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.rootSelection   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.RootSelection (Enum)   Possible Values: FIXED
+CENTER_NODE   Default Value: RootSelection.CENTER_NODE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description This sets the method used to select a root node for the construction of a spanning tree</description>
+    </item>
+    
+    <item>
       <title>Scale Factor</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-scalefactor.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1835,6 +1906,15 @@ BFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree) 
     </item>
     
     <item>
+      <title>Sloppy Spline Layer Spacing Factor</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-sloppy-layerspacingfactor.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-sloppy-layerspacingfactor.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.sloppy.layerSpacingFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.2 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting, org.eclipse.elk.layered.edgeRouting.splines.mode   Containing Group: edgeRouting -&amp;gt; splines -&amp;gt; sloppy    Description Spacing factor for routing area between layers when using sloppy spline routing.</description>
+    </item>
+    
+    <item>
       <title>Sloppy Spline Routing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-sloppysplinerouting.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1852,6 +1932,17 @@ BFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree) 
       <description>Property Value     Identifier: org.eclipse.elk.radial.sorter   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.SortingStrategy (Enum)   Possible Values: NONE
 POLAR_COORDINATE (@AdvancedPropertyValue)
 ID   Default Value: SortingStrategy.NONE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description Sort the nodes per radius according to the sorting algorithm. The strategies are none, by the given order id, or sorting them by polar coordinates.</description>
+    </item>
+    
+    <item>
+      <title>Spline Routing Mode</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-mode.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-mode.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.mode   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SplineRoutingMode (Enum)   Possible Values: CONSERVATIVE
+CONSERVATIVE_SOFT
+SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting   Containing Group: edgeRouting -&amp;gt; splines    Description Specifies the way control points are assembled for each individual edge.</description>
     </item>
     
     <item>
@@ -1884,6 +1975,15 @@ NORTH_SEQUENCE   Default Value: SelfLoopPlacement.NORTH_STACKED (as defined in o
     </item>
     
     <item>
+      <title>Structure Extraction Strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-structure-structureextractionstrategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-structure-structureextractionstrategy.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.structure.structureExtractionStrategy   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.StructureExtractionStrategy (Enum)   Possible Values: DELAUNAY_TRIANGULATION   Default Value: StructureExtractionStrategy.DELAUNAY_TRIANGULATION (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: structure    Description This option defines what kind of triangulation or other partitioning of the plane is applied to the vertices.</description>
+    </item>
+    
+    <item>
       <title>Thoroughness</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-thoroughness.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1905,6 +2005,16 @@ CROSSING_MINIMIZATION_BY_POSITION   Default Value: RadialTranslationStrategy.NON
     </item>
     
     <item>
+      <title>Tree Construction Strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-treeconstruction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-treeconstruction.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.treeConstruction   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.TreeConstructionStrategy (Enum)   Possible Values: MINIMUM_SPANNING_TREE
+MAXIMUM_SPANNING_TREE   Default Value: TreeConstructionStrategy.MINIMUM_SPANNING_TREE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description Whether a minimum spanning tree or a maximum spanning tree should be constructed.</description>
+    </item>
+    
+    <item>
       <title>Twopi</title>
       <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1912,6 +2022,15 @@ CROSSING_MINIMIZATION_BY_POSITION   Default Value: RadialTranslationStrategy.NON
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.graphviz.twopi   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Radial layouts, after Wills &amp;lsquo;97. The nodes are placed on concentric circles depending on their distance from a given root node. The algorithm is designed to handle not only small graphs, but also very large ones.
 Category: Radial Radial layout algorithms usually position the nodes of the graph on concentric circles.</description>
+    </item>
+    
+    <item>
+      <title>Underlying Layout Algorithm</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-underlyinglayoutalgorithm.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-underlyinglayoutalgorithm.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.underlyingLayoutAlgorithm   Meta Data Provider: options.SporeMetaDataProvider   Value Type: java.lang.String   Applies To: parents    Description A layout algorithm that is applied to the graph before it is compacted. If this is null, nothing is applied before compaction.</description>
     </item>
     
     <item>
@@ -1933,6 +2052,15 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
     </item>
     
     <item>
+      <title>Upper limit for iterations of overlap removal</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-overlapremoval-maxiterations.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-overlapremoval-maxiterations.html</guid>
+      <description>   Property Value     Identifier: org.eclipse.elk.overlapRemoval.maxIterations   Meta Data Provider: options.SporeMetaDataProvider   Value Type: int   Default Value: 64 (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: overlapRemoval    </description>
+    </item>
+    
+    <item>
       <title>Validate Options</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validateoptions.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1949,6 +2077,15 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-weighting.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.mrtree.weighting   Meta Data Provider: options.MrTreeMetaDataProvider   Value Type: org.eclipse.elk.alg.mrtree.options.OrderWeighting (Enum)   Possible Values: DESCENDANTS
 FAN   Default Value: OrderWeighting.DESCENDANTS (as defined in org.eclipse.elk.mrtree)   Applies To: parents    Description Which weighting to use when computing a node order.</description>
+    </item>
+    
+    <item>
+      <title>Whether to run a supplementary scanline overlap check.</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-overlapremoval-runscanline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-overlapremoval-runscanline.html</guid>
+      <description>   Property Value     Type: advanced   Identifier: org.eclipse.elk.overlapRemoval.runScanline   Meta Data Provider: options.SporeMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: overlapRemoval    </description>
     </item>
     
     <item>
@@ -1978,6 +2115,15 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-box.html</guid>
       <description>    Property Value     Identifier: org.eclipse.elk.box    Options  Box Layout Mode  </description>
+    </item>
+    
+    <item>
+      <title>compaction</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-compaction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-compaction.html</guid>
+      <description>    Property Value     Identifier: org.eclipse.elk.compaction    Options  Compaction Strategy Orthogonal Compaction  </description>
     </item>
     
     <item>
@@ -2076,7 +2222,25 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting    Options  Spline Self-Loop Placement Sloppy Spline Routing Sloppy Spline Layer Spacing Factor  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting    Options  Spline Self-Loop Placement  Subgroups  splines  </description>
+    </item>
+    
+    <item>
+      <title>edgeRouting.splines</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-splines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-splines.html</guid>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines    Options  Spline Routing Mode  Subgroups  sloppy  </description>
+    </item>
+    
+    <item>
+      <title>edgeRouting.splines.sloppy</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-splines-sloppy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-splines-sloppy.html</guid>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.sloppy    Options  Sloppy Spline Layer Spacing Factor  </description>
     </item>
     
     <item>
@@ -2206,6 +2370,15 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
     </item>
     
     <item>
+      <title>overlapRemoval</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-overlapremoval.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-overlapremoval.html</guid>
+      <description>    Property Value     Identifier: org.eclipse.elk.overlapRemoval    Options  Upper limit for iterations of overlap removal Whether to run a supplementary scanline overlap check.  </description>
+    </item>
+    
+    <item>
       <title>partitioning</title>
       <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-partitioning.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2260,6 +2433,15 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
     </item>
     
     <item>
+      <title>processingOrder</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-processingorder.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-processingorder.html</guid>
+      <description>    Property Value     Identifier: org.eclipse.elk.processingOrder    Options  Tree Construction Strategy Cost Function for Spanning Tree Root node for spanning tree construction Root selection for spanning tree  </description>
+    </item>
+    
+    <item>
       <title>spacing</title>
       <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-spacing.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2275,6 +2457,15 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html</guid>
       <description>    Property Value     Identifier: org.eclipse.elk.spacing    Options  Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Label Port Spacing Node Spacing Port Spacing Individual Spacing Override Additional Port Space  </description>
+    </item>
+    
+    <item>
+      <title>structure</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-structure.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-structure.html</guid>
+      <description>    Property Value     Identifier: org.eclipse.elk.structure    Options  Structure Extraction Strategy  </description>
     </item>
     
     <item>

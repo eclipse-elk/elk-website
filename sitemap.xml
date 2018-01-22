@@ -144,6 +144,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-compactionstrategy.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-componentcomponent.html</loc>
   </url>
   
@@ -177,6 +181,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-correctionfactor.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-spanningtreecostfunction.html</loc>
   </url>
   
   <url>
@@ -281,6 +289,14 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-radial.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-sporecompaction.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-sporeoverlap.html</loc>
   </url>
   
   <url>
@@ -696,6 +712,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-orthogonal.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapmode.html</loc>
   </url>
   
@@ -832,6 +852,14 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-preferredroot.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-rootselection.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-scalefactor.html</loc>
   </url>
   
@@ -860,11 +888,19 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-sloppy-layerspacingfactor.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-sloppysplinerouting.html</loc>
   </url>
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-sorter.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-mode.html</loc>
   </url>
   
   <url>
@@ -877,6 +913,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-epsilon.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-structure-structureextractionstrategy.html</loc>
   </url>
   
   <url>
@@ -905,7 +945,15 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-treeconstruction.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-underlyinglayoutalgorithm.html</loc>
   </url>
   
   <url>
@@ -914,6 +962,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minwidth-upperlayerestimationscalingfactor.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-overlapremoval-maxiterations.html</loc>
   </url>
   
   <url>
@@ -937,6 +989,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-overlapremoval-runscanline.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-widenodesonmultiplelayers.html</loc>
   </url>
   
@@ -946,6 +1002,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-box.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-compaction.html</loc>
   </url>
   
   <url>
@@ -990,6 +1050,14 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-splines.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-splines-sloppy.html</loc>
   </url>
   
   <url>
@@ -1049,6 +1117,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-overlapremoval.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-partitioning.html</loc>
   </url>
   
@@ -1073,11 +1145,19 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-processingorder.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-spacing.html</loc>
   </url>
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-structure.html</loc>
   </url>
   
   <url>

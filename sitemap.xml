@@ -39,10 +39,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsurrounding.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portssurrounding.html</loc>
   </url>
   
@@ -240,10 +236,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-distancepenalty.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiedge-distancepenalty.html</loc>
   </url>
   
@@ -321,14 +313,6 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgelabels-placement.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgecenterlabelplacementstrategy.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgelabelsideselection.html</loc>
   </url>
   
   <url>
@@ -464,15 +448,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improvecuts.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiedge-improvecuts.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-general-improvewrappededges.html</loc>
   </url>
   
   <url>
@@ -724,10 +700,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-pathlike-validify-strategy.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-singleedge-validify-strategy.html</loc>
   </url>
   
@@ -741,10 +713,6 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-traversalstrategy.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portalignment-basic.html</loc>
   </url>
   
   <url>
@@ -884,15 +852,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-sloppysplinelayerspacing.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-sloppy-layerspacingfactor.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-sloppysplinerouting.html</loc>
   </url>
   
   <url>
@@ -1173,19 +1133,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-general.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-multiedge.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathlike.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-pathlike-validify.html</loc>
   </url>
   
   <url>

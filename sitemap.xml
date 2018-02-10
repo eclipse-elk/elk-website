@@ -103,10 +103,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</loc>
   </url>
   
@@ -301,6 +297,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-repulsion.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/</loc>
   </url>
   
   <url>

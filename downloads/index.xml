@@ -61,6 +61,16 @@ View the release at Eclipse for links to the list of closed issues.</description
     </item>
     
     <item>
+      <title>0.2.3</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.3.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.3.html</guid>
+      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  Details A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.
+View the release at Eclipse for links to the list of closed issues.</description>
+    </item>
+    
+    <item>
       <title>0.3.0</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.3.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

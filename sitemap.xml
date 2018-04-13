@@ -828,6 +828,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-resolvedalgorithm.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-preferredroot.html</loc>
   </url>
   
@@ -946,6 +950,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingplainjavalayout.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validategraph.html</loc>
   </url>
   
   <url>

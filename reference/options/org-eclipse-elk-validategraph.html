@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Max. Iterations (ELK)</title>
+    <title>Validate Graph (ELK)</title>
 
     
     
@@ -63,7 +63,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Max. Iterations</h1>
+    <h1>Validate Graph</h1>
 
     
 
@@ -78,27 +78,27 @@
 <tbody>
 <tr>
 <td><em>Type:</em></td>
-<td>advanced</td>
+<td>global</td>
 </tr>
 
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.graphviz.maxiter</code></td>
+<td><code>org.eclipse.elk.validateGraph</code></td>
 </tr>
 
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>layouter.GraphvizMetaDataProvider</code></td>
+<td><code>core.options.CoreOptions</code></td>
 </tr>
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>int</code></td>
+<td><code>boolean</code></td>
 </tr>
 
 <tr>
-<td><em>Lower Bound:</em></td>
-<td><code>1</code></td>
+<td><em>Default Value:</em></td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk</code>)</td>
 </tr>
 
 <tr>
@@ -110,7 +110,7 @@
 
 <h3 id="description">Description</h3>
 
-<p>The maximum number of iterations.</p>
+<p>Whether the graph shall be validated before any layout algorithm is applied. If this option is enabled and at least one error is found, the layout process is aborted and a message is shown to the user.</p>
 
   </div>
 
@@ -1097,7 +1097,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-graphviz-maxiter.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Max. Iterations
     </li>
   </a>
@@ -1657,7 +1657,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-validategraph.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Validate Graph
     </li>
   </a>

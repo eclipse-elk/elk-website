@@ -183,7 +183,7 @@ LEFT
 RIGHT
 TOP
 BOTTOM
-CENTER   Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.alignment    Description Alignment of the selected node relative to other nodes, the exact meaning depends on the used algorithm.</description>
+CENTER   Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.alignment    Description Alignment of the selected node relative to other nodes; the exact meaning depends on the used algorithm.</description>
     </item>
     
     <item>
@@ -2048,6 +2048,15 @@ Supported Options    Option Default Value     Aspect Ratio 1.6f   Node Spacing 1
     </item>
     
     <item>
+      <title>Resolved Layout Algorithm</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-resolvedalgorithm.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-resolvedalgorithm.html</guid>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.resolvedAlgorithm   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.data.LayoutAlgorithmData   Applies To: parents    Description Meta data associated with the selected algorithm.</description>
+    </item>
+    
+    <item>
       <title>Root node for spanning tree construction</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-preferredroot.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2316,6 +2325,15 @@ How Layout Works in Eclipse Layout in Eclipse revolves around the DiagramLayoutE
       <description>While layout algorithms can be called directly, it is usually a better idea not to do so except in the simplest of cases. There are several reasons for that:
  When calling a layout algorithm directly, your code is hardwired to that implementation and looses a bit of flexibility.
  Most importantly, as graphs get more complex there are more and more details to be aware of when executing layout.</description>
+    </item>
+    
+    <item>
+      <title>Validate Graph</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validategraph.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validategraph.html</guid>
+      <description>Property Value     Type: global   Identifier: org.eclipse.elk.validateGraph   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents    Description Whether the graph shall be validated before any layout algorithm is applied. If this option is enabled and at least one error is found, the layout process is aborted and a message is shown to the user.</description>
     </item>
     
     <item>

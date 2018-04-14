@@ -74,7 +74,7 @@
 <li>One <code>ILayoutMetaDataProvider</code> for each algorithm you declare. This contains one <code>IProperty</code> object for each layout option your algorithm supports (with the configured default value), as well as a method that registers your algorithm and its supported options with the <code>LayoutMetaDataService</code>. You should use the <code>IProperty</code> objects in this class to retrieve layout option values to ensure that you get correct defaults if an option is not set. These classes do not have to be registered with ELK&rsquo;s extension point because they are automatically registered through the main metadata class.</li>
 </ul>
 
-<p>This page explains how to write a metadata file. (Imagine the guy that narrates action film trailers reading the previous sentence to make it that much more compelling.)</p>
+<p>This page explains how to write a metadata file. See the end of the page for an example metadata file of a very simple layout algorithm. (Pro-tip: Reading the previous sentence in action-movie-trailer-narrator voice makes it more compelling.)</p>
 
 <h2 id="creating-and-registering-your-metadata-file">Creating and Registering Your Metadata File</h2>
 
@@ -93,7 +93,7 @@
 bundle {
     // Change the following line according to what you want the
     // package and name of your meta data provider to be
-    metadataClass properties.AwesomeOptions
+    metadataClass options.MetaDataProvider
 }
 </code></pre>
 
@@ -107,7 +107,21 @@ bundle {
 
 <li><p>The editor now shows the extension point in the list. Right-click the list entry and select <em>New - provider</em>.</p></li>
 
-<li><p>Select the new entry and configure the <em>class</em> attribute on the right to point to your new <code>ILayoutMetaDataProvider</code> that was generated for you by the ELK SDK.</p></li>
+<li><p>Select the new entry and configure the <em>class</em> attribute on the right to point to your new <code>ILayoutMetaDataProvider</code> that was generated for you by the ELK SDK. Your configuration might look something like this:</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img/algdev_metadatalanguage_extension.png"
+    
+     alt="Configuring a new layout algorithm project."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</li>
 
 <li><p>Save and close the editor.</p></li>
 </ol>
@@ -122,7 +136,7 @@ bundle {
 <li>Which layout algorithm categories your plug-in contributes, and which of them your algorithms belong to.</li>
 </ul>
 
-<p>The basic layout of a <code>melk</code> file looks something like this:</p>
+<p>The basic layout of a metadata file looks something like this:</p>
 
 <pre><code class="language-plain">&lt;package declaration&gt;
 
@@ -336,17 +350,20 @@ category awesome {
 
 <pre><code class="language-melk">// The algorithm's ID
 algorithm algorithmid(&lt;class&gt;) {
-    // User-readable short name for the algorithm
+    // User-readable short name and description for the algorithm
     label &quot;Excellent Algorithm&quot;
 
     description
         &quot;A brief and completely sensible description of what this algorithm
          does. Will be shown to users.&quot;
 
-    // The name of the ILayoutMetaDataProvider class generated for this
-    // algorithm. Use the constants defined in that class from within your
-    // algorithm to access layout option values.
-    metadataClass properties.AlgorithmProperties
+    // Optional name of the ILayoutMetaDataProvider class generated for this
+    // algorithm
+    metadataClass &lt;metadataClass&gt;
+
+    // Optional validator class called by ELK before actually running the
+    // layout algorithm.
+    validator &lt;validatorClass&gt;
 
     // Optional path to an image that provides a preview of the kinds of
     // layouts this algorithm will produce. Relative to the plug-in's
@@ -373,6 +390,14 @@ algorithm algorithmid(&lt;class&gt;) {
 
 <pre><code class="language-melk">algorithm myAlgorithm(TheAbstractLayoutProviderSubclass#TheParamterValue)
 </code></pre></li>
+
+<li><p><code>metadataClass</code></p>
+
+<p>The metadata class will contain the property constants you should use to access your algorithm&rsquo;s property values. If no name is specified, a class with a default name will be generated in the package specified by the metadata file.</p></li>
+
+<li><p><code>validatorClass</code></p>
+
+<p>Layout algorithms may have certain requirements concerning the graphs they are run on, including connectivity, hierarchy, or simlpy configuration. Instead of checking the input graph&rsquo;s validity in the algorithm itself, a validator class can be specified that is run automatically when layout is invoked through the <code>DiagramLayoutEngine</code>. The class must implement the <code>org.eclipse.elk.core.validation.IValidatingGraphElementVisitor</code> interface.</p></li>
 
 <li><p><code>features</code></p>
 
@@ -439,6 +464,45 @@ algorithm algorithmid(&lt;class&gt;) {
 supports the.option.id = 42     // Overridden default value
 </code></pre></li>
 </ul>
+
+<h2 id="example">Example</h2>
+
+<p>The following is an example metadata file for a very simple layout algorithm:</p>
+
+<pre><code class="language-melk">package cds.layout.simple
+
+import cds.layout.simple.SimpleLayoutProvider
+import org.eclipse.elk.core.math.ElkPadding
+
+bundle {
+    metadataClass options.SimpleMetaDataProvider
+    idPrefix cds.layout.simple
+}
+
+option reverseInput : boolean {
+    label &quot;Reverse Input&quot;
+    description
+        &quot;True if nodes should be placed in reverse order of their
+        appearance in the graph.&quot;
+    default = false
+    targets parents
+}
+
+algorithm simple(SimpleLayoutProvider) {
+    label &quot;Simple Layout Algorithm&quot;
+    description
+        &quot;This layout provider places nodes along a horizontal or a vertical line.&quot;
+    metadataClass options.SimpleOptions
+    
+    supports reverseInput
+    supports org.eclipse.elk.padding = new ElkPadding(10)
+    supports org.eclipse.elk.spacing.edgeEdge = 5
+    supports org.eclipse.elk.spacing.edgeNode = 10
+    supports org.eclipse.elk.spacing.nodeNode = 10
+}
+</code></pre>
+
+<p>Note how we override the default value of several properties for this algorithm.</p>
 
   </div>
 

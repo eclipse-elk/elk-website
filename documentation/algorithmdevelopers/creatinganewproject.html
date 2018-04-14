@@ -87,8 +87,22 @@
 <li>From the <em>File</em> menu, select <em>New - Project&hellip;</em>.</li>
 <li>From the <em>Plug-in Development</em> category, select <em>Plug-in Project</em> and click <em>Next</em>.</li>
 <li>Configure your project&rsquo;s basic settings, in particular its name, and click <em>Next</em>.</li>
-<li>Configure your project&rsquo;s content. The <em>Properties</em> should be somewhat sensible, but don&rsquo;t really matter all that much. In the <em>Options</em> section, uncheck everything. Layout algorithm projects normally don&rsquo;t need an activator class, and don&rsquo;t normally make contributions to the UI. Also, don&rsquo;t create a rich client application. Click <em>Finish</em>.</li>
+<li>Configure your project&rsquo;s content. The <em>Properties</em> should be somewhat sensible, but don&rsquo;t really matter all that much. In the <em>Options</em> section, uncheck everything (layout algorithm projects normally don&rsquo;t need an activator class, nor do they normally make contributions to the UI). Also, don&rsquo;t create a rich client application. Click <em>Finish</em>.</li>
 </ol>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img/algdev_creatinganewproject_wizard.png"
+    
+     alt="Configuring a new layout algorithm project."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
 
 <p>The <em>Package Explorer</em> now shows a new project for your plug-in which we will configure in the next section.</p>
 
@@ -102,6 +116,49 @@
 <li>Click the left <em>Add&hellip;</em> button to add a dependency. In the dialog that pops up, search for the <code>org.eclipse.elk.graph</code> plug-in and click <em>OK</em>.</li>
 <li>Repeat for ELK&rsquo;s core plug-in, <code>org.eclipse.elk.core</code>.</li>
 </ol>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img/algdev_creatinganewproject_dependencies.png"
+    
+     alt="Configuring a new layout algorithm project."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<h2 id="creating-a-layout-provider">Creating a Layout Provider</h2>
+
+<p>While we will discuss the details of implementing the actual layout algorithm  <a href="../../documentation/algorithmdevelopers/algorithmimplementation.html">later</a>, it is a good idea to already create its main class now for us to be able to reference it. Create a new Java class with the following properties:</p>
+
+<ul>
+<li>The package should be your plug-in&rsquo;s source package. That is, it should be named just like the plug-in. (This is not strictly necessary, but a common convention.)</li>
+<li>Give it a name that ends in <code>LayoutProvider</code>.</li>
+<li>Its superclass must be set to <code>org.eclipse.elk.core.AbstractLayoutProvider</code>.</li>
+</ul>
+
+<p>Your class will look something like this:</p>
+
+<pre><code class="language-java">package cds.layout.simple;
+
+import org.eclipse.elk.core.AbstractLayoutProvider;
+import org.eclipse.elk.core.util.IElkProgressMonitor;
+import org.eclipse.elk.graph.ElkNode;
+
+public class SimpleLayoutProvider extends AbstractLayoutProvider {
+
+    @Override
+    public void layout(ElkNode layoutGraph, IElkProgressMonitor progressMonitor) {
+        // TODO Auto-generated method stub
+
+    }
+
+}
+</code></pre>
 
   </div>
 

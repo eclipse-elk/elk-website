@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Path-Like Validify Strategy (ELK)</title>
+    <title>Validification Strategy (ELK)</title>
 
     
     
@@ -63,7 +63,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Path-Like Validify Strategy</h1>
+    <h1>Validification Strategy</h1>
 
     
 
@@ -83,7 +83,7 @@
 
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.wrapping.singleEdge.validify.strategy</code></td>
+<td><code>org.eclipse.elk.layered.wrapping.validify.strategy</code></td>
 </tr>
 
 <tr>
@@ -112,20 +112,15 @@
 </tr>
 
 <tr>
-<td><em>Dependencies:</em></td>
-<td><a href="org-eclipse-elk-layered-wrapping-strategy">org.eclipse.elk.layered.wrapping.strategy</a></td>
-</tr>
-
-<tr>
 <td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-layered-wrapping.html">wrapping</a> -&gt; <a href="../../reference/groups/org-eclipse-elk-layered-wrapping-singleedge.html">singleEdge</a> -&gt; <a href="../../reference/groups/org-eclipse-elk-layered-wrapping-singleedge-validify.html">validify</a></td>
+<td><a href="../../reference/groups/org-eclipse-elk-layered-wrapping.html">wrapping</a> -&gt; <a href="../../reference/groups/org-eclipse-elk-layered-wrapping-validify.html">validify</a></td>
 </tr>
 </tbody>
 </table>
 
 <h3 id="description">Description</h3>
 
-<p>When wrapping path-like graphs, the graph must not be split between any pair of layers. The validify strategy makes sure every computed split point is allowed.</p>
+<p>When wrapping graphs, one can specify indices that are not allowed as split points. The validification strategy makes sure every computed split point is allowed.</p>
 
   </div>
 
@@ -1295,14 +1290,6 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-layered-wrapping-singleedge-validify-strategy.html">
-    <li class="navlevel-2 active">
-      Path-Like Validify Strategy
-    </li>
-  </a>
-  
-
-  
   <a href="../../reference/options/org-eclipse-elk-polyomino-highlevelsort.html">
     <li class="navlevel-2">
       Polyomino Primary Sorting Criterion
@@ -1671,6 +1658,14 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-layered-wrapping-validify-forbiddenindices.html">
+    <li class="navlevel-2">
+      Valid Indices for Wrapping
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-validategraph.html">
     <li class="navlevel-2">
       Validate Graph
@@ -1682,6 +1677,14 @@
   <a href="../../reference/options/org-eclipse-elk-validateoptions.html">
     <li class="navlevel-2">
       Validate Options
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-wrapping-validify-strategy.html">
+    <li class="navlevel-2 active">
+      Validification Strategy
     </li>
   </a>
   
@@ -2079,9 +2082,9 @@
   
 
   
-  <a href="../../reference/groups/org-eclipse-elk-layered-wrapping-singleedge-validify.html">
+  <a href="../../reference/groups/org-eclipse-elk-layered-wrapping-validify.html">
     <li class="navlevel-2">
-      wrapping.singleEdge.validify
+      wrapping.validify
     </li>
   </a>
   

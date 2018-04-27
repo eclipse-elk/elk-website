@@ -708,10 +708,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-singleedge-validify-strategy.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-highlevelsort.html</loc>
   </url>
   
@@ -953,11 +949,19 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-forbiddenindices.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validategraph.html</loc>
   </url>
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validateoptions.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-strategy.html</loc>
   </url>
   
   <url>
@@ -1157,7 +1161,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleedge-validify.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-validify.html</loc>
   </url>
   
 </urlset>

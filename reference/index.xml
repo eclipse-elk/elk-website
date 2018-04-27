@@ -1430,17 +1430,6 @@ COMPRESS   Default Value: OverlapMode.PRISM (as defined in org.eclipse.elk.graph
     </item>
     
     <item>
-      <title>Path-Like Validify Strategy</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-singleedge-validify-strategy.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-singleedge-validify-strategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.singleEdge.validify.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ValidifyStrategy (Enum)   Possible Values: NO
-GREEDY
-LOOK_BACK   Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy   Containing Group: wrapping -&amp;gt; singleEdge -&amp;gt; validify    Description When wrapping path-like graphs, the graph must not be split between any pair of layers.</description>
-    </item>
-    
-    <item>
       <title>Polyomino Primary Sorting Criterion</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-highlevelsort.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1979,6 +1968,15 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
     </item>
     
     <item>
+      <title>Valid Indices for Wrapping</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-forbiddenindices.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-forbiddenindices.html</guid>
+      <description>   Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.validify.forbiddenIndices   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: java.util.List&amp;lt;java.lang.Integer&amp;gt;   Applies To: parents   Containing Group: wrapping -&amp;gt; validify    </description>
+    </item>
+    
+    <item>
       <title>Validate Graph</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validategraph.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1994,6 +1992,17 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validateoptions.html</guid>
       <description>Property Value     Type: global   Identifier: org.eclipse.elk.validateOptions   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk)   Applies To: parents    Description Whether layout options shall be validated before any layout algorithm is applied. If this option is enabled and at least one error is found, the layout process is aborted and a message is shown to the user.</description>
+    </item>
+    
+    <item>
+      <title>Validification Strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-strategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-strategy.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.validify.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ValidifyStrategy (Enum)   Possible Values: NO
+GREEDY
+LOOK_BACK   Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: wrapping -&amp;gt; validify    Description When wrapping graphs, one can specify indices that are not allowed as split points.</description>
     </item>
     
     <item>
@@ -2401,7 +2410,7 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.layered.wrapping    Options  Graph Wrapping Strategy Additional Wrapped Edges Spacing Correction Factor for Wrapping  Subgroups  cutting singleEdge multiEdge  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.wrapping    Options  Graph Wrapping Strategy Additional Wrapped Edges Spacing Correction Factor for Wrapping  Subgroups  cutting validify singleEdge multiEdge  </description>
     </item>
     
     <item>
@@ -2437,16 +2446,16 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleedge.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.layered.wrapping.singleEdge    Subgroups  validify  </description>
+      <description>   Property Value     Identifier: org.eclipse.elk.layered.wrapping.singleEdge    </description>
     </item>
     
     <item>
-      <title>wrapping.singleEdge.validify</title>
-      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleedge-validify.html</link>
+      <title>wrapping.validify</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-validify.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-singleedge-validify.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.layered.wrapping.singleEdge.validify    Options  Path-Like Validify Strategy  </description>
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping-validify.html</guid>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.wrapping.validify    Options  Validification Strategy Valid Indices for Wrapping  </description>
     </item>
     
   </channel>

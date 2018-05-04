@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Direction Congruency (ELK)</title>
+    <title>Port Sorting Strategy (ELK)</title>
 
     
     
@@ -63,7 +63,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Direction Congruency</h1>
+    <h1>Port Sorting Strategy</h1>
 
     
 
@@ -83,7 +83,7 @@
 
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.directionCongruency</code></td>
+<td><code>org.eclipse.elk.layered.portSortingStrategy</code></td>
 </tr>
 
 <tr>
@@ -93,17 +93,17 @@
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>org.eclipse.elk.alg.layered.options.DirectionCongruency</code> (Enum)</td>
+<td><code>org.eclipse.elk.alg.layered.options.PortSortingStrategy</code> (Enum)</td>
 </tr>
 
 <tr>
 <td><em>Possible Values:</em></td>
-<td><code>READING_DIRECTION</code><br><code>ROTATION</code></td>
+<td><code>INPUT_ORDER</code><br><code>PORT_DEGREE</code></td>
 </tr>
 
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>DirectionCongruency.READING_DIRECTION</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+<td><code>PortSortingStrategy.INPUT_ORDER</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
 </tr>
 
 <tr>
@@ -115,58 +115,7 @@
 
 <h3 id="description">Description</h3>
 
-<p>Specifies how drawings of the same graph with different layout directions compare to each other: either a natural reading direction is preserved or the drawings are rotated versions of each other.</p>
-
-<h2 id="additional-documentation">Additional Documentation</h2>
-
-<p>Internally,
-we map any desired layout direction to the variant of creating a left-to-right drawing.
-This is done by transforming the input graph&rsquo;s coordinates in various ways.
-Depending on the way this transformation is performed,
-one can either preserve a <em>reading direction</em> or <em>rotation</em>.</p>
-
-<p>When preserving reading direction,
-the vertical reading direction of a left-to-right or right-to-left layout
-(and thus the node, edge, and edge label order) corresponds to the horizontal reading direction
-of a top-to-bottom or bottom-to-top layout.
-When preserving rotation,
-the four possible drawings are simply rotated versions of the left-to-right variant.
-This might be of interest if one wants to preserve a <em>clockwise orientation</em>
-of feedback loops.</p>
-
-<p>The following drawings illustrate the different behaviors.</p>
-
-<h3 id="reading-direction">Reading Direction</h3>
-
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-layered-directionCongruency_transformation_readingdirection_based.png"
-    
-     alt="Preview Image"
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-
-
-<h3 id="rotation">Rotation</h3>
-
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-layered-directionCongruency_transformation_rotation_based.png"
-    
-     alt="Preview Image"
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-
+<p>Only relevant for nodes with FIXED_SIDE port constraints. Determines the way a node&rsquo;s ports are distributed on the sides of a node if their order is not prescribed. The option is set on parent nodes.</p>
 
   </div>
 
@@ -617,7 +566,7 @@ of feedback loops.</p>
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-directioncongruency.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Direction Congruency
     </li>
   </a>
@@ -1457,7 +1406,7 @@ of feedback loops.</p>
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-portsortingstrategy.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Port Sorting Strategy
     </li>
   </a>

@@ -1622,6 +1622,16 @@ SIDES_NORTH_EAST_SOUTH_WEST   Default Value: PortSide.UNDEFINED (as defined in o
     </item>
     
     <item>
+      <title>Port Sorting Strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-portsortingstrategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-portsortingstrategy.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.portSortingStrategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.PortSortingStrategy (Enum)   Possible Values: INPUT_ORDER
+PORT_DEGREE   Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Only relevant for nodes with FIXED_SIDE port constraints. Determines the way a node&amp;rsquo;s ports are distributed on the sides of a node if their order is not prescribed.</description>
+    </item>
+    
+    <item>
       <title>Port Spacing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portport.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

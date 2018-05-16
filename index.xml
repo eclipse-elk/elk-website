@@ -1379,7 +1379,7 @@ Properties The most important type when it comes to properties is the IProperty 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-partitioning-partition.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.partitioning.partition   Meta Data Provider: core.options.CoreOptions   Value Type: java.lang.Integer   Applies To: parents, nodes   Legacy Id: de.cau.cs.kieler.partition   Containing Group: partitioning    Description Partition to which the node belongs to. If &amp;lsquo;layoutPartitions&amp;rsquo; is true, all nodes are expected to have a partition.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.partitioning.partition   Meta Data Provider: core.options.CoreOptions   Value Type: java.lang.Integer   Applies To: parents, nodes   Legacy Id: de.cau.cs.kieler.partition   Containing Group: partitioning    Description Partition to which the node belongs to. If &amp;lsquo;layoutPartitions&amp;rsquo; is true, a pair of nodes with different partition indices is placed such that the node with lower index is placed to the left of the other node (with left-to-right layout direction).</description>
     </item>
     
     <item>

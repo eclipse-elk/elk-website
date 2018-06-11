@@ -226,7 +226,17 @@
 
 <p>One method of particular value to layout algorithm developers is <code>firstEdgeSection(edge, reset, removeOthers)</code>, which returns the first edge section of the given edge, optionally resetting its layout data and removing all other edge sections. If the edge doesn&rsquo;t have any edge sections yet, one is created and added to it. This method is handy for applying layout results.</p></li>
 
-<li><p><strong>Edge Containment:</strong> Unless one uses one of the <code>create</code> methods to create edges, finding the node an edge should be contained in may be annoying. The <code>updateContainment(ElkEdge)</code> method automatically computes the best containment and puts the edge there. This requires at least one of the edge&rsquo;s end points to be set, since that is what determines the best containment.</p></li>
+<li><p><strong>Edge Containment:</strong> Unless one uses one of the <code>create</code> methods to create edges, finding the node an edge should be contained in may be annoying (thus, don&rsquo;t). The <code>updateContainment(ElkEdge)</code> method automatically computes the best containment and puts the edge there. This requires at least one of the edge&rsquo;s end points to be set, since that is what determines the best containment.</p>
+
+<p>While computing the containment is a little intricate (hence the utility method), the actual rule that determines the best containment is rather simple: it is the lowest common ancestor of all end points, where the ancestors of a node are defined as the sequence of nodes from the node itself to the graph&rsquo;s root node. Taking the graph at the top of this page as an example, the rule has the following implications for different types of edges:</p>
+
+<ol>
+<li><p>The simple edge that connects <code>n4</code> to <code>n5</code> is contained in <code>n3</code> since that is the lowest common ancestor of both nodes.</p></li>
+
+<li><p>The short hierarchical edge that connects <code>n2</code> to <code>n6</code> is contained in <code>n2</code> since <code>n2</code> is its first ancestor.</p></li>
+
+<li><p>The long hierarchical edge that connects <code>n0</code> to <code>n4</code> is contained in the node that represents the whole graph (the root node), since that is the first common ancestor of <code>n0</code> and <code>n4</code>.</p></li>
+</ol></li>
 
 <li><p><strong>Convenience Methods:</strong> There are a number of convenience methods, for example to iterate over all of a node&rsquo;s incoming or outgoing edges, to find the node that represents the simple graph an element is part of, and more.</p></li>
 </ul>

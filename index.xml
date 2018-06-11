@@ -85,9 +85,8 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.4.0.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  Details This release concentrates on bug fixes and enhancements concerning many details of the layout algorithms, but also introduces compaction and overlap removal algorithms.
-Some changes may cause clients to break and may change layout results.
-View the release at Eclipse for links to the list of closed issues.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details This release concentrates on bug fixes and enhancements concerning many details of the layout algorithms, but also introduces compaction and overlap removal algorithms.
+Some changes may cause clients to break and may change layout results.</description>
     </item>
     
     <item>

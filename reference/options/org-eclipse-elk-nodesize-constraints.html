@@ -115,7 +115,126 @@
 
 <h3 id="description">Description</h3>
 
-<p>Constraints for determining node sizes. Each member of the set specifies something that should be taken into account when calculating node sizes. The empty set corresponds to node sizes being fixed.</p>
+<p>What should be taken into account when calculating a node&rsquo;s size. Empty size constraints specify that a node&rsquo;s size is already fixed and should not be changed.</p>
+
+<h2 id="additional-documentation">Additional Documentation</h2>
+
+<p>Size constraints basically restrict the freedom a layout algorithm has in resizing a node subject to its node labels, ports, and port labels. The different values have the following meanings:</p>
+
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>NodeLabels</code></td>
+<td>The node can be made large enough to place all node labels without violating spacing constraints.</td>
+</tr>
+
+<tr>
+<td><code>Ports</code></td>
+<td>The node can be made large enough to place all of its ports without violating spacing constraints.</td>
+</tr>
+
+<tr>
+<td><code>PortLabels</code></td>
+<td>If <code>Ports</code> is active, not only the ports themselves are considered, but also their labels.</td>
+</tr>
+
+<tr>
+<td><code>MinimumSize</code></td>
+<td>The node must meet a given minimum size specified through the <em>Node Size Minimum</em> option.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="examples">Examples</h3>
+
+<p>We start with an example of a node with empty size constraints, which means that automatic layout is not allowed to touch the node&rsquo;s size in any way. Let us assume that the size is set such that the following drawing is produced:</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-nodeSize-constraints_node_size_constraints_none.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<p>We will now add all size constraints, one by one, to the node to see how we gradually end up with a node size that is calculated to take everything into account.</p>
+
+<p>Adding the <code>NodeLabels</code> constraint resizes the node such that it is just large enough for the node&rsquo;s label. Note how the ports and their labels are completely ignored.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-nodeSize-constraints_node_size_constraints_nodelabels.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<p>Adding the <code>Ports</code> constraint ensures that the node is large enough to leave the necessary spacing between the ports. Only the spacing between the ports is considered, though; their labels are not taken into account yet.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-nodeSize-constraints_node_size_constraints_nodelabels_ports.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<p>Adding the <code>PortLabels</code> constraint as well ensures that the port spacing is applied between a port&rsquo;s label and the next port.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-nodeSize-constraints_node_size_constraints_nodelabels_ports_portlabels.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<p>Adding the <code>MinimumSize</code> constraint, finally, ensures that the computed node size won&rsquo;t fall below a minimum size configured for the node. In our example, the minimum size might be wider than what the algorithm would have computed.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-nodeSize-constraints_node_size_constraints_full.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
 
   </div>
 

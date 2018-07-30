@@ -1342,7 +1342,7 @@ NO_BOUNDARY (@AdvancedPropertyValue)   Default Value: NodePromotionStrategy.NONE
       <description>Property Value     Identifier: org.eclipse.elk.nodeSize.constraints   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.SizeConstraint&amp;gt;   Possible Values: PORTS
 PORT_LABELS
 NODE_LABELS
-MINIMUM_SIZE   Default Value: EnumSet.noneOf(SizeConstraint) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeSize    Description Constraints for determining node sizes. Each member of the set specifies something that should be taken into account when calculating node sizes.</description>
+MINIMUM_SIZE   Default Value: EnumSet.noneOf(SizeConstraint) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeSize    Description What should be taken into account when calculating a node&amp;rsquo;s size. Empty size constraints specify that a node&amp;rsquo;s size is already fixed and should not be changed.</description>
     </item>
     
     <item>

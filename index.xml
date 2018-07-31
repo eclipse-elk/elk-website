@@ -131,7 +131,7 @@ Some changes may cause clients to break and may change layout results.</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionaledgespacing.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.additionalEdgeSpacing   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy, org.eclipse.elk.layered.wrapping.strategy   Containing Group: wrapping    Description To visually separate edges that are wrapped from regularly routed edges an additional spacing value can be specified in form of this layout option.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.additionalEdgeSpacing   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping    Description To visually separate edges that are wrapped from regularly routed edges an additional spacing value can be specified in form of this layout option.</description>
     </item>
     
     <item>
@@ -250,7 +250,7 @@ To use the compiler, add the following to your pom.</description>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-bk-edgestraightening.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.EdgeStraighteningStrategy (Enum)   Possible Values: NONE
-IMPROVE_STRAIGHTNESS   Default Value: EdgeStraighteningStrategy.IMPROVE_STRAIGHTNESS (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.nodeplace.compactionStrategy   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy   Containing Group: nodePlacement -&amp;gt; bk    Description Specifies whether the Brandes Koepf node placer tries to increase the number of straight edges at the expense of diagram size.</description>
+IMPROVE_STRAIGHTNESS   Default Value: EdgeStraighteningStrategy.IMPROVE_STRAIGHTNESS (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.nodeplace.compactionStrategy   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Specifies whether the Brandes Koepf node placer tries to increase the number of straight edges at the expense of diagram size.</description>
     </item>
     
     <item>
@@ -264,7 +264,7 @@ LEFTUP
 RIGHTUP
 LEFTDOWN
 RIGHTDOWN
-BALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.fixedAlignment   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy   Containing Group: nodePlacement -&amp;gt; bk    Description Tells the BK node placer to use a certain alignment (out of its four) instead of the one producing the smallest height, or the combination of all four.</description>
+BALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.fixedAlignment   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Tells the BK node placer to use a certain alignment (out of its four) instead of the one producing the smallest height, or the combination of all four.</description>
     </item>
     
     <item>
@@ -379,7 +379,7 @@ WEDGE_COMPACTION   Default Value: CompactionStrategy.NONE (as defined in org.ecl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-connectedcomponents.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.connectedComponents   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.components.compact   Dependencies: org.eclipse.elk.separateConnectedComponents   Containing Group: compaction    Description Tries to further compact components (disconnected sub-graphs).</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.connectedComponents   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.components.compact   Dependencies: org.eclipse.elk.separateConnectedComponents (true)   Containing Group: compaction    Description Tries to further compact components (disconnected sub-graphs).</description>
     </item>
     
     <item>
@@ -441,7 +441,7 @@ H_RIGHT   Default Value: EnumSet.noneOf(ContentAlignment) (as defined in org.ecl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-correctionfactor.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.correctionFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 1.0 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy, org.eclipse.elk.layered.wrapping.strategy   Containing Group: wrapping    Description At times and for certain types of graphs the executed wrapping may produce results that are consistently biased in the same fashion: either wrapping to often or to rarely.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.correctionFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 1.0 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping    Description At times and for certain types of graphs the executed wrapping may produce results that are consistently biased in the same fashion: either wrapping to often or to rarely.</description>
     </item>
     
     <item>
@@ -485,7 +485,7 @@ INTERACTIVE (@AdvancedPropertyValue)   Default Value: CrossingMinimizationStrate
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-strategy.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.cutting.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CuttingStrategy (Enum)   Possible Values: ARD
 MSD
-MANUAL   Default Value: CuttingStrategy.MSD (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy, org.eclipse.elk.layered.wrapping.strategy   Containing Group: wrapping -&amp;gt; cutting    Description The strategy by which the layer indexes are determined at which the layering crumbles into chunks.</description>
+MANUAL   Default Value: CuttingStrategy.MSD (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; cutting    Description The strategy by which the layer indexes are determined at which the layering crumbles into chunks.</description>
     </item>
     
     <item>
@@ -609,7 +609,7 @@ SUBSET   Default Value: NeatoModel.SHORTPATH (as defined in org.eclipse.elk.grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiedge-distancepenalty.html</guid>
-      <description>   Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.multiEdge.distancePenalty   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 2.0 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy, org.eclipse.elk.layered.wrapping.multiEdge.improveCuts   Containing Group: wrapping -&amp;gt; multiEdge    </description>
+      <description>   Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.multiEdge.distancePenalty   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 2.0 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE), org.eclipse.elk.layered.wrapping.multiEdge.improveCuts (true)   Containing Group: wrapping -&amp;gt; multiEdge    </description>
     </item>
     
     <item>
@@ -747,7 +747,7 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-repulsion.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.force.repulsion   Meta Data Provider: options.ForceMetaDataProvider   Value Type: double   Default Value: 5.0 (as defined in org.eclipse.elk.force)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Dependencies: org.eclipse.elk.force.model    Description Factor for repulsive forces in Eades&amp;rsquo; model.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.force.repulsion   Meta Data Provider: options.ForceMetaDataProvider   Value Type: double   Default Value: 5.0 (as defined in org.eclipse.elk.force)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Dependencies: org.eclipse.elk.force.model (ForceModelStrategy.EADES)    Description Factor for repulsive forces in Eades&amp;rsquo; model.</description>
     </item>
     
     <item>
@@ -904,7 +904,7 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-temperature.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.force.temperature   Meta Data Provider: options.ForceMetaDataProvider   Value Type: double   Default Value: 0.001 (as defined in org.eclipse.elk.force)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Dependencies: org.eclipse.elk.force.model    Description The temperature is used as a scaling factor for particle displacements.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.force.temperature   Meta Data Provider: options.ForceMetaDataProvider   Value Type: double   Default Value: 0.001 (as defined in org.eclipse.elk.force)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Dependencies: org.eclipse.elk.force.model (ForceModelStrategy.FRUCHTERMAN_REINGOLD)    Description The temperature is used as a scaling factor for particle displacements.</description>
     </item>
     
     <item>
@@ -913,7 +913,7 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-favorstraightedges.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.nodePlacement.favorStraightEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy, org.eclipse.elk.layered.nodePlacement.strategy   Containing Group: nodePlacement    Description Favor straight edges over a balanced node placement. The default behavior is determined automatically based on the used &amp;lsquo;edgeRouting&amp;rsquo;. For an orthogonal style it is set to true, for all other styles to false.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.nodePlacement.favorStraightEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.NETWORK_SIMPLEX), org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement    Description Favor straight edges over a balanced node placement. The default behavior is determined automatically based on the used &amp;lsquo;edgeRouting&amp;rsquo;. For an orthogonal style it is set to true, for all other styles to false.</description>
     </item>
     
     <item>
@@ -1039,7 +1039,7 @@ OFF   Default Value: GreedySwitchType.TWO_SIDED (as defined in org.eclipse.elk.l
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-hierarchicalsweepiness.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.hierarchicalSweepiness   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.1 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.hierarchyHandling   Containing Group: crossingMinimization    Description How likely it is to use cross-hierarchy (1) vs bottom-up (-1).</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.hierarchicalSweepiness   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.1 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.hierarchyHandling (HierarchyHandling.INCLUDE_CHILDREN)   Containing Group: crossingMinimization    Description How likely it is to use cross-hierarchy (1) vs bottom-up (-1).</description>
     </item>
     
     <item>
@@ -1070,7 +1070,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highdegreenodes-treeheight.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.treeHeight   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 5 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.highDegreeNode.treeHeight   Dependencies: org.eclipse.elk.layered.highDegreeNodes.treatment   Containing Group: highDegreeNodes    Description Maximum height of a subtree connected to a high degree node to be moved to separate layers.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.treeHeight   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 5 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.highDegreeNode.treeHeight   Dependencies: org.eclipse.elk.layered.highDegreeNodes.treatment (true)   Containing Group: highDegreeNodes    Description Maximum height of a subtree connected to a high degree node to be moved to separate layers.</description>
     </item>
     
     <item>
@@ -1079,7 +1079,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highdegreenodes-threshold.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.threshold   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 16 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.highDegreeNode.threshold   Dependencies: org.eclipse.elk.layered.highDegreeNodes.treatment   Containing Group: highDegreeNodes    Description Whether a node is considered to have a high degree.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.threshold   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 16 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.highDegreeNode.threshold   Dependencies: org.eclipse.elk.layered.highDegreeNodes.treatment (true)   Containing Group: highDegreeNodes    Description Whether a node is considered to have a high degree.</description>
     </item>
     
     <item>
@@ -1106,7 +1106,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiedge-improvecuts.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.multiEdge.improveCuts   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy   Containing Group: wrapping -&amp;gt; multiEdge    Description For general graphs it is important that not too many edges wrap backwards. Thus a compromise between evenly-distributed cuts and the total number of cut edges is sought.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.multiEdge.improveCuts   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; multiEdge    Description For general graphs it is important that not too many edges wrap backwards. Thus a compromise between evenly-distributed cuts and the total number of cut edges is sought.</description>
     </item>
     
     <item>
@@ -1115,7 +1115,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiedge-improvewrappededges.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.multiEdge.improveWrappedEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy   Containing Group: wrapping -&amp;gt; multiEdge    Description The initial wrapping is performed in a very simple way. As a consequence, edges that wrap from one chunk to another may be unnecessarily long.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.multiEdge.improveWrappedEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; multiEdge    Description The initial wrapping is performed in a very simple way. As a consequence, edges that wrap from one chunk to another may be unnecessarily long.</description>
     </item>
     
     <item>
@@ -1182,7 +1182,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-interactivereferencepoint.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.interactiveReferencePoint   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.InteractiveReferencePoint (Enum)   Possible Values: CENTER
-TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.interactiveReferencePoint   Dependencies: org.eclipse.elk.layered.cycleBreaking.strategy, org.eclipse.elk.layered.crossingMinimization.strategy    Description Determines which point of a node is considered by interactive layout phases.</description>
+TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.interactiveReferencePoint   Dependencies: org.eclipse.elk.layered.cycleBreaking.strategy (CycleBreakingStrategy.INTERACTIVE), org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.INTERACTIVE)    Description Determines which point of a node is considered by interactive layout phases.</description>
     </item>
     
     <item>
@@ -1300,7 +1300,7 @@ Nodes, Ports, Labels, Edges, and Edge Sections All elements, except labels, must
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-coffmangraham-layerbound.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.coffmanGraham.layerBound   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: Integer.MAX_VALUE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.layering.strategy   Containing Group: layering -&amp;gt; coffmanGraham    Description The maximum number of nodes allowed per layer.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.coffmanGraham.layerBound   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: Integer.MAX_VALUE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.layering.strategy (LayeringStrategy.COFFMAN_GRAHAM)   Containing Group: layering -&amp;gt; coffmanGraham    Description The maximum number of nodes allowed per layer.</description>
     </item>
     
     <item>
@@ -1418,7 +1418,7 @@ It is a fair question whether users should be given access to this view or not.<
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-linearsegments-deflectiondampening.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.linearSegments.deflectionDampening   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.3 (as defined in org.eclipse.elk.layered)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.linearSegmentsDeflectionDampening   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy   Containing Group: nodePlacement -&amp;gt; linearSegments    Description Dampens the movement of nodes to keep the diagram from getting too large.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.linearSegments.deflectionDampening   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.3 (as defined in org.eclipse.elk.layered)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.linearSegmentsDeflectionDampening   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.LINEAR_SEGMENTS)   Containing Group: nodePlacement -&amp;gt; linearSegments    Description Dampens the movement of nodes to keep the diagram from getting too large.</description>
     </item>
     
     <item>
@@ -1436,7 +1436,7 @@ It is a fair question whether users should be given access to this view or not.<
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-msd-freedom.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.cutting.msd.freedom   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: java.lang.Integer   Default Value: 1 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.cutting.strategy   Containing Group: wrapping -&amp;gt; cutting -&amp;gt; msd    Description The MSD cutting strategy starts with an initial guess on the number of chunks the graph should be split into.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.cutting.msd.freedom   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: java.lang.Integer   Default Value: 1 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.cutting.strategy (CuttingStrategy.MSD)   Containing Group: wrapping -&amp;gt; cutting -&amp;gt; msd    Description The MSD cutting strategy starts with an initial guess on the number of chunks the graph should be split into.</description>
     </item>
     
     <item>
@@ -1445,7 +1445,7 @@ It is a fair question whether users should be given access to this view or not.<
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-cuts.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.cutting.cuts   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: java.util.List&amp;lt;java.lang.Integer&amp;gt;   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.cutting.strategy   Containing Group: wrapping -&amp;gt; cutting    Description Allows the user to specify her own cuts for a certain graph.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.cutting.cuts   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: java.util.List&amp;lt;java.lang.Integer&amp;gt;   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.cutting.strategy (CuttingStrategy.MANUAL)   Containing Group: wrapping -&amp;gt; cutting    Description Allows the user to specify her own cuts for a certain graph.</description>
     </item>
     
     <item>
@@ -1539,7 +1539,7 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodeFlexibility (Enum)   Possible Values: NONE
 PORT_POSITION
 NODE_SIZE_WHERE_SPACE_PERMITS (@ExperimentalPropertyValue)
-NODE_SIZE   Applies To: nodes   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy   Containing Group: nodePlacement -&amp;gt; networkSimplex    Description Aims at shorter and straighter edges. Two configurations are possible: (a) allow ports to move freely on the side they are assigned to (the order is always defined beforehand), (b) additionally allow to enlarge a node wherever it helps.</description>
+NODE_SIZE   Applies To: nodes   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.NETWORK_SIMPLEX)   Containing Group: nodePlacement -&amp;gt; networkSimplex    Description Aims at shorter and straighter edges. Two configurations are possible: (a) allow ports to move freely on the side they are assigned to (the order is always defined beforehand), (b) additionally allow to enlarge a node wherever it helps.</description>
     </item>
     
     <item>
@@ -1551,7 +1551,7 @@ NODE_SIZE   Applies To: nodes   Dependencies: org.eclipse.elk.layered.nodePlacem
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodeFlexibility (Enum)   Possible Values: NONE
 PORT_POSITION
 NODE_SIZE_WHERE_SPACE_PERMITS (@ExperimentalPropertyValue)
-NODE_SIZE   Default Value: NodeFlexibility.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy   Containing Group: nodePlacement -&amp;gt; networkSimplex -&amp;gt; nodeFlexibility    Description Default value of the &amp;lsquo;nodeFlexibility&amp;rsquo; option for the children of a hierarchical node.</description>
+NODE_SIZE   Default Value: NodeFlexibility.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.NETWORK_SIMPLEX)   Containing Group: nodePlacement -&amp;gt; networkSimplex -&amp;gt; nodeFlexibility    Description Default value of the &amp;lsquo;nodeFlexibility&amp;rsquo; option for the children of a hierarchical node.</description>
     </item>
     
     <item>
@@ -2071,7 +2071,7 @@ Supported Options    Option Default Value     Aspect Ratio 1.6f   Node Spacing 1
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-preferredroot.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.preferredRoot   Meta Data Provider: options.SporeMetaDataProvider   Value Type: java.lang.String   Default Value: null (as defined in org.eclipse.elk)   Applies To: parents   Dependencies: org.eclipse.elk.processingOrder.rootSelection   Containing Group: processingOrder    Description The identifier of the node that is preferred as the root of the spanning tree. If this is null, the first node is chosen.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.preferredRoot   Meta Data Provider: options.SporeMetaDataProvider   Value Type: java.lang.String   Default Value: null (as defined in org.eclipse.elk)   Applies To: parents   Dependencies: org.eclipse.elk.processingOrder.rootSelection (RootSelection.FIXED)   Containing Group: processingOrder    Description The identifier of the node that is preferred as the root of the spanning tree. If this is null, the first node is chosen.</description>
     </item>
     
     <item>
@@ -2109,7 +2109,7 @@ BFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree) 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-semiinteractive.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.semiInteractive   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.crossingMinimization.strategy   Containing Group: crossingMinimization    Description Preserves the order of nodes within a layer but still minimizes crossings between edges connecting long edge dummies.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.semiInteractive   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.LAYER_SWEEP)   Containing Group: crossingMinimization    Description Preserves the order of nodes within a layer but still minimizes crossings between edges connecting long edge dummies.</description>
     </item>
     
     <item>
@@ -2145,7 +2145,7 @@ BFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree) 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-sloppy-layerspacingfactor.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.sloppy.layerSpacingFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.2 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting, org.eclipse.elk.layered.edgeRouting.splines.mode   Containing Group: edgeRouting -&amp;gt; splines -&amp;gt; sloppy    Description Spacing factor for routing area between layers when using sloppy spline routing.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.sloppy.layerSpacingFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.2 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting (EdgeRouting.SPLINES), org.eclipse.elk.layered.edgeRouting.splines.mode (SplineRoutingMode.SLOPPY)   Containing Group: edgeRouting -&amp;gt; splines -&amp;gt; sloppy    Description Spacing factor for routing area between layers when using sloppy spline routing.</description>
     </item>
     
     <item>
@@ -2167,7 +2167,7 @@ ID   Default Value: SortingStrategy.NONE (as defined in org.eclipse.elk.radial) 
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-mode.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.mode   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SplineRoutingMode (Enum)   Possible Values: CONSERVATIVE
 CONSERVATIVE_SOFT
-SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting   Containing Group: edgeRouting -&amp;gt; splines    Description Specifies the way control points are assembled for each individual edge.</description>
+SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting (EdgeRouting.SPLINES)   Containing Group: edgeRouting -&amp;gt; splines    Description Specifies the way control points are assembled for each individual edge.</description>
     </item>
     
     <item>
@@ -2178,7 +2178,7 @@ SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopplacement.html</guid>
       <description>   Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopPlacement   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopPlacement (Enum)   Possible Values: EQUALLY_DISTRIBUTED
 NORTH_STACKED
-NORTH_SEQUENCE   Default Value: SelfLoopPlacement.NORTH_STACKED (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.splines.selfLoopPlacement   Dependencies: org.eclipse.elk.edgeRouting   Containing Group: edgeRouting    </description>
+NORTH_SEQUENCE   Default Value: SelfLoopPlacement.NORTH_STACKED (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.splines.selfLoopPlacement   Dependencies: org.eclipse.elk.edgeRouting (EdgeRouting.SPLINES)   Containing Group: edgeRouting    </description>
     </item>
     
     <item>
@@ -2284,7 +2284,7 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minwidth-upperboundonwidth.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.minWidth.upperBoundOnWidth   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 4 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.minWidthUpperBoundOnWidth   Dependencies: org.eclipse.elk.layered.layering.strategy   Containing Group: layering -&amp;gt; minWidth    Description Defines a loose upper bound on the width of the MinWidth layerer.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.minWidth.upperBoundOnWidth   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 4 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.minWidthUpperBoundOnWidth   Dependencies: org.eclipse.elk.layered.layering.strategy (LayeringStrategy.MIN_WIDTH)   Containing Group: layering -&amp;gt; minWidth    Description Defines a loose upper bound on the width of the MinWidth layerer.</description>
     </item>
     
     <item>
@@ -2293,7 +2293,7 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minwidth-upperlayerestimationscalingfactor.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.minWidth.upperLayerEstimationScalingFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 2 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.minWidthUpperLayerEstimationScalingFactor   Dependencies: org.eclipse.elk.layered.layering.strategy   Containing Group: layering -&amp;gt; minWidth    Description Multiplied with Upper Bound On Width for defining an upper bound on the width of layers which haven&amp;rsquo;t been determined yet, but whose maximum width had been (roughly) estimated by the MinWidth algorithm.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.minWidth.upperLayerEstimationScalingFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 2 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.minWidthUpperLayerEstimationScalingFactor   Dependencies: org.eclipse.elk.layered.layering.strategy (LayeringStrategy.MIN_WIDTH)   Containing Group: layering -&amp;gt; minWidth    Description Multiplied with Upper Bound On Width for defining an upper bound on the width of layers which haven&amp;rsquo;t been determined yet, but whose maximum width had been (roughly) estimated by the MinWidth algorithm.</description>
     </item>
     
     <item>
@@ -2342,7 +2342,7 @@ How Layout Works in Eclipse Layout in Eclipse revolves around the DiagramLayoutE
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-forbiddenindices.html</guid>
-      <description>   Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.validify.forbiddenIndices   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: java.util.List&amp;lt;java.lang.Integer&amp;gt;   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy, org.eclipse.elk.layered.wrapping.strategy   Containing Group: wrapping -&amp;gt; validify    </description>
+      <description>   Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.validify.forbiddenIndices   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: java.util.List&amp;lt;java.lang.Integer&amp;gt;   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; validify    </description>
     </item>
     
     <item>
@@ -2371,7 +2371,7 @@ How Layout Works in Eclipse Layout in Eclipse revolves around the DiagramLayoutE
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-strategy.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.validify.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ValidifyStrategy (Enum)   Possible Values: NO
 GREEDY
-LOOK_BACK   Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy, org.eclipse.elk.layered.wrapping.strategy   Containing Group: wrapping -&amp;gt; validify    Description When wrapping graphs, one can specify indices that are not allowed as split points.</description>
+LOOK_BACK   Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; validify    Description When wrapping graphs, one can specify indices that are not allowed as split points.</description>
     </item>
     
     <item>

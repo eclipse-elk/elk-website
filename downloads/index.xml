@@ -90,6 +90,16 @@ Some changes may cause clients to break and may change layout results.</descript
     </item>
     
     <item>
+      <title>0.4.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.4.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.4.1.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details A bug fix release that fixes two small bugs. This release should not be API-breaking.
+View the release at Eclipse for links to the list of closed issues.</description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Spline Self-Loop Placement (ELK)</title>
+    <title>Self-Loop Distribution (ELK)</title>
 
     
     
@@ -63,9 +63,11 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Spline Self-Loop Placement</h1>
+    <h1>Self-Loop Distribution</h1>
 
-    <table>
+    
+
+<table>
 <thead>
 <tr>
 <th>Property</th>
@@ -76,7 +78,7 @@
 <tbody>
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.edgeRouting.selfLoopPlacement</code></td>
+<td><code>org.eclipse.elk.layered.edgeRouting.selfLoopDistribution</code></td>
 </tr>
 
 <tr>
@@ -86,17 +88,17 @@
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>org.eclipse.elk.alg.layered.options.SelfLoopPlacement</code> (Enum)</td>
+<td><code>org.eclipse.elk.alg.layered.options.SelfLoopDistributionStrategy</code> (Enum)</td>
 </tr>
 
 <tr>
 <td><em>Possible Values:</em></td>
-<td><code>EQUALLY_DISTRIBUTED</code><br><code>NORTH_STACKED</code><br><code>NORTH_SEQUENCE</code></td>
+<td><code>EQUALLY</code><br><code>NORTH</code><br><code>NORTH_SOUTH</code></td>
 </tr>
 
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>SelfLoopPlacement.NORTH_STACKED</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+<td><code>SelfLoopDistributionStrategy.NORTH</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
 </tr>
 
 <tr>
@@ -105,21 +107,15 @@
 </tr>
 
 <tr>
-<td><em>Legacy Id:</em></td>
-<td><code>de.cau.cs.kieler.klay.layered.splines.selfLoopPlacement</code></td>
-</tr>
-
-<tr>
-<td><em>Dependencies:</em></td>
-<td><a href="org-eclipse-elk-edgeRouting">org.eclipse.elk.edgeRouting</a> (EdgeRouting.SPLINES)</td>
-</tr>
-
-<tr>
 <td><em>Containing Group:</em></td>
 <td><a href="../../reference/groups/org-eclipse-elk-layered-edgerouting.html">edgeRouting</a></td>
 </tr>
 </tbody>
 </table>
+
+<h3 id="description">Description</h3>
+
+<p>Alter the distribution of the loops around the node. It only takes effect for PortConstraints.FREE.</p>
 
   </div>
 
@@ -1153,6 +1149,14 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-layered-edgerouting-mergeselfloops.html">
+    <li class="navlevel-2">
+      Merge Self-Loops
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-minanimtime.html">
     <li class="navlevel-2">
       Minimal Animation Time
@@ -1561,6 +1565,22 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-layered-edgerouting-selfloopdistribution.html">
+    <li class="navlevel-2 active">
+      Self-Loop Distribution
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-edgerouting-selfloopordering.html">
+    <li class="navlevel-2">
+      Self-Loop Ordering
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-layered-crossingminimization-semiinteractive.html">
     <li class="navlevel-2">
       Semi-Interactive Crossing Minimization
@@ -1593,6 +1613,14 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-layered-edgerouting-polyline-slopededgezonewidth.html">
+    <li class="navlevel-2">
+      Sloped Edge Zone Width
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-layered-edgerouting-splines-sloppy-layerspacingfactor.html">
     <li class="navlevel-2">
       Sloppy Spline Layer Spacing Factor
@@ -1612,14 +1640,6 @@
   <a href="../../reference/options/org-eclipse-elk-layered-edgerouting-splines-mode.html">
     <li class="navlevel-2">
       Spline Routing Mode
-    </li>
-  </a>
-  
-
-  
-  <a href="../../reference/options/org-eclipse-elk-layered-edgerouting-selfloopplacement.html">
-    <li class="navlevel-2 active">
-      Spline Self-Loop Placement
     </li>
   </a>
   
@@ -1884,6 +1904,14 @@
   <a href="../../reference/groups/org-eclipse-elk-layered-edgerouting.html">
     <li class="navlevel-2">
       edgeRouting
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-layered-edgerouting-polyline.html">
+    <li class="navlevel-2">
+      edgeRouting.polyline
     </li>
   </a>
   

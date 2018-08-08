@@ -636,6 +636,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-mergeselfloops.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minanimtime.html</loc>
   </url>
   
@@ -856,6 +860,14 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopdistribution.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopordering.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-semiinteractive.html</loc>
   </url>
   
@@ -872,6 +884,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-polyline-slopededgezonewidth.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-sloppy-layerspacingfactor.html</loc>
   </url>
   
@@ -881,10 +897,6 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-mode.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopplacement.html</loc>
   </url>
   
   <url>
@@ -1042,6 +1054,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-polyline.html</loc>
   </url>
   
   <url>

@@ -1513,6 +1513,15 @@ It is a fair question whether users should be given access to this view or not.<
     </item>
     
     <item>
+      <title>Merge Self-Loops</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-mergeselfloops.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-mergeselfloops.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.mergeSelfLoops   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeRouting    Description If different self-loops are not important, they can be merged to be displayed on above another. This saves space and labels will not be crossed if multiple labels are stacked.</description>
+    </item>
+    
+    <item>
       <title>Minimal Animation Time</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minanimtime.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2114,6 +2123,27 @@ BFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree) 
     </item>
     
     <item>
+      <title>Self-Loop Distribution</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopdistribution.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopdistribution.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopDistribution   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopDistributionStrategy (Enum)   Possible Values: EQUALLY
+NORTH
+NORTH_SOUTH   Default Value: SelfLoopDistributionStrategy.NORTH (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeRouting    Description Alter the distribution of the loops around the node. It only takes effect for PortConstraints.FREE.</description>
+    </item>
+    
+    <item>
+      <title>Self-Loop Ordering</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopordering.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopordering.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopOrdering   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopOrderingStrategy (Enum)   Possible Values: STACKED
+SEQUENCED   Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeRouting    Description Alter the ordering of the loops they can either be stacked or sequenced. It only takes effect for PortConstraints.</description>
+    </item>
+    
+    <item>
       <title>Semi-Interactive Crossing Minimization</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-semiinteractive.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2150,6 +2180,15 @@ BFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree) 
     </item>
     
     <item>
+      <title>Sloped Edge Zone Width</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-polyline-slopededgezonewidth.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-polyline-slopededgezonewidth.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.edgeRouting.polyline.slopedEdgeZoneWidth   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 2.0 (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting (EdgeRouting.POLYLINE)   Containing Group: edgeRouting -&amp;gt; polyline    Description Width of the strip to the left and to the right of each layer where the polyline edge router is allowed to refrain from ensuring that edges are routed horizontally.</description>
+    </item>
+    
+    <item>
       <title>Sloppy Spline Layer Spacing Factor</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-splines-sloppy-layerspacingfactor.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2178,17 +2217,6 @@ ID   Default Value: SortingStrategy.NONE (as defined in org.eclipse.elk.radial) 
       <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.mode   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SplineRoutingMode (Enum)   Possible Values: CONSERVATIVE
 CONSERVATIVE_SOFT
 SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting (EdgeRouting.SPLINES)   Containing Group: edgeRouting -&amp;gt; splines    Description Specifies the way control points are assembled for each individual edge.</description>
-    </item>
-    
-    <item>
-      <title>Spline Self-Loop Placement</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopplacement.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopplacement.html</guid>
-      <description>   Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopPlacement   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopPlacement (Enum)   Possible Values: EQUALLY_DISTRIBUTED
-NORTH_STACKED
-NORTH_SEQUENCE   Default Value: SelfLoopPlacement.NORTH_STACKED (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.splines.selfLoopPlacement   Dependencies: org.eclipse.elk.edgeRouting (EdgeRouting.SPLINES)   Containing Group: edgeRouting    </description>
     </item>
     
     <item>
@@ -2537,7 +2565,16 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting    Options  Spline Self-Loop Placement  Subgroups  splines  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting    Options  Self-Loop Distribution Self-Loop Ordering Merge Self-Loops  Subgroups  splines polyline  </description>
+    </item>
+    
+    <item>
+      <title>edgeRouting.polyline</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-polyline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting-polyline.html</guid>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.polyline    Options  Sloped Edge Zone Width  </description>
     </item>
     
     <item>

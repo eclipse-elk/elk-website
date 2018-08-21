@@ -66,7 +66,7 @@ To use the compiler, add the following to your pom.</description>
       
       <guid>https://www.eclipse.org/elk/documentation/contributors/buildingelk.html</guid>
       <description>ELK is built using Apache Maven in conjunction with Tycho to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the build/ directory inside your clone of the ELK repository.
-The Main Build Process Execute Maven using the following command line (note that the command line is split in order to improve readability):</description>
+Note: We have had reports of people not being able to build ELK with Maven 3.</description>
     </item>
     
     <item>

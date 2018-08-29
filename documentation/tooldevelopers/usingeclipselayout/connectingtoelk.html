@@ -72,7 +72,7 @@
 <p>To connect to ELK, there are two things you will have to do:</p>
 
 <ol>
-<li>Create an <code>ILayoutSetup</code> implementation and register it with out extension point.</li>
+<li>Create an <code>ILayoutSetup</code> implementation and register it with our extension point.</li>
 <li>Create an <code>IDiagramLayoutConnector</code> implementation.</li>
 </ol>
 
@@ -85,6 +85,8 @@
 <pre><code class="language-java">boolean supports(Object object);
 Injector createInjector(Module defaultModule);
 </code></pre>
+
+<p>To be able to implement the interface, you may have to add a dependency to <code>org.eclipse.elk.core.service</code> to your project. Then register your layout setup with the <code>org.eclipse.elk.core.service.layoutConnectors</code> extension point.</p>
 
 <h3 id="the-supports-method">The <code>supports(...)</code> Method</h3>
 

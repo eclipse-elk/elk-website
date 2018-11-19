@@ -75,7 +75,7 @@
 
 <p>However many classes a layout algorithm consists of, it always provides one entry class that inherits from <code>AbstractLayoutProvider</code> and implements the single most important method for your algorithm:</p>
 
-<pre><code class="language-java">void layout(KNode layoutGraph, IElkProgressMonitor progressMonitor);
+<pre><code class="language-java">void layout(ElkNode layoutGraph, IElkProgressMonitor progressMonitor);
 </code></pre>
 
 <p>Let&rsquo;s go through the parameters in reverse order (because of reasons). The <code>progressMonitor</code> parameter should be used to track progress and check if the user wants to cancel the layout operation. Actually canceling when the user wants to cancel is one of those features that will help your software stand out from many other programs, so take this opportunity to shine!</p>

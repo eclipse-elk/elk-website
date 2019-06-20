@@ -67,36 +67,90 @@
 
     
 
-<p>Layout algorithms are developed as <em>Eclipse Plug-in Projects</em>. There&rsquo;s a few things to setup to get your project ready, which is what we will work through here.</p>
+<p>Layout algorithms are developed as <em>Eclipse Plug-in Projects</em>. Let&rsquo;s work through creating a new project using our wizard and what that project consists of.</p>
 
-
-
-<div class="alert alert-info">
-  <h5>If you have nothing better to do…</h5>
-
-  <p><a href="https://github.com/eclipse/elk/issues/29">This ticket</a> is all about adding an <em>ELK Project Wizard</em> to the ELK SDK that will help people create new layout algorithm projects that are already perfectly setup. If you want to make people&rsquo;s lifes better but don&rsquo;t know how, here&rsquo;s your chance!</p>
-
-</div>
-
-
-<h2 id="creating-a-new-plug-in">Creating a New Plug-in</h2>
+<h2 id="creating-a-new-project">Creating a New Project</h2>
 
 <p>Follow these steps to create a new plug-in:</p>
 
 <ol>
 <li>From the <em>File</em> menu, select <em>New - Project&hellip;</em>.</li>
 <li>From the <em>Plug-in Development</em> category, select <em>Plug-in Project</em> and click <em>Next</em>.</li>
-<li>Configure your project&rsquo;s basic settings, in particular its name, and click <em>Next</em>.</li>
-<li>Configure your project&rsquo;s content. The <em>Properties</em> should be somewhat sensible, but don&rsquo;t really matter all that much. In the <em>Options</em> section, uncheck everything (layout algorithm projects normally don&rsquo;t need an activator class, nor do they normally make contributions to the UI). Also, don&rsquo;t create a rich client application. Click <em>Finish</em>.</li>
-</ol>
+
+<li><p>Configure your project&rsquo;s basic settings, in particular its name, and click <em>Next</em>.</p>
 
 <p>
   <img
     class="img-fluid"
     
-      src="../../img/algdev_creatinganewproject_wizard.png"
+      src="../../img/algdev_creatinganewproject_step1.png"
     
-     alt="Configuring a new layout algorithm project."
+     alt="Step 1 of the New Plug-In Project Wizard."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</li>
+
+<li><p>Configure the project&rsquo;s properties as you see fit and click <em>Next</em>.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img/algdev_creatinganewproject_step2.png"
+    
+     alt="Step 2 of the New Plug-In Project Wizard."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</li>
+
+<li><p>Select the <em>Layout Algorithm</em> project template. This will cause your project to be initialized with all the necessary files for a simple layout algorithm.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img/algdev_creatinganewproject_step3.png"
+    
+     alt="Step 3 of the New Plug-In Project Wizard."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</li>
+
+<li><p>The template requires a name for your layout algorithm. This will usually derive from your project&rsquo;s name. Click <em>Finish</em> once you have settled on a name.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img/algdev_creatinganewproject_step4.png"
+    
+     alt="Step 4 of the New Plug-In Project Wizard."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</li>
+</ol>
+
+<p>The <em>Package Explorer</em> now shows a new project for your plug-in.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img/algdev_creatinganewproject_project.png"
+    
+     alt="The new project in all its glory."
     style = "max-height: 500px; display: block;
     margin-left: auto;
     margin-right: auto;"
@@ -104,61 +158,19 @@
 </p>
 
 
-<p>The <em>Package Explorer</em> now shows a new project for your plug-in which we will configure in the next section.</p>
+<h2 id="the-components-of-your-new-project">The Components of Your New Project</h2>
 
-<h2 id="setting-up-your-plug-in">Setting Up Your Plug-in</h2>
-
-<p>Your plug-in needs to declare dependencies to ELK&rsquo;s most important plug-ins: <code>org.eclipse.elk.graph</code> (which contains the graph model that will be the input to your layout algorithm) and <code>org.eclipse.elk.core</code> (which contains the core ELK code). Follow these steps to add the dependencies:</p>
-
-<ol>
-<li>Open the <code>MANIFEST.MF</code> file, located in your plug-in&rsquo;s <code>META_INF</code> folder. The <em>Plug-in Manifest Editor</em> will open up, which is divided into several pages that you can switch between using the controls at the bottom of the editor.</li>
-<li>Open the editor&rsquo;s <em>Dependencies</em> tab.</li>
-<li>Click the left <em>Add&hellip;</em> button to add a dependency. In the dialog that pops up, search for the <code>org.eclipse.elk.graph</code> plug-in and click <em>OK</em>.</li>
-<li>Repeat for ELK&rsquo;s core plug-in, <code>org.eclipse.elk.core</code>.</li>
-</ol>
-
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img/algdev_creatinganewproject_dependencies.png"
-    
-     alt="Configuring a new layout algorithm project."
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-
-
-<h2 id="creating-a-layout-provider">Creating a Layout Provider</h2>
-
-<p>While we will discuss the details of implementing the actual layout algorithm  <a href="../../documentation/algorithmdevelopers/algorithmimplementation.html">later</a>, it is a good idea to already create its main class now for us to be able to reference it. Create a new Java class with the following properties:</p>
+<p>The wizard creates the following things for your:</p>
 
 <ul>
-<li>The package should be your plug-in&rsquo;s source package. That is, it should be named just like the plug-in. (This is not strictly necessary, but a common convention.)</li>
-<li>Give it a name that ends in <code>LayoutProvider</code>.</li>
-<li>Its superclass must be set to <code>org.eclipse.elk.core.AbstractLayoutProvider</code>.</li>
+<li><p>A <code>MANIFEST.MF</code> file with the necessary dependencies to the Eclipse Layout Kernel so you can use our data structures.</p></li>
+
+<li><p>A <code>plugin.xml</code> file which registers your new layout algorithm with ELK so it can be used.</p></li>
+
+<li><p>A <code>.melk</code> file which describes your layout algorithm and the options it supports (see <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">this page</a> for more information).</p></li>
+
+<li><p>A sample implementation with a simple basic layout provider. Studying this implementation will teach you a lot about how to develop layout algorithms with ELK (see <a href="../../documentation/algorithmdevelopers/algorithmimplementation.html">this page</a> for more information).</p></li>
 </ul>
-
-<p>Your class will look something like this:</p>
-
-<pre><code class="language-java">package cds.layout.simple;
-
-import org.eclipse.elk.core.AbstractLayoutProvider;
-import org.eclipse.elk.core.util.IElkProgressMonitor;
-import org.eclipse.elk.graph.ElkNode;
-
-public class SimpleLayoutProvider extends AbstractLayoutProvider {
-
-    @Override
-    public void layout(ElkNode layoutGraph, IElkProgressMonitor progressMonitor) {
-        // TODO Auto-generated method stub
-
-    }
-
-}
-</code></pre>
 
   </div>
 

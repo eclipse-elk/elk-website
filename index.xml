@@ -169,8 +169,9 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmdebugging.html</guid>
-      <description>The Eclipse Layout Kernel SDK provides two views built specifically for debugging your layout algorithm: the layout graph view and the execution time view.
-Layout Graph View  The layout graph view registers with the DiagramLayoutEngine to be notified whenever a layout run finishes and displays the layout graph exactly as it comes out of the layout algorithm, without any modifications applied. Use this view to check if your algorithm works and if you got the coordinate system right.</description>
+      <description>The Eclipse Layout Kernel provides debugging support through its debugging infrastructure, which consists of three layers:
+ Logging mechanisms that algorithm developers can use to generate log messages as well as log snapshots of graphs as they are laid out. The messages can optionally be written to disk.
+ Viewers that algorithm developers can use to inspect all kinds of logged objects as well as the execution times of their algorithms.</description>
     </item>
     
     <item>
@@ -483,8 +484,10 @@ MINIMUM_ROOT_DISTANCE   Default Value: SpanningTreeCostFunction.CIRCLE_UNDERLAP 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/creatinganewproject.html</guid>
-      <description>Layout algorithms are developed as Eclipse Plug-in Projects. There&amp;rsquo;s a few things to setup to get your project ready, which is what we will work through here.
-If you have nothing better to do… This ticket is all about adding an ELK Project Wizard to the ELK SDK that will help people create new layout algorithm projects that are already perfectly setup. If you want to make people&amp;rsquo;s lifes better but don&amp;rsquo;t know how, here&amp;rsquo;s your chance!</description>
+      <description>Layout algorithms are developed as Eclipse Plug-in Projects. Let&amp;rsquo;s work through creating a new project using our wizard and what that project consists of.
+Creating a New Project Follow these steps to create a new plug-in:
+ From the File menu, select New - Project&amp;hellip;. From the Plug-in Development category, select Plug-in Project and click Next. Configure your project&amp;rsquo;s basic settings, in particular its name, and click Next.
+  Configure the project&amp;rsquo;s properties as you see fit and click Next.</description>
     </item>
     
     <item>

@@ -67,141 +67,264 @@
 
     
 
-<p>Layout algorithms are complex pieces of software and, thus, should probably be tested. ELK provides a unit test framework with the following features:</p>
+<p>Layout algorithms are complex pieces of software and, thus, should probably be tested. Besides the usual plain JUnit tests, ELK provides a graph algorithm unit test framework based on JUnit 4. Tests written with that framework basically do three things:</p>
+
+<ol>
+<li><p>Load one or more graphs.</p></li>
+
+<li><p>Optionally provide a number of graph configurations. If a test class doesn&rsquo;t specify configurations, a default configuration will be activated.</p></li>
+
+<li><p>Run one ore more tests on each graph.</p></li>
+</ol>
+
+<p>For each test class, the framework then executes the following steps:</p>
+
+<ol>
+<li><p>Load all the graphs.</p></li>
+
+<li><p>Produce one copy of each graph for each graph configuration. If no configuration was specified, the original graphs are left untouched.</p></li>
+
+<li><p>Run layout on all graph copies for each active algorithm and execute the test methods on the results.</p></li>
+</ol>
+
+<p>Tests are thus basically run on test instances defined by three properties:</p>
 
 <ul>
-<li><p>A distinction between <em>black box</em> and <em>white box</em> tests. Black box tests call a layout algorithm and test the result. White box tests call an algorithm and can examine the algorithm&rsquo;s state. Layout algorithms need to explicitly support white box tests.</p></li>
+<li><p>A graph.</p></li>
 
-<li><p>Loading graphs.</p></li>
+<li><p>A configuration applied to the graph.</p></li>
 
-<li><p>Configurating graphs.</p></li>
+<li><p>A layout algorithm run on the graph.</p></li>
 </ul>
 
-<p>Writing a unit test is rather easy. This page should walk you through it.</p>
+<p>The framework distinguishes <em>black box</em> and <em>white box</em> tests. Black box tests work as described above. White box tests do not execute once layout has finished, but while layout is still running. Layout algorithms need to explicitly support white box tests. A test class can mix black box and white box tests.</p>
 
-<h2 id="writing-a-unit-test">Writing a Unit Test</h2>
+<p>Writing unit tests isn&rsquo;t too hard. This page should walk you through writing and running them.</p>
 
-<h3 id="setting-things-up">Setting Things Up</h3>
+<h2 id="adding-a-test-class">Adding a Test Class</h2>
 
-<p>Unit tests should be placed in a plug-in below the <code>test</code> folder that depends on our <code>org.eclipse.elk.alg.test</code> plug-in. All class names that end with <code>Test</code> are executed during the automatic build. The usual way of writing unit tests is this:</p>
-
-<ol>
-<li><p>Write classes that contain the actual tests. The names of those classes start or end with <code>ElkTest</code>.</p></li>
-
-<li><p>Write a class that references the actual test classes. The name of this class starts or ends only with <code>Test</code>.</p></li>
-</ol>
-
-<p>Assume that you have written two test classes, <code>NoOverlapsElkTest</code> and <code>AwesomeEastereggElkTest</code>. You will then want to write a class <code>TheTest</code> with the following content to actually have the other two test classes executed:</p>
+<p>Unit tests should be placed in a plug-in inside the <code>test</code> folder that depends on our <code>org.eclipse.elk.alg.test</code> plug-in. All class names that end with <code>Test</code> are executed during the automatic build. A minimal test class then looks like this:</p>
 
 <pre><code class="language-java">@RunWith(LayoutTestRunner.class)
-@TestClasses({NoOverlapsElkTest.class, AwesomeEastereggElkTest.class})
-public class TheTest {
+public class MyAlgorithmTest {
 
 }
 </code></pre>
 
-<p>While you could just as well have your test classes executed directly (you&rsquo;d have to rename them to <code>NoOverlapsTest</code> and <code>AwsomeEastereggTest</code>, of course), bundling them up in this manner allows the test framework to bundle tests and execute them together to increase performance.</p>
+<p>The <code>@RunWith</code> annotation specifies that the test should be run with our layout test framework.</p>
 
+<h2 id="specifying-graphs">Specifying Graphs</h2>
 
+<p>There are several way to specify test graphs. There can be arbitrarily many sources for graphs, and all of the ways to specify test graphs can be combined.</p>
 
-<div class="alert alert-warning">
-  <h5>Not Implemented Yet</h5>
+<h3 id="supply-graphs-directly">Supply Graphs Directly</h3>
 
-  <p>The bundling feature is not implemented yet.</p>
+<p>You can specify methods that supply graphs built directly in your test class, like this:</p>
 
-</div>
-
-
-<h3 id="test-basics">Test Basics</h3>
-
-<p>Black box tests specify at least one algorithm they want to test, plus at least one test method to be executed:</p>
-
-<pre><code class="language-java">@Algorithm(ForceOptions.ALGORITHM_ID)
-@UseDefaultConfiguration()
-public class BlackBoxTest {
-
-    @Graph
-    public ElkNode basicGraph() {
-        return TestUtil.buildBasicGraph();
-    }
-    
-    @Test
-    public void testNonNull(final ElkNode graph) {
-        Assert.assertTrue(&quot;Graph is null.&quot;, graph != null);
-    }
-
+<pre><code class="language-java">@GraphProvider
+public ElkNode produceGraph() {
+    // Build a graph here...
 }
 </code></pre>
 
-<p>Note how everything is configured through annotations. What happens here is this:</p>
+<h3 id="load-graphs-from-disk">Load Graphs From Disk</h3>
+
+<p>Graphs stored in ELK&rsquo;s <a href="https://github.com/eclipse/elk-models">models repository</a> can be used directly in tests. You specify graphs to be loaded through lists of <code>ModelResourcePath</code>, which accepts paths relative to the models repository:</p>
+
+<pre><code class="language-java">@GraphResourceProvider
+public List&lt;AbstractResourcePath&gt; provideGraphs() {
+    List&lt;AbstractResourcePath&gt; paths = new ArrayList&lt;&gt;();
+
+    // A single file
+    paths.add(new ModelResourcePath(&quot;realworld/ptolemy/hierarchical/continuous_cartracking_CarTracking.elkt&quot;));
+
+    // All files directly contained in a directory
+    paths.add(new ModelResourcePath(&quot;realworld/ptolemy/hierarchical/**&quot;));
+
+    // All files contained in a directory and its subdirectories
+    paths.add(new ModelResourcePath(&quot;realworld/ptolemy/**/&quot;));
+
+    // Only .elkt files contained in a directory and its subdirectories
+    paths.add(new ModelResourcePath(&quot;realworld/ptolemy/**/&quot;).withFilter(new FileExtensionFilter(&quot;elkt&quot;)));
+
+    return paths;
+}
+</code></pre>
+
+<h3 id="generate-random-graphs">Generate Random Graphs</h3>
+
+<p>ELK includes a <a href="../../documentation/algorithmdevelopers/randomgraphs.html">random graph generator</a> that can also be used to generate test graphs. There are two ways to do so.</p>
 
 <ol>
-<li>The test framework calls <code>basicGraph()</code> to get its hands at the graph to run the test methods on.</li>
-<li>Since <code>@UseDefaultConfiguration</code> is specified, the framework makes sure that nodes and ports have proper initial sizes (if they don&rsquo;t already).</li>
-<li>The force layouter is run on the test graph.</li>
-<li>The framework calls <code>testNonNull(...)</code> on the laid-out graph.</li>
+<li><p>A method or a field can supply an instance of <code>GeneratorOptions</code> which is used to configure the random graph generator:</p>
+
+<pre><code class="language-java">@RandomGeneratorOptions
+public GeneratorOptions generatorOptions() {
+    GeneratorOptions options = new GeneratorOptions();
+        
+    options.setProperty(options.GRAPH_TYPE, GeneratorOptions.GraphType.TREE);
+    // Set more options...
+        
+    return options;
+}
+</code></pre></li>
+
+<li><p>An <code>.elkr</code> file that specifies options can be loaded, similar to how graphs can be loaded:</p>
+
+<pre><code class="language-java">@RandomGeneratorFile
+public AbstractResourcePath loadRandomGraph() {
+    return new ModelResourcePath(&quot;path/to/random/graph/file.elkr&quot;);
+}
+</code></pre></li>
 </ol>
 
-<h3 id="loading-graphs">Loading Graphs</h3>
+<h2 id="configuring-graphs">Configuring Graphs</h2>
 
-<p>It would be cumbersome to always generate graphs through methods. This is why the test framework supports another way of specifying graphs, as shown in the following piece of code:</p>
+<p>If you simply want to layout the graphs as specified and then run your tests on the results, you can skip this step. However, to test particular features and algorithms it is often necessary to customize layout properties. Again, there are several ways to do so.</p>
 
-<pre><code class="language-java">@ImportGraphs
-public List&lt;AbstractResourcePath&gt; importGraphs() {
-    return Lists.newArrayList(new ModelResourcePath(
-        &quot;realworld/ptolemy/hierarchical/continuous_cartracking_CarTracking.elkt&quot;));
-}
-</code></pre>
+<h3 id="supply-layout-configurators">Supply Layout Configurators</h3>
 
-<p>A list of <code>AbstractResourcePath</code> instances can specify paths to graph files to be loaded. Both methods and fields can be annotated with this annotation. The most common resource path is probably the <code>ModelResourcePath</code>, which is interpreted relative to the ELK models directory (more on how the test framework locates that below). Resource paths can refer to a single file, all files in a directory (simply end the path specification with <code>/**</code>) or all files in a directory and all of its descendants (<code>/**/</code>).</p>
+<p>Layout configurators are objects that can apply properties to graph objects. You can supply them like this:</p>
 
-<h3 id="configuring-graphs">Configuring Graphs</h3>
-
-<p>While graphs loaded from files usually already have a few properties set on them, we do allow them to be configured further. There are two basic ways for doing so:</p>
-
-<pre><code class="language-java">@Configurator
+<pre><code class="language-java">@ConfiguratorProvider
 public LayoutConfigurator configurator() {
     LayoutConfigurator layoutConfig = new LayoutConfigurator();
-    layoutConfig.configure(ElkNode.class).setProperty(TEST_PROPERTY_CONFIGURATOR_METHOD, TEST_PROPERTY_VALUE);
+
+    layoutConfig.configure(ElkNode.class)
+        .setProperty(SOME_PROPERTY, SOME_PROPERTY_VALUE);
+
     return layoutConfig;
 }
+</code></pre>
 
-@ConfigMethod
-public static void configureStuff(final ElkNode graph) {
-    graph.setProperty(TEST_PROPERTY_CONFIGURATION_METHOD, TEST_PROPERTY_VALUE);
+<h3 id="configure-graphs-dynamically">Configure Graphs Dynamically</h3>
+
+<p>You can also define a method that expects a graph and configures that graph dynamically. That allows you to set your properties only if certain conditions are met, for example.</p>
+
+<pre><code class="language-java">@Configurator
+public void configureStuff(final ElkNode graph) {
+    graph.setProperty(SOME_PROPERTY, SOME_PROPERTY_VALUE);
 }
 </code></pre>
 
-<p>The <code>@Configurator</code> annotation can be used on methods and fields that supply <code>LayoutConfigurator</code>s. The <code>@ConfigMethod</code> annotation, on the other hand, causes a method to be called which can then configure the supplied graph to its heart&rsquo;s content.</p>
+<h3 id="specify-layout-algorithms">Specify Layout Algorithms</h3>
 
-<h3 id="writing-white-box-tests">Writing White Box Tests</h3>
-
-<p>White box tests are slightly more complex to write because they have to specify the layout processor before or after which they want to be run. For example:</p>
+<p>Since specifying a layout algorithm is a common scenario, there are special annotations to do so that can be added to a class. To test one or more specific algorithms, use one or more <code>@Algorithm</code> annotations:</p>
 
 <pre><code class="language-java">@RunWith(LayoutTestRunner.class)
-@Algorithm(LayeredOptions.ALGORITHM_ID)
-@RunAfterProcessor(processor = NetworkSimplexLayerer.class)
-@RunAfterProcessor(processor = LongestPathLayerer.class)
-public class WhiteBoxTest {
+@Algorithm(MyTestClassOptions.ALGORITHM_ID)
+public class MyAlgorithmTest {
 
 }
 </code></pre>
 
-<p>The processors can be specified for all test methods in a class, but can also be overridden per test method. Since layout algorithms can adapt their list of processors to different graphs, it may or may not be a problem for a layout processor to not be executed, thus causing its test to not be executed either. If this is a problem, annotate the test with <code>@FailIfNotExecuted</code>.</p>
+<p>To test all known algorithms, you can use the <code>@AllAlgorithms</code> annotation instead having to specify all algorithms explicitly:</p>
+
+<pre><code class="language-java">@RunWith(LayoutTestRunner.class)
+@AllAlgorithms
+public class MyAlgorithmTest {
+
+}
+</code></pre>
+
+<p>Each graph with each configuration is laid out once with each specified algorithm.</p>
+
+<h3 id="default-configurations">Default Configurations</h3>
+
+<p>Many graphs in our models repository refrain from specifying explicit sizes and labels for diagram elements. Often, however, tests need nodes to have a size and labels. Thus, your test class can specify to apply default configurations to all diagram elements:</p>
+
+<pre><code class="language-java">@RunWith(LayoutTestRunner.class)
+@Algorithm(MyTestClassOptions.ALGORITHM_ID)
+@DefaultConfiguration(nodes = true, ports = false, edges = false)
+public class MyAlgorithmTest {
+
+}
+</code></pre>
+
+<p>The defaults are applied on top of all graph configurations. In more detail, this is what they do:</p>
+
+<ul>
+<li>Nodes
+
+<ul>
+<li>Supply a default size if size constraints are fixed and no size has been set.</li>
+<li>Add a label if none exists.</li>
+<li>Configure the label to be centered inside unless another node label configuration was supplied.</li>
+</ul></li>
+<li>Ports
+
+<ul>
+<li>Supply a default size if none has been set.</li>
+<li>Add a label if non exists.</li>
+</ul></li>
+<li>Edges
+
+<ul>
+<li>Set edge label placement to <code>CENTER</code> if it has not been set.</li>
+</ul></li>
+</ul>
+
+<h2 id="black-box-tests">Black Box Tests</h2>
+
+<p>Now that graphs are loaded and configured, black box test methods can examine the layout result:</p>
+
+<pre><code class="language-java">@Test
+public void testGraphSizeSet(final ElkNode graph) {
+    Assert.assertTrue(
+        &quot;The graph size has not been set by the layout algorithm.&quot;,
+        graph.getWidth() &gt; 0 &amp;&amp; graph.getHeight() &gt; 0);
+}
+</code></pre>
+
+<h2 id="white-box-tests">White Box Tests</h2>
+
+<p>White box tests ensure that an algorithm&rsquo;s internal state matches the developer&rsquo;s expectations. Here we not only examine the overall layout result, but can look inside intermediate results produced as the algorithm progresses.</p>
+
+<p>A white box test method needs to specify which layout processor(s) it wants to run before or after. It does so like this:</p>
+
+<pre><code class="language-java">@TestBeforeProcessor(NetworkSimplexLayerer.class)
+@TestAfterProcessor(NetworkSimplexLayerer.class)
+public void testNetworkSimplexLayerer(LGraph lGraph) {
+    // Test things...
+}
+</code></pre>
+
+<p>A test class containing white box tests must be configured such that all layout algorithms it runs with are white box testable. Test setup will fail otherwise.</p>
+
+<p>Depending on the algorithm and the input graph, it may happen that the layout processor a white box test is configured to run with never executes. By default, the framework treats such tests as having succeeded. If such a test should fail instead, simply add the <code>@FailIfNotExecuted</code> annotation.</p>
+
+<p>A white box test will be executed upon every invocation of one of its processors. If a layout algorithm supports hierarchy, this may mean being executed several times, for example once per hierarchy leven which is being laid out. To change this, add the <code>@OnlyOnRootNode</code> annotation. Then, the test will only run if its processors are executed on what the layout algorithm considers the root node.</p>
+
+<h3 id="supporting-white-box-tests">Supporting White Box Tests</h3>
+
+<p>For a layout algorithm to support white box tests, its <code>AbstractLayoutProvider</code> subclass needs to implement <code>IWhiteBoxTestable</code>. The interface adds a single method: <code>setTestController(TestController controller)</code>. This supplies the test controller that controls the white box test run. The layout algorithm must then be sure to call the controller&rsquo;s <code>notifiyX(...)</code> methods as its processors are about to run or have just finished running so that tests have a chance to examine the result.</p>
 
 <h2 id="running-tests">Running Tests</h2>
 
-<p>From Eclipse, tests can be run as plain Java JUnit tests. Three environment or system variables have to be set for the test framework to work:</p>
+<h3 id="inside-eclipse">Inside Eclipse</h3>
+
+<p>From Eclipse, tests can be run as plain Java JUnit tests (not plug-in tests). Three environment or system variables have to be set for the test framework to work:</p>
 
 <ul>
-<li><code>ELK_REPO</code>: Fully-qualified path to the directory where the main ELK repository is checked out.</li>
-<li><code>MODELS_REPO</code>: Fully-qualified path to the directory where the <code>elk-models</code> repository is checked out.</li>
-<li><code>RESULTS_PATH</code>: If test results or graphs of failed tests should be persisted, this should point to the directory to store them in.</li>
+<li><code>ELK_REPO</code>: Absolute path to the directory where the main ELK repository is checked out.</li>
+<li><code>MODELS_REPO</code>: Absolute path to the directory where the <code>elk-models</code> repository is checked out.</li>
 </ul>
 
-<h2 id="supporting-white-box-tests">Supporting White Box Tests</h2>
+<h3 id="as-part-of-automatic-builds">As Part of Automatic Builds</h3>
 
-<p>For a layout algorithm to support white box tests, its <code>AbstractLayoutProvider</code> subclass needs to implement <code>IWhiteBoxTestable</code>. The interface adds a single method: <code>setTestController(TestController controller)</code>. This supplies the test controller that controls the white box test run. The layout algorithm must then be sure to call the controller&rsquo;s <code>notifiyX(...)</code> methods as its processors are about to run or have just finished running so that tests have a chance to examine the result.</p>
+<p><a href="../../documentation/contributors/buildingelk.html">This page</a> describes how to run runit tests as part of automatic builds.</p>
+
+<h2 id="differences-to-usual-junit-tests">Differences to Usual JUnit Tests</h2>
+
+<p>To keep the implementation simple, we currently don&rsquo;t support the following JUnit features:</p>
+
+<ul>
+<li><code>@Before</code> methods</li>
+<li><code>@After</code> methods</li>
+<li>Timeouts and expected exceptions</li>
+</ul>
+
+<p>Feel free to add support for these and file a pull request. :)</p>
 
   </div>
 
@@ -428,6 +551,14 @@ public class WhiteBoxTest {
   <a href="../../documentation/algorithmdevelopers/algorithmdebugging.html">
     <li class="navlevel-2">
       Algorithm Debugging
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers/randomgraphs.html">
+    <li class="navlevel-2">
+      Random Graph Generation
     </li>
   </a>
   

@@ -67,7 +67,7 @@ To use the compiler, add the following to your pom.</description>
       
       <guid>https://www.eclipse.org/elk/documentation/contributors/buildingelk.html</guid>
       <description>ELK is built using Apache Maven in conjunction with Tycho to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the build/ directory inside your clone of the ELK repository.
-Note: We have had reports of people not being able to build ELK with Maven 3.</description>
+Build Requirements Building ELK currently requires Java 8 and will not work with more recent Java versions.</description>
     </item>
     
     <item>
@@ -234,6 +234,16 @@ It is a fair question whether users should be given access to this view or not.<
     </item>
     
     <item>
+      <title>Random Graph Generation</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/randomgraphs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/randomgraphs.html</guid>
+      <description>If you need to quickly create random graphs in .elkt or .elkg format, you can use our random graph creation DSL. This way you can save, store, comment and diff your random graph configurations easily!
+To get started, create a file with the file ending .elkr. Now Eclipse will offer the usual features you know and love, such as code completion, syntax highlighting and validation. So remember Eclipse rule number 1: Ctrl+Space is your friend!</description>
+    </item>
+    
+    <item>
       <title>Structuring Algorithms</title>
       <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -259,10 +269,10 @@ Three Layers of Layout Goodness At its basic, ELK is structured in three layers,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/unittesting.html</guid>
-      <description>Layout algorithms are complex pieces of software and, thus, should probably be tested. ELK provides a unit test framework with the following features:
- A distinction between black box and white box tests. Black box tests call a layout algorithm and test the result. White box tests call an algorithm and can examine the algorithm&amp;rsquo;s state. Layout algorithms need to explicitly support white box tests.
- Loading graphs.
- Configurating graphs.</description>
+      <description>Layout algorithms are complex pieces of software and, thus, should probably be tested. Besides the usual plain JUnit tests, ELK provides a graph algorithm unit test framework based on JUnit 4. Tests written with that framework basically do three things:
+ Load one or more graphs.
+ Optionally provide a number of graph configurations. If a test class doesn&amp;rsquo;t specify configurations, a default configuration will be activated.
+ Run one ore more tests on each graph.</description>
     </item>
     
     <item>

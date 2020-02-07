@@ -69,91 +69,55 @@
 
 <p>ELK is built using <a href="https://maven.apache.org/">Apache Maven</a> in conjunction with <a href="https://eclipse.org/tycho/">Tycho</a> to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the <code>build/</code> directory inside your clone of the ELK repository.</p>
 
-<p><em>Note:</em> We have had reports of people not being able to build ELK with Maven 3.3.9. We are building with Maven 3.0.5, so please try downgrading if you experience build problems where classes cannot be found although they are quite obviously there.</p>
+<h2 id="build-requirements">Build Requirements</h2>
 
-<h2 id="the-main-build-process">The Main Build Process</h2>
+<p>Building ELK currently requires Java 8 and <em>will not</em> work with more recent Java versions. We use Maven 3.6, but other versions will probably work just as well.</p>
+
+<h2 id="building-elk">Building ELK</h2>
 
 <p>Execute Maven using the following command line (note that the command line is split in order to improve readability):</p>
 
 <pre><code class="language-bash">mvn
-    --define elkMeta.repositoryUrl=META_REPOSITORY_URL
+    --define elkMeta.repositoryUrl=http://build.eclipse.org/modeling/elk/maven/meta/nightly
+    --define elk.metadata.documentation.outputPath=/ELK_FOLDER/docs
     clean
-    ADDITIONAL_PHASES
+    package
 </code></pre>
 
-<p><code>clean</code> is not strictly necessary.</p>
+<p>The meta repository URL above works if you haven&rsquo;t touched the meta data compiler and are trying to build the current master branch. If you have made changes to the meta data compiler, the URL should be the same that you used when compiling the compiler (see below). If you&rsquo;re trying to build a release, use the meta data compiler URL noted on the release&rsquo;s downloads page.</p>
 
-<p>For <code>META_REPOSITORY_URL</code>, insert the URL of the Maven repository where the ELK Metadata compiler can be found. If you have <em>not</em> touched the thing (if in doubt, this is the case), the Downloads section will tell you which repository to use to build different releases (to build the current development version, use the nightly build repository). If you <em>have</em> touched the metadata compiler, the repository URL should be the same as in the metadata compiler build (see below).</p>
+<h2 id="running-unit-tests">Running Unit Tests</h2>
 
-<p>For <code>ADDITIONAL_PHASES</code>, the following are typical choices:</p>
+<p>The unit tests require our <a href="https://github.com/eclipse/elk-models">models repository</a> to be checked out as well. If it is, the following command line will run the tests:</p>
 
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Description</th>
-</tr>
-</thead>
+<pre><code class="language-bash">mvn
+    --define elkMeta.repositoryUrl=http://build.eclipse.org/modeling/elk/maven/meta/nightly
+    --define elk.metadata.documentation.outputPath=/ELK_FOLDER/docs
+    --define tests.paths.elk-repo=/ELK_FOLDER
+    --define tests.paths.models-repo=/ELK_MODELS_FOLDER
+    clean
+    integration-test
+</code></pre>
 
-<tbody>
-<tr>
-<td><code>package</code></td>
-<td>Simply compile everything. You will find the result in the update site placed in the <code>org.eclipse.elk.repository/target/</code> directory.</td>
-</tr>
-
-<tr>
-<td><code>verify</code></td>
-<td>Compile ELK and execute the unit tests.</td>
-</tr>
-</tbody>
-</table>
+<p>The <code>TEST_RESULTS_FOLDER</code> is a folder where tests can save data about tests that have failed for later inspection.</p>
 
 <h2 id="building-the-metadata-compiler">Building the Metadata Compiler</h2>
 
-<p>Execute Maven using the following command line (note that the command line is split in order to improve readability):</p>
+<p>Execute Maven using the following command line to build the metadata compiler locally (note that the command line is split in order to improve readability):</p>
 
 <pre><code class="language-bash">mvn
     -P elk-meta
-    --define elkMeta.repositoryUrl=META_REPOSITORY_URL
-    --define elkMeta.publishUrl=META_REPOSITORY_URL
+    --define elkMeta.repositoryUrl=file:///home/user/elkmetarepository
+    --define elkMeta.publishUrl=file:///home/user/elkmetarepository
     clean
-    ADDITIONAL_PHASES
+    deploy
 </code></pre>
 
-<p><code>clean</code> is not strictly necessary.</p>
+<h2 id="building-the-website-and-documentation">Building the Website and Documentation</h2>
 
-<p>Maven will build a Maven repository that can be used by the main build to compile <code>.elkm</code> files. For <code>META_REPOSITORY_URL</code>, insert the URL where you want that repository to be placed. If you&rsquo;re building locally, this should be a path on your local file system. For example:</p>
+<p>The documentation website is our source of documentation. The main build produces reference documentation which is part of the website from our metadata files. The documentation website itself is then built with <a href="https://gohugo.io/">Hugo</a>, a static website generator. The website is setup in a way to be browsable both online and offline.</p>
 
-<pre><code class="language-bash">--define elkMeta.repositoryUrl=file:///home/user/elkmetarepository
---define elkMeta.publishUrl=file:///home/user/elkmetarepository
-</code></pre>
-
-<p>For <code>ADDITIONAL_PHASES</code>, the following are typical choices:</p>
-
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>deploy</code></td>
-<td>Compile the metadata compiler and put it into a Maven repository at <code>META_REPOSITORY_URL</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="building-the-documentation">Building the Documentation</h2>
-
-<p>The documentation website is our source of documentation. The main build can be configured to generate the reference documentation which is part of the website from our metadata files. To do so, add the following command-line argument to the main build call:</p>
-
-<pre><code class="language-bash">--define elk.metadata.documentation.outputPath=/path/to/docs/folder
-</code></pre>
-
-<p>The documentation website itself is built with <a href="https://gohugo.io/">Hugo</a>, a static website generator. The website is setup in a way to be browsable both online and offline. To actually build the documentation website, go to the repository&rsquo;s <code>docs/</code> folder and simply execute the following command:</p>
+<p>To actually build the documentation website, go to the repository&rsquo;s <code>docs/</code> folder and simply execute the following command:</p>
 
 <pre><code class="language-bash">hugo
 </code></pre>
@@ -163,7 +127,7 @@
 <pre><code class="language-bash">hugo server
 </code></pre>
 
-<p>You can then direct your browser to <code>http://localhost:1313/elk/</code>. As you edit the website&rsquo;s files and save them, the browser&rsquo;s content is dynamically updated.</p>
+<p>You can then direct your browser to <a href="http://localhost:1313/elk/">http://localhost:1313/elk/</a>. As you edit the website&rsquo;s files and save them, the browser&rsquo;s content is dynamically updated.</p>
 
   </div>
 
@@ -390,6 +354,14 @@
   <a href="../../documentation/algorithmdevelopers/algorithmdebugging.html">
     <li class="navlevel-2">
       Algorithm Debugging
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers/randomgraphs.html">
+    <li class="navlevel-2">
+      Random Graph Generation
     </li>
   </a>
   

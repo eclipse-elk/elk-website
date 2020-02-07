@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    <title>Random Graph Generation (ELK)</title>
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">Eclipse Layout Kernel</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../downloads.html">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="../../documentation.html">Documentation <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../reference.html">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../support.html">Support</a>
+        </li>
+      
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Random Graph Generation</h1>
+
+    <p>If you need to quickly create random graphs in <code>.elkt</code> or <code>.elkg</code> format, you can use our random graph creation DSL. This way you can save, store, comment and diff your random graph configurations easily!</p>
+
+<p>To get started, create a file with the file ending <code>.elkr</code>. Now Eclipse will offer the usual features you know and love, such as code completion, syntax highlighting and validation. So remember Eclipse rule number 1: Ctrl+Space is your friend!</p>
+
+<p>Now let&rsquo;s generate some random graphs. The following configuration would generates 5 trees and two graphs using the default predefined values:</p>
+
+<pre><code>generate 5 trees
+generate 2 graphs
+</code></pre>
+
+<p>Right-clicking the saved file in the package explorer and choosing <em>Generate Random Graphs</em> will result in seven graph files to be created. You can further specify how the graphs are created. For example:</p>
+
+<pre><code>generate 2 graphs {
+    // Gaussian distribution: mean +/- standard deviation
+    nodes = 20 +/- 5 {
+        // With ports and extra options block
+        ports {
+            // Set port constraint to fixed order
+            constraint = order
+
+            // Equal distribution: min to max. Re-use 30%
+            // to 40% of ports, i.e. different edges exit
+            // or enter same port
+            re-use = 0.3 to 0.4
+        }
+        
+        // Generate node labels
+        labels
+    }
+
+    // Relative to the number of nodes
+    edges relative = 0.5 to 1.5 {
+        // Allow self loops
+        self loops
+    }
+
+    filename = &quot;whatABeautifulGraph&quot;
+}
+</code></pre>
+
+<p>There are a lot more options to be found. Again, use Ctrl-Space to find out more.</p>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="../../documentation/tooldevelopers.html">
+    <li class="navlevel-1">
+      Tool Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../documentation/tooldevelopers/graphdatastructure.html">
+    <li class="navlevel-2">
+      Graph Data Structure
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
+    <li class="navlevel-3">
+      Coordinate System
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
+    <li class="navlevel-3">
+      Layout Options
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/tooldevelopers/graphdatastructure/jsonformat.html">
+    <li class="navlevel-3">
+      JSON Format
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/tooldevelopers/graphdatastructure/elktextformat.html">
+    <li class="navlevel-3">
+      ELK Text Format
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">
+    <li class="navlevel-2">
+      Using Algorithms Directly
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/tooldevelopers/usingplainjavalayout.html">
+    <li class="navlevel-2">
+      Using Plain Java Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/tooldevelopers/usingeclipselayout.html">
+    <li class="navlevel-2">
+      Using Eclipse Layout
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
+    <li class="navlevel-3">
+      Connecting to ELK
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
+    <li class="navlevel-3">
+      Advanced Configuration
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
+    <li class="navlevel-3">
+      Layout View Support
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
+    <li class="navlevel-3">
+      Dependency Injection
+    </li>
+  </a>
+  
+
+
+  
+
+
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers.html">
+    <li class="navlevel-1">
+      Algorithm Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../documentation/algorithmdevelopers/gettingeclipseready.html">
+    <li class="navlevel-2">
+      Getting Eclipse Ready
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers/creatinganewproject.html">
+    <li class="navlevel-2">
+      Creating a New Project
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">
+    <li class="navlevel-2">
+      ELK Metadata Language
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
+    <li class="navlevel-3">
+      Automatic Builds
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers/algorithmimplementation.html">
+    <li class="navlevel-2">
+      Algorithm Implementation
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html">
+    <li class="navlevel-3">
+      Structuring Algorithms
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers/algorithmdebugging.html">
+    <li class="navlevel-2">
+      Algorithm Debugging
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers/randomgraphs.html">
+    <li class="navlevel-2 active">
+      Random Graph Generation
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/algorithmdevelopers/unittesting.html">
+    <li class="navlevel-2">
+      Unit Tests
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../documentation/contributors.html">
+    <li class="navlevel-1">
+      ELK Contributors
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../documentation/contributors/developmentsetup.html">
+    <li class="navlevel-2">
+      Development Setup
+    </li>
+  </a>
+  
+
+  
+  <a href="../../documentation/contributors/developmentworkflow.html">
+    <li class="navlevel-2">
+      Development Workflow
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../documentation/contributors/developmentworkflow/installingwithoomph.html">
+    <li class="navlevel-3">
+      Installing With Oomph
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../documentation/contributors/buildingelk.html">
+    <li class="navlevel-2">
+      Building ELK
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <span class="hidden-print">
+                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="../../img/eclipse_foundation_logo.svg"/></a>
+              </span>
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+        <div class="row">
+          <div class="col hidden-print">
+            <a href="http://www.eclipse.org/">Eclipse Foundation</a><br/>
+            <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a><br/>
+            <a href="http://www.eclipse.org/legal/termsofuse.php">Website Terms of Use</a><br/>
+            <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a><br/>
+            <a href="http://www.eclipse.org/legal">Legal</a>
+          </div>
+          <div class="col">
+              <p class="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

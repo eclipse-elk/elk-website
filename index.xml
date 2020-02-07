@@ -110,6 +110,16 @@ View the release at Eclipse for links to the list of closed issues.</description
     </item>
     
     <item>
+      <title>0.6.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.6.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.6.0.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details Besides the usual bunch of bug fixes, this release adds a number of neat enhancements and feature requests, among them the following:
+ A complete re-implementation of how ELK Layered routes self loops which should fix all of the problems we saw in release 0.</description>
+    </item>
+    
+    <item>
       <title>Activate Inside Self Loops</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideselfloops-activate.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -326,7 +336,16 @@ GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in o
       
       <guid>https://www.eclipse.org/elk/documentation/contributors/buildingelk.html</guid>
       <description>ELK is built using Apache Maven in conjunction with Tycho to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the build/ directory inside your clone of the ELK repository.
-Note: We have had reports of people not being able to build ELK with Maven 3.</description>
+Build Requirements Building ELK currently requires Java 8 and will not work with more recent Java versions.</description>
+    </item>
+    
+    <item>
+      <title>Check for special case one big rectangle.</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html</guid>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.rectpacking.checkForSpecialCase   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Determines whether the algorithm should check for the case that one big rectangle is present with a lot of smaller rectangles of the same size. If the check is true, a special algorithm for this case is used.</description>
     </item>
     
     <item>
@@ -958,13 +977,22 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
     </item>
     
     <item>
+      <title>Fixed Graph Size</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodesize-fixedgraphsize.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodesize-fixedgraphsize.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.nodeSize.fixedGraphSize   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: nodeSize    Description By default, the fixed layout provider will enlarge a graph until it is large enough to contain its children. If this option is set, it won&amp;rsquo;t do so.</description>
+    </item>
+    
+    <item>
       <title>Fixed Layout</title>
       <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.fixed   Meta Data Provider: core.options.CoreOptions    Description Keeps the current layout as it is, without any automatic modification. Optional coordinates can be given for nodes and edge bend points.
-Supported Options    Option Default Value     Bend Points &amp;lt;not defined&amp;gt;   Node Size Constraints EnumSet.noneOf(SizeConstraint)   Node Size Minimum new KVector(0, 0)   Padding new ElkPadding(15)   Position &amp;lt;not defined&amp;gt;    </description>
+      <description>Property Value     Identifier: org.eclipse.elk.fixed   Meta Data Provider: core.options.CoreOptions    Description Keeps the current layout as it is, without any automatic modification. Optional coordinates can be given for nodes and edge bend points.
+Supported Options    Option Default Value     Bend Points &amp;lt;not defined&amp;gt;   Fixed Graph Size false   Node Size Constraints EnumSet.</description>
     </item>
     
     <item>
@@ -1526,15 +1554,6 @@ It is a fair question whether users should be given access to this view or not.<
     </item>
     
     <item>
-      <title>Merge Self-Loops</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-mergeselfloops.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-mergeselfloops.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.mergeSelfLoops   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeRouting    Description If different self-loops are not important, they can be merged to be displayed on above another. This saves space and labels will not be crossed if multiple labels are stacked.</description>
-    </item>
-    
-    <item>
       <title>Minimal Animation Time</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minanimtime.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1665,6 +1684,15 @@ NO_BOUNDARY (@AdvancedPropertyValue)   Default Value: NodePromotionStrategy.NONE
     </item>
     
     <item>
+      <title>Node Self Loop Spacing</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeselfloop.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeselfloop.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.nodeSelfLoop   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between a node and its self loops.</description>
+    </item>
+    
+    <item>
       <title>Node Size Constraints</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodesize-constraints.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1721,6 +1749,15 @@ ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as d
     </item>
     
     <item>
+      <title>Only first iteration should be executed.</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html</guid>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.rectpacking.onlyFirstIteration   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Determines whether only the first iteration should be executed or not. If set to true, only the first iteration will be executed. When using only the first iteration, rectangles will not be resized to fill their bounding box and eliminate unused whitespace.</description>
+    </item>
+    
+    <item>
       <title>Order ID </title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-orderid.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1749,6 +1786,17 @@ SCALE
 SCALEXY
 PRISM
 COMPRESS   Default Value: OverlapMode.PRISM (as defined in org.eclipse.elk.graphviz)   Applies To: parents    Description Determines if and how node overlaps should be removed.</description>
+    </item>
+    
+    <item>
+      <title>Packing Strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-strategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-strategy.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.strategy   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.packing.rectangles.util.PackingStrategy (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
+MAX_SCALE_DRIVEN
+AREA_DRIVEN   Default Value: PackingStrategy.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Strategy for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by scale measure, aspect ratio or area.</description>
     </item>
     
     <item>
@@ -2052,6 +2100,16 @@ Additional Documentation Used by the &amp;lsquo;simple row graph placer&amp;rsqu
     </item>
     
     <item>
+      <title>Random Graph Generation</title>
+      <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/randomgraphs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/randomgraphs.html</guid>
+      <description>If you need to quickly create random graphs in .elkt or .elkg format, you can use our random graph creation DSL. This way you can save, store, comment and diff your random graph configurations easily!
+To get started, create a file with the file ending .elkr. Now Eclipse will offer the usual features you know and love, such as code completion, syntax highlighting and validation. So remember Eclipse rule number 1: Ctrl+Space is your friend!</description>
+    </item>
+    
+    <item>
       <title>Randomization Seed</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-randomseed.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2068,6 +2126,15 @@ Additional Documentation Used by the &amp;lsquo;simple row graph placer&amp;rsqu
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-random.html</guid>
       <description>     Property Value     Identifier: org.eclipse.elk.random   Meta Data Provider: core.options.CoreOptions    Description Distributes the nodes randomly on the plane, leading to very obfuscating layouts. Can be useful to demonstrate the power of &amp;ldquo;real&amp;rdquo; layout algorithms.
 Supported Options    Option Default Value     Aspect Ratio 1.6f   Node Spacing 15   Padding new ElkPadding(15)   Randomization Seed 0    </description>
+    </item>
+    
+    <item>
+      <title>Rectangle Layout.</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking-rectpacking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking-rectpacking.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.rectpacking.rectPacking   Meta Data Provider: options.RectPackingMetaDataProvider    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges. In the default settings, the algorithm checks for a case where one big rectangle is present with a lot of smaller rectangles with the same height and applies a special algorithm to it. If this is not the case, the algorithm then uses to phases.</description>
     </item>
     
     <item>
@@ -2143,7 +2210,7 @@ BFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree) 
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopdistribution.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopDistribution   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopDistributionStrategy (Enum)   Possible Values: EQUALLY
 NORTH
-NORTH_SOUTH   Default Value: SelfLoopDistributionStrategy.NORTH (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeRouting    Description Alter the distribution of the loops around the node. It only takes effect for PortConstraints.FREE.</description>
+NORTH_SOUTH   Default Value: SelfLoopDistributionStrategy.NORTH (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: edgeRouting    Description Alter the distribution of the loops around the node. It only takes effect for PortConstraints.FREE.</description>
     </item>
     
     <item>
@@ -2153,7 +2220,7 @@ NORTH_SOUTH   Default Value: SelfLoopDistributionStrategy.NORTH (as defined in o
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgerouting-selfloopordering.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopOrdering   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopOrderingStrategy (Enum)   Possible Values: STACKED
-SEQUENCED   Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeRouting    Description Alter the ordering of the loops they can either be stacked or sequenced. It only takes effect for PortConstraints.</description>
+SEQUENCED   Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: edgeRouting    Description Alter the ordering of the loops they can either be stacked or sequenced. It only takes effect for PortConstraints.</description>
     </item>
     
     <item>
@@ -2172,6 +2239,15 @@ SEQUENCED   Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.e
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateconnectedcomponents.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.separateConnectedComponents   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Applies To: parents   Legacy Id: de.cau.cs.kieler.separateConnComp    Description Whether each connected component should be processed separately.</description>
+    </item>
+    
+    <item>
+      <title>Shift when placing at last placed rectangle.</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.lastPlaceShift   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description When placing a rectangle behind or below the last placed rectangle in the first iteration, it is sometimes possible to shift the rectangle further to the left or right, resulting in less whitespace.</description>
     </item>
     
     <item>
@@ -2335,10 +2411,10 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/unittesting.html</guid>
-      <description>Layout algorithms are complex pieces of software and, thus, should probably be tested. ELK provides a unit test framework with the following features:
- A distinction between black box and white box tests. Black box tests call a layout algorithm and test the result. White box tests call an algorithm and can examine the algorithm&amp;rsquo;s state. Layout algorithms need to explicitly support white box tests.
- Loading graphs.
- Configurating graphs.</description>
+      <description>Layout algorithms are complex pieces of software and, thus, should probably be tested. Besides the usual plain JUnit tests, ELK provides a graph algorithm unit test framework based on JUnit 4. Tests written with that framework basically do three things:
+ Load one or more graphs.
+ Optionally provide a number of graph configurations. If a test class doesn&amp;rsquo;t specify configurations, a default configuration will be activated.
+ Run one ore more tests on each graph.</description>
     </item>
     
     <item>
@@ -2590,7 +2666,7 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-edgerouting.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting    Options  Self-Loop Distribution Self-Loop Ordering Merge Self-Loops  Subgroups  splines polyline  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.edgeRouting    Options  Self-Loop Distribution Self-Loop Ordering  Subgroups  splines polyline  </description>
     </item>
     
     <item>
@@ -2743,7 +2819,7 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodesize.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.nodeSize    Options  Node Size Constraints Node Size Options Node Size Minimum  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.nodeSize    Options  Node Size Constraints Node Size Options Node Size Minimum Fixed Graph Size  </description>
     </item>
     
     <item>
@@ -2833,7 +2909,7 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.spacing    Options  Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Label Port Spacing Node Spacing Port Spacing Individual Spacing Override Additional Port Space  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.spacing    Options  Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Label Port Spacing Node Spacing Node Self Loop Spacing Port Spacing Individual Spacing Override Additional Port Space  </description>
     </item>
     
     <item>

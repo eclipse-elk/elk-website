@@ -110,6 +110,16 @@ View the release at Eclipse for links to the list of closed issues.</description
     </item>
     
     <item>
+      <title>0.6.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.6.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.6.0.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details Besides the usual bunch of bug fixes, this release adds a number of neat enhancements and feature requests, among them the following:
+ A complete re-implementation of how ELK Layered routes self loops which should fix all of the problems we saw in release 0.</description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

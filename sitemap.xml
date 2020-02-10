@@ -832,7 +832,15 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-force.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-layered.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-mrtree.html</loc>
   </url>
   
   <url>

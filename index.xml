@@ -2068,7 +2068,17 @@ EDGE_LENGTH   Default Value: GraphCompactionStrategy.NONE (as defined in org.ecl
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
-Additional Documentation The box layouter sorts the boxes based on their size.</description>
+Additional Documentation Priorities set on nodes determine the order in which they are placed: boxes with a higher priority will end up before boxes with a lower priority.</description>
+    </item>
+    
+    <item>
+      <title>Priority (ELK Force)</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-force.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-force.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
+Additional Documentation Priorities set on nodes determine the order in which connected components are placed: components with a higher sum of node priorities will end up before components with a lower sum.</description>
     </item>
     
     <item>
@@ -2079,6 +2089,16 @@ Additional Documentation The box layouter sorts the boxes based on their size.</
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-layered.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
 Additional Documentation Used by the &amp;lsquo;simple row graph placer&amp;rsquo; to decide which connected components to place first.</description>
+    </item>
+    
+    <item>
+      <title>Priority (ELK Mr. Tree)</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-mrtree.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-mrtree.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
+Additional Documentation Priorities set on nodes determine the order in which connected components are placed: components with a higher sum of node priorities will end up before components with a lower sum.</description>
     </item>
     
     <item>

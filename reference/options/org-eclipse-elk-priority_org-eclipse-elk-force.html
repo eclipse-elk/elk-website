@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Margins (ELK)</title>
+    <title>Priority (ELK Force) (ELK)</title>
 
     
     
@@ -63,7 +63,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Margins</h1>
+    <h1>Priority (ELK Force)</h1>
 
     
 
@@ -78,12 +78,12 @@
 <tbody>
 <tr>
 <td><em>Type:</em></td>
-<td>programmatic</td>
+<td>advanced</td>
 </tr>
 
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.margins</code></td>
+<td><code>org.eclipse.elk.priority</code></td>
 </tr>
 
 <tr>
@@ -93,29 +93,28 @@
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>org.eclipse.elk.core.math.ElkMargin</code></td>
-</tr>
-
-<tr>
-<td><em>Default Value:</em></td>
-<td><code>new ElkMargin()</code> (as defined in <code>org.eclipse.elk</code>)</td>
+<td><code>int</code></td>
 </tr>
 
 <tr>
 <td><em>Applies To:</em></td>
-<td>nodes</td>
+<td>nodes, edges</td>
 </tr>
 
 <tr>
 <td><em>Legacy Id:</em></td>
-<td><code>de.cau.cs.kieler.margins</code></td>
+<td><code>de.cau.cs.kieler.priority</code></td>
 </tr>
 </tbody>
 </table>
 
 <h3 id="description">Description</h3>
 
-<p>Margins define additional space around the actual bounds of a graph element. For instance, ports or labels being placed on the outside of a node&rsquo;s border might introduce such a margin. The margin is used to guarantee non-overlap of other graph elements with those ports or labels.</p>
+<p>Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.</p>
+
+<h2 id="additional-documentation">Additional Documentation</h2>
+
+<p>Priorities set on nodes determine the order in which connected components are placed: components with a higher sum of node priorities will end up before components with a lower sum. Priorities set on edges usually directly influence the attractive force of a connection, with higher priorities corresponding to greater attractive forces.</p>
 
   </div>
 
@@ -1126,7 +1125,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-margins.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Margins
     </li>
   </a>
@@ -1526,7 +1525,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-priority_org-eclipse-elk-force.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Priority (ELK Force)
     </li>
   </a>

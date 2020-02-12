@@ -236,7 +236,9 @@
 <li><p>The short hierarchical edge that connects <code>n2</code> to <code>n6</code> is contained in <code>n2</code> since <code>n2</code> is its first ancestor.</p></li>
 
 <li><p>The long hierarchical edge that connects <code>n0</code> to <code>n4</code> is contained in the node that represents the whole graph (the root node), since that is the first common ancestor of <code>n0</code> and <code>n4</code>.</p></li>
-</ol></li>
+</ol>
+
+<p>The self loop that connects <code>n6</code> to itself might be considered an exception to this rule. It is not contained in <code>n6</code>, but in <code>n2</code>, since it runs through the simple graph represented by <code>n2</code>. This is true even if the self loop is routed through the insides of <code>n6</code>, which layout algorithms may or may not support.</p></li>
 
 <li><p><strong>Convenience Methods:</strong> There are a number of convenience methods, for example to iterate over all of a node&rsquo;s incoming or outgoing edges, to find the node that represents the simple graph an element is part of, and more.</p></li>
 </ul>

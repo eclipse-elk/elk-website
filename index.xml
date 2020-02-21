@@ -340,15 +340,6 @@ Build Requirements Building ELK currently requires Java 8 and will not work with
     </item>
     
     <item>
-      <title>Check for special case one big rectangle.</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.rectpacking.checkForSpecialCase   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Determines whether the algorithm should check for the case that one big rectangle is present with a lot of smaller rectangles of the same size. If the check is true, a special algorithm for this case is used.</description>
-    </item>
-    
-    <item>
       <title>Circo</title>
       <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -364,6 +355,15 @@ Build Requirements Building ELK currently requires Java 8 and will not work with
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentbox.html</guid>
       <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.commentBox   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.commentBox    Description Whether the node should be regarded as a comment box instead of a regular node. In that case its placement should be similar to how labels are handled.</description>
+    </item>
+    
+    <item>
+      <title>Compact Rows</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-rowcompaction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-rowcompaction.html</guid>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.rectpacking.rowCompaction   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Enables compaction. Compacts blocks if they do not use the full height of the row. This option allows to have a smaller drawing. If this option is disabled all nodes are placed next to each other in rows.</description>
     </item>
     
     <item>
@@ -974,6 +974,15 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-fill.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.polyomino.fill   Meta Data Provider: options.PolyominoOptions   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: polyomino    Description Use the Profile Fill algorithm to fill polyominoes to prevent small polyominoes from being placed inside of big polyominoes with large holes. Might increase packing area.</description>
+    </item>
+    
+    <item>
+      <title>Fit Aspect Ratio</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-expandtoaspectratio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-expandtoaspectratio.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.expandToAspectRatio   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes   Dependencies: org.eclipse.elk.expandNodes    Description Expands nodes if expandNodes is true to fit the aspect ratio instead of only in their bounds. The option is only useful if the used packingStrategy is ASPECT_RATIO_DRIVEN, otherwise this may result in unreasonable ndoe expansion.</description>
     </item>
     
     <item>
@@ -1749,12 +1758,12 @@ ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as d
     </item>
     
     <item>
-      <title>Only first iteration should be executed.</title>
+      <title>Only Area Approximation</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.rectpacking.onlyFirstIteration   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Determines whether only the first iteration should be executed or not. If set to true, only the first iteration will be executed. When using only the first iteration, rectangles will not be resized to fill their bounding box and eliminate unused whitespace.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.rectpacking.onlyFirstIteration   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description If enabled only the width approximation step is executed and the nodes are placed accordingly. The nodes are layouted according to the packingStrategy. If set to true not expansion of nodes is taking place.</description>
     </item>
     
     <item>
@@ -1790,13 +1799,13 @@ COMPRESS   Default Value: OverlapMode.PRISM (as defined in org.eclipse.elk.graph
     
     <item>
       <title>Packing Strategy</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-strategy.html</link>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packingstrategy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-strategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.strategy   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.packing.rectangles.util.PackingStrategy (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packingstrategy.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.packingStrategy   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.packing.rectangles.util.PackingStrategy (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
 MAX_SCALE_DRIVEN
-AREA_DRIVEN   Default Value: PackingStrategy.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Strategy for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by scale measure, aspect ratio or area.</description>
+AREA_DRIVEN   Default Value: PackingStrategy.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Strategy for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area.</description>
     </item>
     
     <item>
@@ -2154,7 +2163,7 @@ Supported Options    Option Default Value     Aspect Ratio 1.6f   Node Spacing 1
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking-rectpacking.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.rectpacking.rectPacking   Meta Data Provider: options.RectPackingMetaDataProvider    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges. In the default settings, the algorithm checks for a case where one big rectangle is present with a lot of smaller rectangles with the same height and applies a special algorithm to it. If this is not the case, the algorithm then uses to phases.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.rectpacking.rectPacking   Meta Data Provider: options.RectPackingMetaDataProvider    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges. The given order of the boxes is always preserved and the main reading direction of the boxes is left to right. The algorithm is divided into two phases. One phase approximates the width in which the rectangles can be placed.</description>
     </item>
     
     <item>
@@ -2262,12 +2271,12 @@ SEQUENCED   Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.e
     </item>
     
     <item>
-      <title>Shift when placing at last placed rectangle.</title>
+      <title>Shift Last Placed.</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.lastPlaceShift   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description When placing a rectangle behind or below the last placed rectangle in the first iteration, it is sometimes possible to shift the rectangle further to the left or right, resulting in less whitespace.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.rectpacking.lastPlaceShift   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description When placing a rectangle behind or below the last placed rectangle in the first iteration, it is sometimes possible to shift the rectangle further to the left or right, resulting in less whitespace.</description>
     </item>
     
     <item>

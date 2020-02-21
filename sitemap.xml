@@ -140,15 +140,15 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</loc>
   </url>
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentbox.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-rowcompaction.html</loc>
   </url>
   
   <url>
@@ -401,6 +401,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-fill.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-expandtoaspectratio.html</loc>
   </url>
   
   <url>
@@ -736,7 +740,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-strategy.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packingstrategy.html</loc>
   </url>
   
   <url>

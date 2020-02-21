@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Check for special case one big rectangle. (ELK)</title>
+    <title>Compact Rows (ELK)</title>
 
     
     
@@ -63,7 +63,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Check for special case one big rectangle.</h1>
+    <h1>Compact Rows</h1>
 
     
 
@@ -83,7 +83,7 @@
 
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.rectpacking.checkForSpecialCase</code></td>
+<td><code>org.eclipse.elk.rectpacking.rowCompaction</code></td>
 </tr>
 
 <tr>
@@ -98,7 +98,7 @@
 
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>false</code> (as defined in <code>org.eclipse.elk.rectpacking</code>)</td>
+<td><code>true</code> (as defined in <code>org.eclipse.elk.rectpacking</code>)</td>
 </tr>
 
 <tr>
@@ -110,7 +110,7 @@
 
 <h3 id="description">Description</h3>
 
-<p>Determines whether the algorithm should check for the case that one big rectangle is present with a lot of smaller rectangles of the same size. If the check is true, a special algorithm for this case is used.</p>
+<p>Enables compaction. Compacts blocks if they do not use the full height of the row. This option allows to have a smaller drawing. If this option is disabled all nodes are placed next to each other in rows.</p>
 
   </div>
 
@@ -416,17 +416,17 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html">
-    <li class="navlevel-2 active">
-      Check for special case one big rectangle.
+  <a href="../../reference/options/org-eclipse-elk-commentbox.html">
+    <li class="navlevel-2">
+      Comment Box
     </li>
   </a>
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-commentbox.html">
-    <li class="navlevel-2">
-      Comment Box
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-rowcompaction.html">
+    <li class="navlevel-2 active">
+      Compact Rows
     </li>
   </a>
   
@@ -747,6 +747,14 @@
   <a href="../../reference/options/org-eclipse-elk-polyomino-fill.html">
     <li class="navlevel-2">
       Fill Polyominoes
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-expandtoaspectratio.html">
+    <li class="navlevel-2">
+      Fit Aspect Ratio
     </li>
   </a>
   
@@ -1298,7 +1306,7 @@
   
   <a href="../../reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html">
     <li class="navlevel-2">
-      Only first iteration should be executed.
+      Only Area Approximation
     </li>
   </a>
   
@@ -1328,7 +1336,7 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-strategy.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packingstrategy.html">
     <li class="navlevel-2">
       Packing Strategy
     </li>
@@ -1650,7 +1658,7 @@
   
   <a href="../../reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html">
     <li class="navlevel-2">
-      Shift when placing at last placed rectangle.
+      Shift Last Placed.
     </li>
   </a>
   

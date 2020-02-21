@@ -83,7 +83,7 @@
 
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.rectpacking.strategy</code></td>
+<td><code>org.eclipse.elk.rectpacking.packingStrategy</code></td>
 </tr>
 
 <tr>
@@ -115,7 +115,101 @@
 
 <h3 id="description">Description</h3>
 
-<p>Strategy for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by scale measure, aspect ratio or area.</p>
+<p>Strategy for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area. Depending on the strategy the aspect ratio might be nearly ignored.</p>
+
+<h2 id="additional-documentation">Additional Documentation</h2>
+
+<p>The packing strategy specifies what is most important during approximation of the drawing width.
+During the approximation phase four different node positions are considered for a new node:
+Right of the last node, below the last node, right of the whole drawing, below the whole drawing.
+These possible positions are rated based on the strategy.</p>
+
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>MAX_SCALE_DRIVEN</code></td>
+<td>Filters possible placement options for scale measure, area, and aspect ratio in this order.</td>
+</tr>
+
+<tr>
+<td><code>ASPECT_RATIO_DRIVEN</code></td>
+<td>Filters possible placement options for aspect ratio, area, and aspect ratio in this order.</td>
+</tr>
+
+<tr>
+<td><code>AREA_DRIVEN</code></td>
+<td>Filters possible placement options for area, scale measure, and aspect ratio in this order.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="examples">Examples</h3>
+
+<p>For the same graph the initial drawing for the width approximation might influence the drawing a lot.
+With a aspect ratio of 2.5 the different strategies result in the following initial drawings:</p>
+
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Drawing</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>MAX_SCALE_DRIVEN</code></td>
+<td><p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-rectpacking-packingStrategy_strategy_maxscaledriven.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>ASPECT_RATIO_DRIVEN</code> | <p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-rectpacking-packingStrategy_strategy_aspectratiodriven.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</p>
+
+<p><code>AREA_DRIVEN</code> | <p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-rectpacking-packingStrategy_strategy_areadriven.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</p>
 
   </div>
 
@@ -421,17 +515,17 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html">
+  <a href="../../reference/options/org-eclipse-elk-commentbox.html">
     <li class="navlevel-2">
-      Check for special case one big rectangle.
+      Comment Box
     </li>
   </a>
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-commentbox.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-rowcompaction.html">
     <li class="navlevel-2">
-      Comment Box
+      Compact Rows
     </li>
   </a>
   
@@ -752,6 +846,14 @@
   <a href="../../reference/options/org-eclipse-elk-polyomino-fill.html">
     <li class="navlevel-2">
       Fill Polyominoes
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-expandtoaspectratio.html">
+    <li class="navlevel-2">
+      Fit Aspect Ratio
     </li>
   </a>
   
@@ -1303,7 +1405,7 @@
   
   <a href="../../reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html">
     <li class="navlevel-2">
-      Only first iteration should be executed.
+      Only Area Approximation
     </li>
   </a>
   
@@ -1333,7 +1435,7 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-strategy.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packingstrategy.html">
     <li class="navlevel-2 active">
       Packing Strategy
     </li>
@@ -1655,7 +1757,7 @@
   
   <a href="../../reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html">
     <li class="navlevel-2">
-      Shift when placing at last placed rectangle.
+      Shift Last Placed.
     </li>
   </a>
   

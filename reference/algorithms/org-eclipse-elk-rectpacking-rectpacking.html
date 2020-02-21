@@ -90,7 +90,91 @@
 
 <h2 id="description">Description</h2>
 
-<p>Algorithm for packing of unconnected boxes, i.e. graphs without edges. In the default settings, the algorithm checks for a case where one big rectangle is present with a lot of smaller rectangles with the same height and applies a special algorithm to it. If this is not the case, the algorithm then uses to phases. One phase approximates an area where the rectangles can be placed and then another to place them there and align them nicely. Finally, the rectangles are expanded to fill their bounding box and eliminate empty unused spaces.</p>
+<p>Algorithm for packing of unconnected boxes, i.e. graphs without edges. The given order of the boxes is always preserved and the main reading direction of the boxes is left to right. The algorithm is divided into two phases. One phase approximates the width in which the rectangles can be placed. The next phase places the rectangles in rows using the previously calculated width as bounding width and bundles rectangles with a similar height in blocks. A compaction step reduces the size of the drawing. Finally, the rectangles are expanded to fill their bounding box and eliminate empty unused spaces.</p>
+
+<h2 id="additional-documentation">Additional Documentation</h2>
+
+<p>The different phases of the algorithm are illustrated below on an example:</p>
+
+<p>First the drawing width is approximated. Such a drawing can look like this:</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-rectpacking-rectPacking_width_approximation.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<p>After this the initial drawing is created:</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-rectpacking-rectPacking_initial_placement.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<p>This drawing is then compacted to use less space:</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-rectpacking-rectPacking_row_compaction.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<p>Now the nodes can be either expanded to fill the bounding box:</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-rectpacking-rectPacking_node_expansion.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+
+<p>Or, the nodes can be expanded to fit the aspect ratio.</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-rectpacking-rectPacking_expand_to_aspect_ratio.png"
+    
+     alt="Preview Image"
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
 
 <h2 id="supported-options">Supported Options</h2>
 
@@ -109,8 +193,8 @@
 </tr>
 
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html">Check for special case one big rectangle.</a></td>
-<td><code>false</code></td>
+<td><a href="../../reference/options/org-eclipse-elk-rectpacking-rowcompaction.html">Compact Rows</a></td>
+<td><code>true</code></td>
 </tr>
 
 <tr>
@@ -119,12 +203,22 @@
 </tr>
 
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html">Only first iteration should be executed.</a></td>
+<td><a href="../../reference/options/org-eclipse-elk-rectpacking-expandtoaspectratio.html">Fit Aspect Ratio</a></td>
 <td><code>false</code></td>
 </tr>
 
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-rectpacking-strategy.html">Packing Strategy</a></td>
+<td><a href="../../reference/options/org-eclipse-elk-spacing-nodenode.html">Node Spacing</a></td>
+<td><code>15</code></td>
+</tr>
+
+<tr>
+<td><a href="../../reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html">Only Area Approximation</a></td>
+<td><code>false</code></td>
+</tr>
+
+<tr>
+<td><a href="../../reference/options/org-eclipse-elk-rectpacking-packingstrategy.html">Packing Strategy</a></td>
 <td><code>PackingStrategy.MAX_SCALE_DRIVEN</code></td>
 </tr>
 
@@ -134,7 +228,7 @@
 </tr>
 
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html">Shift when placing at last placed rectangle.</a></td>
+<td><a href="../../reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html">Shift Last Placed.</a></td>
 <td><code>true</code></td>
 </tr>
 </tbody>
@@ -444,17 +538,17 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-checkforspecialcase.html">
+  <a href="../../reference/options/org-eclipse-elk-commentbox.html">
     <li class="navlevel-2">
-      Check for special case one big rectangle.
+      Comment Box
     </li>
   </a>
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-commentbox.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-rowcompaction.html">
     <li class="navlevel-2">
-      Comment Box
+      Compact Rows
     </li>
   </a>
   
@@ -775,6 +869,14 @@
   <a href="../../reference/options/org-eclipse-elk-polyomino-fill.html">
     <li class="navlevel-2">
       Fill Polyominoes
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-expandtoaspectratio.html">
+    <li class="navlevel-2">
+      Fit Aspect Ratio
     </li>
   </a>
   
@@ -1326,7 +1428,7 @@
   
   <a href="../../reference/options/org-eclipse-elk-rectpacking-onlyfirstiteration.html">
     <li class="navlevel-2">
-      Only first iteration should be executed.
+      Only Area Approximation
     </li>
   </a>
   
@@ -1356,7 +1458,7 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-strategy.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packingstrategy.html">
     <li class="navlevel-2">
       Packing Strategy
     </li>
@@ -1678,7 +1780,7 @@
   
   <a href="../../reference/options/org-eclipse-elk-rectpacking-lastplaceshift.html">
     <li class="navlevel-2">
-      Shift when placing at last placed rectangle.
+      Shift Last Placed.
     </li>
   </a>
   

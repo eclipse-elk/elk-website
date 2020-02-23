@@ -2406,6 +2406,15 @@ CROSSING_MINIMIZATION_BY_POSITION   Default Value: RadialTranslationStrategy.NON
     </item>
     
     <item>
+      <title>Treat Port Labels as Group</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portlabels-treatasgroup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portlabels-treatasgroup.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.portLabels.treatAsGroup   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portLabels    Description If this option is true (default), the labels of a port will be treated as a group when it comes to centering them next to their port.</description>
+    </item>
+    
+    <item>
       <title>Tree Construction Strategy</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-treeconstruction.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2902,7 +2911,7 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-portlabels.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.portLabels    Options  Port Label Placement Port Labels Next to Port  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.portLabels    Options  Port Label Placement Port Labels Next to Port Treat Port Labels as Group  </description>
     </item>
     
     <item>

@@ -520,6 +520,15 @@ INTERACTIVE (@AdvancedPropertyValue)   Default Value: CrossingMinimizationStrate
     </item>
     
     <item>
+      <title>Current position of a node in the order of nodes</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-currentposition.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-currentposition.html</guid>
+      <description>Property Value     Type: output   Identifier: org.eclipse.elk.rectpacking.currentPosition   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.rectpacking)   Lower Bound: -1   Applies To: nodes    Description The rectangles are ordered. Normally according to their definition the the model. This option specifies the current position of a node.</description>
+    </item>
+    
+    <item>
       <title>Cutting Strategy</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-strategy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -576,6 +585,15 @@ If you have not used dependency injection yet: ELK will ask the injector to retr
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-desirededgelength.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.stress.desiredEdgeLength   Meta Data Provider: options.StressMetaDataProvider   Value Type: double   Default Value: 100.0 (as defined in org.eclipse.elk.stress)   Applies To: parents, edges    Description Either specified for parent nodes or for individual edges, where the latter takes higher precedence.</description>
+    </item>
+    
+    <item>
+      <title>Desired index of node</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-desiredposition.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-desiredposition.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.desiredPosition   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.rectpacking)   Lower Bound: -1   Applies To: nodes    Description The rectangles are ordered. Normally according to their definition the the model. This option allows to specify a desired position that has preference over the original position.</description>
     </item>
     
     <item>
@@ -1364,6 +1382,15 @@ Nodes, Ports, Labels, Edges, and Edge Sections All elements, except labels, must
     </item>
     
     <item>
+      <title>Layer Choice Constraint</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerchoiceconstraint.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerchoiceconstraint.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.layerChoiceConstraint   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: nodes   Containing Group: layering    Description Allows to set a constraint regarding the layer placement of a node. Let i be the value of teh constraint.</description>
+    </item>
+    
+    <item>
       <title>Layer Constraint</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerconstraint.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1374,6 +1401,15 @@ FIRST
 FIRST_SEPARATE
 LAST
 LAST_SEPARATE   Default Value: LayerConstraint.NONE (as defined in org.eclipse.elk.layered)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.klay.layered.layerConstraint   Containing Group: layering    Description Determines a constraint on the placement of the node regarding the layering.</description>
+    </item>
+    
+    <item>
+      <title>Layer ID</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerid.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerid.html</guid>
+      <description>Property Value     Type: output   Identifier: org.eclipse.elk.layered.layering.layerID   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: nodes   Containing Group: layering    Description Layer identifier that was calculated by ELK Layered for a node</description>
     </item>
     
     <item>
@@ -1767,6 +1803,17 @@ ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as d
     </item>
     
     <item>
+      <title>Optimization Goal</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationgoal.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationgoal.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.optimizationGoal   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.packing.rectangles.util.OptimizationGoal (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
+MAX_SCALE_DRIVEN
+AREA_DRIVEN   Default Value: OptimizationGoal.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Optimization goal for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area.</description>
+    </item>
+    
+    <item>
       <title>Order ID </title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-orderid.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1795,17 +1842,6 @@ SCALE
 SCALEXY
 PRISM
 COMPRESS   Default Value: OverlapMode.PRISM (as defined in org.eclipse.elk.graphviz)   Applies To: parents    Description Determines if and how node overlaps should be removed.</description>
-    </item>
-    
-    <item>
-      <title>Packing Strategy</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packingstrategy.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packingstrategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.packingStrategy   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.packing.rectangles.util.PackingStrategy (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
-MAX_SCALE_DRIVEN
-AREA_DRIVEN   Default Value: PackingStrategy.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Strategy for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area.</description>
     </item>
     
     <item>
@@ -2035,6 +2071,24 @@ PORT_DEGREE   Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-position.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.position   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVector   Applies To: nodes, ports, labels   Legacy Id: de.cau.cs.kieler.position    Description The position of a node, port, or label. This is used by the &amp;lsquo;Fixed Layout&amp;rsquo; algorithm to specify a pre-defined position.</description>
+    </item>
+    
+    <item>
+      <title>Position Choice Constraint</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-positionchoiceconstraint.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-positionchoiceconstraint.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.positionChoiceConstraint   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: nodes   Containing Group: crossingMinimization    Description Allows to set a constraint regarding the position placement of a node in a layer. Assumed the layer in which the node placed includes n other nodes and i &amp;lt; n.</description>
+    </item>
+    
+    <item>
+      <title>Position ID</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-positionid.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-positionid.html</guid>
+      <description>Property Value     Type: output   Identifier: org.eclipse.elk.layered.crossingMinimization.positionID   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: nodes   Containing Group: crossingMinimization    Description Position within a layer that was determined by ELK Layered for a node.</description>
     </item>
     
     <item>
@@ -2641,7 +2695,7 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingminimization.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.layered.crossingMinimization    Options  Crossing Minimization Strategy Hierarchical Sweepiness Semi-Interactive Crossing Minimization  Subgroups  greedySwitch  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.crossingMinimization    Options  Crossing Minimization Strategy Hierarchical Sweepiness Semi-Interactive Crossing Minimization Position Choice Constraint Position ID  Subgroups  greedySwitch  </description>
     </item>
     
     <item>
@@ -2762,12 +2816,21 @@ CAREFUL   Default Value: WideNodesStrategy.OFF (as defined in org.eclipse.elk.la
     </item>
     
     <item>
+      <title>interactive Layout</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactivelayout.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactivelayout.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.interactiveLayout   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents    Description Whether the graph should be changeable interactively and by setting constraints</description>
+    </item>
+    
+    <item>
       <title>layering</title>
       <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.layered.layering    Options  Node Layering Strategy Layer Constraint Wide Nodes on Multiple Layers  Subgroups  minWidth nodePromotion coffmanGraham  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.layered.layering    Options  Node Layering Strategy Layer Constraint Wide Nodes on Multiple Layers Layer Choice Constraint Layer ID  Subgroups  minWidth nodePromotion coffmanGraham  </description>
     </item>
     
     <item>

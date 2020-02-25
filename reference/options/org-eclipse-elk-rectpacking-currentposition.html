@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Packing Strategy (ELK)</title>
+    <title>Current position of a node in the order of nodes (ELK)</title>
 
     
     
@@ -63,7 +63,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Packing Strategy</h1>
+    <h1>Current position of a node in the order of nodes</h1>
 
     
 
@@ -78,12 +78,12 @@
 <tbody>
 <tr>
 <td><em>Type:</em></td>
-<td>advanced</td>
+<td>output</td>
 </tr>
 
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.rectpacking.packingStrategy</code></td>
+<td><code>org.eclipse.elk.rectpacking.currentPosition</code></td>
 </tr>
 
 <tr>
@@ -93,17 +93,17 @@
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>org.eclipse.elk.alg.packing.rectangles.util.PackingStrategy</code> (Enum)</td>
-</tr>
-
-<tr>
-<td><em>Possible Values:</em></td>
-<td><code>ASPECT_RATIO_DRIVEN</code><br><code>MAX_SCALE_DRIVEN</code><br><code>AREA_DRIVEN</code></td>
+<td><code>int</code></td>
 </tr>
 
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>PackingStrategy.MAX_SCALE_DRIVEN</code> (as defined in <code>org.eclipse.elk.rectpacking</code>)</td>
+<td><code>-1</code> (as defined in <code>org.eclipse.elk.rectpacking</code>)</td>
+</tr>
+
+<tr>
+<td><em>Lower Bound:</em></td>
+<td><code>-1</code></td>
 </tr>
 
 <tr>
@@ -115,101 +115,7 @@
 
 <h3 id="description">Description</h3>
 
-<p>Strategy for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area. Depending on the strategy the aspect ratio might be nearly ignored.</p>
-
-<h2 id="additional-documentation">Additional Documentation</h2>
-
-<p>The packing strategy specifies what is most important during approximation of the drawing width.
-During the approximation phase four different node positions are considered for a new node:
-Right of the last node, below the last node, right of the whole drawing, below the whole drawing.
-These possible positions are rated based on the strategy.</p>
-
-<table>
-<thead>
-<tr>
-<th>Strategy</th>
-<th>Meaning</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>MAX_SCALE_DRIVEN</code></td>
-<td>Filters possible placement options for scale measure, area, and aspect ratio in this order.</td>
-</tr>
-
-<tr>
-<td><code>ASPECT_RATIO_DRIVEN</code></td>
-<td>Filters possible placement options for aspect ratio, area, and aspect ratio in this order.</td>
-</tr>
-
-<tr>
-<td><code>AREA_DRIVEN</code></td>
-<td>Filters possible placement options for area, scale measure, and aspect ratio in this order.</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="examples">Examples</h3>
-
-<p>For the same graph the initial drawing for the width approximation might influence the drawing a lot.
-With a aspect ratio of 2.5 the different strategies result in the following initial drawings:</p>
-
-<table>
-<thead>
-<tr>
-<th>Strategy</th>
-<th>Drawing</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>MAX_SCALE_DRIVEN</code></td>
-<td><p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-rectpacking-packingStrategy_strategy_maxscaledriven.png"
-    
-     alt="Preview Image"
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-
-<p><code>ASPECT_RATIO_DRIVEN</code> | <p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-rectpacking-packingStrategy_strategy_aspectratiodriven.png"
-    
-     alt="Preview Image"
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-</p>
-
-<p><code>AREA_DRIVEN</code> | <p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-rectpacking-packingStrategy_strategy_areadriven.png"
-    
-     alt="Preview Image"
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-</p>
+<p>The rectangles are ordered. Normally according to their definition the the model. This option specifies the current position of a node.</p>
 
   </div>
 
@@ -627,6 +533,14 @@ With a aspect ratio of 2.5 the different strategies result in the following init
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-currentposition.html">
+    <li class="navlevel-2 active">
+      Current position of a node in the order of nodes
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-layered-wrapping-cutting-strategy.html">
     <li class="navlevel-2">
       Cutting Strategy
@@ -662,6 +576,14 @@ With a aspect ratio of 2.5 the different strategies result in the following init
   <a href="../../reference/options/org-eclipse-elk-stress-desirededgelength.html">
     <li class="navlevel-2">
       Desired Edge Length
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-desiredposition.html">
+    <li class="navlevel-2">
+      Desired index of node
     </li>
   </a>
   
@@ -1139,9 +1061,25 @@ With a aspect ratio of 2.5 the different strategies result in the following init
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-layered-layering-layerchoiceconstraint.html">
+    <li class="navlevel-2">
+      Layer Choice Constraint
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-layered-layering-layerconstraint.html">
     <li class="navlevel-2">
       Layer Constraint
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-layering-layerid.html">
+    <li class="navlevel-2">
+      Layer ID
     </li>
   </a>
   
@@ -1411,6 +1349,14 @@ With a aspect ratio of 2.5 the different strategies result in the following init
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-optimizationgoal.html">
+    <li class="navlevel-2">
+      Optimization Goal
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-radial-orderid.html">
     <li class="navlevel-2">
       Order ID 
@@ -1430,14 +1376,6 @@ With a aspect ratio of 2.5 the different strategies result in the following init
   <a href="../../reference/options/org-eclipse-elk-graphviz-overlapmode.html">
     <li class="navlevel-2">
       Overlap Removal
-    </li>
-  </a>
-  
-
-  
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-packingstrategy.html">
-    <li class="navlevel-2 active">
-      Packing Strategy
     </li>
   </a>
   
@@ -1590,6 +1528,22 @@ With a aspect ratio of 2.5 the different strategies result in the following init
   <a href="../../reference/options/org-eclipse-elk-position.html">
     <li class="navlevel-2">
       Position
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-crossingminimization-positionchoiceconstraint.html">
+    <li class="navlevel-2">
+      Position Choice Constraint
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-crossingminimization-positionid.html">
+    <li class="navlevel-2">
+      Position ID
     </li>
   </a>
   
@@ -1958,6 +1912,14 @@ With a aspect ratio of 2.5 the different strategies result in the following init
   <a href="../../reference/options/org-eclipse-elk-zoomtofit.html">
     <li class="navlevel-2">
       Zoom to Fit
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-interactivelayout.html">
+    <li class="navlevel-2">
+      interactive Layout
     </li>
   </a>
   

@@ -212,6 +212,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-currentposition.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-strategy.html</loc>
   </url>
   
@@ -233,6 +237,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-desirededgelength.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-desiredposition.html</loc>
   </url>
   
   <url>
@@ -572,7 +580,15 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerchoiceconstraint.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerconstraint.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerid.html</loc>
   </url>
   
   <url>
@@ -728,6 +744,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationgoal.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-orderid.html</loc>
   </url>
   
@@ -737,10 +757,6 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapmode.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packingstrategy.html</loc>
   </url>
   
   <url>
@@ -817,6 +833,14 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-position.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-positionchoiceconstraint.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-positionid.html</loc>
   </url>
   
   <url>
@@ -1134,6 +1158,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-insideselfloops.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactivelayout.html</loc>
   </url>
   
   <url>

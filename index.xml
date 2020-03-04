@@ -120,6 +120,16 @@ View the release at Eclipse for links to the list of closed issues.</description
     </item>
     
     <item>
+      <title>0.6.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.6.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.6.1.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details Besides the usual bunch of bug fixes, this release is unusual for a minor release in that we decided to include two major features as well:
+ The rectangle packing algorithm, which is finally included, got a major rewrite. Port label placement now supports next-to-port labels for outside port labels as well, with some configurability.</description>
+    </item>
+    
+    <item>
       <title>Activate Inside Self Loops</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideselfloops-activate.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

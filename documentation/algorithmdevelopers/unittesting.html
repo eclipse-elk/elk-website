@@ -235,13 +235,13 @@ public class MyAlgorithmTest {
 
 <pre><code class="language-java">@RunWith(LayoutTestRunner.class)
 @Algorithm(MyTestClassOptions.ALGORITHM_ID)
-@DefaultConfiguration(nodes = true, ports = false, edges = false)
+@DefaultConfiguration(nodes = true, ports = true, edges = true, edgeLabels = false)
 public class MyAlgorithmTest {
 
 }
 </code></pre>
 
-<p>The defaults are applied on top of all graph configurations. In more detail, this is what they do:</p>
+<p>The defaults are applied after any configuration methods. In more detail, this is what they do:</p>
 
 <ul>
 <li>Nodes
@@ -262,7 +262,14 @@ public class MyAlgorithmTest {
 <ul>
 <li>Set edge label placement to <code>CENTER</code> if it has not been set.</li>
 </ul></li>
+<li>Edge Labels
+
+<ul>
+<li>Add a label to each edge if non exists.</li>
+</ul></li>
 </ul>
+
+<p>The options default to the values shown in the code fragment.</p>
 
 <h2 id="black-box-tests">Black Box Tests</h2>
 

@@ -2223,11 +2223,11 @@ Supported Options    Option Default Value     Aspect Ratio 1.6f   Node Spacing 1
     
     <item>
       <title>Rectangle Packing</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking-rectpacking.html</link>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking-rectpacking.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.rectpacking.rectPacking   Meta Data Provider: options.RectPackingMetaDataProvider    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges. The given order of the boxes is always preserved and the main reading direction of the boxes is left to right. The algorithm is divided into two phases. One phase approximates the width in which the rectangles can be placed.</description>
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.rectpacking   Meta Data Provider: options.RectPackingMetaDataProvider    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges. The given order of the boxes is always preserved and the main reading direction of the boxes is left to right. The algorithm is divided into two phases. One phase approximates the width in which the rectangles can be placed.</description>
     </item>
     
     <item>

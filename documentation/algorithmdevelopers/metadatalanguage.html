@@ -70,7 +70,7 @@
 <p>As described <a href="../../documentation/tooldevelopers/usingplainjavalayout.html">in other parts of the documentation</a>, the <em>Eclipse Layout Kernel</em> relies on metadata about all available layout algorithms and the layout options they support. Supplying metadata for your layout algorithm is done by writing an <em>ELK Metadata File</em> in our textual metadata language. The file is used by the ELK SDK to generate the following Java classes:</p>
 
 <ul>
-<li>An <code>ILayoutMetaDataProvider</code> that contains <code>IProperty</code> objects for each layout option you declare, along with a method that registers these options and layout algorithm categories with the <code>LayoutMetaDataService</code>. It is this class that needs to be registered with ELK&rsquo;s extension point.</li>
+<li>An <code>ILayoutMetaDataProvider</code> that contains <code>IProperty</code> objects for each layout option you declare, along with a method that registers these options and layout algorithm categories with the <code>LayoutMetaDataService</code>. It is this class that needs to be registered through the <code>META-INF/services/ILayoutMetaDataProvider</code> file.</li>
 <li>One <code>ILayoutMetaDataProvider</code> for each algorithm you declare. This contains one <code>IProperty</code> object for each layout option your algorithm supports (with the configured default value), as well as a method that registers your algorithm and its supported options with the <code>LayoutMetaDataService</code>. You should use the <code>IProperty</code> objects in this class to retrieve layout option values to ensure that you get correct defaults if an option is not set. These classes do not have to be registered with ELK&rsquo;s extension point because they are automatically registered through the main metadata class.</li>
 </ul>
 
@@ -99,29 +99,11 @@ bundle {
 
 <p>See below for details on what this is doing.</p></li>
 
-<li><p>Open the <code>MANIFEST.MF</code> file, located in your plug-in&rsquo;s <code>META_INF</code> folder. The <em>Plug-in Manifest Editor</em> will open up, which is divided into several pages that you can switch between using the controls at the bottom of the editor.</p></li>
+<li><p>Add a folder <code>META-INF/services</code> inside one of your project&rsquo;s source folders (by default, we put it right inside of the <code>src</code> folder).</p></li>
 
-<li><p>Open the editor&rsquo;s <em>Extensions</em> tab.</p></li>
+<li><p>In that folder, create a file named <code>ILayoutMetaDataProvider</code>.</p></li>
 
-<li><p>Click the <em>Add&hellip;</em> button, look for the <code>org.eclipse.elk.core.layoutProviders</code> extension point and click <em>Finish</em>.</p></li>
-
-<li><p>The editor now shows the extension point in the list. Right-click the list entry and select <em>New - provider</em>.</p></li>
-
-<li><p>Select the new entry and configure the <em>class</em> attribute on the right to point to your new <code>ILayoutMetaDataProvider</code> that was generated for you by the ELK SDK. Your configuration might look something like this:</p>
-
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img/algdev_metadatalanguage_extension.png"
-    
-     alt="Configuring a new layout algorithm project."
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-</li>
+<li><p>In that file, add a single line of text which contains the fully qualified name of the <code>ILayoutMetaDataProvider</code> that was generated for you by the ELK SDK.</p></li>
 
 <li><p>Save and close the editor.</p></li>
 </ol>
@@ -493,7 +475,7 @@ algorithm simple(SimpleLayoutProvider) {
     description
         &quot;This layout provider places nodes along a horizontal or a vertical line.&quot;
     metadataClass options.SimpleOptions
-    
+
     supports reverseInput
     supports org.eclipse.elk.padding = new ElkPadding(10)
     supports org.eclipse.elk.spacing.edgeEdge = 5

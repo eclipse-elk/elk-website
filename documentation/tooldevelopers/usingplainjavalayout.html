@@ -75,19 +75,7 @@
 <li><p>Most importantly, as graphs get more complex there are more and more details to be aware of when executing layout. This is especially true for compound graphs: graphs with nodes that contain further graphs themselves.</p></li>
 </ol>
 
-<p>The best way to invoke automatic layout is through a fully-fledged implementation of <code>IGraphLayoutEngine</code>. ELK provides a convenient implementation: the <code>RecursiveGraphLayoutEngine</code>. But before we can explain that, we need to provide a big of background regarding the <code>LayoutMetaDataService</code>.</p>
-
-<h2 id="the-layout-meta-data-service">The Layout Meta Data Service</h2>
-
-<p>To know about which layout algorithms and layout options are available, ELK keeps a central registry of layout meta data: the <code>LayoutMetaDataService</code>. The recursive graph layout engine looks at which layout algorithm should layout a given part of the layout graph and uses the meta data service to obtain an instance of that algorithm.</p>
-
-<p>When running in an Eclipse context, the meta data service is magically populated. In a plain Java application, you will have to populate the service yourself. Layout meta data are provided by <code>ILayoutMetaDataProvider</code>s. What you need to do is to obtain an instance of each relevant meta data provider and register it with the meta data service.</p>
-
-<p>One such meta data provider is always automatically registered: <code>CoreOptions</code>. This will give you access to our most basic layout algorithms: <em>Fixed Layout</em>, <em>Box Layout</em>, and <em>Random Layout</em> (at the time of writing). To use more layout algorithms, you will have to find the algorithm&rsquo;s implementation of <code>ILayoutMetaDataProvider</code> and register that. For example, using <em>ELK Layered</em> requires the following registration:</p>
-
-<pre><code class="language-java">LayoutMetaDataService service = LayoutMetaDataService.getInstance();
-service.registerLayoutMetaDataProviders(new LayeredMetaDataProvider());
-</code></pre>
+<p>The best way to invoke automatic layout is through a fully-fledged implementation of <code>IGraphLayoutEngine</code>. ELK provides a convenient implementation: the <code>RecursiveGraphLayoutEngine</code>.</p>
 
 <h2 id="using-the-recursive-graph-layout-engines">Using the Recursive Graph Layout Engines</h2>
 

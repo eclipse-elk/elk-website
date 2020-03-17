@@ -165,12 +165,14 @@
 <ul>
 <li><p>A <code>MANIFEST.MF</code> file with the necessary dependencies to the Eclipse Layout Kernel so you can use our data structures.</p></li>
 
-<li><p>A <code>plugin.xml</code> file which registers your new layout algorithm with ELK so it can be used.</p></li>
+<li><p>A file called <code>ILayoutMetaDataProvider</code> which registeres your new layout algorithm with ELK so it can be used.</p></li>
 
 <li><p>A <code>.melk</code> file which describes your layout algorithm and the options it supports (see <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">this page</a> for more information).</p></li>
 
 <li><p>A sample implementation with a simple basic layout provider. Studying this implementation will teach you a lot about how to develop layout algorithms with ELK (see <a href="../../documentation/algorithmdevelopers/algorithmimplementation.html">this page</a> for more information).</p></li>
 </ul>
+
+<p>Somewhat strangely, perhaps, the <code>ILayoutMetaDataProvider</code> file is located in <code>/src/META-INF/services</code> instead of <code>/META-INF/services</code>. There is a reason for that. When we start a project in Eclipse, the non-Java content of its source folders is copied into a <code>bin</code> folder, which is then put on the class path. Since <code>/META-INF</code> is not part of a source folder, putting the service file there would mean that the service is not available when started from Eclipse. If you happen to despise this solution, simply define a separate top-level folder, configure it as a source folder, and move <code>/src/META-INF</code> there. Whatever you do, however, you will always end up with two <code>META-INF</code> folders in your project.</p>
 
   </div>
 

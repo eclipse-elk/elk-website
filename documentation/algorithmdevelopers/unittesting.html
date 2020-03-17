@@ -313,8 +313,8 @@ public void testNetworkSimplexLayerer(LGraph lGraph) {
 <p>From Eclipse, tests can be run as plain Java JUnit tests (not plug-in tests). Three environment or system variables have to be set for the test framework to work:</p>
 
 <ul>
-<li><code>ELK_REPO</code>: Absolute path to the directory where the main ELK repository is checked out.</li>
-<li><code>MODELS_REPO</code>: Absolute path to the directory where the <code>elk-models</code> repository is checked out.</li>
+<li><code>ELK_REPO</code>: Absolute path to the directory where the main ELK repository is checked out. With our default Oomph setup, the value <code>${workspace_loc:org.eclipse.elk.core}/../..</code> always works.</li>
+<li><code>MODELS_REPO</code>: Absolute path to the directory where the <code>elk-models</code> repository is checked out. With our default Oomph setup, the value <code>${workspace_loc:org.eclipse.elk.core}/../../../elk-models</code> always works.</li>
 </ul>
 
 <h3 id="as-part-of-automatic-builds">As Part of Automatic Builds</h3>

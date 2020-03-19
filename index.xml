@@ -346,7 +346,7 @@ GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in o
       
       <guid>https://www.eclipse.org/elk/documentation/contributors/buildingelk.html</guid>
       <description>ELK is built using Apache Maven in conjunction with Tycho to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the build/ directory inside your clone of the ELK repository.
-Build Requirements Building ELK currently requires Java 8 and will not work with more recent Java versions.</description>
+A Quick Warning Building ELK currently requires Java 8 and will not work with more recent Java versions.</description>
     </item>
     
     <item>

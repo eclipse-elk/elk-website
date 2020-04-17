@@ -53,6 +53,10 @@
         </li>
       
 
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+      </li>
+
     </ul>
   </div>
 </nav>
@@ -146,6 +150,9 @@ public List&lt;AbstractResourcePath&gt; provideGraphs() {
 
     // Only .elkt files contained in a directory and its subdirectories
     paths.add(new ModelResourcePath(&quot;realworld/ptolemy/**/&quot;).withFilter(new FileExtensionFilter(&quot;elkt&quot;)));
+    
+    // Only files with names starting with &quot;ci&quot; contained in a directory and its subdirectories
+    paths.add(new ModelResourcePath(&quot;realworld/ptolemy/**/&quot;).withFilter(new FileNameFilter(&quot;ci.+&quot;)));
 
     return paths;
 }

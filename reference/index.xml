@@ -185,7 +185,7 @@ GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentbox.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.commentBox   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.commentBox    Description Whether the node should be regarded as a comment box instead of a regular node. In that case its placement should be similar to how labels are handled.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.commentBox   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.commentBox    Description Whether the node should be regarded as a comment box instead of a regular node. In that case its placement should be similar to how labels are handled.</description>
     </item>
     
     <item>
@@ -1218,7 +1218,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-margins.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.margins   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.ElkMargin   Default Value: new ElkMargin() (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.margins    Description Margins define additional space around the actual bounds of a graph element. For instance, ports or labels being placed on the outside of a node&amp;rsquo;s border might introduce such a margin.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.margins   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.ElkMargin   Default Value: new ElkMargin() (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.margins    Description Margins define additional space around the actual bounds of a graph element. For instance, ports or labels being placed on the outside of a node&amp;rsquo;s border might introduce such a margin.</description>
     </item>
     
     <item>
@@ -1291,7 +1291,7 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nolayout.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.noLayout   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes, edges, ports, labels   Legacy Id: de.cau.cs.kieler.noLayout    Description No layout is done for the associated element. This is used to mark parts of a diagram to avoid their inclusion in the layout graph, or to mark parts of the layout graph to prevent layout engines from processing them.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.noLayout   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes, edges, ports, labels   Legacy Id: de.cau.cs.kieler.noLayout    Description No layout is done for the associated element. This is used to mark parts of a diagram to avoid their inclusion in the layout graph, or to mark parts of the layout graph to prevent layout engines from processing them.</description>
     </item>
     
     <item>
@@ -1629,7 +1629,7 @@ END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.west   Conta
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-anchor.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.port.anchor   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVector   Applies To: ports   Legacy Id: de.cau.cs.kieler.portAnchor   Containing Group: port    Description The offset to the port position where connections shall be attached.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.port.anchor   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVector   Applies To: ports   Legacy Id: de.cau.cs.kieler.portAnchor   Containing Group: port    Description The offset to the port position where connections shall be attached.</description>
     </item>
     
     <item>
@@ -1638,7 +1638,7 @@ END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.west   Conta
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-borderoffset.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.port.borderOffset   Meta Data Provider: core.options.CoreOptions   Value Type: double   Applies To: ports   Legacy Id: de.cau.cs.kieler.offset   Containing Group: port    Description The offset of ports on the node border. With a positive offset the port is moved outside of the node, while with a negative offset the port is moved towards the inside.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.port.borderOffset   Meta Data Provider: core.options.CoreOptions   Value Type: double   Applies To: ports   Legacy Id: de.cau.cs.kieler.offset   Containing Group: port    Description The offset of ports on the node border. With a positive offset the port is moved outside of the node, while with a negative offset the port is moved towards the inside.</description>
     </item>
     
     <item>
@@ -1690,7 +1690,7 @@ FIXED   Default Value: PortLabelPlacement.OUTSIDE (as defined in org.eclipse.elk
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-side.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.port.side   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortSide (Enum)   Possible Values: UNDEFINED
+      <description>Property Value     Identifier: org.eclipse.elk.port.side   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortSide (Enum)   Possible Values: UNDEFINED
 NORTH
 EAST
 SOUTH
@@ -1710,7 +1710,7 @@ SIDES_NORTH_EAST_WEST
 SIDES_EAST_SOUTH_WEST
 SIDES_NORTH_SOUTH_WEST
 SIDES_NORTH_EAST_SOUTH
-SIDES_NORTH_EAST_SOUTH_WEST   Default Value: PortSide.UNDEFINED (as defined in org.eclipse.elk)   Applies To: ports   Legacy Id: de.</description>
+SIDES_NORTH_EAST_SOUTH_WEST   Default Value: PortSide.UNDEFINED (as defined in org.eclipse.elk)   Applies To: ports   Legacy Id: de.cau.cs.kieler.portSide   Containing Group: port    Description The side of a node on which a port is situated.</description>
     </item>
     
     <item>

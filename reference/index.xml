@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideselfloops-activate.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.insideSelfLoops.activate   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.selfLoopInside   Containing Group: insideSelfLoops    Description Whether this node allows to route self loops inside of it instead of around it. If set to true, this will make the node a compound node if it isn&amp;rsquo;t already, and will require the layout algorithm to support compound nodes with hierarchical ports.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.insideSelfLoops.activate   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: insideSelfLoops    Description Whether this node allows to route self loops inside of it instead of around it. If set to true, this will make the node a compound node if it isn&amp;rsquo;t already, and will require the layout algorithm to support compound nodes with hierarchical ports.</description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-unnecessarybendpoints.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.unnecessaryBendpoints   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.unnecessaryBendpoints    Description Adds bend points even if an edge does not change direction. If true, each long edge dummy will contribute a bend point to its edges and hierarchy-crossing edges will always get a bend point where they cross hierarchy boundaries.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.unnecessaryBendpoints   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Adds bend points even if an edge does not change direction. If true, each long edge dummy will contribute a bend point to its edges and hierarchy-crossing edges will always get a bend point where they cross hierarchy boundaries.</description>
     </item>
     
     <item>
@@ -75,7 +75,7 @@ LEFT
 RIGHT
 TOP
 BOTTOM
-CENTER   Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.alignment    Description Alignment of the selected node relative to other nodes; the exact meaning depends on the used algorithm.</description>
+CENTER   Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk)   Applies To: nodes    Description Alignment of the selected node relative to other nodes; the exact meaning depends on the used algorithm.</description>
     </item>
     
     <item>
@@ -84,7 +84,7 @@ CENTER   Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk)   Ap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate.html</guid>
-      <description>Property Value     Type: global   Identifier: org.eclipse.elk.animate   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.animate    Description Whether the shift from the old layout to the new computed layout shall be animated.</description>
+      <description>Property Value     Type: global   Identifier: org.eclipse.elk.animate   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk)   Applies To: parents    Description Whether the shift from the old layout to the new computed layout shall be animated.</description>
     </item>
     
     <item>
@@ -93,7 +93,7 @@ CENTER   Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk)   Ap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animtimefactor.html</guid>
-      <description>Property Value     Type: global   Identifier: org.eclipse.elk.animTimeFactor   Meta Data Provider: core.options.CoreOptions   Value Type: int   Default Value: 100 (as defined in org.eclipse.elk)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.animTimeFactor    Description Factor for computation of animation time. The higher the value, the longer the animation time. If the value is 0, the resulting time is always equal to the minimum defined by &amp;lsquo;Minimal Animation Time&amp;rsquo;.</description>
+      <description>Property Value     Type: global   Identifier: org.eclipse.elk.animTimeFactor   Meta Data Provider: core.options.CoreOptions   Value Type: int   Default Value: 100 (as defined in org.eclipse.elk)   Lower Bound: 0   Applies To: parents    Description Factor for computation of animation time. The higher the value, the longer the animation time. If the value is 0, the resulting time is always equal to the minimum defined by &amp;lsquo;Minimal Animation Time&amp;rsquo;.</description>
     </item>
     
     <item>
@@ -112,7 +112,7 @@ NODE_SIZE   Default Value: AnnulusWedgeCriteria.NODE_SIZE (as defined in org.ecl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-aspectratio.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.aspectRatio   Meta Data Provider: core.options.CoreOptions   Value Type: double   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Legacy Id: de.cau.cs.kieler.aspectRatio    Description The desired aspect ratio of the drawing, that is the quotient of width by height.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.aspectRatio   Meta Data Provider: core.options.CoreOptions   Value Type: double   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents    Description The desired aspect ratio of the drawing, that is the quotient of width by height.</description>
     </item>
     
     <item>
@@ -122,7 +122,7 @@ NODE_SIZE   Default Value: AnnulusWedgeCriteria.NODE_SIZE (as defined in org.ecl
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-bk-edgestraightening.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.EdgeStraighteningStrategy (Enum)   Possible Values: NONE
-IMPROVE_STRAIGHTNESS   Default Value: EdgeStraighteningStrategy.IMPROVE_STRAIGHTNESS (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.nodeplace.compactionStrategy   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Specifies whether the Brandes Koepf node placer tries to increase the number of straight edges at the expense of diagram size.</description>
+IMPROVE_STRAIGHTNESS   Default Value: EdgeStraighteningStrategy.IMPROVE_STRAIGHTNESS (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Specifies whether the Brandes Koepf node placer tries to increase the number of straight edges at the expense of diagram size.</description>
     </item>
     
     <item>
@@ -136,7 +136,7 @@ LEFTUP
 RIGHTUP
 LEFTDOWN
 RIGHTDOWN
-BALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.fixedAlignment   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Tells the BK node placer to use a certain alignment (out of its four) instead of the one producing the smallest height, or the combination of all four.</description>
+BALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Tells the BK node placer to use a certain alignment (out of its four) instead of the one producing the smallest height, or the combination of all four.</description>
     </item>
     
     <item>
@@ -145,7 +145,7 @@ BALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.lay
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-bendpoints.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.bendPoints   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVectorChain   Applies To: edges   Legacy Id: de.cau.cs.kieler.bendPoints    Description A fixed list of bend points for the edge. This is used by the &amp;lsquo;Fixed Layout&amp;rsquo; algorithm to specify a pre-defined routing for an edge. The vector chain must include the source point, any bend points, and the target point, so it must have at least two points.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.bendPoints   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVectorChain   Applies To: edges    Description A fixed list of bend points for the edge. This is used by the &amp;lsquo;Fixed Layout&amp;rsquo; algorithm to specify a pre-defined routing for an edge. The vector chain must include the source point, any bend points, and the target point, so it must have at least two points.</description>
     </item>
     
     <item>
@@ -185,7 +185,7 @@ GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentbox.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.commentBox   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.commentBox    Description Whether the node should be regarded as a comment box instead of a regular node. In that case its placement should be similar to how labels are handled.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.commentBox   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes    Description Whether the node should be regarded as a comment box instead of a regular node. In that case its placement should be similar to how labels are handled. Any edges incident to a comment box specify to which graph elements the comment is related.</description>
     </item>
     
     <item>
@@ -232,7 +232,7 @@ WEDGE_COMPACTION   Default Value: CompactionStrategy.NONE (as defined in org.ecl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-componentcomponent.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.spacing.componentComponent   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 20f (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Legacy Id: de.cau.cs.kieler.borderSpacing   Containing Group: spacing    Description Spacing to be preserved between pairs of connected components. This option is only relevant if &amp;lsquo;separateConnectedComponents&amp;rsquo; is activated.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.componentComponent   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 20f (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between pairs of connected components. This option is only relevant if &amp;lsquo;separateConnectedComponents&amp;rsquo; is activated.</description>
     </item>
     
     <item>
@@ -250,7 +250,7 @@ WEDGE_COMPACTION   Default Value: CompactionStrategy.NONE (as defined in org.ecl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-connectedcomponents.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.connectedComponents   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.components.compact   Dependencies: org.eclipse.elk.separateConnectedComponents (true)   Containing Group: compaction    Description Tries to further compact components (disconnected sub-graphs).</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.connectedComponents   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.separateConnectedComponents (true)   Containing Group: compaction    Description Tries to further compact components (disconnected sub-graphs).</description>
     </item>
     
     <item>
@@ -282,7 +282,7 @@ V_CENTER
 V_BOTTOM
 H_LEFT
 H_CENTER
-H_RIGHT   Default Value: ContentAlignment.topLeft() (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.contentAlignment    Description Specifies how the content of compound nodes is to be aligned, e.</description>
+H_RIGHT   Default Value: ContentAlignment.topLeft() (as defined in org.eclipse.elk)   Applies To: parents    Description Specifies how the content of compound nodes is to be aligned, e.g. top-left.</description>
     </item>
     
     <item>
@@ -314,7 +314,7 @@ MINIMUM_ROOT_DISTANCE   Default Value: SpanningTreeCostFunction.CIRCLE_UNDERLAP 
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-strategy.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.layered.crossingMinimization.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CrossingMinimizationStrategy (Enum)   Possible Values: LAYER_SWEEP
-INTERACTIVE (@AdvancedPropertyValue)   Default Value: CrossingMinimizationStrategy.LAYER_SWEEP (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.crossMin   Containing Group: crossingMinimization    Description Strategy for crossing minimization.</description>
+INTERACTIVE (@AdvancedPropertyValue)   Default Value: CrossingMinimizationStrategy.LAYER_SWEEP (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: crossingMinimization    Description Strategy for crossing minimization.</description>
     </item>
     
     <item>
@@ -345,7 +345,7 @@ MANUAL   Default Value: CuttingStrategy.MSD (as defined in org.eclipse.elk.layer
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-cyclebreaking-strategy.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.layered.cycleBreaking.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CycleBreakingStrategy (Enum)   Possible Values: GREEDY
 DEPTH_FIRST
-INTERACTIVE (@AdvancedPropertyValue)   Default Value: CycleBreakingStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.cycleBreaking   Containing Group: cycleBreaking    Description Strategy for cycle breaking. Cycle breaking looks for cycles in the graph and determines which edges to reverse to break the cycles.</description>
+INTERACTIVE (@AdvancedPropertyValue)   Default Value: CycleBreakingStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: cycleBreaking    Description Strategy for cycle breaking. Cycle breaking looks for cycles in the graph and determines which edges to reverse to break the cycles.</description>
     </item>
     
     <item>
@@ -363,7 +363,7 @@ INTERACTIVE (@AdvancedPropertyValue)   Default Value: CycleBreakingStrategy.GREE
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-debugmode.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.debugMode   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.debugMode    Description Whether additional debug information shall be generated.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.debugMode   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents    Description Whether additional debug information shall be generated.</description>
     </item>
     
     <item>
@@ -394,7 +394,7 @@ INTERACTIVE (@AdvancedPropertyValue)   Default Value: CycleBreakingStrategy.GREE
 RIGHT
 LEFT
 DOWN
-UP   Default Value: Direction.UNDEFINED (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.direction    Description Overall direction of edges: horizontal (right / left) or vertical (down / up).</description>
+UP   Default Value: Direction.UNDEFINED (as defined in org.eclipse.elk)   Applies To: parents    Description Overall direction of edges: horizontal (right / left) or vertical (down / up).</description>
     </item>
     
     <item>
@@ -554,7 +554,7 @@ TAIL_LAYER
 HEAD_LAYER
 SPACE_EFFICIENT_LAYER
 WIDEST_LAYER (@ExperimentalPropertyValue)
-CENTER_LAYER (@ExperimentalPropertyValue)   Default Value: CenterEdgeLabelPlacementStrategy.MEDIAN_LAYER (as defined in org.eclipse.elk.layered)   Applies To: parents, labels   Legacy Id: de.cau.cs.kieler.edgeLabelPlacementStrategy   Containing Group: edgeLabels    Description Determines in which layer center labels of long edges should be placed.</description>
+CENTER_LAYER (@ExperimentalPropertyValue)   Default Value: CenterEdgeLabelPlacementStrategy.MEDIAN_LAYER (as defined in org.eclipse.elk.layered)   Applies To: parents, labels   Containing Group: edgeLabels    Description Determines in which layer center labels of long edges should be placed.</description>
     </item>
     
     <item>
@@ -575,7 +575,7 @@ CENTER_LAYER (@ExperimentalPropertyValue)   Default Value: CenterEdgeLabelPlacem
       <description>Property Value     Identifier: org.eclipse.elk.edgeLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeLabelPlacement (Enum)   Possible Values: UNDEFINED
 CENTER
 HEAD
-TAIL   Default Value: EdgeLabelPlacement.UNDEFINED (as defined in org.eclipse.elk)   Applies To: labels   Legacy Id: de.cau.cs.kieler.edgeLabelPlacement   Containing Group: edgeLabels    Description Gives a hint on where to put edge labels.</description>
+TAIL   Default Value: EdgeLabelPlacement.UNDEFINED (as defined in org.eclipse.elk)   Applies To: labels   Containing Group: edgeLabels    Description Gives a hint on where to put edge labels.</description>
     </item>
     
     <item>
@@ -589,7 +589,7 @@ ALWAYS_DOWN
 DIRECTION_UP
 DIRECTION_DOWN
 SMART_UP
-SMART_DOWN   Default Value: EdgeLabelSideSelection.SMART_DOWN (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.edgeLabelSideSelection   Containing Group: edgeLabels    Description Method to decide on edge label sides.</description>
+SMART_DOWN   Default Value: EdgeLabelSideSelection.SMART_DOWN (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeLabels    Description Method to decide on edge label sides.</description>
     </item>
     
     <item>
@@ -628,7 +628,7 @@ SMART_DOWN   Default Value: EdgeLabelSideSelection.SMART_DOWN (as defined in org
       <description>Property Value     Identifier: org.eclipse.elk.edgeRouting   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeRouting (Enum)   Possible Values: UNDEFINED
 POLYLINE
 ORTHOGONAL
-SPLINES   Default Value: EdgeRouting.UNDEFINED (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.edgeRouting    Description What kind of edge routing style should be applied for the content of a parent node.</description>
+SPLINES   Default Value: EdgeRouting.UNDEFINED (as defined in org.eclipse.elk)   Applies To: parents    Description What kind of edge routing style should be applied for the content of a parent node. Algorithms may also set this option to single edges in order to mark them as splines.</description>
     </item>
     
     <item>
@@ -646,7 +646,7 @@ SPLINES   Default Value: EdgeRouting.UNDEFINED (as defined in org.eclipse.elk)  
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edge-thickness.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.edge.thickness   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 1 (as defined in org.eclipse.elk)   Applies To: edges   Legacy Id: de.cau.cs.kieler.thickness   Containing Group: edge    Description The thickness of an edge. This is a hint on the line width used to draw an edge, possibly requiring more space to be reserved for it.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.edge.thickness   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 1 (as defined in org.eclipse.elk)   Applies To: edges   Containing Group: edge    Description The thickness of an edge. This is a hint on the line width used to draw an edge, possibly requiring more space to be reserved for it.</description>
     </item>
     
     <item>
@@ -660,7 +660,7 @@ DIRECTED
 UNDIRECTED
 ASSOCIATION
 GENERALIZATION
-DEPENDENCY   Default Value: EdgeType.NONE (as defined in org.eclipse.elk)   Applies To: edges   Legacy Id: de.cau.cs.kieler.edgeType   Containing Group: edge    Description The type of an edge.</description>
+DEPENDENCY   Default Value: EdgeType.NONE (as defined in org.eclipse.elk)   Applies To: edges   Containing Group: edge    Description The type of an edge. This is usually used for UML class diagrams, where associations must be handled differently from generalizations.</description>
     </item>
     
     <item>
@@ -678,7 +678,7 @@ DEPENDENCY   Default Value: EdgeType.NONE (as defined in org.eclipse.elk)   Appl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandnodes.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.expandNodes   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.expandNodes    Description If active, nodes are expanded to fill the area of their parent.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.expandNodes   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents    Description If active, nodes are expanded to fill the area of their parent.</description>
     </item>
     
     <item>
@@ -715,7 +715,7 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-feedbackedges.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.feedbackEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.feedBackEdges    Description Whether feedback edges should be highlighted by routing around the nodes.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.feedbackEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Whether feedback edges should be highlighted by routing around the nodes.</description>
     </item>
     
     <item>
@@ -770,7 +770,7 @@ Supported Options    Option Default Value     Bend Points &amp;lt;not defined&am
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-font-name.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.font.name   Meta Data Provider: core.options.CoreOptions   Value Type: java.lang.String   Applies To: labels   Legacy Id: de.cau.cs.kieler.fontName   Containing Group: font    Description Font name used for a label.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.font.name   Meta Data Provider: core.options.CoreOptions   Value Type: java.lang.String   Applies To: labels   Containing Group: font    Description Font name used for a label.</description>
     </item>
     
     <item>
@@ -779,7 +779,7 @@ Supported Options    Option Default Value     Bend Points &amp;lt;not defined&am
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-font-size.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.font.size   Meta Data Provider: core.options.CoreOptions   Value Type: int   Lower Bound: 1   Applies To: labels   Legacy Id: de.cau.cs.kieler.fontSize   Containing Group: font    Description Font size used for a label.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.font.size   Meta Data Provider: core.options.CoreOptions   Value Type: int   Lower Bound: 1   Applies To: labels   Containing Group: font    Description Font size used for a label.</description>
     </item>
     
     <item>
@@ -820,7 +820,7 @@ MULTI_EDGE   Default Value: WrappingStrategy.OFF (as defined in org.eclipse.elk.
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitch-type.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.greedySwitch.type   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.GreedySwitchType (Enum)   Possible Values: ONE_SIDED
 TWO_SIDED
-OFF   Default Value: GreedySwitchType.TWO_SIDED (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.greedySwitch   Containing Group: crossingMinimization -&amp;gt; greedySwitch    Description Greedy Switch strategy for crossing minimization.</description>
+OFF   Default Value: GreedySwitchType.TWO_SIDED (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: crossingMinimization -&amp;gt; greedySwitch    Description Greedy Switch strategy for crossing minimization. The greedy switch heuristic is executed after the regular layer sweep as a post-processor.</description>
     </item>
     
     <item>
@@ -840,7 +840,7 @@ OFF   Default Value: GreedySwitchType.TWO_SIDED (as defined in org.eclipse.elk.l
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyhandling.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.hierarchyHandling   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.HierarchyHandling (Enum)   Possible Values: INHERIT
 INCLUDE_CHILDREN
-SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes   Legacy Id: de.cau.cs.kieler.hierarchyHandling    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
+SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
     </item>
     
     <item>
@@ -851,7 +851,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyhandling_org-eclipse-elk-graphviz-dot.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.hierarchyHandling   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.HierarchyHandling (Enum)   Possible Values: INHERIT
 INCLUDE_CHILDREN
-SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes   Legacy Id: de.cau.cs.kieler.hierarchyHandling    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
+SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
     </item>
     
     <item>
@@ -860,7 +860,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highdegreenodes-treeheight.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.treeHeight   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 5 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.highDegreeNode.treeHeight   Dependencies: org.eclipse.elk.layered.highDegreeNodes.treatment (true)   Containing Group: highDegreeNodes    Description Maximum height of a subtree connected to a high degree node to be moved to separate layers.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.treeHeight   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 5 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Dependencies: org.eclipse.elk.layered.highDegreeNodes.treatment (true)   Containing Group: highDegreeNodes    Description Maximum height of a subtree connected to a high degree node to be moved to separate layers.</description>
     </item>
     
     <item>
@@ -869,7 +869,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highdegreenodes-threshold.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.threshold   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 16 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.highDegreeNode.threshold   Dependencies: org.eclipse.elk.layered.highDegreeNodes.treatment (true)   Containing Group: highDegreeNodes    Description Whether a node is considered to have a high degree.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.threshold   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 16 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Dependencies: org.eclipse.elk.layered.highDegreeNodes.treatment (true)   Containing Group: highDegreeNodes    Description Whether a node is considered to have a high degree.</description>
     </item>
     
     <item>
@@ -878,7 +878,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highdegreenodes-treatment.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.treatment   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.highDegreeNode.treatment   Containing Group: highDegreeNodes    Description Makes room around high degree nodes to place leafs and trees.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.highDegreeNodes.treatment   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: highDegreeNodes    Description Makes room around high degree nodes to place leafs and trees.</description>
     </item>
     
     <item>
@@ -887,7 +887,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hypernode.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.hypernode   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.hypernode    Description Whether the node should be handled as a hypernode.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.hypernode   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes    Description Whether the node should be handled as a hypernode.</description>
     </item>
     
     <item>
@@ -941,7 +941,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideselfloops-yo.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.insideSelfLoops.yo   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: edges   Legacy Id: de.cau.cs.kieler.selfLoopInside   Containing Group: insideSelfLoops    Description Whether a self loop should be routed inside a node instead of around that node.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.insideSelfLoops.yo   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: edges   Containing Group: insideSelfLoops    Description Whether a self loop should be routed inside a node instead of around that node.</description>
     </item>
     
     <item>
@@ -960,7 +960,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-interactivereferencepoint.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.interactiveReferencePoint   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.InteractiveReferencePoint (Enum)   Possible Values: CENTER
-TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.interactiveReferencePoint   Dependencies: org.eclipse.elk.layered.cycleBreaking.strategy (CycleBreakingStrategy.INTERACTIVE), org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.INTERACTIVE)    Description Determines which point of a node is considered by interactive layout phases.</description>
+TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.cycleBreaking.strategy (CycleBreakingStrategy.INTERACTIVE), org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.INTERACTIVE)    Description Determines which point of a node is considered by interactive layout phases.</description>
     </item>
     
     <item>
@@ -996,7 +996,7 @@ TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.ec
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-junctionpoints.html</guid>
-      <description>Property Value     Type: output   Identifier: org.eclipse.elk.junctionPoints   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVectorChain   Default Value: new KVectorChain() (as defined in org.eclipse.elk)   Applies To: edges   Legacy Id: de.cau.cs.kieler.junctionPoints    Description This option is not used as option, but as output of the layout algorithms. It is attached to edges and determines the points where junction symbols should be drawn in order to represent hyperedges with orthogonal routing.</description>
+      <description>Property Value     Type: output   Identifier: org.eclipse.elk.junctionPoints   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVectorChain   Default Value: new KVectorChain() (as defined in org.eclipse.elk)   Applies To: edges    Description This option is not used as option, but as output of the layout algorithms. It is attached to edges and determines the points where junction symbols should be drawn in order to represent hyperedges with orthogonal routing.</description>
     </item>
     
     <item>
@@ -1041,7 +1041,7 @@ TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.ec
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelnode.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.spacing.labelNode   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 5 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Legacy Id: de.cau.cs.kieler.labelSpacing   Containing Group: spacing    Description Spacing to be preserved between labels and the border of node they are associated with.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.labelNode   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 5 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between labels and the border of node they are associated with. Note that the placement of a label is influenced by the &amp;lsquo;nodelabels.</description>
     </item>
     
     <item>
@@ -1059,7 +1059,7 @@ TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.ec
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labellabel.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.spacing.labelLabel   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 0 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Legacy Id: de.cau.cs.kieler.labelSpacing   Containing Group: spacing    Description Determines the amount of space to be left between two labels of the same graph element.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.labelLabel   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 0 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Determines the amount of space to be left between two labels of the same graph element.</description>
     </item>
     
     <item>
@@ -1090,7 +1090,7 @@ TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.ec
 FIRST
 FIRST_SEPARATE
 LAST
-LAST_SEPARATE   Default Value: LayerConstraint.NONE (as defined in org.eclipse.elk.layered)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.klay.layered.layerConstraint   Containing Group: layering    Description Determines a constraint on the placement of the node regarding the layering.</description>
+LAST_SEPARATE   Default Value: LayerConstraint.NONE (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: layering    Description Determines a constraint on the placement of the node regarding the layering.</description>
     </item>
     
     <item>
@@ -1126,7 +1126,7 @@ LAST_SEPARATE   Default Value: LayerConstraint.NONE (as defined in org.eclipse.e
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layoutancestors.html</guid>
-      <description>Property Value     Type: global   Identifier: org.eclipse.elk.layoutAncestors   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.layoutAncestors    Description Whether the hierarchy levels on the path from the selected element to the root of the diagram shall be included in the layout process.</description>
+      <description>Property Value     Type: global   Identifier: org.eclipse.elk.layoutAncestors   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents    Description Whether the hierarchy levels on the path from the selected element to the root of the diagram shall be included in the layout process.</description>
     </item>
     
     <item>
@@ -1164,7 +1164,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-partitioning-partition.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.partitioning.partition   Meta Data Provider: core.options.CoreOptions   Value Type: java.lang.Integer   Applies To: parents, nodes   Legacy Id: de.cau.cs.kieler.partition   Containing Group: partitioning    Description Partition to which the node belongs to. If &amp;lsquo;layoutPartitions&amp;rsquo; is true, a pair of nodes with different partition indices is placed such that the node with lower index is placed to the left of the other node (with left-to-right layout direction).</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.partitioning.partition   Meta Data Provider: core.options.CoreOptions   Value Type: java.lang.Integer   Applies To: parents, nodes   Containing Group: partitioning    Description Partition to which the node belongs to. If &amp;lsquo;layoutPartitions&amp;rsquo; is true, a pair of nodes with different partition indices is placed such that the node with lower index is placed to the left of the other node (with left-to-right layout direction).</description>
     </item>
     
     <item>
@@ -1173,7 +1173,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-partitioning-activate.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.partitioning.activate   Meta Data Provider: core.options.CoreOptions   Value Type: java.lang.Boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.layoutPartitions   Containing Group: partitioning    Description Whether to activate partitioned layout.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.partitioning.activate   Meta Data Provider: core.options.CoreOptions   Value Type: java.lang.Boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: partitioning    Description Whether to activate partitioned layout.</description>
     </item>
     
     <item>
@@ -1182,7 +1182,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-linearsegments-deflectiondampening.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.linearSegments.deflectionDampening   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.3 (as defined in org.eclipse.elk.layered)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.linearSegmentsDeflectionDampening   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.LINEAR_SEGMENTS)   Containing Group: nodePlacement -&amp;gt; linearSegments    Description Dampens the movement of nodes to keep the diagram from getting too large.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.linearSegments.deflectionDampening   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: double   Default Value: 0.3 (as defined in org.eclipse.elk.layered)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.LINEAR_SEGMENTS)   Containing Group: nodePlacement -&amp;gt; linearSegments    Description Dampens the movement of nodes to keep the diagram from getting too large.</description>
     </item>
     
     <item>
@@ -1218,7 +1218,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-margins.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.margins   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.ElkMargin   Default Value: new ElkMargin() (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.margins    Description Margins define additional space around the actual bounds of a graph element. For instance, ports or labels being placed on the outside of a node&amp;rsquo;s border might introduce such a margin.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.margins   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.ElkMargin   Default Value: new ElkMargin() (as defined in org.eclipse.elk)   Applies To: nodes    Description Margins define additional space around the actual bounds of a graph element. For instance, ports or labels being placed on the outside of a node&amp;rsquo;s border might introduce such a margin.</description>
     </item>
     
     <item>
@@ -1227,7 +1227,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodepromotion-maxiterations.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.nodePromotion.maxIterations   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 0 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.nodePromotionBoundary   Dependencies: org.eclipse.elk.layered.layering.nodePromotion.strategy   Containing Group: layering -&amp;gt; nodePromotion    Description Limits the number of iterations for node promotion.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.nodePromotion.maxIterations   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 0 (as defined in org.eclipse.elk.layered)   Lower Bound: 0   Applies To: parents   Dependencies: org.eclipse.elk.layered.layering.nodePromotion.strategy   Containing Group: layering -&amp;gt; nodePromotion    Description Limits the number of iterations for node promotion.</description>
     </item>
     
     <item>
@@ -1245,7 +1245,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-maxanimtime.html</guid>
-      <description>Property Value     Type: global   Identifier: org.eclipse.elk.maxAnimTime   Meta Data Provider: core.options.CoreOptions   Value Type: int   Default Value: 4000 (as defined in org.eclipse.elk)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.maxAnimTime    Description The maximal time for animations, in milliseconds.</description>
+      <description>Property Value     Type: global   Identifier: org.eclipse.elk.maxAnimTime   Meta Data Provider: core.options.CoreOptions   Value Type: int   Default Value: 4000 (as defined in org.eclipse.elk)   Lower Bound: 0   Applies To: parents    Description The maximal time for animations, in milliseconds.</description>
     </item>
     
     <item>
@@ -1254,7 +1254,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-mergeedges.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.mergeEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.mergeEdges    Description Edges that have no ports are merged so they touch the connected nodes at the same points. When this option is disabled, one port is created for each edge directly connected to a node.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.mergeEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Edges that have no ports are merged so they touch the connected nodes at the same points. When this option is disabled, one port is created for each edge directly connected to a node.</description>
     </item>
     
     <item>
@@ -1263,7 +1263,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-mergehierarchyedges.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.mergeHierarchyEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.mergeHierarchyEdges    Description If hierarchical layout is active, hierarchy-crossing edges use as few hierarchical ports as possible. They are broken by the algorithm, with hierarchical ports inserted as required.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.mergeHierarchyEdges   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: true (as defined in org.eclipse.elk.layered)   Applies To: parents    Description If hierarchical layout is active, hierarchy-crossing edges use as few hierarchical ports as possible. They are broken by the algorithm, with hierarchical ports inserted as required.</description>
     </item>
     
     <item>
@@ -1272,7 +1272,7 @@ Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minanimtime.html</guid>
-      <description>Property Value     Type: global   Identifier: org.eclipse.elk.minAnimTime   Meta Data Provider: core.options.CoreOptions   Value Type: int   Default Value: 400 (as defined in org.eclipse.elk)   Lower Bound: 0   Applies To: parents   Legacy Id: de.cau.cs.kieler.minAnimTime    Description The minimal time for animations, in milliseconds.</description>
+      <description>Property Value     Type: global   Identifier: org.eclipse.elk.minAnimTime   Meta Data Provider: core.options.CoreOptions   Value Type: int   Default Value: 400 (as defined in org.eclipse.elk)   Lower Bound: 0   Applies To: parents    Description The minimal time for animations, in milliseconds.</description>
     </item>
     
     <item>
@@ -1291,7 +1291,7 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nolayout.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.noLayout   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes, edges, ports, labels   Legacy Id: de.cau.cs.kieler.noLayout    Description No layout is done for the associated element. This is used to mark parts of a diagram to avoid their inclusion in the layout graph, or to mark parts of the layout graph to prevent layout engines from processing them.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.noLayout   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes, edges, ports, labels    Description No layout is done for the associated element. This is used to mark parts of a diagram to avoid their inclusion in the layout graph, or to mark parts of the layout graph to prevent layout engines from processing them.</description>
     </item>
     
     <item>
@@ -1324,7 +1324,7 @@ NODE_SIZE   Default Value: NodeFlexibility.NONE (as defined in org.eclipse.elk.l
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodelabels-padding.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.nodeLabels.padding   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.ElkPadding   Default Value: new ElkPadding(5) (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.nodeLabelInset   Containing Group: nodeLabels    Description Define padding for node labels that are placed inside of a node.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.nodeLabels.padding   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.ElkPadding   Default Value: new ElkPadding(5) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeLabels    Description Define padding for node labels that are placed inside of a node.</description>
     </item>
     
     <item>
@@ -1341,7 +1341,7 @@ V_CENTER
 V_BOTTOM
 INSIDE
 OUTSIDE
-H_PRIORITY   Default Value: NodeLabelPlacement.fixed() (as defined in org.eclipse.elk)   Applies To: nodes, labels   Legacy Id: de.cau.cs.kieler.nodeLabelPlacement   Containing Group: nodeLabels    Description Hints for where node labels are to be placed; if empty, the node label&amp;rsquo;s position is not modified.</description>
+H_PRIORITY   Default Value: NodeLabelPlacement.fixed() (as defined in org.eclipse.elk)   Applies To: nodes, labels   Containing Group: nodeLabels    Description Hints for where node labels are to be placed; if empty, the node label&amp;rsquo;s position is not modified.</description>
     </item>
     
     <item>
@@ -1355,7 +1355,7 @@ LONGEST_PATH
 COFFMAN_GRAHAM (@AdvancedPropertyValue)
 INTERACTIVE (@AdvancedPropertyValue)
 STRETCH_WIDTH (@ExperimentalPropertyValue)
-MIN_WIDTH (@ExperimentalPropertyValue)   Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.nodeLayering   Containing Group: layering    Description Strategy for node layering.</description>
+MIN_WIDTH (@ExperimentalPropertyValue)   Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: layering    Description Strategy for node layering.</description>
     </item>
     
     <item>
@@ -1377,7 +1377,7 @@ MIN_WIDTH (@ExperimentalPropertyValue)   Default Value: LayeringStrategy.NETWORK
 INTERACTIVE (@AdvancedPropertyValue)
 LINEAR_SEGMENTS
 BRANDES_KOEPF
-NETWORK_SIMPLEX   Default Value: NodePlacementStrategy.BRANDES_KOEPF (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.nodePlace   Containing Group: nodePlacement    Description Strategy for node placement.</description>
+NETWORK_SIMPLEX   Default Value: NodePlacementStrategy.BRANDES_KOEPF (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: nodePlacement    Description Strategy for node placement.</description>
     </item>
     
     <item>
@@ -1393,7 +1393,7 @@ NIKOLOV_IMPROVED (@AdvancedPropertyValue)
 NIKOLOV_IMPROVED_PIXEL (@AdvancedPropertyValue)
 DUMMYNODE_PERCENTAGE (@AdvancedPropertyValue)
 NODECOUNT_PERCENTAGE (@AdvancedPropertyValue)
-NO_BOUNDARY (@AdvancedPropertyValue)   Default Value: NodePromotionStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.nodePromotion   Containing Group: layering -&amp;gt; nodePromotion    Description Reduces number of dummy nodes after layering phase (if possible).</description>
+NO_BOUNDARY (@AdvancedPropertyValue)   Default Value: NodePromotionStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: layering -&amp;gt; nodePromotion    Description Reduces number of dummy nodes after layering phase (if possible).</description>
     </item>
     
     <item>
@@ -1449,7 +1449,7 @@ ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodenode.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.spacing.nodeNode   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 20 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Legacy Id: de.cau.cs.kieler.spacing   Containing Group: spacing    Description The minimal distance to be preserved between each two nodes.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.nodeNode   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 20 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description The minimal distance to be preserved between each two nodes.</description>
     </item>
     
     <item>
@@ -1458,7 +1458,7 @@ ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-northorsouthport.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.northOrSouthPort   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: ports   Legacy Id: de.cau.cs.kieler.klay.layered.northOrSouthPort    Description Specifies that this port can either be placed on the north side of a node or on the south side (if port constraints permit)</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.northOrSouthPort   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: ports    Description Specifies that this port can either be placed on the north side of a node or on the south side (if port constraints permit)</description>
     </item>
     
     <item>
@@ -1568,7 +1568,7 @@ COMBINE_JITTER_MANHATTAN   Default Value: TraversalStrategy.QUADRANTS_LINE_BY_LI
 JUSTIFIED
 BEGIN
 CENTER
-END   Default Value: PortAlignment.DISTRIBUTED (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment   Containing Group: portAlignment    Description Defines the default port distribution for a node. May be overridden for each side individually.</description>
+END   Default Value: PortAlignment.DISTRIBUTED (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portAlignment    Description Defines the default port distribution for a node. May be overridden for each side individually.</description>
     </item>
     
     <item>
@@ -1581,7 +1581,7 @@ END   Default Value: PortAlignment.DISTRIBUTED (as defined in org.eclipse.elk)  
 JUSTIFIED
 BEGIN
 CENTER
-END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.east   Containing Group: portAlignment    Description Defines how ports on the eastern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
+END   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the eastern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
     </item>
     
     <item>
@@ -1594,7 +1594,7 @@ END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.east   Conta
 JUSTIFIED
 BEGIN
 CENTER
-END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.north   Containing Group: portAlignment    Description Defines how ports on the northern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
+END   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the northern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
     </item>
     
     <item>
@@ -1607,7 +1607,7 @@ END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.north   Cont
 JUSTIFIED
 BEGIN
 CENTER
-END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.south   Containing Group: portAlignment    Description Defines how ports on the southern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
+END   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the southern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
     </item>
     
     <item>
@@ -1620,7 +1620,7 @@ END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.south   Cont
 JUSTIFIED
 BEGIN
 CENTER
-END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.west   Containing Group: portAlignment    Description Defines how ports on the western side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
+END   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the western side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
     </item>
     
     <item>
@@ -1629,7 +1629,7 @@ END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.west   Conta
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-anchor.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.port.anchor   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVector   Applies To: ports   Legacy Id: de.cau.cs.kieler.portAnchor   Containing Group: port    Description The offset to the port position where connections shall be attached.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.port.anchor   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVector   Applies To: ports   Containing Group: port    Description The offset to the port position where connections shall be attached.</description>
     </item>
     
     <item>
@@ -1638,7 +1638,7 @@ END   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portAlignment.west   Conta
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-borderoffset.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.port.borderOffset   Meta Data Provider: core.options.CoreOptions   Value Type: double   Applies To: ports   Legacy Id: de.cau.cs.kieler.offset   Containing Group: port    Description The offset of ports on the node border. With a positive offset the port is moved outside of the node, while with a negative offset the port is moved towards the inside.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.port.borderOffset   Meta Data Provider: core.options.CoreOptions   Value Type: double   Applies To: ports   Containing Group: port    Description The offset of ports on the node border. With a positive offset the port is moved outside of the node, while with a negative offset the port is moved towards the inside. An offset of 0 means that the port is placed directly on the node border, i.</description>
     </item>
     
     <item>
@@ -1652,7 +1652,7 @@ FREE
 FIXED_SIDE
 FIXED_ORDER
 FIXED_RATIO
-FIXED_POS   Default Value: PortConstraints.UNDEFINED (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portConstraints    Description Defines constraints of the position of the ports of a node.</description>
+FIXED_POS   Default Value: PortConstraints.UNDEFINED (as defined in org.eclipse.elk)   Applies To: nodes    Description Defines constraints of the position of the ports of a node.</description>
     </item>
     
     <item>
@@ -1661,7 +1661,7 @@ FIXED_POS   Default Value: PortConstraints.UNDEFINED (as defined in org.eclipse.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-index2.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.port.index   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: ports   Legacy Id: de.cau.cs.kieler.portIndex   Containing Group: port    Description The index of a port in the fixed order around a node. The order is assumed as clockwise, starting with the leftmost port on the top side.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.port.index   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: ports   Containing Group: port    Description The index of a port in the fixed order around a node. The order is assumed as clockwise, starting with the leftmost port on the top side. This option must be set if &amp;lsquo;Port Constraints&amp;rsquo; is set to FIXED_ORDER and no specific positions are given for the ports.</description>
     </item>
     
     <item>
@@ -1672,7 +1672,7 @@ FIXED_POS   Default Value: PortConstraints.UNDEFINED (as defined in org.eclipse.
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portlabels-placement.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.portLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortLabelPlacement (Enum)   Possible Values: OUTSIDE
 INSIDE
-FIXED   Default Value: PortLabelPlacement.OUTSIDE (as defined in org.eclipse.elk)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.portLabelPlacement   Containing Group: portLabels    Description Decides on a placement method for port labels.</description>
+FIXED   Default Value: PortLabelPlacement.OUTSIDE (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portLabels    Description Decides on a placement method for port labels.</description>
     </item>
     
     <item>
@@ -1710,7 +1710,7 @@ SIDES_NORTH_EAST_WEST
 SIDES_EAST_SOUTH_WEST
 SIDES_NORTH_SOUTH_WEST
 SIDES_NORTH_EAST_SOUTH
-SIDES_NORTH_EAST_SOUTH_WEST   Default Value: PortSide.UNDEFINED (as defined in org.eclipse.elk)   Applies To: ports   Legacy Id: de.cau.cs.kieler.portSide   Containing Group: port    Description The side of a node on which a port is situated.</description>
+SIDES_NORTH_EAST_SOUTH_WEST   Default Value: PortSide.UNDEFINED (as defined in org.eclipse.elk)   Applies To: ports   Containing Group: port    Description The side of a node on which a port is situated.</description>
     </item>
     
     <item>
@@ -1729,7 +1729,7 @@ PORT_DEGREE   Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portport.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.spacing.portPort   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents, nodes   Legacy Id: de.cau.cs.kieler.portSpacing   Containing Group: spacing    Description Spacing between pairs of ports of the same node.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.portPort   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents, nodes   Containing Group: spacing    Description Spacing between pairs of ports of the same node.</description>
     </item>
     
     <item>
@@ -1738,7 +1738,7 @@ PORT_DEGREE   Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-position.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.position   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVector   Applies To: nodes, ports, labels   Legacy Id: de.cau.cs.kieler.position    Description The position of a node, port, or label. This is used by the &amp;lsquo;Fixed Layout&amp;rsquo; algorithm to specify a pre-defined position.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.position   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.KVector   Applies To: nodes, ports, labels    Description The position of a node, port, or label. This is used by the &amp;lsquo;Fixed Layout&amp;rsquo; algorithm to specify a pre-defined position.</description>
     </item>
     
     <item>
@@ -1766,7 +1766,7 @@ PORT_DEGREE   Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postcompaction-constraints.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.postCompaction.constraints   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ConstraintCalculationStrategy (Enum)   Possible Values: QUADRATIC
-SCANLINE   Default Value: ConstraintCalculationStrategy.SCANLINE (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.postCompaction.constraints   Containing Group: compaction -&amp;gt; postCompaction    Description Specifies whether and how post-process compaction is applied.</description>
+SCANLINE   Default Value: ConstraintCalculationStrategy.SCANLINE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: compaction -&amp;gt; postCompaction    Description Specifies whether and how post-process compaction is applied.</description>
     </item>
     
     <item>
@@ -1780,7 +1780,7 @@ LEFT
 RIGHT
 LEFT_RIGHT_CONSTRAINT_LOCKING
 LEFT_RIGHT_CONNECTION_LOCKING
-EDGE_LENGTH   Default Value: GraphCompactionStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.postCompaction   Containing Group: compaction -&amp;gt; postCompaction    Description Specifies whether and how post-process compaction is applied.</description>
+EDGE_LENGTH   Default Value: GraphCompactionStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: compaction -&amp;gt; postCompaction    Description Specifies whether and how post-process compaction is applied.</description>
     </item>
     
     <item>
@@ -1789,7 +1789,7 @@ EDGE_LENGTH   Default Value: GraphCompactionStrategy.NONE (as defined in org.ecl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.</description>
     </item>
     
     <item>
@@ -1798,7 +1798,7 @@ EDGE_LENGTH   Default Value: GraphCompactionStrategy.NONE (as defined in org.ecl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
 Additional Documentation Priorities set on nodes determine the order in which they are placed: boxes with a higher priority will end up before boxes with a lower priority.</description>
     </item>
     
@@ -1808,7 +1808,7 @@ Additional Documentation Priorities set on nodes determine the order in which th
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-force.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
 Additional Documentation Priorities set on nodes determine the order in which connected components are placed: components with a higher sum of node priorities will end up before components with a lower sum.</description>
     </item>
     
@@ -1818,7 +1818,7 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-layered.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
 Additional Documentation Used by the &amp;lsquo;simple row graph placer&amp;rsquo; to decide which connected components to place first.</description>
     </item>
     
@@ -1828,7 +1828,7 @@ Additional Documentation Used by the &amp;lsquo;simple row graph placer&amp;rsqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-mrtree.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges   Legacy Id: de.cau.cs.kieler.priority    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.priority   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: nodes, edges    Description Defines the priority of an object; its meaning depends on the specific layout algorithm and the context where it is used.
 Additional Documentation Priorities set on nodes determine the order in which connected components are placed: components with a higher sum of node priorities will end up before components with a lower sum.</description>
     </item>
     
@@ -1838,7 +1838,7 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-progressbar.html</guid>
-      <description>Property Value     Type: global   Identifier: org.eclipse.elk.progressBar   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.progressBar    Description Whether a progress bar shall be displayed during layout computations.</description>
+      <description>Property Value     Type: global   Identifier: org.eclipse.elk.progressBar   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents    Description Whether a progress bar shall be displayed during layout computations.</description>
     </item>
     
     <item>
@@ -1856,7 +1856,7 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-randomseed.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.randomSeed   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: parents   Legacy Id: de.cau.cs.kieler.randomSeed    Description Seed used for pseudo-random number generators to control the layout algorithm. If the value is 0, the seed shall be determined pseudo-randomly (e.g. from the system time).</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.randomSeed   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: parents    Description Seed used for pseudo-random number generators to control the layout algorithm. If the value is 0, the seed shall be determined pseudo-randomly (e.g. from the system time).</description>
     </item>
     
     <item>
@@ -1921,7 +1921,7 @@ CENTER_NODE   Default Value: RootSelection.CENTER_NODE (as defined in org.eclips
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-scalefactor.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.scaleFactor   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 1 (as defined in org.eclipse.elk)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: nodes   Legacy Id: de.cau.cs.kieler.scaleFactor    Description The scaling factor to be applied to the corresponding node in recursive layout. It causes the corresponding node&amp;rsquo;s size to be adjusted, and its ports and labels to be sized and placed accordingly after the layout of that node has been determined (and before the node itself and its siblings are arranged).</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.scaleFactor   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 1 (as defined in org.eclipse.elk)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: nodes    Description The scaling factor to be applied to the corresponding node in recursive layout. It causes the corresponding node&amp;rsquo;s size to be adjusted, and its ports and labels to be sized and placed accordingly after the layout of that node has been determined (and before the node itself and its siblings are arranged).</description>
     </item>
     
     <item>
@@ -1970,7 +1970,7 @@ SEQUENCED   Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.e
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateconnectedcomponents.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.separateConnectedComponents   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Applies To: parents   Legacy Id: de.cau.cs.kieler.separateConnComp    Description Whether each connected component should be processed separately.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.separateConnectedComponents   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Applies To: parents    Description Whether each connected component should be processed separately.</description>
     </item>
     
     <item>
@@ -2073,7 +2073,7 @@ SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-thoroughness.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.thoroughness   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 7 (as defined in org.eclipse.elk.layered)   Lower Bound: 1   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.thoroughness    Description How much effort should be spent to produce a nice layout.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.thoroughness   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 7 (as defined in org.eclipse.elk.layered)   Lower Bound: 1   Applies To: parents    Description How much effort should be spent to produce a nice layout.</description>
     </item>
     
     <item>
@@ -2132,7 +2132,7 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minwidth-upperboundonwidth.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.minWidth.upperBoundOnWidth   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 4 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.minWidthUpperBoundOnWidth   Dependencies: org.eclipse.elk.layered.layering.strategy (LayeringStrategy.MIN_WIDTH)   Containing Group: layering -&amp;gt; minWidth    Description Defines a loose upper bound on the width of the MinWidth layerer.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.minWidth.upperBoundOnWidth   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 4 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: parents   Dependencies: org.eclipse.elk.layered.layering.strategy (LayeringStrategy.MIN_WIDTH)   Containing Group: layering -&amp;gt; minWidth    Description Defines a loose upper bound on the width of the MinWidth layerer.</description>
     </item>
     
     <item>
@@ -2141,7 +2141,7 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minwidth-upperlayerestimationscalingfactor.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.minWidth.upperLayerEstimationScalingFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 2 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: parents   Legacy Id: de.cau.cs.kieler.klay.layered.minWidthUpperLayerEstimationScalingFactor   Dependencies: org.eclipse.elk.layered.layering.strategy (LayeringStrategy.MIN_WIDTH)   Containing Group: layering -&amp;gt; minWidth    Description Multiplied with Upper Bound On Width for defining an upper bound on the width of layers which haven&amp;rsquo;t been determined yet, but whose maximum width had been (roughly) estimated by the MinWidth algorithm.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.minWidth.upperLayerEstimationScalingFactor   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: 2 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: parents   Dependencies: org.eclipse.elk.layered.layering.strategy (LayeringStrategy.MIN_WIDTH)   Containing Group: layering -&amp;gt; minWidth    Description Multiplied with Upper Bound On Width for defining an upper bound on the width of layers which haven&amp;rsquo;t been determined yet, but whose maximum width had been (roughly) estimated by the MinWidth algorithm.</description>
     </item>
     
     <item>
@@ -2216,7 +2216,7 @@ FAN   Default Value: OrderWeighting.DESCENDANTS (as defined in org.eclipse.elk.m
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-zoomtofit.html</guid>
-      <description>Property Value     Type: global   Identifier: org.eclipse.elk.zoomToFit   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Legacy Id: de.cau.cs.kieler.zoomToFit    Description Whether the zoom level shall be set to view the whole diagram after layout.</description>
+      <description>Property Value     Type: global   Identifier: org.eclipse.elk.zoomToFit   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents    Description Whether the zoom level shall be set to view the whole diagram after layout.</description>
     </item>
     
     <item>

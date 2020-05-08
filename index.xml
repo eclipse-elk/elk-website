@@ -1818,7 +1818,7 @@ ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationgoal.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.optimizationGoal   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.rectpacking.util.OptimizationGoal (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.optimizationGoal   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.rectpacking.options.OptimizationGoal (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
 MAX_SCALE_DRIVEN
 AREA_DRIVEN   Default Value: OptimizationGoal.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Optimization goal for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area.</description>
     </item>
@@ -2436,6 +2436,15 @@ SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html</guid>
       <description>Often enough, algorithms can be divided into a number of layout phases which, executed as a pipeline, compute a layout. If your algorithm falls into this category, read on; ELK provides things you might want to use.
 Layout Phases and Layout Processors Structuring the algorithm into phases has several advantages. First, it effectively divides the big layout problem into simpler sub problems. Second, it allows the algorithm to be more flexible.</description>
+    </item>
+    
+    <item>
+      <title>Target Width</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-targetwidth.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-targetwidth.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.targetWidth   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: double   Default Value: -1 (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Option to place the rectangles in the given target width instead of approximating the width using the desired aspect ratio.</description>
     </item>
     
     <item>

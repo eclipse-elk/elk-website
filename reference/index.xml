@@ -1476,7 +1476,7 @@ ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationgoal.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.optimizationGoal   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.rectpacking.util.OptimizationGoal (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.optimizationGoal   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.rectpacking.options.OptimizationGoal (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
 MAX_SCALE_DRIVEN
 AREA_DRIVEN   Default Value: OptimizationGoal.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Optimization goal for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area.</description>
     </item>
@@ -2065,6 +2065,15 @@ SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-structure-structureextractionstrategy.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.structure.structureExtractionStrategy   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.StructureExtractionStrategy (Enum)   Possible Values: DELAUNAY_TRIANGULATION   Default Value: StructureExtractionStrategy.DELAUNAY_TRIANGULATION (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: structure    Description This option defines what kind of triangulation or other partitioning of the plane is applied to the vertices.</description>
+    </item>
+    
+    <item>
+      <title>Target Width</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-targetwidth.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-targetwidth.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.targetWidth   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: double   Default Value: -1 (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Option to place the rectangles in the given target width instead of approximating the width using the desired aspect ratio.</description>
     </item>
     
     <item>

@@ -146,6 +146,15 @@ true
 
 <p>That is the reason why the first example above does not use <code>CoreOptions.DEBUG_MODE</code> to retrieve the property value, but <code>MyAlgorithmOptions.DEBUG_MODE</code> (where <code>MyAlgorithmOptions</code> is the metadata class generated for your layout algorithm).</p>
 
+<h3 id="checking-for-the-presence-of-property-values">Checking for the Presence of Property Values</h3>
+
+<p>We can always call <code>getProperty(...)</code> on a graph element and get a (more or less) sensible result, but we may not be able to distinguish a default value from a value explicitly set on that element. If we need to, we can check whether a property was explicitly set through <code>hasProperty(...)</code>:</p>
+
+<pre><code class="language-java">if (propertyHolder.hasProperty(MyAlgorithmOptions.OPTIONAL_GIZMO)) {
+    Gizmo g = propertyHolder.getProperty(MyAlgorithmOptions.OPTIONAL_GIZMO);
+}
+</code></pre>
+
 <h2 id="defining-properties">Defining Properties</h2>
 
 <p>Most of the time, algorithm developers do not have to worry about declaring their own <code>IProperty</code> objects. The options officially supported by a layout algorithm constitute a part of the algorithm&rsquo;s interface and metadata and are thus declared in the algorithm&rsquo;s <a href="../../../documentation/algorithmdevelopers/metadatalanguage.html">metadata file</a>. The ELK SDK automatically generates the required <code>IProperty</code> instances.</p>

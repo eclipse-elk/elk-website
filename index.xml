@@ -324,7 +324,7 @@ BALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.lay
       
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.box   Meta Data Provider: core.options.CoreOptions    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges.
-Supported Options    Option Default Value     Aspect Ratio 1.3f   Box Layout Mode BoxLayoutProvider.PackingMode.SIMPLE   Content Alignment ContentAlignment.topCenter()   Expand Nodes false   Interactive false   Node Size Constraints EnumSet.</description>
+Supported Options    Option Default Value     Aspect Ratio 1.3f   Box Layout Mode BoxLayoutProvider.PackingMode.SIMPLE   Content Alignment ContentAlignment.topLeft()   Expand Nodes false   Interactive false   Node Size Constraints EnumSet.</description>
     </item>
     
     <item>

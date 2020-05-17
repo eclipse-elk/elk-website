@@ -318,16 +318,6 @@ BALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.lay
     </item>
     
     <item>
-      <title>Box Layout</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.box   Meta Data Provider: core.options.CoreOptions    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges.
-Supported Options    Option Default Value     Aspect Ratio 1.3f   Box Layout Mode BoxLayoutProvider.PackingMode.SIMPLE   Content Alignment ContentAlignment.topLeft()   Expand Nodes false   Interactive false   Node Size Constraints EnumSet.</description>
-    </item>
-    
-    <item>
       <title>Box Layout Mode</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingmode.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -347,15 +337,6 @@ GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in o
       <guid>https://www.eclipse.org/elk/documentation/contributors/buildingelk.html</guid>
       <description>ELK is built using Apache Maven in conjunction with Tycho to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the build/ directory inside your clone of the ELK repository.
 Building ELK Execute Maven using the following command line (note that the command line is split in order to improve readability):</description>
-    </item>
-    
-    <item>
-      <title>Circo</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.graphviz.circo   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Circular layout, after Six and Tollis &amp;lsquo;99, Kaufmann and Wiese &amp;lsquo;02. The algorithm finds biconnected components and arranges each component in a circle, trying to minimize the number of crossings inside the circle. This is suitable for certain diagrams of multiple cyclic structures such as certain telecommunications networks.</description>
     </item>
     
     <item>
@@ -683,15 +664,6 @@ SUBSET   Default Value: NeatoModel.SHORTPATH (as defined in org.eclipse.elk.grap
     </item>
     
     <item>
-      <title>Dot</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-dot.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-dot.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.graphviz.dot   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Layered drawings of directed graphs. The algorithm aims edges in the same direction (top to bottom, or left to right) and then attempts to avoid edge crossings and reduce edge length. Edges are routed as spline curves and are thus drawn very smoothly. This algorithm is very suitable for state machine and activity diagrams, where the direction of edges has an important role.</description>
-    </item>
-    
-    <item>
       <title>Draw2D Layout</title>
       <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-conn-gmf-layouter-draw2d.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -699,6 +671,16 @@ SUBSET   Default Value: NeatoModel.SHORTPATH (as defined in org.eclipse.elk.grap
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-conn-gmf-layouter-draw2d.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.conn.gmf.layouter.Draw2D   Meta Data Provider: GmfMetaDataProvider    Description &amp;lsquo;Directed Graph Layout&amp;rsquo; provided by the Draw2D framework. This is the same algorithm that is used by the standard layout button of GMF diagrams.
 Category: Layered The layer-based method was introduced by Sugiyama, Tagawa and Toda in 1981. It emphasizes the direction of edges by pointing as many edges as possible into the same direction.</description>
+    </item>
+    
+    <item>
+      <title>ELK Box</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.box   Meta Data Provider: core.options.CoreOptions    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges.
+Supported Options    Option Default Value     Aspect Ratio 1.3f   Box Layout Mode BoxLayoutProvider.PackingMode.SIMPLE   Content Alignment ContentAlignment.topLeft()   Expand Nodes false   Interactive false   Node Size Constraints EnumSet.</description>
     </item>
     
     <item>
@@ -721,6 +703,16 @@ Category: Layered The layer-based method was introduced by Sugiyama, Tagawa and 
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-disco.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.disco   Meta Data Provider: options.DisCoMetaDataProvider    Description Layouter for arranging unconnected subgraphs. The subgraphs themselves are, by default, not laid out.
 Supported Options    Option Default Value     Aspect Ratio &amp;lt;not defined&amp;gt;   Components Spacing 20f   Connected Components Compaction Strategy CompactionStrategy.POLYOMINO   Connected Components Layout Algorithm &amp;lt;not defined&amp;gt;   DCGraph &amp;lt;not defined&amp;gt;   Edge Thickness 1   Fill Polyominoes true   List of Polyominoes &amp;lt;not defined&amp;gt;   Padding new ElkPadding(12)   Polyomino Primary Sorting Criterion HighLevelSortingCriterion.</description>
+    </item>
+    
+    <item>
+      <title>ELK Fixed</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.fixed   Meta Data Provider: core.options.CoreOptions    Description Keeps the current layout as it is, without any automatic modification. Optional coordinates can be given for nodes and edge bend points.
+Supported Options    Option Default Value     Bend Points &amp;lt;not defined&amp;gt;   Fixed Graph Size false   Node Size Constraints EnumSet.</description>
     </item>
     
     <item>
@@ -769,6 +761,25 @@ Category: Tree Specialized layout methods for trees, i.e. acyclic graphs. The re
       
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-radial.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.radial   Meta Data Provider: options.RadialMetaDataProvider    Description A radial layout provider which is based on the algorithm of Peter Eades published in &amp;ldquo;Drawing free trees.&amp;rdquo;, published by International Institute for Advanced Study of Social Information Science, Fujitsu Limited in 1991. The radial layouter takes a tree and places the nodes in radial order around the root.</description>
+    </item>
+    
+    <item>
+      <title>ELK Randomizer</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-random.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-random.html</guid>
+      <description>     Property Value     Identifier: org.eclipse.elk.random   Meta Data Provider: core.options.CoreOptions    Description Distributes the nodes randomly on the plane, leading to very obfuscating layouts. Can be useful to demonstrate the power of &amp;ldquo;real&amp;rdquo; layout algorithms.
+Supported Options    Option Default Value     Aspect Ratio 1.6f   Node Spacing 15   Padding new ElkPadding(15)   Randomization Seed 0    </description>
+    </item>
+    
+    <item>
+      <title>ELK Rectangle Packing</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.rectpacking   Meta Data Provider: options.RectPackingMetaDataProvider    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges. The given order of the boxes is always preserved and the main reading direction of the boxes is left to right. The algorithm is divided into two phases. One phase approximates the width in which the rectangles can be placed.</description>
     </item>
     
     <item>
@@ -959,16 +970,6 @@ DEPENDENCY   Default Value: EdgeType.NONE (as defined in org.eclipse.elk)   Appl
     </item>
     
     <item>
-      <title>FDP</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-fdp.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-fdp.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.graphviz.fdp   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Spring model layouts similar to those of Neato, but does this by reducing forces rather than working with energy. Fdp implements the Fruchterman-Reingold heuristic including a multigrid solver that handles larger graphs and clustered undirected graphs.
-Category: Force Layout algorithms that follow physical analogies by simulating a system of attractive and repulsive forces.</description>
-    </item>
-    
-    <item>
       <title>FR Temperature</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-temperature.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1020,16 +1021,6 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodesize-fixedgraphsize.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.nodeSize.fixedGraphSize   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: nodeSize    Description By default, the fixed layout provider will enlarge a graph until it is large enough to contain its children. If this option is set, it won&amp;rsquo;t do so.</description>
-    </item>
-    
-    <item>
-      <title>Fixed Layout</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.fixed   Meta Data Provider: core.options.CoreOptions    Description Keeps the current layout as it is, without any automatic modification. Optional coordinates can be given for nodes and edge bend points.
-Supported Options    Option Default Value     Bend Points &amp;lt;not defined&amp;gt;   Fixed Graph Size false   Node Size Constraints EnumSet.</description>
     </item>
     
     <item>
@@ -1102,6 +1093,54 @@ MULTI_EDGE   Default Value: WrappingStrategy.OFF (as defined in org.eclipse.elk.
     </item>
     
     <item>
+      <title>Graphviz Circo</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.graphviz.circo   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Circular layout, after Six and Tollis &amp;lsquo;99, Kaufmann and Wiese &amp;lsquo;02. The algorithm finds biconnected components and arranges each component in a circle, trying to minimize the number of crossings inside the circle. This is suitable for certain diagrams of multiple cyclic structures such as certain telecommunications networks.</description>
+    </item>
+    
+    <item>
+      <title>Graphviz Dot</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-dot.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-dot.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.graphviz.dot   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Layered drawings of directed graphs. The algorithm aims edges in the same direction (top to bottom, or left to right) and then attempts to avoid edge crossings and reduce edge length. Edges are routed as spline curves and are thus drawn very smoothly. This algorithm is very suitable for state machine and activity diagrams, where the direction of edges has an important role.</description>
+    </item>
+    
+    <item>
+      <title>Graphviz FDP</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-fdp.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-fdp.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.graphviz.fdp   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Spring model layouts similar to those of Neato, but does this by reducing forces rather than working with energy. Fdp implements the Fruchterman-Reingold heuristic including a multigrid solver that handles larger graphs and clustered undirected graphs.
+Category: Force Layout algorithms that follow physical analogies by simulating a system of attractive and repulsive forces.</description>
+    </item>
+    
+    <item>
+      <title>Graphviz Neato</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-neato.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-neato.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.graphviz.neato   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Spring model layouts. Neato attempts to minimize a global energy function, which is equivalent to statistical multi-dimensional scaling. The solution is achieved using stress majorization, though the older Kamada-Kawai algorithm, using steepest descent, is also available.
+Category: Force Layout algorithms that follow physical analogies by simulating a system of attractive and repulsive forces.</description>
+    </item>
+    
+    <item>
+      <title>Graphviz Twopi</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.graphviz.twopi   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Radial layouts, after Wills &amp;lsquo;97. The nodes are placed on concentric circles depending on their distance from a given root node. The algorithm is designed to handle not only small graphs, but also very large ones.
+Category: Radial Radial layout algorithms usually position the nodes of the graph on concentric circles.</description>
+    </item>
+    
+    <item>
       <title>Greedy Switch Activation Threshold</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitch-activationthreshold.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1142,7 +1181,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
     </item>
     
     <item>
-      <title>Hierarchy Handling (Dot)</title>
+      <title>Hierarchy Handling (Graphviz Dot)</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyhandling_org-eclipse-elk-graphviz-dot.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1615,16 +1654,6 @@ It is a fair question whether users should be given access to this view or not.<
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minanimtime.html</guid>
       <description>Property Value     Type: global   Identifier: org.eclipse.elk.minAnimTime   Meta Data Provider: core.options.CoreOptions   Value Type: int   Default Value: 400 (as defined in org.eclipse.elk)   Lower Bound: 0   Applies To: parents    Description The minimal time for animations, in milliseconds.</description>
-    </item>
-    
-    <item>
-      <title>Neato</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-neato.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-neato.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.graphviz.neato   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Spring model layouts. Neato attempts to minimize a global energy function, which is equivalent to statistical multi-dimensional scaling. The solution is achieved using stress majorization, though the older Kamada-Kawai algorithm, using steepest descent, is also available.
-Category: Force Layout algorithms that follow physical analogies by simulating a system of attractive and repulsive forces.</description>
     </item>
     
     <item>
@@ -2119,7 +2148,7 @@ EDGE_LENGTH   Default Value: GraphCompactionStrategy.NONE (as defined in org.ecl
     </item>
     
     <item>
-      <title>Priority (Box Layout)</title>
+      <title>Priority (ELK Box)</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -2193,25 +2222,6 @@ To get started, create a file with the file ending .elkr. Now Eclipse will offer
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-randomseed.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.randomSeed   Meta Data Provider: core.options.CoreOptions   Value Type: int   Applies To: parents    Description Seed used for pseudo-random number generators to control the layout algorithm. If the value is 0, the seed shall be determined pseudo-randomly (e.g. from the system time).</description>
-    </item>
-    
-    <item>
-      <title>Randomizer</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-random.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-random.html</guid>
-      <description>     Property Value     Identifier: org.eclipse.elk.random   Meta Data Provider: core.options.CoreOptions    Description Distributes the nodes randomly on the plane, leading to very obfuscating layouts. Can be useful to demonstrate the power of &amp;ldquo;real&amp;rdquo; layout algorithms.
-Supported Options    Option Default Value     Aspect Ratio 1.6f   Node Spacing 15   Padding new ElkPadding(15)   Randomization Seed 0    </description>
-    </item>
-    
-    <item>
-      <title>Rectangle Packing</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.rectpacking   Meta Data Provider: options.RectPackingMetaDataProvider    Description Algorithm for packing of unconnected boxes, i.e. graphs without edges. The given order of the boxes is always preserved and the main reading direction of the boxes is left to right. The algorithm is divided into two phases. One phase approximates the width in which the rectangles can be placed.</description>
     </item>
     
     <item>
@@ -2479,16 +2489,6 @@ CROSSING_MINIMIZATION_BY_POSITION   Default Value: RadialTranslationStrategy.NON
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-treeconstruction.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.treeConstruction   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.TreeConstructionStrategy (Enum)   Possible Values: MINIMUM_SPANNING_TREE
 MAXIMUM_SPANNING_TREE   Default Value: TreeConstructionStrategy.MINIMUM_SPANNING_TREE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description Whether a minimum spanning tree or a maximum spanning tree should be constructed.</description>
-    </item>
-    
-    <item>
-      <title>Twopi</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.graphviz.twopi   Meta Data Provider: layouter.GraphvizMetaDataProvider    Description Radial layouts, after Wills &amp;lsquo;97. The nodes are placed on concentric circles depending on their distance from a given root node. The algorithm is designed to handle not only small graphs, but also very large ones.
-Category: Radial Radial layout algorithms usually position the nodes of the graph on concentric circles.</description>
     </item>
     
     <item>

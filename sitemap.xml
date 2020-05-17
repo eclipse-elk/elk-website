@@ -127,10 +127,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingmode.html</loc>
   </url>
   
@@ -141,10 +137,6 @@
   <url>
     <loc>https://www.eclipse.org/elk/categories.html</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</loc>
   </url>
   
   <url>
@@ -280,10 +272,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-dot.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/downloads.html</loc>
   </url>
   
@@ -292,11 +280,19 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/documentation/contributors.html</loc>
   </url>
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-disco.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html</loc>
   </url>
   
   <url>
@@ -317,6 +313,14 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-radial.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-random.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html</loc>
   </url>
   
   <url>
@@ -396,10 +400,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-fdp.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-temperature.html</loc>
   </url>
   
@@ -421,10 +421,6 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodesize-fixedgraphsize.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-fixed.html</loc>
   </url>
   
   <url>
@@ -457,6 +453,26 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-strategy.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-circo.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-dot.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-fdp.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-neato.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</loc>
   </url>
   
   <url>
@@ -680,10 +696,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-neato.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nolayout.html</loc>
   </url>
   
@@ -892,14 +904,6 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-random.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html</loc>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/elk/reference.html</loc>
   </url>
   
@@ -1022,10 +1026,6 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingorder-treeconstruction.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-graphviz-twopi.html</loc>
   </url>
   
   <url>

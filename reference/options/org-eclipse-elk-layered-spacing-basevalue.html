@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>wrapping.singleEdge (ELK)</title>
+    <title>Spacing Base Value (ELK)</title>
 
     
     
@@ -71,9 +71,11 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>wrapping.singleEdge</h1>
+    <h1>Spacing Base Value</h1>
 
-    <table>
+    
+
+<table>
 <thead>
 <tr>
 <th>Property</th>
@@ -84,10 +86,39 @@
 <tbody>
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.wrapping.singleEdge</code></td>
+<td><code>org.eclipse.elk.layered.spacing.baseValue</code></td>
+</tr>
+
+<tr>
+<td><em>Meta Data Provider:</em></td>
+<td><code>options.LayeredMetaDataProvider</code></td>
+</tr>
+
+<tr>
+<td><em>Value Type:</em></td>
+<td><code>double</code></td>
+</tr>
+
+<tr>
+<td><em>Lower Bound:</em></td>
+<td><code>0.0</code></td>
+</tr>
+
+<tr>
+<td><em>Applies To:</em></td>
+<td>parents</td>
+</tr>
+
+<tr>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-layered-spacing.html">spacing</a></td>
 </tr>
 </tbody>
 </table>
+
+<h3 id="description">Description</h3>
+
+<p>An optional base value for all other layout options of the &lsquo;spacing&rsquo; group. It can be used to conveniently alter the overall &lsquo;spaciousness&rsquo; of the drawing. Whenever an explicit value is set for the other layout options, this base value will have no effect. The base value is not inherited, i.e. it must be set for each hierarchical node.</p>
 
   </div>
 
@@ -1730,7 +1761,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-spacing-basevalue.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Spacing Base Value
     </li>
   </a>
@@ -2282,7 +2313,7 @@
 
   
   <a href="../../reference/groups/org-eclipse-elk-layered-wrapping-singleedge.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       wrapping.singleEdge
     </li>
   </a>

@@ -148,6 +148,14 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentcomment.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentnode.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-rowcompaction.html</loc>
   </url>
   

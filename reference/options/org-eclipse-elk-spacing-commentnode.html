@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Add Unnecessary Bendpoints (ELK)</title>
+    <title>Comment Node Spacing (ELK)</title>
 
     
     
@@ -71,7 +71,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Add Unnecessary Bendpoints</h1>
+    <h1>Comment Node Spacing</h1>
 
     
 
@@ -85,40 +85,45 @@
 
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.unnecessaryBendpoints</code></td>
+<td><code>org.eclipse.elk.spacing.commentNode</code></td>
 </tr>
 
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>options.LayeredMetaDataProvider</code></td>
+<td><code>core.options.CoreOptions</code></td>
 </tr>
 
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>boolean</code></td>
+<td><code>double</code></td>
 </tr>
 
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>false</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+<td><code>10</code> (as defined in <code>org.eclipse.elk</code>)</td>
+</tr>
+
+<tr>
+<td><em>Lower Bound:</em></td>
+<td><code>0.0</code></td>
 </tr>
 
 <tr>
 <td><em>Applies To:</em></td>
 <td>parents</td>
 </tr>
+
+<tr>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-spacing.html">spacing</a></td>
+</tr>
 </tbody>
 </table>
 
 <h3 id="description">Description</h3>
 
-<p>Adds bend points even if an edge does not change direction. If true, each long edge dummy will contribute a bend point to its edges and hierarchy-crossing edges will always get a bend point where they cross hierarchy boundaries. By default, bend points are only added where an edge changes direction.</p>
+<p>Spacing to be preserved between a node and its connected comment boxes.</p>
 
   </div>
 
@@ -329,7 +334,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-unnecessarybendpoints.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Add Unnecessary Bendpoints
     </li>
   </a>
@@ -449,7 +454,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-spacing-commentnode.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Comment Node Spacing
     </li>
   </a>

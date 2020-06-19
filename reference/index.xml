@@ -179,6 +179,24 @@ GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in o
     </item>
     
     <item>
+      <title>Comment Comment Spacing</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentcomment.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentcomment.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.commentComment   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between a comment box and other comment boxes connected to the same node.</description>
+    </item>
+    
+    <item>
+      <title>Comment Node Spacing</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentnode.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentnode.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.commentNode   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between a node and its connected comment boxes.</description>
+    </item>
+    
+    <item>
       <title>Compact Rows</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-rowcompaction.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1476,7 +1494,7 @@ COMPUTE_PADDING
 OUTSIDE_NODE_LABELS_OVERHANG
 PORTS_OVERHANG
 UNIFORM_PORT_SPACING
-SPACE_EFFICIENT_PORT_LABELS
+SPACE_EFFICIENT_PORT_LABELS (@Deprecated)
 FORCE_TABULAR_NODE_LABELS
 ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeSize    Description Options modifying the behavior of the size constraints set on a node.</description>
     </item>
@@ -1699,9 +1717,11 @@ FIXED_POS   Default Value: PortConstraints.UNDEFINED (as defined in org.eclipse.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portlabels-placement.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.portLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortLabelPlacement (Enum)   Possible Values: OUTSIDE
+      <description>Property Value     Identifier: org.eclipse.elk.portLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.PortLabelPlacement&amp;gt;   Possible Values: OUTSIDE
 INSIDE
-FIXED   Default Value: PortLabelPlacement.OUTSIDE (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portLabels    Description Decides on a placement method for port labels.</description>
+NEXT_TO_PORT_IF_POSSIBLE
+ALWAYS_SAME_SIDE
+SPACE_EFFICIENT   Default Value: PortLabelPlacement.outside() (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portLabels    Description Decides on a placement method for port labels; if empty, the node label&amp;rsquo;s position is not modified.</description>
     </item>
     
     <item>
@@ -1710,7 +1730,7 @@ FIXED   Default Value: PortLabelPlacement.OUTSIDE (as defined in org.eclipse.elk
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portlabels-nexttoportifpossible.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.portLabels.nextToPortIfPossible   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portLabels    Description Usually, inside port labels of hierarchical nodes are placed not next to their port, but with an offset to avoid edge-label crossings. The offset is not necessary if the port has no connections that would cross the label, but is usually applied anyway to keep things uniform.</description>
+      <description>Property Value     Type: deprecated   Identifier: org.eclipse.elk.portLabels.nextToPortIfPossible   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portLabels    Description Use &amp;lsquo;portLabels.placement&amp;rsquo;: NEXT_TO_PORT_OF_POSSIBLE.</description>
     </item>
     
     <item>
@@ -2587,7 +2607,7 @@ FAN   Default Value: OrderWeighting.DESCENDANTS (as defined in org.eclipse.elk.m
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.spacing    Options  Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Label Port Spacing Node Spacing Node Self Loop Spacing Port Spacing Individual Spacing Override Additional Port Space  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.spacing    Options  Comment Comment Spacing Comment Node Spacing Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Label Port Spacing Node Spacing Node Self Loop Spacing Port Spacing Individual Spacing Override Additional Port Space  </description>
     </item>
     
     <item>

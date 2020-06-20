@@ -250,9 +250,7 @@ public LayoutProcessorConfiguration&lt;LayoutPhases, ElkNode&gt; getLayoutProces
     NODE_ORDERER,
     ORDER_BALANCER;
 
-    /**
-     * {@inheritDoc}
-     */
+    @Override
     public ILayoutPhase&lt;LayoutPhases, ElkNode&gt; create() {
         switch (this) {
         case NODE_ORDERER:

@@ -184,7 +184,7 @@ GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentcomment.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.spacing.commentComment   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between a comment box and other comment boxes connected to the same node.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.commentComment   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between a comment box and other comment boxes connected to the same node. The space left between comment boxes of different nodes is controlled by the node-node spacing.</description>
     </item>
     
     <item>
@@ -193,7 +193,7 @@ GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentnode.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.spacing.commentNode   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between a node and its connected comment boxes.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.commentNode   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 10 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between a node and its connected comment boxes. The space left between a node and the comments of another node is controlled by the node-node spacing.</description>
     </item>
     
     <item>
@@ -975,21 +975,23 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
     </item>
     
     <item>
-      <title>Individual Spacing Override</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualoverride.html</link>
+      <title>Individual Spacing</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individual.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualoverride.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.spacing.individualOverride   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.util.IndividualSpacings   Applies To: nodes, edges, ports, labels   Containing Group: spacing    Description In general spacing values apply to the children of the hierarchical node (possibly the root node) for which the values are actually specified. Hereby, the children include ports, edges, and labels.</description>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individual.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.spacing.individual   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.util.IndividualSpacings   Applies To: nodes, edges, ports, labels   Containing Group: spacing    Description Allows to specify individual spacing values for graph elements that shall be different from the value specified for the element&amp;rsquo;s parent.
+Additional Documentation In most cases, spacing values apply to the children of the hierarchical node (possibly the root node) for which the values are actually specified.</description>
     </item>
     
     <item>
-      <title>Individual Spacing Override (ELK Layered)</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualoverride_org-eclipse-elk-layered.html</link>
+      <title>Individual Spacing (ELK Layered)</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individual_org-eclipse-elk-layered.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individualoverride_org-eclipse-elk-layered.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.spacing.individualOverride   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.util.IndividualSpacings   Applies To: nodes, edges, ports, labels   Containing Group: spacing    Description In general spacing values apply to the children of the hierarchical node (possibly the root node) for which the values are actually specified. Hereby, the children include ports, edges, and labels.</description>
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individual_org-eclipse-elk-layered.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.spacing.individual   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.util.IndividualSpacings   Applies To: nodes, edges, ports, labels   Containing Group: spacing    Description Allows to specify individual spacing values for graph elements that shall be different from the value specified for the element&amp;rsquo;s parent.
+Additional Documentation Most parts of the algorithm do not support this yet.</description>
     </item>
     
     <item>
@@ -2607,7 +2609,7 @@ FAN   Default Value: OrderWeighting.DESCENDANTS (as defined in org.eclipse.elk.m
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html</guid>
-      <description>    Property Value     Identifier: org.eclipse.elk.spacing    Options  Comment Comment Spacing Comment Node Spacing Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Label Port Spacing Node Spacing Node Self Loop Spacing Port Spacing Individual Spacing Override Additional Port Space  </description>
+      <description>    Property Value     Identifier: org.eclipse.elk.spacing    Options  Comment Comment Spacing Comment Node Spacing Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Label Port Spacing Node Spacing Node Self Loop Spacing Port Spacing Individual Spacing Additional Port Space  </description>
     </item>
     
     <item>

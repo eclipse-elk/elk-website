@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>nodeSize (ELK)</title>
+    <title>Greedy Switch Crossing Minimization (hierarchical) (ELK)</title>
 
     
     
@@ -71,7 +71,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>nodeSize</h1>
+    <h1>Greedy Switch Crossing Minimization (hierarchical)</h1>
 
     
 
@@ -85,20 +85,55 @@
 
 <tbody>
 <tr>
+<td><em>Type:</em></td>
+<td>advanced</td>
+</tr>
+
+<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.nodeSize</code></td>
+<td><code>org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type</code></td>
+</tr>
+
+<tr>
+<td><em>Meta Data Provider:</em></td>
+<td><code>options.LayeredMetaDataProvider</code></td>
+</tr>
+
+<tr>
+<td><em>Value Type:</em></td>
+<td><code>org.eclipse.elk.alg.layered.options.GreedySwitchType</code> (Enum)</td>
+</tr>
+
+<tr>
+<td><em>Possible Values:</em></td>
+<td><code>ONE_SIDED</code><br><code>TWO_SIDED</code><br><code>OFF</code></td>
+</tr>
+
+<tr>
+<td><em>Default Value:</em></td>
+<td><code>GreedySwitchType.OFF</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+</tr>
+
+<tr>
+<td><em>Applies To:</em></td>
+<td>parents</td>
+</tr>
+
+<tr>
+<td><em>Dependencies:</em></td>
+<td><a href="org-eclipse-elk-layered-crossingMinimization-strategy">org.eclipse.elk.layered.crossingMinimization.strategy</a> (CrossingMinimizationStrategy.LAYER_SWEEP), <a href="org-eclipse-elk-hierarchyHandling">org.eclipse.elk.hierarchyHandling</a> (HierarchyHandling.INCLUDE_CHILDREN)</td>
+</tr>
+
+<tr>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-layered-crossingminimization.html">crossingMinimization</a> -&gt; <a href="../../reference/groups/org-eclipse-elk-layered-crossingminimization-greedyswitchhierarchical.html">greedySwitchHierarchical</a></td>
 </tr>
 </tbody>
 </table>
 
-<h2 id="options">Options</h2>
+<h3 id="description">Description</h3>
 
-<ul>
-<li><a href="../../reference/options/org-eclipse-elk-nodesize-constraints.html">Node Size Constraints</a></li>
-<li><a href="../../reference/options/org-eclipse-elk-nodesize-options.html">Node Size Options</a></li>
-<li><a href="../../reference/options/org-eclipse-elk-nodesize-minimum.html">Node Size Minimum</a></li>
-<li><a href="../../reference/options/org-eclipse-elk-nodesize-fixedgraphsize.html">Fixed Graph Size</a></li>
-</ul>
+<p>Activates the greedy switch heuristic in case hierarchical layout is used. The differences to the non-hierarchical case (see &lsquo;greedySwitch.type&rsquo;) are: 1) greedy switch is inactive by default, 3) only the option value set on the node at which hierarchical layout starts is relevant, and 2) if it&rsquo;s activated by the user, it properly addresses hierarchy-crossing edges.</p>
 
   </div>
 
@@ -861,7 +896,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitchhierarchical-type.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Greedy Switch Crossing Minimization (hierarchical)
     </li>
   </a>
@@ -2205,7 +2240,7 @@
 
   
   <a href="../../reference/groups/org-eclipse-elk-nodesize.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       nodeSize
     </li>
   </a>

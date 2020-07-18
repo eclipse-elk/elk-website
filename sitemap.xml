@@ -196,6 +196,10 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considermodelorder.html</loc>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-contentalignment.html</loc>
   </url>
   
@@ -493,6 +497,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitch-type.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitchhierarchical-type.html</loc>
   </url>
   
   <url>
@@ -1126,6 +1134,10 @@
   
   <url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingminimization-greedyswitch.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingminimization-greedyswitchhierarchical.html</loc>
   </url>
   
   <url>

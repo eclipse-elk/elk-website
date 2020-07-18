@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>nodeSize (ELK)</title>
+    <title>Consider model order (ELK)</title>
 
     
     
@@ -71,7 +71,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>nodeSize</h1>
+    <h1>Consider model order</h1>
 
     
 
@@ -85,20 +85,45 @@
 
 <tbody>
 <tr>
+<td><em>Type:</em></td>
+<td>advanced</td>
+</tr>
+
+<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.nodeSize</code></td>
+<td><code>org.eclipse.elk.layered.considerModelOrder</code></td>
+</tr>
+
+<tr>
+<td><em>Meta Data Provider:</em></td>
+<td><code>options.LayeredMetaDataProvider</code></td>
+</tr>
+
+<tr>
+<td><em>Value Type:</em></td>
+<td><code>org.eclipse.elk.alg.layered.options.OrderingStrategy</code> (Enum)</td>
+</tr>
+
+<tr>
+<td><em>Possible Values:</em></td>
+<td><code>NONE</code><br><code>NODES_AND_EDGES</code><br><code>PREFER_EDGES</code></td>
+</tr>
+
+<tr>
+<td><em>Default Value:</em></td>
+<td><code>OrderingStrategy.NONE</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+</tr>
+
+<tr>
+<td><em>Applies To:</em></td>
+<td>parents</td>
 </tr>
 </tbody>
 </table>
 
-<h2 id="options">Options</h2>
+<h3 id="description">Description</h3>
 
-<ul>
-<li><a href="../../reference/options/org-eclipse-elk-nodesize-constraints.html">Node Size Constraints</a></li>
-<li><a href="../../reference/options/org-eclipse-elk-nodesize-options.html">Node Size Options</a></li>
-<li><a href="../../reference/options/org-eclipse-elk-nodesize-minimum.html">Node Size Minimum</a></li>
-<li><a href="../../reference/options/org-eclipse-elk-nodesize-fixedgraphsize.html">Fixed Graph Size</a></li>
-</ul>
+<p>Preserves the order of nodes and edges in the model file if this does not lead to edge crossings or conflicts between the ordering or edges and nodes.</p>
 
   </div>
 
@@ -509,7 +534,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-considermodelorder.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Consider model order
     </li>
   </a>
@@ -2205,7 +2230,7 @@
 
   
   <a href="../../reference/groups/org-eclipse-elk-nodesize.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       nodeSize
     </li>
   </a>

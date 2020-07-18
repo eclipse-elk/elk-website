@@ -110,6 +110,11 @@
 </tr>
 
 <tr>
+<td><em>Dependencies:</em></td>
+<td><a href="org-eclipse-elk-partitioning-activate">org.eclipse.elk.partitioning.activate</a> (true)</td>
+</tr>
+
+<tr>
 <td><em>Containing Group:</em></td>
 <td><a href="../../reference/groups/org-eclipse-elk-partitioning.html">partitioning</a></td>
 </tr>
@@ -118,7 +123,7 @@
 
 <h3 id="description">Description</h3>
 
-<p>Partition to which the node belongs to. If &lsquo;layoutPartitions&rsquo; is true, a pair of nodes with different partition indices is placed such that the node with lower index is placed to the left of the other node (with left-to-right layout direction).</p>
+<p>Partition to which the node belongs. This requires Layout Partitioning to be active. Nodes with lower partition IDs will appear to the left of nodes with higher partition IDs (assuming a left-to-right layout direction).</p>
 
   </div>
 
@@ -528,6 +533,14 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-layered-considermodelorder.html">
+    <li class="navlevel-2">
+      Consider model order
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-contentalignment.html">
     <li class="navlevel-2">
       Content Alignment
@@ -867,6 +880,14 @@
   <a href="../../reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitch-type.html">
     <li class="navlevel-2">
       Greedy Switch Crossing Minimization
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-crossingminimization-greedyswitchhierarchical-type.html">
+    <li class="navlevel-2">
+      Greedy Switch Crossing Minimization (hierarchical)
     </li>
   </a>
   
@@ -2019,6 +2040,14 @@
   <a href="../../reference/groups/org-eclipse-elk-layered-crossingminimization-greedyswitch.html">
     <li class="navlevel-2">
       crossingMinimization.greedySwitch
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-layered-crossingminimization-greedyswitchhierarchical.html">
+    <li class="navlevel-2">
+      crossingMinimization.greedySwitchHierarchical
     </li>
   </a>
   

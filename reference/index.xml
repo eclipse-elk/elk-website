@@ -621,10 +621,9 @@ CENTER_LAYER (@ExperimentalPropertyValue)   Default Value: CenterEdgeLabelPlacem
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgelabels-placement.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.edgeLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeLabelPlacement (Enum)   Possible Values: UNDEFINED
-CENTER
+      <description>Property Value     Identifier: org.eclipse.elk.edgeLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeLabelPlacement (Enum)   Possible Values: CENTER
 HEAD
-TAIL   Default Value: EdgeLabelPlacement.UNDEFINED (as defined in org.eclipse.elk)   Applies To: labels   Containing Group: edgeLabels    Description Gives a hint on where to put edge labels.</description>
+TAIL   Default Value: EdgeLabelPlacement.CENTER (as defined in org.eclipse.elk)   Applies To: labels   Containing Group: edgeLabels    Description Gives a hint on where to put edge labels.</description>
     </item>
     
     <item>

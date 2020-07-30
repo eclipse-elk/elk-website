@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="img/elk_fav.svg">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    <title>0.7.0 (ELK)</title>
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">
+    <img src="img/elk_small_light.svg" height="30" class="d-inline-block align-top mr-1" alt="">
+    Eclipse Layout Kernel
+  </a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="../../downloads.html">Downloads <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../documentation.html">Documentation</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../reference.html">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../support.html">Support</a>
+        </li>
+      
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>0.7.0</h1>
+
+    
+
+<ul>
+<li><a href="https://projects.eclipse.org/projects/modeling.elk/releases/0.7.0">Release log</a></li>
+<li><a href="https://download.eclipse.org/elk/updates/releases/0.7.0/elk-0.7.0-docs.zip">Documentation</a></li>
+<li><a href="https://download.eclipse.org/elk/updates/releases/0.7.0/">Update site</a></li>
+<li><a href="https://download.eclipse.org/elk/updates/releases/0.7.0/elk-0.7.0.zip">Zipped update site</a> (for offline use)</li>
+<li><a href="https://repo.maven.apache.org/maven2/org/eclipse/elk/">Maven central</a> (for building pure Java projects that use ELK)</li>
+</ul>
+
+<h2 id="details">Details</h2>
+
+<p>This is a major release which comes with quite a number of changes. Some of those are breaking changes, either in the usual API-breaking sense or in the sense that default layouts might look different. Those <a href="https://github.com/eclipse/elk/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22Release+0.7.0%22+label%3Abreaking">issues</a> and <a href="https://github.com/eclipse/elk/pulls?q=is%3Apr+is%3Aclosed+milestone%3A%22Release+0.7.0%22+label%3Abreaking">pull requests</a> are now labeled with &ldquo;breaking&rdquo; to make such changes easier to spot.</p>
+
+<p>Here&rsquo;s a list of the most noteworthy changes. Head over to GitHub for <a href="https://github.com/eclipse/elk/milestone/12?closed=1">the full list</a>.</p>
+
+<h3 id="new-features-and-enhancements">New Features and Enhancements</h3>
+
+<ul>
+<li><a href="https://github.com/eclipse/elk/issues/362">#362</a>, <a href="https://github.com/eclipse/elk/pull/613">#613</a>: Most importantly, we finally have a new logo which appears on all of our websites. Joy!</li>
+<li><a href="https://github.com/eclipse/elk/issues/105">#105</a>, <a href="https://github.com/eclipse/elk/pull/598">#598</a>: Configuring spacings properly is one of the most complex things to get right. We thus added <a href="https://github.com/eclipse/elk/blob/master/plugins/org.eclipse.elk.core/src/org/eclipse/elk/core/util/ElkSpacings.java">a utility class</a> to help ease the pain a little.</li>
+<li><a href="https://github.com/eclipse/elk/issues/533">#533</a>, <a href="https://github.com/eclipse/elk/pull/535">#535</a>: <em>ELK Box</em> and <em>ELK Rectangle Packing</em> now support <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-contentalignment.html">content alignment</a>.</li>
+<li><a href="https://github.com/eclipse/elk/pull/593">#593</a>: <em>ELK Rectangle Packing</em> now supports a configurable target width that the algorithm will try to achieve.</li>
+<li><a href="https://github.com/eclipse/elk/issues/344">#344</a>: ELK&rsquo;s JSON support nur supports a more relaxed JSON style.</li>
+<li><a href="https://github.com/eclipse/elk/issues/608">#608</a>  <em>ELK Layered</em> can be configured to consider the <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considermodelorder.html">model order</a>  to order the nodes and edges as in the model if this does not cause additional crossings.</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><a href="https://github.com/eclipse/elk/issues/500">#500</a>: The Xtext version ELK uses was upgraded to 2.20.</li>
+<li><a href="https://github.com/eclipse/elk/issues/626">#626</a>, <a href="https://github.com/eclipse/elk/pull/634">#634</a>: We changed the way port label placement is configured. Previously, there was a choice between inside and outside port labels, with other details configured in other options. We have now made the option an <code>EnumSet</code> to move port label options out of the <code>SizeOptions</code> enumeration and the <code>nextToPortIfPossible</code> option.</li>
+<li><a href="https://github.com/eclipse/elk/issues/646">#646</a>, <a href="https://github.com/eclipse/elk/pull/647">#647</a>: <em>ELK Layered</em>&rsquo;s layout options <code>layering.layerID</code> and <code>crossingMinimization.positionID</code> were renamed to <code>layering.layerId</code> and <code>crossingMinimization.positionId</code>, respectively. This also impacts the associated layout option constants.</li>
+<li><a href="https://github.com/eclipse/elk/issues/605">#605</a>, <a href="https://github.com/eclipse/elk/pull/619">#619</a>: Since <em>ELK Layered</em>&rsquo;s <code>northOrSouthPort</code> option caused some confusion with vertical layout directions, it was renamed to <code>allowNonFlowPortsToSwitchSides</code>, which incidentally also does a better job of describing what the option actually does.</li>
+<li><a href="https://github.com/eclipse/elk/issues/402">#402</a>: We changed the way how developers can contribute to the layout meta data service. Previously, this was done through extension points, which only worked in an Eclipse context and required manual registrations otherwise. We have now switched to Java service loaders, which should always work. Magic!</li>
+<li><a href="https://github.com/eclipse/elk/pull/516">#516</a>: Our <code>ELKServicePlugin</code> class had its super class changed from <code>AbstractUIPlugin</code> to <code>Plugin</code>.</li>
+</ul>
+
+<h3 id="removals">Removals</h3>
+
+<ul>
+<li><a href="https://github.com/eclipse/elk/issues/577">#577</a>, <a href="https://github.com/eclipse/elk/pull/581">#581</a>: We finally removed the legacy IDs of a whole number of layout options that were renamed over the years. If you relied on those exact IDs, it&rsquo;s high time to transition to their new IDs.</li>
+<li><a href="https://github.com/eclipse/elk/issues/536">#536</a>, <a href="https://github.com/eclipse/elk/pull/571">#571</a>: We removed the Graphiti layout connector, which was buggy and did not seem to be used a lot.</li>
+<li><a href="https://github.com/eclipse/elk/issues/523">#523</a>: <em>ELK Layered</em> does not provide special handling for particularly wide nodes anymore. In particular, the <code>wideNodesOnMultipleLayers</code> option is not supported anymore.</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><a href="https://github.com/eclipse/elk/issues/530">#530</a>, <a href="https://github.com/eclipse/elk/issues/546">#546</a>, <a href="https://github.com/eclipse/elk/issues/596">#596</a>, <a href="https://github.com/eclipse/elk/pull/597">#597</a>, <a href="https://github.com/eclipse/elk/pull/595">#595</a>, <a href="https://github.com/eclipse/elk/pull/610">#610</a>: We fixed quite a few problems <em>ELK Layered</em> had with hierarchical graphs.</li>
+<li><a href="https://github.com/eclipse/elk/issues/515">#515</a>, <a href="https://github.com/eclipse/elk/pull/569">#569</a>: Under certain conditions, <em>ELK Layered</em>&rsquo;s polyline edge router could end up routing edges through nodes.</li>
+<li><a href="https://github.com/eclipse/elk/issues/552">#552</a>, <a href="https://github.com/eclipse/elk/pull/561">#561</a>: <em>ELK Layered</em> would not always place self loop ports of hierarchical nodes properly.</li>
+<li><a href="https://github.com/eclipse/elk/issues/528">#528</a>: <em>ELK Layered</em>&rsquo;s semi-interactive crossing minimisation could end up yielding wrong node orders.</li>
+<li><a href="https://github.com/eclipse/elk/issues/525">#525</a>, <a href="https://github.com/eclipse/elk/issues/623">#623</a>, <a href="https://github.com/eclipse/elk/pull/655">#655</a>: <em>ELK Layered</em>&rsquo;s support for layer constraints tended to produce strange results with <code>FIRST_SEPARATE</code> and <code>LAST_SEPARATE</code> nodes (which are usually generated internally by the algorithm to represent external ports).</li>
+<li><a href="https://github.com/eclipse/elk/issues/143">#143</a>, <a href="https://github.com/eclipse/elk/issues/318">#318</a>, <a href="https://github.com/eclipse/elk/pull/653">#653</a>: Under certain conditions, <em>ELK Layered</em> could allow edges to come really close to or even overlap each other.</li>
+<li><a href="https://github.com/eclipse/elk/issues/583">#583</a>, <a href="https://github.com/eclipse/elk/pull/584">#584</a>: <em>ELK Rectangle Packing</em> sometimes left compound nodes larger than necessary.</li>
+<li><a href="https://github.com/eclipse/elk/issues/559">#559</a>, <a href="https://github.com/eclipse/elk/issues/567">#567</a>, <a href="https://github.com/eclipse/elk/pull/568">#568</a>, <a href="https://github.com/eclipse/elk/pull/633">#633</a>: The JSON exporter has seen some love in the form of several smaller bug fixes.</li>
+<li><a href="https://github.com/eclipse/elk/issues/518">#518</a> <a href="https://github.com/eclipse/elk/issues/519">#519</a>: Fixes to our unit testing framework allow us to better test our algorithms!</li>
+</ul>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+        
+
+
+
+
+  
+  <a href="../../downloads/releasenotes.html">
+    <li class="navlevel-1">
+      Releases
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../downloads/releasenotes/release-0.1.0.html">
+    <li class="navlevel-2">
+      0.1.0
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.1.1.html">
+    <li class="navlevel-2">
+      0.1.1
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.2.0.html">
+    <li class="navlevel-2">
+      0.2.0
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.2.1.html">
+    <li class="navlevel-2">
+      0.2.1
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.2.2.html">
+    <li class="navlevel-2">
+      0.2.2
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.2.3.html">
+    <li class="navlevel-2">
+      0.2.3
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.3.0.html">
+    <li class="navlevel-2">
+      0.3.0
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.4.0.html">
+    <li class="navlevel-2">
+      0.4.0
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.4.1.html">
+    <li class="navlevel-2">
+      0.4.1
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.5.0.html">
+    <li class="navlevel-2">
+      0.5.0
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.6.0.html">
+    <li class="navlevel-2">
+      0.6.0
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.6.1.html">
+    <li class="navlevel-2">
+      0.6.1
+    </li>
+  </a>
+  
+
+  
+  <a href="../../downloads/releasenotes/release-0.7.0.html">
+    <li class="navlevel-2 active">
+      0.7.0
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo" class="footer">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <span class="hidden-print">
+                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="../../img/eclipse_foundation_logo.svg"/></a>
+              </span>
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+        <div class="row">
+          <div class="col hidden-print">
+            <a href="http://www.eclipse.org/">Eclipse Foundation</a><br/>
+            <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a><br/>
+            <a href="http://www.eclipse.org/legal/termsofuse.php">Website Terms of Use</a><br/>
+            <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a><br/>
+            <a href="http://www.eclipse.org/legal">Legal</a>
+          </div>
+          <div class="col">
+              <p class="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

@@ -130,6 +130,15 @@ View the release at Eclipse for links to the list of closed issues.</description
     </item>
     
     <item>
+      <title>0.7.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.7.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.7.0.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details This is a major release which comes with quite a number of changes. Some of those are breaking changes, either in the usual API-breaking sense or in the sense that default layouts might look different. Those issues and pull requests are now labeled with &amp;ldquo;breaking&amp;rdquo; to make such changes easier to spot.</description>
+    </item>
+    
+    <item>
       <title>Activate Inside Self Loops</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideselfloops-activate.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -73,47 +73,30 @@
   <div class="col-sm-9">
     <h1>Algorithm Implementation</h1>
 
-    
-
-<p>Once everything is set up, it is time to actually implement your algorithm. The problem your layout algorithm has to solve can be summarized as follows: given an input graph (possibly with existing coordinates), compute coordinates for all graph elements and routings for all edges (subject to layout properties the graph is annotated with) and annotate the layout graph accordingly. Note that the input graph defines the layout problem, but also carries the resulting coordinate assignment after your algorithm has executed.</p>
-
+    <p>Once everything is set up, it is time to actually implement your algorithm. The problem your layout algorithm has to solve can be summarized as follows: given an input graph (possibly with existing coordinates), compute coordinates for all graph elements and routings for all edges (subject to layout properties the graph is annotated with) and annotate the layout graph accordingly. Note that the input graph defines the layout problem, but also carries the resulting coordinate assignment after your algorithm has executed.</p>
 <p>While developing your algorithm, you will regularly switch back and forth between doing that and changing <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">your metadata</a>.</p>
-
-<h2 id="your-algorithm-s-main-class">Your Algorithm&rsquo;s Main Class</h2>
-
+<h2 id="your-algorithms-main-class">Your Algorithm&rsquo;s Main Class</h2>
 <p>However many classes a layout algorithm consists of, it always provides one entry class that inherits from <code>AbstractLayoutProvider</code> and implements the single most important method for your algorithm:</p>
-
-<pre><code class="language-java">void layout(ElkNode layoutGraph, IElkProgressMonitor progressMonitor);
-</code></pre>
-
-<p>Let&rsquo;s go through the parameters in reverse order (because of reasons). The <code>progressMonitor</code> parameter should be used to track progress and check if the user wants to cancel the layout operation. Actually canceling when the user wants to cancel is one of those features that will help your software stand out from many other programs, so take this opportunity to shine!</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor progressMonitor<span style="color:#f92672">);</span>
+</code></pre></div><p>Let&rsquo;s go through the parameters in reverse order (because of reasons). The <code>progressMonitor</code> parameter should be used to track progress and check if the user wants to cancel the layout operation. Actually canceling when the user wants to cancel is one of those features that will help your software stand out from many other programs, so take this opportunity to shine!</p>
 <p>The <code>layoutGraph</code> parameter is more important, however. It defines the layout problem your algorithm should solve, in several ways. First, it defines the structure of the graph to be laid out: which nodes exist, how are they connected, and so on. Second, each graph element can have <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">layout options</a> attached to it that are supposed to influence what your layout algorithm does with them. And third, each element may have pre-existing <a href="../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">coordinates or bend points</a> associated with it that your algorithm may want to make use of. Those existing coordinates will be overwritten by your algorithm to hold the new, computed coordinates.</p>
-
 <p>Note that the layout graph may contain nodes that themselves contain further nodes. By default, layout algorithms are only supposed to compute coordinates for the direct children of the <code>layoutGraph</code> and then set the size for the <code>layoutGraph</code> itself. However, if your layout algorithm supports hierarchical layout, and if hierarchical layout is requested (which is done through the <code>CoreOptions.HIERARCHY_HANDLING</code> layout option), you will also compute coordinates for children of children.</p>
-
 <p>There are two more methods your algorithm can, but does not have to implement:</p>
-
 <ul>
-<li><p><code>void initialize(String parameter);</code></p>
-
+<li>
+<p><code>void initialize(String parameter);</code></p>
 <p>This method can be used to initialize data structures and prepare things. This method is called exactly once when an instance of your <code>AbstractLayoutProvider</code> subclass is created. Note that a single instance of your class can be used for multiple layout runs.</p>
-
-<p>The <code>parameter</code> parameter is a bit tricky. Most layout algorithms won&rsquo;t have any need for it, but some may adjust their behavior depending on its value. One example is our interface to the <a href="http://www.graphviz.org/">Graphviz</a> library that provides different layout algorithms. We only implement a single subclass of <code>AbstractLayoutProvider</code>, but each instance is passed a parameter value that indicates which of the Graphviz algorithms it will execute when the <code>layout(...)</code> method is called. Of course, which parameter to pass must be defined in <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">your metadata file</a>.</p></li>
-
-<li><p><code>void dispose();</code></p>
-
-<p>Called before your <code>AbstractLayoutProvider</code> subclass is thrown towards the garbage collector.</p></li>
+<p>The <code>parameter</code> parameter is a bit tricky. Most layout algorithms won&rsquo;t have any need for it, but some may adjust their behavior depending on its value. One example is our interface to the <a href="http://www.graphviz.org/">Graphviz</a> library that provides different layout algorithms. We only implement a single subclass of <code>AbstractLayoutProvider</code>, but each instance is passed a parameter value that indicates which of the Graphviz algorithms it will execute when the <code>layout(...)</code> method is called. Of course, which parameter to pass must be defined in <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">your metadata file</a>.</p>
+</li>
+<li>
+<p><code>void dispose();</code></p>
+<p>Called before your <code>AbstractLayoutProvider</code> subclass is thrown towards the garbage collector.</p>
+</li>
 </ul>
-
 <h2 id="layout-options">Layout Options</h2>
-
 <p>It is worth reiterating here that it is important which <code>IProperty</code> instance your algorithm uses to retrieve the value of a layout option set on a graph element. Since the <a href="../../documentation/algorithmdevelopers/metadatalanguage.html">ELK metadata tooling</a> generates a separate class with a complete set of <code>IProperty</code> instances for each algorithm, it makes sense to use these instances. The reason is that using them ensures that you get the correct default values configured for your layout algorithm when accessing layout options that were not set on a graph element.</p>
-
 <h2 id="a-simple-example">A Simple Example</h2>
-
 <p>The code below is a simple implementation of the <code>layout(...)</code> method. It includes variable behavior based on property values and produces results such as this:</p>
-
 <p>
   <img
     class="img-fluid"
@@ -127,76 +110,74 @@
   />
 </p>
 
-
-<pre><code class="language-java">progressMonitor.begin(&quot;Simple layout&quot;, 2);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Simple layout&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
         
-// Retrieve several properties
-ElkPadding padding = layoutGraph.getProperty(SimpleOptions.PADDING);
+<span style="color:#75715e">// Retrieve several properties
+</span><span style="color:#75715e"></span>ElkPadding padding <span style="color:#f92672">=</span> layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>SimpleOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">PADDING</span><span style="color:#f92672">);</span>
 
-double edgeEdgeSpacing = layoutGraph.getProperty(SimpleOptions.SPACING_EDGE_EDGE);
-double edgeNodeSpacing = layoutGraph.getProperty(SimpleOptions.SPACING_EDGE_NODE);
-double nodeNodeSpacing = layoutGraph.getProperty(SimpleOptions.SPACING_NODE_NODE);
+<span style="color:#66d9ef">double</span> edgeEdgeSpacing <span style="color:#f92672">=</span> layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>SimpleOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">SPACING_EDGE_EDGE</span><span style="color:#f92672">);</span>
+<span style="color:#66d9ef">double</span> edgeNodeSpacing <span style="color:#f92672">=</span> layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>SimpleOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">SPACING_EDGE_NODE</span><span style="color:#f92672">);</span>
+<span style="color:#66d9ef">double</span> nodeNodeSpacing <span style="color:#f92672">=</span> layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>SimpleOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">SPACING_NODE_NODE</span><span style="color:#f92672">);</span>
 
-// Get and possibly reverse the list of nodes to lay out
-List&lt;ElkNode&gt; nodes = new ArrayList&lt;&gt;(layoutGraph.getChildren());
-if (layoutGraph.getProperty(SimpleOptions.REVERSE_INPUT)) {
-    Collections.reverse(nodes);
-}
+<span style="color:#75715e">// Get and possibly reverse the list of nodes to lay out
+</span><span style="color:#75715e"></span>List<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> nodes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(</span>layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">getChildren</span><span style="color:#f92672">());</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>SimpleOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">REVERSE_INPUT</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+    Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">reverse</span><span style="color:#f92672">(</span>nodes<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
 
-// Place the nodes
-double currX = padding.left;
-double currY = padding.top;
+<span style="color:#75715e">// Place the nodes
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">double</span> currX <span style="color:#f92672">=</span> padding<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">double</span> currY <span style="color:#f92672">=</span> padding<span style="color:#f92672">.</span><span style="color:#a6e22e">top</span><span style="color:#f92672">;</span>
 
-for (ElkNode node : nodes) {
-    // Set the node's coordinates
-    node.setX(currX);
-    node.setY(padding.top);
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>ElkNode node <span style="color:#f92672">:</span> nodes<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// Set the node&#39;s coordinates
+</span><span style="color:#75715e"></span>    node<span style="color:#f92672">.</span><span style="color:#a6e22e">setX</span><span style="color:#f92672">(</span>currX<span style="color:#f92672">);</span>
+    node<span style="color:#f92672">.</span><span style="color:#a6e22e">setY</span><span style="color:#f92672">(</span>padding<span style="color:#f92672">.</span><span style="color:#a6e22e">top</span><span style="color:#f92672">);</span>
     
-    // Advance the coordinates
-    currX += node.getWidth() + nodeNodeSpacing;
-    currY = Math.max(currY, padding.top + node.getHeight());
-}
+    <span style="color:#75715e">// Advance the coordinates
+</span><span style="color:#75715e"></span>    currX <span style="color:#f92672">+=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">getWidth</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> nodeNodeSpacing<span style="color:#f92672">;</span>
+    currY <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>currY<span style="color:#f92672">,</span> padding<span style="color:#f92672">.</span><span style="color:#a6e22e">top</span> <span style="color:#f92672">+</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeight</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
 
-if (!nodes.isEmpty()) {
-    currX -= nodeNodeSpacing;
-}
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>nodes<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+    currX <span style="color:#f92672">-=</span> nodeNodeSpacing<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
 
-progressMonitor.worked(1);
+progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">worked</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
 
-// Route the edges
-if (!layoutGraph.getContainedEdges().isEmpty()) {
-    currY += edgeNodeSpacing;
+<span style="color:#75715e">// Route the edges
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">getContainedEdges</span><span style="color:#f92672">().</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+    currY <span style="color:#f92672">+=</span> edgeNodeSpacing<span style="color:#f92672">;</span>
     
-    for (ElkEdge edge : layoutGraph.getContainedEdges()) {
-        ElkNode source = ElkGraphUtil.connectableShapeToNode(edge.getSources().get(0));
-        ElkNode target = ElkGraphUtil.connectableShapeToNode(edge.getTargets().get(0));
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>ElkEdge edge <span style="color:#f92672">:</span> layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">getContainedEdges</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+        ElkNode source <span style="color:#f92672">=</span> ElkGraphUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">connectableShapeToNode</span><span style="color:#f92672">(</span>edge<span style="color:#f92672">.</span><span style="color:#a6e22e">getSources</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">));</span>
+        ElkNode target <span style="color:#f92672">=</span> ElkGraphUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">connectableShapeToNode</span><span style="color:#f92672">(</span>edge<span style="color:#f92672">.</span><span style="color:#a6e22e">getTargets</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">));</span>
         
-        ElkEdgeSection section = ElkGraphUtil.firstEdgeSection(edge, true, true);
+        ElkEdgeSection section <span style="color:#f92672">=</span> ElkGraphUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">firstEdgeSection</span><span style="color:#f92672">(</span>edge<span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
         
-        section.setStartLocation(
-                source.getX() + source.getWidth() / 2,
-                source.getY() + source.getHeight());
-        section.setEndLocation(
-                target.getX() + target.getWidth() / 2,
-                target.getY() + target.getHeight());
+        section<span style="color:#f92672">.</span><span style="color:#a6e22e">setStartLocation</span><span style="color:#f92672">(</span>
+                source<span style="color:#f92672">.</span><span style="color:#a6e22e">getX</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> source<span style="color:#f92672">.</span><span style="color:#a6e22e">getWidth</span><span style="color:#f92672">()</span> <span style="color:#f92672">/</span> 2<span style="color:#f92672">,</span>
+                source<span style="color:#f92672">.</span><span style="color:#a6e22e">getY</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> source<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeight</span><span style="color:#f92672">());</span>
+        section<span style="color:#f92672">.</span><span style="color:#a6e22e">setEndLocation</span><span style="color:#f92672">(</span>
+                target<span style="color:#f92672">.</span><span style="color:#a6e22e">getX</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> target<span style="color:#f92672">.</span><span style="color:#a6e22e">getWidth</span><span style="color:#f92672">()</span> <span style="color:#f92672">/</span> 2<span style="color:#f92672">,</span>
+                target<span style="color:#f92672">.</span><span style="color:#a6e22e">getY</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> target<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeight</span><span style="color:#f92672">());</span>
         
-        ElkGraphUtil.createBendPoint(section, section.getStartX(), currY);
-        ElkGraphUtil.createBendPoint(section, section.getEndX(), currY);
+        ElkGraphUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">createBendPoint</span><span style="color:#f92672">(</span>section<span style="color:#f92672">,</span> section<span style="color:#f92672">.</span><span style="color:#a6e22e">getStartX</span><span style="color:#f92672">(),</span> currY<span style="color:#f92672">);</span>
+        ElkGraphUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">createBendPoint</span><span style="color:#f92672">(</span>section<span style="color:#f92672">,</span> section<span style="color:#f92672">.</span><span style="color:#a6e22e">getEndX</span><span style="color:#f92672">(),</span> currY<span style="color:#f92672">);</span>
                         
-        currY += edgeEdgeSpacing;
-    }
+        currY <span style="color:#f92672">+=</span> edgeEdgeSpacing<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
     
-    currY -= edgeEdgeSpacing;
-}
+    currY <span style="color:#f92672">-=</span> edgeEdgeSpacing<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
 
 
-// Set the size of the final diagram
-layoutGraph.setWidth(currX + padding.right);
-layoutGraph.setHeight(currY + padding.bottom);
+<span style="color:#75715e">// Set the size of the final diagram
+</span><span style="color:#75715e"></span>layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">setWidth</span><span style="color:#f92672">(</span>currX <span style="color:#f92672">+</span> padding<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">);</span>
+layoutGraph<span style="color:#f92672">.</span><span style="color:#a6e22e">setHeight</span><span style="color:#f92672">(</span>currY <span style="color:#f92672">+</span> padding<span style="color:#f92672">.</span><span style="color:#a6e22e">bottom</span><span style="color:#f92672">);</span>
 
-progressMonitor.done();
-</code></pre>
-
+progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
+</code></pre></div>
   </div>
 
   <div class="secnav col-sm-3">

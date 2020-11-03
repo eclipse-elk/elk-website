@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Downloads on Eclipse Layout Kernel</title>
     <link>https://www.eclipse.org/elk/downloads.html</link>
     <description>Recent content in Downloads on Eclipse Layout Kernel</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://www.eclipse.org/elk/downloads/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://www.eclipse.org/elk/downloads/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>0.1.0</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</link>
@@ -86,7 +82,8 @@ View the release at Eclipse for links to the list of closed issues.</description
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.4.0.html</guid>
       <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details This release concentrates on bug fixes and enhancements concerning many details of the layout algorithms, but also introduces compaction and overlap removal algorithms.
-Some changes may cause clients to break and may change layout results.</description>
+Some changes may cause clients to break and may change layout results.
+View the release at Eclipse for links to the list of closed issues.</description>
     </item>
     
     <item>

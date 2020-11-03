@@ -73,24 +73,17 @@
   <div class="col-sm-9">
     <h1>0.7.0</h1>
 
-    
-
-<ul>
+    <ul>
 <li><a href="https://projects.eclipse.org/projects/modeling.elk/releases/0.7.0">Release log</a></li>
 <li><a href="https://download.eclipse.org/elk/updates/releases/0.7.0/elk-0.7.0-docs.zip">Documentation</a></li>
 <li><a href="https://download.eclipse.org/elk/updates/releases/0.7.0/">Update site</a></li>
 <li><a href="https://download.eclipse.org/elk/updates/releases/0.7.0/elk-0.7.0.zip">Zipped update site</a> (for offline use)</li>
 <li><a href="https://repo.maven.apache.org/maven2/org/eclipse/elk/">Maven central</a> (for building pure Java projects that use ELK)</li>
 </ul>
-
 <h2 id="details">Details</h2>
-
 <p>This is a major release which comes with quite a number of changes. Some of those are breaking changes, either in the usual API-breaking sense or in the sense that default layouts might look different. Those <a href="https://github.com/eclipse/elk/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22Release+0.7.0%22+label%3Abreaking">issues</a> and <a href="https://github.com/eclipse/elk/pulls?q=is%3Apr+is%3Aclosed+milestone%3A%22Release+0.7.0%22+label%3Abreaking">pull requests</a> are now labeled with &ldquo;breaking&rdquo; to make such changes easier to spot.</p>
-
 <p>Here&rsquo;s a list of the most noteworthy changes. Head over to GitHub for <a href="https://github.com/eclipse/elk/milestone/12?closed=1">the full list</a>.</p>
-
 <h3 id="new-features-and-enhancements">New Features and Enhancements</h3>
-
 <ul>
 <li><a href="https://github.com/eclipse/elk/issues/362">#362</a>, <a href="https://github.com/eclipse/elk/pull/613">#613</a>: Most importantly, we finally have a new logo which appears on all of our websites. Joy!</li>
 <li><a href="https://github.com/eclipse/elk/issues/105">#105</a>, <a href="https://github.com/eclipse/elk/pull/598">#598</a>: Configuring spacings properly is one of the most complex things to get right. We thus added <a href="https://github.com/eclipse/elk/blob/master/plugins/org.eclipse.elk.core/src/org/eclipse/elk/core/util/ElkSpacings.java">a utility class</a> to help ease the pain a little.</li>
@@ -99,9 +92,7 @@
 <li><a href="https://github.com/eclipse/elk/issues/344">#344</a>: ELK&rsquo;s JSON support nur supports a more relaxed JSON style.</li>
 <li><a href="https://github.com/eclipse/elk/issues/608">#608</a>  <em>ELK Layered</em> can be configured to consider the <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considermodelorder.html">model order</a>  to order the nodes and edges as in the model if this does not cause additional crossings.</li>
 </ul>
-
 <h3 id="changes">Changes</h3>
-
 <ul>
 <li><a href="https://github.com/eclipse/elk/issues/500">#500</a>: The Xtext version ELK uses was upgraded to 2.20.</li>
 <li><a href="https://github.com/eclipse/elk/issues/626">#626</a>, <a href="https://github.com/eclipse/elk/pull/634">#634</a>: We changed the way port label placement is configured. Previously, there was a choice between inside and outside port labels, with other details configured in other options. We have now made the option an <code>EnumSet</code> to move port label options out of the <code>SizeOptions</code> enumeration and the <code>nextToPortIfPossible</code> option.</li>
@@ -110,17 +101,13 @@
 <li><a href="https://github.com/eclipse/elk/issues/402">#402</a>: We changed the way how developers can contribute to the layout meta data service. Previously, this was done through extension points, which only worked in an Eclipse context and required manual registrations otherwise. We have now switched to Java service loaders, which should always work. Magic!</li>
 <li><a href="https://github.com/eclipse/elk/pull/516">#516</a>: Our <code>ELKServicePlugin</code> class had its super class changed from <code>AbstractUIPlugin</code> to <code>Plugin</code>.</li>
 </ul>
-
 <h3 id="removals">Removals</h3>
-
 <ul>
 <li><a href="https://github.com/eclipse/elk/issues/577">#577</a>, <a href="https://github.com/eclipse/elk/pull/581">#581</a>: We finally removed the legacy IDs of a whole number of layout options that were renamed over the years. If you relied on those exact IDs, it&rsquo;s high time to transition to their new IDs.</li>
 <li><a href="https://github.com/eclipse/elk/issues/536">#536</a>, <a href="https://github.com/eclipse/elk/pull/571">#571</a>: We removed the Graphiti layout connector, which was buggy and did not seem to be used a lot.</li>
 <li><a href="https://github.com/eclipse/elk/issues/523">#523</a>: <em>ELK Layered</em> does not provide special handling for particularly wide nodes anymore. In particular, the <code>wideNodesOnMultipleLayers</code> option is not supported anymore.</li>
 </ul>
-
 <h3 id="bugfixes">Bugfixes</h3>
-
 <ul>
 <li><a href="https://github.com/eclipse/elk/issues/530">#530</a>, <a href="https://github.com/eclipse/elk/issues/546">#546</a>, <a href="https://github.com/eclipse/elk/issues/596">#596</a>, <a href="https://github.com/eclipse/elk/pull/597">#597</a>, <a href="https://github.com/eclipse/elk/pull/595">#595</a>, <a href="https://github.com/eclipse/elk/pull/610">#610</a>: We fixed quite a few problems <em>ELK Layered</em> had with hierarchical graphs.</li>
 <li><a href="https://github.com/eclipse/elk/issues/515">#515</a>, <a href="https://github.com/eclipse/elk/pull/569">#569</a>: Under certain conditions, <em>ELK Layered</em>&rsquo;s polyline edge router could end up routing edges through nodes.</li>

@@ -73,61 +73,52 @@
   <div class="col-sm-9">
     <h1>Algorithm Debugging</h1>
 
-    
-
-<p>The Eclipse Layout Kernel provides debugging support through its debugging infrastructure, which consists of three layers:</p>
-
+    <p>The Eclipse Layout Kernel provides debugging support through its debugging infrastructure, which consists of three layers:</p>
 <ol>
-<li><p>Logging mechanisms that algorithm developers can use to generate log messages as well as log snapshots of graphs as they are laid out. The messages can optionally be written to disk.</p></li>
-
-<li><p>Viewers that algorithm developers can use to inspect all kinds of logged objects as well as the execution times of their algorithms.</p></li>
-
-<li><p>Preferences that algorithm developers and users can use to engage or disengage the production of logs.</p></li>
+<li>
+<p>Logging mechanisms that algorithm developers can use to generate log messages as well as log snapshots of graphs as they are laid out. The messages can optionally be written to disk.</p>
+</li>
+<li>
+<p>Viewers that algorithm developers can use to inspect all kinds of logged objects as well as the execution times of their algorithms.</p>
+</li>
+<li>
+<p>Preferences that algorithm developers and users can use to engage or disengage the production of logs.</p>
+</li>
 </ol>
-
 <h2 id="logging-mechanisms">Logging Mechanisms</h2>
-
 <p>Layout algorithms extend the <code>AbstractLayoutProvider</code> class and thus implement the following method:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The key entry point to everything concerning logging is the <code>IElkProgressMonitor</code>. Here&rsquo;s how to use it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TestAlgorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
 
-<pre><code class="language-java">public void layout(ElkNode layoutGraph, IElkProgressMonitor monitor) {
-    ...
-}
-</code></pre>
-
-<p>The key entry point to everything concerning logging is the <code>IElkProgressMonitor</code>. Here&rsquo;s how to use it:</p>
-
-<pre><code class="language-java">public void layout(ElkNode layoutGraph, IElkProgressMonitor monitor) {
-    monitor.begin(&quot;TestAlgorithm&quot;, 2);
-
-    monitor.log(&quot;Algorithm starting...&quot;);
+    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Algorithm starting...&#34;</span><span style="color:#f92672">);</span>
             
-    // As with assertions, lengthy computations should only be done if logging
-    // is in fact enabled
-    if (monitor.isLoggingEnabled()) {
-        // Perform some lengthy computation
-        monitor.log(&quot;Found...&quot;);
-    }
+    <span style="color:#75715e">// As with assertions, lengthy computations should only be done if logging
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// is in fact enabled
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">isLoggingEnabled</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// Perform some lengthy computation
+</span><span style="color:#75715e"></span>        monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Found...&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    // You can log snapshots of the layout graph
-    monitor.logGraph(layoutGraph, &quot;No node placed yet&quot;);
-    placeNodes(layoutGraph);
-    monitor.logGraph(layoutGraph, &quot;All nodes placed&quot;);
+    <span style="color:#75715e">// You can log snapshots of the layout graph
+</span><span style="color:#75715e"></span>    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">logGraph</span><span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;No node placed yet&#34;</span><span style="color:#f92672">);</span>
+    placeNodes<span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">);</span>
+    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">logGraph</span><span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;All nodes placed&#34;</span><span style="color:#f92672">);</span>
 
-    progressMonitor.done();
-}
-</code></pre>
-
-<p>When logging graphs, each graph is supplied with a tag: a string that allows a developer to make sense of the graph in the logs later on. There are two ways to log graphs:</p>
-
+    progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>When logging graphs, each graph is supplied with a tag: a string that allows a developer to make sense of the graph in the logs later on. There are two ways to log graphs:</p>
 <ul>
-<li><p><code>logGraph(ElkNode graph, String tag)</code></p>
-
-<p>This method copies the supplied ELK graph and stores it with the given tag.</p></li>
-
-<li><p><code>logGraph(Object graph, String tag, LoggedGraph.Type graphType)</code></p>
-
+<li>
+<p><code>logGraph(ElkNode graph, String tag)</code></p>
+<p>This method copies the supplied ELK graph and stores it with the given tag.</p>
+</li>
+<li>
+<p><code>logGraph(Object graph, String tag, LoggedGraph.Type graphType)</code></p>
 <p>This method stores the given object without copying it. We support several graph types, and the type of the <code>graph</code> object must match the <code>graphType</code>:</p>
-
 <table>
 <thead>
 <tr>
@@ -136,49 +127,38 @@
 <th>Object type</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>DOT</code></td>
 <td>A <a href="https://www.graphviz.org/">GraphViz Dot</a> graph.</td>
 <td><code>String</code></td>
 </tr>
-
 <tr>
 <td><code>ELK</code></td>
 <td>An ELK graph.</td>
 <td><code>ElkNode</code></td>
 </tr>
-
 <tr>
 <td><code>JSON</code></td>
 <td>A graph in ELK&rsquo;s <a href="../../documentation/tooldevelopers/graphdatastructure/jsonformat.html">JSON format</a>.</td>
 <td><code>String</code></td>
 </tr>
-
 <tr>
 <td><code>SVG</code></td>
 <td>An SVG file.</td>
 <td><code>String</code></td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ul>
-
 <p>When running inside Eclipse, ELK automatically logs the input and output graphs so you don&rsquo;t have to.</p>
-
 <h3 id="log-persistence">Log Persistence</h3>
-
 <p>If log persistence is turned on, everything that is logged is written to disk. It will end up in a folder called <code>elk</code> in the current user&rsquo;s home directory. Each layout run&rsquo;s logs will be placed in a separate sub-directory whose content reflects the progress monitor hierarchy.</p>
-
 <h2 id="log-viewers">Log Viewers</h2>
-
 <p>ELK provides three views to inspect layout runs: the <em>Layout Time View</em>, <em>Layout Log View</em>, and <em>Layout Graph View</em>. They have a rather similar look to them: all feature a tree viewer of layout runs at the left side. In fact, they all display the same layout runs: if one is removed, it is removed from all three views. Open any of the views by clicking <em>Window</em> -&gt; <em>Show View</em> -&gt; <em>Other</em> and looking for them in the <em>Eclipse Diagram Layout</em> category.</p>
-
 <p>Let&rsquo;s examine the views in turn.</p>
-
 <h3 id="layout-time-view">Layout Time View</h3>
-
 <p>
   <img
     class="img-fluid"
@@ -192,30 +172,25 @@
   />
 </p>
 
-
 <p>The <em>Layout Time View</em> displays the amount of time spent in each progress monitor of a layout run&rsquo;s progress monitor hierarchy. It displays two values for each item: the <em>time</em> and the <em>local time</em>. The former is the amount of time spent in a progress monitor including its sub-monitors. The local time is the time spent in the progress monitor alone, excluding any sub-monitors (this value is omitted for monitors that do not have any sub-monitors, since it would be equal to the normal time value anyway).</p>
-
 <p>The view offers the following functions:</p>
-
 <ul>
-<li><p>Execution time measurement can be directly switched on and off by clicking the check mark instead of going to the preferences.</p></li>
-
-<li><p>All layout runs that don&rsquo;t have execution time information associated with them can be hidden by clicking the filter button.</p></li>
+<li>
+<p>Execution time measurement can be directly switched on and off by clicking the check mark instead of going to the preferences.</p>
+</li>
+<li>
+<p>All layout runs that don&rsquo;t have execution time information associated with them can be hidden by clicking the filter button.</p>
+</li>
 </ul>
-
 <p>To take proper advantage of the layout time view, your algorithm must make proper use of the <code>IElkProgressMonitor</code> passed to it. The tree of progress monitors (and sub-monitors) is what gets displayed in the layout time view. Be sure to do something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;My rather good layout algorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
 
-<pre><code class="language-java">monitor.begin(&quot;My rather good layout algorithm&quot;, 2);
+<span style="color:#75715e">// Phases of your algorithm should use sub-monitors
+</span><span style="color:#75715e"></span>executePhase1<span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
+executePhase2<span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
 
-// Phases of your algorithm should use sub-monitors
-executePhase1(monitor.subTask(1));
-executePhase2(monitor.subTask(1));
-
-monitor.done();
-</code></pre>
-
-<h3 id="layout-log-view">Layout Log View</h3>
-
+monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
+</code></pre></div><h3 id="layout-log-view">Layout Log View</h3>
 <p>
   <img
     class="img-fluid"
@@ -229,19 +204,17 @@ monitor.done();
   />
 </p>
 
-
 <p>The <em>Layout Log View</em> displays all log messages submitted by calls to <code>IElkProgressMonitor.log(Object)</code>. Each such log message is associated with the progress monitor it was logged with. Whether a progress monitor has log messages associated with it is indicated by its icon: a blue icon indicates the presence of log messages.</p>
-
 <p>The view offers the following functions:</p>
-
 <ul>
-<li><p>Logging can be directly switched on and off by clicking the check mark instead of going to the preferences.</p></li>
-
-<li><p>Clicking the filter button hides all progress monitors that are not on a path to progress monitors with log messages and don&rsquo;t have log messages themselves.</p></li>
+<li>
+<p>Logging can be directly switched on and off by clicking the check mark instead of going to the preferences.</p>
+</li>
+<li>
+<p>Clicking the filter button hides all progress monitors that are not on a path to progress monitors with log messages and don&rsquo;t have log messages themselves.</p>
+</li>
 </ul>
-
 <h3 id="layout-graph-view">Layout Graph View</h3>
-
 <p>
   <img
     class="img-fluid"
@@ -255,42 +228,32 @@ monitor.done();
   />
 </p>
 
-
 <p>The <em>Layout Graph View</em> displays all logged graphs submitted by calls to one of the <code>IElkProgressMonitor.logGraph(...)</code> methods. Each such graph is associated with the progress monitor it was logged with. Whether a progress monitor has graphs associated with it is indicated by its icon: a blue icon indicates the presence of graphs. The list right next to the tree of progress monitors allows to switch between the graphs.</p>
-
 <p>The way a graph is displayed depends on its format. ELK graphs are drawn in a very simple way. For all other formats, we currently only show their source code.</p>
-
-
-
-<div class="alert alert-info">
-  <h5>If you have nothing better to do…</h5>
-
-  <p>It would be cool to be able to properly display the other formats as well, so if you&rsquo;re still looking for that good deed today: here it is!</p>
-
-</div>
-
-
+<!-- raw HTML omitted -->
+<p>It would be cool to be able to properly display the other formats as well, so if you&rsquo;re still looking for that good deed today: here it is!</p>
+<!-- raw HTML omitted -->
 <p>The view offers the following functions:</p>
-
 <ul>
-<li><p>Logging can be directly switched on and off by clicking the check mark instead of going to the preferences.</p></li>
-
-<li><p>Clicking the filter button hides all progress monitors that are not on a path to progress monitors with log messages and don&rsquo;t have log messages themselves.</p></li>
-
-<li><p>The view can import and display <code>elkt</code> and <code>elkg</code> files, either directly or after having laid out the graph first (use the overflow menu to configure this). A graph loaded from file can also be reloaded explicitly in case the file has changed.</p></li>
-
-<li><p>Images shown in this view can be saved as <code>png</code> files.</p></li>
+<li>
+<p>Logging can be directly switched on and off by clicking the check mark instead of going to the preferences.</p>
+</li>
+<li>
+<p>Clicking the filter button hides all progress monitors that are not on a path to progress monitors with log messages and don&rsquo;t have log messages themselves.</p>
+</li>
+<li>
+<p>The view can import and display <code>elkt</code> and <code>elkg</code> files, either directly or after having laid out the graph first (use the overflow menu to configure this). A graph loaded from file can also be reloaded explicitly in case the file has changed.</p>
+</li>
+<li>
+<p>Images shown in this view can be saved as <code>png</code> files.</p>
+</li>
 </ul>
-
 <h4 id="notes-on-graph-drawings">Notes on Graph Drawings</h4>
-
 <p>ELK graphs are drawn using their exact coordinates and sizes so developers can debug the exact results produced by their algorithms. The background colors deserve being elaborated upon.</p>
-
 <p>The area from coordinate <code>(0, 0)</code> to <code>(width - 1, height - 1)</code> is drawn with a slightly green background color. Everything that falls outside this area is marked with a red background colour. Examples:</p>
-
 <ul>
-<li><p>The two leftmost nodes have negative x coordinates.</p>
-
+<li>
+<p>The two leftmost nodes have negative x coordinates.</p>
 <p>
   <img
     class="img-fluid"
@@ -303,10 +266,10 @@ monitor.done();
     margin-right: auto;"
   />
 </p>
+
 </li>
-
-<li><p>The uppermost node has a negative y coordinate.</p>
-
+<li>
+<p>The uppermost node has a negative y coordinate.</p>
 <p>
   <img
     class="img-fluid"
@@ -319,10 +282,10 @@ monitor.done();
     margin-right: auto;"
   />
 </p>
+
 </li>
-
-<li><p>The graph is too small to hold all of its nodes.</p>
-
+<li>
+<p>The graph is too small to hold all of its nodes.</p>
 <p>
   <img
     class="img-fluid"
@@ -335,10 +298,10 @@ monitor.done();
     margin-right: auto;"
   />
 </p>
+
 </li>
-
-<li><p>If there is no green area, but there are nodes with negative coordinates, it can be impossible to spot the coordinate system&rsquo;s origin. Helpful as we are, we draw an indicator in these situations:</p>
-
+<li>
+<p>If there is no green area, but there are nodes with negative coordinates, it can be impossible to spot the coordinate system&rsquo;s origin. Helpful as we are, we draw an indicator in these situations:</p>
 <p>
   <img
     class="img-fluid"
@@ -351,13 +314,11 @@ monitor.done();
     margin-right: auto;"
   />
 </p>
+
 </li>
 </ul>
-
 <h3 id="functionality-common-to-all-views">Functionality Common to All Views</h3>
-
 <p>Each of the three views offers a context menu for the progress monitor tree:</p>
-
 <p>
   <img
     class="img-fluid"
@@ -371,21 +332,20 @@ monitor.done();
   />
 </p>
 
-
 <p>The menu provides access to the following functions:</p>
-
 <ul>
-<li><p>Remove the selected or all items. This will affect all debug views, not just the one the context menu was opened in.</p></li>
-
-<li><p>If a progress monitor&rsquo;s logs were persisted, they will end up in some directory on the file system. <em>Reveal Log Folder</em> will open that directory for further inspection. <em>Compress Log Folder</em> will compress that folder&rsquo;s content and save it as a <code>zip</code> archive. The latter item is only available on top-level entries.</p></li>
-
-<li><p>Expand or collapse the whole tree.</p></li>
+<li>
+<p>Remove the selected or all items. This will affect all debug views, not just the one the context menu was opened in.</p>
+</li>
+<li>
+<p>If a progress monitor&rsquo;s logs were persisted, they will end up in some directory on the file system. <em>Reveal Log Folder</em> will open that directory for further inspection. <em>Compress Log Folder</em> will compress that folder&rsquo;s content and save it as a <code>zip</code> archive. The latter item is only available on top-level entries.</p>
+</li>
+<li>
+<p>Expand or collapse the whole tree.</p>
+</li>
 </ul>
-
 <h2 id="log-configuration">Log Configuration</h2>
-
 <p>When running in Eclipse, the preferences contain a page with logging options:</p>
-
 <p>
   <img
     class="img-fluid"
@@ -399,29 +359,26 @@ monitor.done();
   />
 </p>
 
-
 <ul>
-<li><p><strong>Measure execution times</strong></p>
-
-<p>If enabled, progress monitors measure execution times and thus supply the <em>Layout Time View</em> with something interesting to display.</p></li>
-
-<li><p><strong>Generate debug information</strong></p>
-
-<p>If enabled, the log methods on <code>IElkProgressMonitor</code> actually record logs instead of not doing anything. Also, the return value of <code>isLoggingEnabled()</code> is influenced by this option.</p></li>
-
-<li><p><strong>Store debug information</strong></p>
-
-<p>If enabled, log messages are not simply recorded to be displayed in the user interface, but are also written to disk. The folder they&rsquo;ll end up in can be opened by pressing the <em>Open Log Folder</em> button.</p></li>
+<li>
+<p><strong>Measure execution times</strong></p>
+<p>If enabled, progress monitors measure execution times and thus supply the <em>Layout Time View</em> with something interesting to display.</p>
+</li>
+<li>
+<p><strong>Generate debug information</strong></p>
+<p>If enabled, the log methods on <code>IElkProgressMonitor</code> actually record logs instead of not doing anything. Also, the return value of <code>isLoggingEnabled()</code> is influenced by this option.</p>
+</li>
+<li>
+<p><strong>Store debug information</strong></p>
+<p>If enabled, log messages are not simply recorded to be displayed in the user interface, but are also written to disk. The folder they&rsquo;ll end up in can be opened by pressing the <em>Open Log Folder</em> button.</p>
+</li>
 </ul>
-
 <p>If automatic layout is not used from inside Eclipse, the progress monitors must be configured manually before being passed to the <a href="../../documentation/tooldevelopers/usingplainjavalayout.html">graph layout engine</a> or directly to the <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">layout algorithm</a>:</p>
-
-<pre><code class="language-java">new BasicProgressMonitor()
-    .withLogging(true)
-    .withLogPersistence(false)
-    .withExecutionTimeMeasurement(false);
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">new</span> BasicProgressMonitor<span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">withLogging</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">withLogPersistence</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">withExecutionTimeMeasurement</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+</code></pre></div>
   </div>
 
   <div class="secnav col-sm-3">

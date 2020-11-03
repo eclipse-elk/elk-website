@@ -73,16 +73,10 @@
   <div class="col-sm-9">
     <h1>Graph Data Structure</h1>
 
-    
-
-<p>To represent graphs that should be laid out, the Eclipse Layout Kernel provides a robust EMF-based data structure. This page is about describing that graph data structure.</p>
-
+    <p>To represent graphs that should be laid out, the Eclipse Layout Kernel provides a robust EMF-based data structure. This page is about describing that graph data structure.</p>
 <h2 id="terminology">Terminology</h2>
-
 <h3 id="graphs">Graphs</h3>
-
 <p>This is a simple example graph along with the terminology that goes with it.</p>
-
 <p>
   <img
     class="img-fluid"
@@ -96,11 +90,8 @@
   />
 </p>
 
-
 <h3 id="inclusion-trees">Inclusion Trees</h3>
-
 <p>Inclusion trees capture the hierarchical structure of a graph. See below for the inclusion tree of the graph we just saw, along with the terminology that goes with it.</p>
-
 <p>
   <img
     class="img-fluid"
@@ -114,63 +105,73 @@
   />
 </p>
 
-
 <h3 id="definitions">Definitions</h3>
-
 <ul>
-<li><p><strong>Inclusion Tree:</strong> The parent-child relationships of all nodes. This is basically the node containments in the EMF data structure. Note that in an ELK graph, the tree always has a single root node that represents the drawing area. Top-level nodes are children of that root node.</p></li>
-
-<li><p><strong>Graph:</strong> A set of nodes and edges and whatever else belongs to them (labels, ports, &hellip;).</p>
-
+<li>
+<p><strong>Inclusion Tree:</strong> The parent-child relationships of all nodes. This is basically the node containments in the EMF data structure. Note that in an ELK graph, the tree always has a single root node that represents the drawing area. Top-level nodes are children of that root node.</p>
+</li>
+<li>
+<p><strong>Graph:</strong> A set of nodes and edges and whatever else belongs to them (labels, ports, &hellip;).</p>
 <ul>
-<li><p><em>Simple Graph:</em> All children of a single node. The node represents that simple graph. This means that if the objects that the graph consists of are to be passed to a layout algorithm, this is done by simply passing the node object that represents that graph.</p></li>
-
-<li><p><em>Hierarchical Graph:</em> All descendants of a single node. Although the word &ldquo;all&rdquo; is a bit too strong here: we may choose to exclude all descendants of one of the node&rsquo;s descendants. Similar to simple graphs, that single node represents the hierarchical graph. The root node represents the whole graph (see below) and is simply a special case of this rule.</p></li>
-</ul></li>
-
-<li><p><strong>Node:</strong></p>
-
+<li>
+<p><em>Simple Graph:</em> All children of a single node. The node represents that simple graph. This means that if the objects that the graph consists of are to be passed to a layout algorithm, this is done by simply passing the node object that represents that graph.</p>
+</li>
+<li>
+<p><em>Hierarchical Graph:</em> All descendants of a single node. Although the word &ldquo;all&rdquo; is a bit too strong here: we may choose to exclude all descendants of one of the node&rsquo;s descendants. Similar to simple graphs, that single node represents the hierarchical graph. The root node represents the whole graph (see below) and is simply a special case of this rule.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Node:</strong></p>
 <ul>
-<li><p><em>Simple Node:</em> A node that does not contain child nodes.</p></li>
-
-<li><p><em>Hierarchical Node:</em> A node that contains child nodes.</p></li>
-</ul></li>
-
-<li><p><strong>Edge:</strong></p>
-
+<li>
+<p><em>Simple Node:</em> A node that does not contain child nodes.</p>
+</li>
+<li>
+<p><em>Hierarchical Node:</em> A node that contains child nodes.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Edge:</strong></p>
 <ul>
-<li><p><em>Simple Edge:</em> An edge that connects two nodes in the same simple graph. This of course implies that the edge&rsquo;s source and target nodes both have the same parent node.</p></li>
-
-<li><p><em>Hierarchical Edge:</em> An edge that is not simple.</p>
-
+<li>
+<p><em>Simple Edge:</em> An edge that connects two nodes in the same simple graph. This of course implies that the edge&rsquo;s source and target nodes both have the same parent node.</p>
+</li>
+<li>
+<p><em>Hierarchical Edge:</em> An edge that is not simple.</p>
 <ul>
-<li><p><em>Short Hierarchical Edge:</em> A hierarchical edge that only has to leave (or enter) a single hierarchical node to get to its target. Thus, a short hierarchical edge connects nodes in adjacent layers of hierarchy.</p></li>
-
-<li><p><em>Long Hierarchical Edge:</em> A hierarchical edge that is not a short hierarchical edge.</p></li>
-</ul></li>
-</ul></li>
-
-<li><p><strong>Port:</strong> An explicit connection point on a node for edges to connect to.</p>
-
+<li>
+<p><em>Short Hierarchical Edge:</em> A hierarchical edge that only has to leave (or enter) a single hierarchical node to get to its target. Thus, a short hierarchical edge connects nodes in adjacent layers of hierarchy.</p>
+</li>
+<li>
+<p><em>Long Hierarchical Edge:</em> A hierarchical edge that is not a short hierarchical edge.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Port:</strong> An explicit connection point on a node for edges to connect to.</p>
 <ul>
-<li><p><em>Simple Port:</em> A port on a simple node, or a port that does not have incident hierarchical edges.</p></li>
-
-<li><p><em>Hierarchical Port:</em> A port on a hierarchical node that has incident hierarchical edges.</p></li>
-</ul></li>
-
-<li><p><strong>Root Node:</strong> The root of the inclusion tree.</p>
-
+<li>
+<p><em>Simple Port:</em> A port on a simple node, or a port that does not have incident hierarchical edges.</p>
+</li>
+<li>
+<p><em>Hierarchical Port:</em> A port on a hierarchical node that has incident hierarchical edges.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Root Node:</strong> The root of the inclusion tree.</p>
 <ul>
 <li><em>Root Node of a Graph:</em> The lowest common ancestor of all nodes in the graph.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="graph-data-structure">Graph Data Structure</h2>
-
 <h3 id="the-meta-model">The Meta Model</h3>
-
 <p>The ELK Graph meta modelh looks like this:</p>
-
 <p>
   <img
     class="img-fluid"
@@ -184,71 +185,71 @@
   />
 </p>
 
-
 <p>It contains the following types:</p>
-
 <ul>
-<li><p><code>IPropertyHolder</code></p>
-
-<p>Instances of this type hold a map of properties to values. The usual use case is for clients to set properties on elements that influence the behavior of layout algorithms, but nothing stops layout algorithms from using properties internally as well. Properties are so important, in fact, that they have <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">their own page of documentation</a>.</p></li>
-
-<li><p><code>ElkGraphElement</code></p>
-
-<p>Everything in an ELK graph is an <code>ElkGraphElement</code>. All graph elements hold properties and a list of labels.</p></li>
-
-<li><p><code>ElkShape</code></p>
-
-<p>The supertype of every kind of graph element that can be described by a rectangular area: nodes, ports, and labels. Shapes have an x and y coordinate as well as a width and a height.</p></li>
-
-<li><p><code>ElkLabel</code></p>
-
-<p>Labels are used to represent text in a diagram and can be attached to all other elements, including other labels. Although we currently have no layout algorithm that supports labeled labels. Each label has the text it should display as a property.</p></li>
-
-<li><p><code>ElkConnectableShape</code></p>
-
-<p>Edges can connect to ports that belong to nodes or directly to nodes. Both are connectable shapes, which can act as the sources or targets of edges. The <code>ElkGraphUtil</code> class contains methods to turn a connectable shape into the corresponding port (if any) or node.</p></li>
-
-<li><p><code>ElkPort</code></p>
-
-<p>Ports represent explicit attachment points provided by nodes. Each port belongs to exactly one node.</p></li>
-
-<li><p><code>ElkNode</code></p>
-
-<p>Nodes could be considered the primary ingredient of an ELK graph. They can contain child nodes, which is why the graph itself is represented by an <code>ElkNode</code> as well (instead of introducing an additional <code>ElkGraph</code> class). Nodes can contain ports that edges can connect to. They also contain a list of edges. These edges are not the ones that connect to a node itself, but are the edges that connect its children. The reason for this is that EMF, the technology behind the ELK graph, requires every model element to be contained in another, which influences how a graph is serialized. Clients that build ELK graphs using the methods in <code>ElkGraphUtil</code> usually need not worry about this.</p></li>
-
-<li><p><code>ElkEdge</code></p>
-
-<p>An edge connects at least one source to at least one target, implying that they are always directed and can be hyperedges (multiplie sources or targets). The path an edge takes through a diagram is described by its list of <code>ElkEdgeSection</code> instances.</p></li>
-
-<li><p><code>ElkEdgeSection</code></p>
-
-<p>Describes part of the path an edge takes through a diagram. First and foremost, each edge section has a single parent edge. Routing-wise, it has x and y coordinates for its start and end points and a possibly empty list of bend points. Edges that connect only one source to one target have a single edge section. Hyperedges will have more. To be able to structure them properly, an edge section has a beginning and an end. Both can be either a connectable shape (if the section is an outer section of the edge) or another edge section.</p></li>
+<li>
+<p><code>IPropertyHolder</code></p>
+<p>Instances of this type hold a map of properties to values. The usual use case is for clients to set properties on elements that influence the behavior of layout algorithms, but nothing stops layout algorithms from using properties internally as well. Properties are so important, in fact, that they have <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">their own page of documentation</a>.</p>
+</li>
+<li>
+<p><code>ElkGraphElement</code></p>
+<p>Everything in an ELK graph is an <code>ElkGraphElement</code>. All graph elements hold properties and a list of labels.</p>
+</li>
+<li>
+<p><code>ElkShape</code></p>
+<p>The supertype of every kind of graph element that can be described by a rectangular area: nodes, ports, and labels. Shapes have an x and y coordinate as well as a width and a height.</p>
+</li>
+<li>
+<p><code>ElkLabel</code></p>
+<p>Labels are used to represent text in a diagram and can be attached to all other elements, including other labels. Although we currently have no layout algorithm that supports labeled labels. Each label has the text it should display as a property.</p>
+</li>
+<li>
+<p><code>ElkConnectableShape</code></p>
+<p>Edges can connect to ports that belong to nodes or directly to nodes. Both are connectable shapes, which can act as the sources or targets of edges. The <code>ElkGraphUtil</code> class contains methods to turn a connectable shape into the corresponding port (if any) or node.</p>
+</li>
+<li>
+<p><code>ElkPort</code></p>
+<p>Ports represent explicit attachment points provided by nodes. Each port belongs to exactly one node.</p>
+</li>
+<li>
+<p><code>ElkNode</code></p>
+<p>Nodes could be considered the primary ingredient of an ELK graph. They can contain child nodes, which is why the graph itself is represented by an <code>ElkNode</code> as well (instead of introducing an additional <code>ElkGraph</code> class). Nodes can contain ports that edges can connect to. They also contain a list of edges. These edges are not the ones that connect to a node itself, but are the edges that connect its children. The reason for this is that EMF, the technology behind the ELK graph, requires every model element to be contained in another, which influences how a graph is serialized. Clients that build ELK graphs using the methods in <code>ElkGraphUtil</code> usually need not worry about this.</p>
+</li>
+<li>
+<p><code>ElkEdge</code></p>
+<p>An edge connects at least one source to at least one target, implying that they are always directed and can be hyperedges (multiplie sources or targets). The path an edge takes through a diagram is described by its list of <code>ElkEdgeSection</code> instances.</p>
+</li>
+<li>
+<p><code>ElkEdgeSection</code></p>
+<p>Describes part of the path an edge takes through a diagram. First and foremost, each edge section has a single parent edge. Routing-wise, it has x and y coordinates for its start and end points and a possibly empty list of bend points. Edges that connect only one source to one target have a single edge section. Hyperedges will have more. To be able to structure them properly, an edge section has a beginning and an end. Both can be either a connectable shape (if the section is an outer section of the edge) or another edge section.</p>
+</li>
 </ul>
-
 <h3 id="working-with-the-graph-data-structure">Working With the Graph Data Structure</h3>
-
 <p>Since ELK graphs are based on EMF, you can simply obtain an instance of the <code>ElkGraphFactory</code> interface and start creating graph elements. To make things easier, however, the <code>ElkGraphUtil</code> contains a number of utility methods in different categories:</p>
-
 <ul>
-<li><p><strong>Graph Creation:</strong> There are a number of methods whose names begin with <code>create</code> that can be used to create and initialize graph elements. For instance, the <code>createSimpleEdge(source, target)</code> method not only creates an <code>ElkEdge</code>, but also sets its source and target and, as a bonus, adds it to the list of contained edges of the correct node, all in a single method call.</p>
-
-<p>One method of particular value to layout algorithm developers is <code>firstEdgeSection(edge, reset, removeOthers)</code>, which returns the first edge section of the given edge, optionally resetting its layout data and removing all other edge sections. If the edge doesn&rsquo;t have any edge sections yet, one is created and added to it. This method is handy for applying layout results.</p></li>
-
-<li><p><strong>Edge Containment:</strong> Unless one uses one of the <code>create</code> methods to create edges, finding the node an edge should be contained in may be annoying (thus, don&rsquo;t). The <code>updateContainment(ElkEdge)</code> method automatically computes the best containment and puts the edge there. This requires at least one of the edge&rsquo;s end points to be set, since that is what determines the best containment.</p>
-
+<li>
+<p><strong>Graph Creation:</strong> There are a number of methods whose names begin with <code>create</code> that can be used to create and initialize graph elements. For instance, the <code>createSimpleEdge(source, target)</code> method not only creates an <code>ElkEdge</code>, but also sets its source and target and, as a bonus, adds it to the list of contained edges of the correct node, all in a single method call.</p>
+<p>One method of particular value to layout algorithm developers is <code>firstEdgeSection(edge, reset, removeOthers)</code>, which returns the first edge section of the given edge, optionally resetting its layout data and removing all other edge sections. If the edge doesn&rsquo;t have any edge sections yet, one is created and added to it. This method is handy for applying layout results.</p>
+</li>
+<li>
+<p><strong>Edge Containment:</strong> Unless one uses one of the <code>create</code> methods to create edges, finding the node an edge should be contained in may be annoying (thus, don&rsquo;t). The <code>updateContainment(ElkEdge)</code> method automatically computes the best containment and puts the edge there. This requires at least one of the edge&rsquo;s end points to be set, since that is what determines the best containment.</p>
 <p>While computing the containment is a little intricate (hence the utility method), the actual rule that determines the best containment is rather simple: it is the lowest common ancestor of all end points, where the ancestors of a node are defined as the sequence of nodes from the node itself to the graph&rsquo;s root node. Taking the graph at the top of this page as an example, the rule has the following implications for different types of edges:</p>
-
 <ol>
-<li><p>The simple edge that connects <code>n4</code> to <code>n5</code> is contained in <code>n3</code> since that is the lowest common ancestor of both nodes.</p></li>
-
-<li><p>The short hierarchical edge that connects <code>n2</code> to <code>n6</code> is contained in <code>n2</code> since <code>n2</code> is its first ancestor.</p></li>
-
-<li><p>The long hierarchical edge that connects <code>n0</code> to <code>n4</code> is contained in the node that represents the whole graph (the root node), since that is the first common ancestor of <code>n0</code> and <code>n4</code>.</p></li>
+<li>
+<p>The simple edge that connects <code>n4</code> to <code>n5</code> is contained in <code>n3</code> since that is the lowest common ancestor of both nodes.</p>
+</li>
+<li>
+<p>The short hierarchical edge that connects <code>n2</code> to <code>n6</code> is contained in <code>n2</code> since <code>n2</code> is its first ancestor.</p>
+</li>
+<li>
+<p>The long hierarchical edge that connects <code>n0</code> to <code>n4</code> is contained in the node that represents the whole graph (the root node), since that is the first common ancestor of <code>n0</code> and <code>n4</code>.</p>
+</li>
 </ol>
-
-<p>The self loop that connects <code>n6</code> to itself might be considered an exception to this rule. It is not contained in <code>n6</code>, but in <code>n2</code>, since it runs through the simple graph represented by <code>n2</code>. This is true even if the self loop is routed through the insides of <code>n6</code>, which layout algorithms may or may not support.</p></li>
-
-<li><p><strong>Convenience Methods:</strong> There are a number of convenience methods, for example to iterate over all of a node&rsquo;s incoming or outgoing edges, to find the node that represents the simple graph an element is part of, and more.</p></li>
+<p>The self loop that connects <code>n6</code> to itself might be considered an exception to this rule. It is not contained in <code>n6</code>, but in <code>n2</code>, since it runs through the simple graph represented by <code>n2</code>. This is true even if the self loop is routed through the insides of <code>n6</code>, which layout algorithms may or may not support.</p>
+</li>
+<li>
+<p><strong>Convenience Methods:</strong> There are a number of convenience methods, for example to iterate over all of a node&rsquo;s incoming or outgoing edges, to find the node that represents the simple graph an element is part of, and more.</p>
+</li>
 </ul>
 
   </div>

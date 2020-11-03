@@ -73,35 +73,33 @@
   <div class="col-sm-9">
     <h1>Using Plain Java Layout</h1>
 
-    
-
-<p>While layout algorithms <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">can be called directly</a>, it is usually a better idea not to do so except in the simplest of cases. There are several reasons for that:</p>
-
+    <p>While layout algorithms <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">can be called directly</a>, it is usually a better idea not to do so except in the simplest of cases. There are several reasons for that:</p>
 <ol>
-<li><p>When calling a layout algorithm directly, your code is hardwired to that implementation and looses a bit of flexibility.</p></li>
-
-<li><p>Most importantly, as graphs get more complex there are more and more details to be aware of when executing layout. This is especially true for compound graphs: graphs with nodes that contain further graphs themselves.</p></li>
+<li>
+<p>When calling a layout algorithm directly, your code is hardwired to that implementation and looses a bit of flexibility.</p>
+</li>
+<li>
+<p>Most importantly, as graphs get more complex there are more and more details to be aware of when executing layout. This is especially true for compound graphs: graphs with nodes that contain further graphs themselves.</p>
+</li>
 </ol>
-
 <p>The best way to invoke automatic layout is through a fully-fledged implementation of <code>IGraphLayoutEngine</code>. ELK provides a convenient implementation: the <code>RecursiveGraphLayoutEngine</code>.</p>
-
 <h2 id="using-the-recursive-graph-layout-engines">Using the Recursive Graph Layout Engines</h2>
-
 <p>When using the recursive graph layout engine, there is exactly one important method to be aware of:</p>
-
-<pre><code class="language-java">void layout(KNode layoutGraph, IElkProgressMonitor progressMonitor);
-</code></pre>
-
-<p>This method provides the entry point to automatic layout and applies the layout algorithms as configured in the layout graph (more details below). To get everything working, follow these steps after you have populated the layout meta data service:</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>KNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor progressMonitor<span style="color:#f92672">);</span>
+</code></pre></div><p>This method provides the entry point to automatic layout and applies the layout algorithms as configured in the layout graph (more details below). To get everything working, follow these steps after you have populated the layout meta data service:</p>
 <ol>
-<li><p>Create an ElkGraph to be laid out (see our <a href="../../documentation/tooldevelopers/graphdatastructure.html">graph documentation</a> for how to do so). The ElkGraph will be based on the diagram you want your application to display.</p></li>
-
-<li><p>Configure which layout algorithm should be used to layout your graph and how the layout algorithm should layout your graph by setting <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">layout options</a> on the graph&rsquo;s elements. Check the documentation of the layout algorithm you want to use for which layout properties it supports and what they do, exactly.</p></li>
-
-<li><p>Obtain an instance of <code>RecursiveGraphLayoutEngine</code> and call its <code>layout(...)</code> method. Pass it the graph to be laid out as well as a progress monitor to track progress. The progress monitor will allow users to see how long layout will take and to cancel the operation. If you do not care to provide your own progress monitor, simply use <code>BasicProgressMonitor</code>, which is our default implementation. Once the <code>layout(...)</code> method returns, the result will be stored in the layout-related fields of the graph.</p></li>
-
-<li><p>Either keep the graph layout engine around to be used again or throw it away.</p></li>
+<li>
+<p>Create an ElkGraph to be laid out (see our <a href="../../documentation/tooldevelopers/graphdatastructure.html">graph documentation</a> for how to do so). The ElkGraph will be based on the diagram you want your application to display.</p>
+</li>
+<li>
+<p>Configure which layout algorithm should be used to layout your graph and how the layout algorithm should layout your graph by setting <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">layout options</a> on the graph&rsquo;s elements. Check the documentation of the layout algorithm you want to use for which layout properties it supports and what they do, exactly.</p>
+</li>
+<li>
+<p>Obtain an instance of <code>RecursiveGraphLayoutEngine</code> and call its <code>layout(...)</code> method. Pass it the graph to be laid out as well as a progress monitor to track progress. The progress monitor will allow users to see how long layout will take and to cancel the operation. If you do not care to provide your own progress monitor, simply use <code>BasicProgressMonitor</code>, which is our default implementation. Once the <code>layout(...)</code> method returns, the result will be stored in the layout-related fields of the graph.</p>
+</li>
+<li>
+<p>Either keep the graph layout engine around to be used again or throw it away.</p>
+</li>
 </ol>
 
   </div>

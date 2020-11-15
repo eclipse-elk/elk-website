@@ -91,13 +91,14 @@
 
 <p>The rest of this page tries to give you an idea of what each layer contains and when you would want to use it.</p>
 <h3 id="basic-layer">Basic Layer</h3>
-<!-- raw HTML omitted -->
+<div class="alert alert-simple">
+  <h5>Use Cases</h5>
 <ul>
 <li>People who only want a data structure to represent graphs.</li>
 <li>People who want to use a single layout algorithm on flat graphs in a plain Java application.</li>
 <li>Actually&hellip; Use the plain Java layer.</li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
 <p>The basic layer contains the basic core functionality of the Eclipse Layout Kernel:</p>
 <ol>
 <li>
@@ -109,11 +110,12 @@
 </ol>
 <p>All of this is pure Java code, and the only library dependencies here are the <em>Eclipse Modeling Framework</em> (which also works in pure Java applications without Eclipse) and <em>Google Guava</em>. Layout configuration is done by annotating graph elements with layout properties, nothing else. All that other configuration magic is added by the upper layers.</p>
 <h3 id="plain-java-layer">Plain Java Layer</h3>
-<!-- raw HTML omitted -->
+<div class="alert alert-simple">
+  <h5>Use Cases</h5>
 <ul>
 <li>People who want to use automatic layout in a Java application that is not built on Eclipse.</li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
 <p>The plan Java layer mostly adds functionality to execute layout algorithms more easily:</p>
 <ol>
 <li>
@@ -125,11 +127,12 @@
 </ol>
 <p>Just like the basic layer, this is pure Java code and completely independent of Eclipse.</p>
 <h3 id="eclipse-layer">Eclipse Layer</h3>
-<!-- raw HTML omitted -->
+<div class="alert alert-simple">
+  <h5>Use Cases</h5>
 <ul>
 <li>People who want to integrate automatic layout into their Eclipse-based application.</li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
 <p>The Eclipse layer integrates automatic layout with Eclipse:</p>
 <ol>
 <li>

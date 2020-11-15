@@ -253,7 +253,8 @@
 <p>A white box test method needs to specify which layout processor(s) it wants to run before or after. It does so like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@TestBeforeProcessor</span><span style="color:#f92672">(</span>NetworkSimplexLayerer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@TestAfterProcessor</span><span style="color:#f92672">(</span>NetworkSimplexLayerer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testNetworkSimplexLayerer</span><span style="color:#f92672">(</span>LGraph lGraph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testNetworkSimplexLayerer</span><span style="color:#f92672">(</span>Object graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    LGraph lGraph <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>LGraph<span style="color:#f92672">)</span> graph<span style="color:#f92672">;</span>
     <span style="color:#75715e">// Test things...
 </span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
 </code></pre></div><p>A test class containing white box tests must be configured such that all layout algorithms it runs with are white box testable. Test setup will fail otherwise.</p>

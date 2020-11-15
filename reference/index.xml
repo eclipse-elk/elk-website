@@ -66,7 +66,12 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alignment.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.alignment   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.Alignment (Enum)   Possible Values: AUTOMATICLEFTRIGHTTOPBOTTOMCENTER   Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk)   Applies To: nodes    Description Alignment of the selected node relative to other nodes; the exact meaning depends on the used algorithm.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.alignment   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.Alignment (Enum)   Possible Values: AUTOMATIC
+LEFT
+RIGHT
+TOP
+BOTTOM
+CENTER   Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk)   Applies To: nodes    Description Alignment of the selected node relative to other nodes; the exact meaning depends on the used algorithm.</description>
     </item>
     
     <item>
@@ -102,7 +107,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-wedgeCriteria.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.radial.wedgeCriteria   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.AnnulusWedgeCriteria (Enum)   Possible Values: LEAF_NUMBERNODE_SIZE   Default Value: AnnulusWedgeCriteria.NODE_SIZE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description Determine how the wedge for the node placement is calculated. It can be chosen between wedge determination by the number of leaves or by the maximum sum of diagonals.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.radial.wedgeCriteria   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.AnnulusWedgeCriteria (Enum)   Possible Values: LEAF_NUMBER
+NODE_SIZE   Default Value: AnnulusWedgeCriteria.NODE_SIZE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description Determine how the wedge for the node placement is calculated. It can be chosen between wedge determination by the number of leaves or by the maximum sum of diagonals.</description>
     </item>
     
     <item>
@@ -129,7 +135,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.EdgeStraighteningStrategy (Enum)   Possible Values: NONEIMPROVE_STRAIGHTNESS   Default Value: EdgeStraighteningStrategy.IMPROVE_STRAIGHTNESS (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Specifies whether the Brandes Koepf node placer tries to increase the number of straight edges at the expense of diagram size.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.EdgeStraighteningStrategy (Enum)   Possible Values: NONE
+IMPROVE_STRAIGHTNESS   Default Value: EdgeStraighteningStrategy.IMPROVE_STRAIGHTNESS (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Specifies whether the Brandes Koepf node placer tries to increase the number of straight edges at the expense of diagram size.</description>
     </item>
     
     <item>
@@ -138,7 +145,12 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.FixedAlignment (Enum)   Possible Values: NONELEFTUPRIGHTUPLEFTDOWNRIGHTDOWNBALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Tells the BK node placer to use a certain alignment (out of its four) instead of the one producing the smallest height, or the combination of all four.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.FixedAlignment (Enum)   Possible Values: NONE
+LEFTUP
+RIGHTUP
+LEFTDOWN
+RIGHTDOWN
+BALANCED   Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.BRANDES_KOEPF)   Containing Group: nodePlacement -&amp;gt; bk    Description Tells the BK node placer to use a certain alignment (out of its four) instead of the one producing the smallest height, or the combination of all four.</description>
     </item>
     
     <item>
@@ -156,7 +168,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-box-packingMode.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.box.packingMode   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.util.BoxLayoutProvider$PackingMode (Enum)   Possible Values: SIMPLEGROUP_DECGROUP_MIXEDGROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: box    Description Configures the packing mode used by the {@link BoxLayoutProvider}. If SIMPLE is not required (neither priorities are used nor the interactive mode), GROUP_DEC can improve the packing and decrease the area.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.box.packingMode   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.util.BoxLayoutProvider$PackingMode (Enum)   Possible Values: SIMPLE
+GROUP_DEC
+GROUP_MIXED
+GROUP_INC   Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: box    Description Configures the packing mode used by the {@link BoxLayoutProvider}. If SIMPLE is not required (neither priorities are used nor the interactive mode), GROUP_DEC can improve the packing and decrease the area.</description>
     </item>
     
     <item>
@@ -201,7 +216,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactor.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.radial.compactor   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.CompactionStrategy (Enum)   Possible Values: NONERADIAL_COMPACTIONWEDGE_COMPACTION   Default Value: CompactionStrategy.NONE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description With the compacter option it can be determined how compaction on the graph is done. It can be chosen between none, the radial compaction or the compaction of wedges separately.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.radial.compactor   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.CompactionStrategy (Enum)   Possible Values: NONE
+RADIAL_COMPACTION
+WEDGE_COMPACTION   Default Value: CompactionStrategy.NONE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description With the compacter option it can be determined how compaction on the graph is done. It can be chosen between none, the radial compaction or the compaction of wedges separately.</description>
     </item>
     
     <item>
@@ -309,7 +326,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.considerModelOrder   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.OrderingStrategy (Enum)   Possible Values: NONENODES_AND_EDGESPREFER_EDGES   Default Value: OrderingStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Preserves the order of nodes and edges in the model file if this does not lead to edge crossings or conflicts between the ordering or edges and nodes.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.considerModelOrder   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.OrderingStrategy (Enum)   Possible Values: NONE
+NODES_AND_EDGES
+PREFER_EDGES   Default Value: OrderingStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Preserves the order of nodes and edges in the model file if this does not lead to edge crossings or conflicts between the ordering or edges and nodes.</description>
     </item>
     
     <item>
@@ -318,7 +337,12 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-contentAlignment.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.contentAlignment   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.ContentAlignment&amp;gt;   Possible Values: V_TOPV_CENTERV_BOTTOMH_LEFTH_CENTERH_RIGHT   Default Value: ContentAlignment.topLeft() (as defined in org.eclipse.elk)   Applies To: parents    Description Specifies how the content of a node are aligned. Each node can individually control the alignment of its contents. I.e. if a node should be aligned top left in its parent node, the parent node should specify that option.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.contentAlignment   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.ContentAlignment&amp;gt;   Possible Values: V_TOP
+V_CENTER
+V_BOTTOM
+H_LEFT
+H_CENTER
+H_RIGHT   Default Value: ContentAlignment.topLeft() (as defined in org.eclipse.elk)   Applies To: parents    Description Specifies how the content of a node are aligned. Each node can individually control the alignment of its contents.</description>
     </item>
     
     <item>
@@ -336,7 +360,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingOrder-spanningTreeCostFunction.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.processingOrder.spanningTreeCostFunction   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.SpanningTreeCostFunction (Enum)   Possible Values: CENTER_DISTANCECIRCLE_UNDERLAPRECTANGLE_UNDERLAPINVERTED_OVERLAPMINIMUM_ROOT_DISTANCE   Default Value: SpanningTreeCostFunction.CIRCLE_UNDERLAP (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description The cost function is used in the creation of the spanning tree.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.processingOrder.spanningTreeCostFunction   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.SpanningTreeCostFunction (Enum)   Possible Values: CENTER_DISTANCE
+CIRCLE_UNDERLAP
+RECTANGLE_UNDERLAP
+INVERTED_OVERLAP
+MINIMUM_ROOT_DISTANCE   Default Value: SpanningTreeCostFunction.CIRCLE_UNDERLAP (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description The cost function is used in the creation of the spanning tree.</description>
     </item>
     
     <item>
@@ -345,7 +373,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-strategy.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.crossingMinimization.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CrossingMinimizationStrategy (Enum)   Possible Values: LAYER_SWEEPINTERACTIVE (@AdvancedPropertyValue)   Default Value: CrossingMinimizationStrategy.LAYER_SWEEP (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: crossingMinimization    Description Strategy for crossing minimization.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.crossingMinimization.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CrossingMinimizationStrategy (Enum)   Possible Values: LAYER_SWEEP
+INTERACTIVE (@AdvancedPropertyValue)   Default Value: CrossingMinimizationStrategy.LAYER_SWEEP (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: crossingMinimization    Description Strategy for crossing minimization.</description>
     </item>
     
     <item>
@@ -390,7 +419,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-strategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.cutting.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CuttingStrategy (Enum)   Possible Values: ARDMSDMANUAL   Default Value: CuttingStrategy.MSD (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; cutting    Description The strategy by which the layer indexes are determined at which the layering crumbles into chunks.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.cutting.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CuttingStrategy (Enum)   Possible Values: ARD
+MSD
+MANUAL   Default Value: CuttingStrategy.MSD (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; cutting    Description The strategy by which the layer indexes are determined at which the layering crumbles into chunks.</description>
     </item>
     
     <item>
@@ -399,7 +430,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-cycleBreaking-strategy.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.cycleBreaking.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CycleBreakingStrategy (Enum)   Possible Values: GREEDYDEPTH_FIRSTINTERACTIVE (@AdvancedPropertyValue)   Default Value: CycleBreakingStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: cycleBreaking    Description Strategy for cycle breaking. Cycle breaking looks for cycles in the graph and determines which edges to reverse to break the cycles.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.cycleBreaking.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CycleBreakingStrategy (Enum)   Possible Values: GREEDY
+DEPTH_FIRST
+INTERACTIVE (@AdvancedPropertyValue)   Default Value: CycleBreakingStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: cycleBreaking    Description Strategy for cycle breaking. Cycle breaking looks for cycles in the graph and determines which edges to reverse to break the cycles.</description>
     </item>
     
     <item>
@@ -462,7 +495,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-direction.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.direction   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.Direction (Enum)   Possible Values: UNDEFINEDRIGHTLEFTDOWNUP   Default Value: Direction.UNDEFINED (as defined in org.eclipse.elk)   Applies To: parents    Description Overall direction of edges: horizontal (right / left) or vertical (down / up).</description>
+      <description>Property Value     Identifier: org.eclipse.elk.direction   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.Direction (Enum)   Possible Values: UNDEFINED
+RIGHT
+LEFT
+DOWN
+UP   Default Value: Direction.UNDEFINED (as defined in org.eclipse.elk)   Applies To: parents    Description Overall direction of edges: horizontal (right / left) or vertical (down / up).</description>
     </item>
     
     <item>
@@ -471,7 +508,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-directionCongruency.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.directionCongruency   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.DirectionCongruency (Enum)   Possible Values: READING_DIRECTIONROTATION   Default Value: DirectionCongruency.READING_DIRECTION (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Specifies how drawings of the same graph with different layout directions compare to each other: either a natural reading direction is preserved or the drawings are rotated versions of each other.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.directionCongruency   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.DirectionCongruency (Enum)   Possible Values: READING_DIRECTION
+ROTATION   Default Value: DirectionCongruency.READING_DIRECTION (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Specifies how drawings of the same graph with different layout directions compare to each other: either a natural reading direction is preserved or the drawings are rotated versions of each other.</description>
     </item>
     
     <item>
@@ -489,7 +527,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-neatoModel.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.graphviz.neatoModel   Meta Data Provider: layouter.GraphvizMetaDataProvider   Value Type: org.eclipse.elk.alg.graphviz.dot.transform.NeatoModel (Enum)   Possible Values: SHORTPATHCIRCUITSUBSET   Default Value: NeatoModel.SHORTPATH (as defined in org.eclipse.elk.graphviz)   Applies To: parents    Description Specifies how the distance matrix is computed for the input graph.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.graphviz.neatoModel   Meta Data Provider: layouter.GraphvizMetaDataProvider   Value Type: org.eclipse.elk.alg.graphviz.dot.transform.NeatoModel (Enum)   Possible Values: SHORTPATH
+CIRCUIT
+SUBSET   Default Value: NeatoModel.SHORTPATH (as defined in org.eclipse.elk.graphviz)   Applies To: parents    Description Specifies how the distance matrix is computed for the input graph.</description>
     </item>
     
     <item>
@@ -535,7 +575,12 @@ Category: Layered The layer-based method was introduced by Sugiyama, Tagawa and 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeLabels-centerLabelPlacementStrategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CenterEdgeLabelPlacementStrategy (Enum)   Possible Values: MEDIAN_LAYERTAIL_LAYERHEAD_LAYERSPACE_EFFICIENT_LAYERWIDEST_LAYER (@ExperimentalPropertyValue)CENTER_LAYER (@ExperimentalPropertyValue)   Default Value: CenterEdgeLabelPlacementStrategy.MEDIAN_LAYER (as defined in org.eclipse.elk.layered)   Applies To: parents, labels   Containing Group: edgeLabels    Description Determines in which layer center labels of long edges should be placed.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CenterEdgeLabelPlacementStrategy (Enum)   Possible Values: MEDIAN_LAYER
+TAIL_LAYER
+HEAD_LAYER
+SPACE_EFFICIENT_LAYER
+WIDEST_LAYER (@ExperimentalPropertyValue)
+CENTER_LAYER (@ExperimentalPropertyValue)   Default Value: CenterEdgeLabelPlacementStrategy.MEDIAN_LAYER (as defined in org.eclipse.elk.layered)   Applies To: parents, labels   Containing Group: edgeLabels    Description Determines in which layer center labels of long edges should be placed.</description>
     </item>
     
     <item>
@@ -553,7 +598,9 @@ Category: Layered The layer-based method was introduced by Sugiyama, Tagawa and 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeLabels-placement.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.edgeLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeLabelPlacement (Enum)   Possible Values: CENTERHEADTAIL   Default Value: EdgeLabelPlacement.CENTER (as defined in org.eclipse.elk)   Applies To: labels   Containing Group: edgeLabels    Description Gives a hint on where to put edge labels.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.edgeLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeLabelPlacement (Enum)   Possible Values: CENTER
+HEAD
+TAIL   Default Value: EdgeLabelPlacement.CENTER (as defined in org.eclipse.elk)   Applies To: labels   Containing Group: edgeLabels    Description Gives a hint on where to put edge labels.</description>
     </item>
     
     <item>
@@ -562,7 +609,12 @@ Category: Layered The layer-based method was introduced by Sugiyama, Tagawa and 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeLabels-sideSelection.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeLabels.sideSelection   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.EdgeLabelSideSelection (Enum)   Possible Values: ALWAYS_UPALWAYS_DOWNDIRECTION_UPDIRECTION_DOWNSMART_UPSMART_DOWN   Default Value: EdgeLabelSideSelection.SMART_DOWN (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeLabels    Description Method to decide on edge label sides.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeLabels.sideSelection   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.EdgeLabelSideSelection (Enum)   Possible Values: ALWAYS_UP
+ALWAYS_DOWN
+DIRECTION_UP
+DIRECTION_DOWN
+SMART_UP
+SMART_DOWN   Default Value: EdgeLabelSideSelection.SMART_DOWN (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: edgeLabels    Description Method to decide on edge label sides.</description>
     </item>
     
     <item>
@@ -598,7 +650,10 @@ Category: Layered The layer-based method was introduced by Sugiyama, Tagawa and 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeRouting.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.edgeRouting   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeRouting (Enum)   Possible Values: UNDEFINEDPOLYLINEORTHOGONALSPLINES   Default Value: EdgeRouting.UNDEFINED (as defined in org.eclipse.elk)   Applies To: parents    Description What kind of edge routing style should be applied for the content of a parent node. Algorithms may also set this option to single edges in order to mark them as splines.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.edgeRouting   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeRouting (Enum)   Possible Values: UNDEFINED
+POLYLINE
+ORTHOGONAL
+SPLINES   Default Value: EdgeRouting.UNDEFINED (as defined in org.eclipse.elk)   Applies To: parents    Description What kind of edge routing style should be applied for the content of a parent node. Algorithms may also set this option to single edges in order to mark them as splines.</description>
     </item>
     
     <item>
@@ -625,7 +680,12 @@ Category: Layered The layer-based method was introduced by Sugiyama, Tagawa and 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edge-type.html</guid>
-      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.edge.type   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeType (Enum)   Possible Values: NONEDIRECTEDUNDIRECTEDASSOCIATIONGENERALIZATIONDEPENDENCY   Default Value: EdgeType.NONE (as defined in org.eclipse.elk)   Applies To: edges   Containing Group: edge    Description The type of an edge. This is usually used for UML class diagrams, where associations must be handled differently from generalizations.</description>
+      <description>Property Value     Type: programmatic   Identifier: org.eclipse.elk.edge.type   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.EdgeType (Enum)   Possible Values: NONE
+DIRECTED
+UNDIRECTED
+ASSOCIATION
+GENERALIZATION
+DEPENDENCY   Default Value: EdgeType.NONE (as defined in org.eclipse.elk)   Applies To: edges   Containing Group: edge    Description The type of an edge. This is usually used for UML class diagrams, where associations must be handled differently from generalizations.</description>
     </item>
     
     <item>
@@ -905,7 +965,8 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-model.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.force.model   Meta Data Provider: options.ForceMetaDataProvider   Value Type: org.eclipse.elk.alg.force.options.ForceModelStrategy (Enum)   Possible Values: EADESFRUCHTERMAN_REINGOLD   Default Value: ForceModelStrategy.FRUCHTERMAN_REINGOLD (as defined in org.eclipse.elk.force)   Applies To: parents    Description Determines the model for force calculation.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.force.model   Meta Data Provider: options.ForceMetaDataProvider   Value Type: org.eclipse.elk.alg.force.options.ForceModelStrategy (Enum)   Possible Values: EADES
+FRUCHTERMAN_REINGOLD   Default Value: ForceModelStrategy.FRUCHTERMAN_REINGOLD (as defined in org.eclipse.elk.force)   Applies To: parents    Description Determines the model for force calculation.</description>
     </item>
     
     <item>
@@ -923,7 +984,9 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-strategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.WrappingStrategy (Enum)   Possible Values: OFFSINGLE_EDGEMULTI_EDGE   Default Value: WrappingStrategy.OFF (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: wrapping    Description For certain graphs and certain prescribed drawing areas it may be desirable to split the laid out graph into chunks that are placed side by side.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.WrappingStrategy (Enum)   Possible Values: OFF
+SINGLE_EDGE
+MULTI_EDGE   Default Value: WrappingStrategy.OFF (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: wrapping    Description For certain graphs and certain prescribed drawing areas it may be desirable to split the laid out graph into chunks that are placed side by side.</description>
     </item>
     
     <item>
@@ -989,7 +1052,9 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-greedySwitch-type.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.greedySwitch.type   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.GreedySwitchType (Enum)   Possible Values: ONE_SIDEDTWO_SIDEDOFF   Default Value: GreedySwitchType.TWO_SIDED (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.LAYER_SWEEP)   Containing Group: crossingMinimization -&amp;gt; greedySwitch    Description Greedy Switch strategy for crossing minimization. The greedy switch heuristic is executed after the regular crossing minimization as a post-processor.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.greedySwitch.type   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.GreedySwitchType (Enum)   Possible Values: ONE_SIDED
+TWO_SIDED
+OFF   Default Value: GreedySwitchType.TWO_SIDED (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.LAYER_SWEEP)   Containing Group: crossingMinimization -&amp;gt; greedySwitch    Description Greedy Switch strategy for crossing minimization. The greedy switch heuristic is executed after the regular crossing minimization as a post-processor.</description>
     </item>
     
     <item>
@@ -998,7 +1063,9 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-greedySwitchHierarchical-type.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.GreedySwitchType (Enum)   Possible Values: ONE_SIDEDTWO_SIDEDOFF   Default Value: GreedySwitchType.OFF (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.LAYER_SWEEP), org.eclipse.elk.hierarchyHandling (HierarchyHandling.INCLUDE_CHILDREN)   Containing Group: crossingMinimization -&amp;gt; greedySwitchHierarchical    Description Activates the greedy switch heuristic in case hierarchical layout is used.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.GreedySwitchType (Enum)   Possible Values: ONE_SIDED
+TWO_SIDED
+OFF   Default Value: GreedySwitchType.OFF (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.LAYER_SWEEP), org.eclipse.elk.hierarchyHandling (HierarchyHandling.INCLUDE_CHILDREN)   Containing Group: crossingMinimization -&amp;gt; greedySwitchHierarchical    Description Activates the greedy switch heuristic in case hierarchical layout is used.</description>
     </item>
     
     <item>
@@ -1016,7 +1083,9 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyHandling.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.hierarchyHandling   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.HierarchyHandling (Enum)   Possible Values: INHERITINCLUDE_CHILDRENSEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.hierarchyHandling   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.HierarchyHandling (Enum)   Possible Values: INHERIT
+INCLUDE_CHILDREN
+SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
     </item>
     
     <item>
@@ -1025,7 +1094,9 @@ Category: Radial Radial layout algorithms usually position the nodes of the grap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyHandling_org-eclipse-elk-graphviz-dot.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.hierarchyHandling   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.HierarchyHandling (Enum)   Possible Values: INHERITINCLUDE_CHILDRENSEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.hierarchyHandling   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.HierarchyHandling (Enum)   Possible Values: INHERIT
+INCLUDE_CHILDREN
+SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
     </item>
     
     <item>
@@ -1162,7 +1233,8 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-interactiveReferencePoint.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.interactiveReferencePoint   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.InteractiveReferencePoint (Enum)   Possible Values: CENTERTOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.cycleBreaking.strategy (CycleBreakingStrategy.INTERACTIVE), org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.INTERACTIVE)    Description Determines which point of a node is considered by interactive layout phases.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.interactiveReferencePoint   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.InteractiveReferencePoint (Enum)   Possible Values: CENTER
+TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.cycleBreaking.strategy (CycleBreakingStrategy.INTERACTIVE), org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.INTERACTIVE)    Description Determines which point of a node is considered by interactive layout phases.</description>
     </item>
     
     <item>
@@ -1288,7 +1360,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerConstraint.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.layerConstraint   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.LayerConstraint (Enum)   Possible Values: NONEFIRSTFIRST_SEPARATELASTLAST_SEPARATE   Default Value: LayerConstraint.NONE (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: layering    Description Determines a constraint on the placement of the node regarding the layering.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.layerConstraint   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.LayerConstraint (Enum)   Possible Values: NONE
+FIRST
+FIRST_SEPARATE
+LAST
+LAST_SEPARATE   Default Value: LayerConstraint.NONE (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: layering    Description Determines a constraint on the placement of the node regarding the layering.</description>
     </item>
     
     <item>
@@ -1369,7 +1445,9 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-dimension.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.stress.dimension   Meta Data Provider: options.StressMetaDataProvider   Value Type: org.eclipse.elk.alg.force.stress.StressMajorization$Dimension (Enum)   Possible Values: XYXY   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies To: parents    Description Dimensions that are permitted to be altered during layout.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.stress.dimension   Meta Data Provider: options.StressMetaDataProvider   Value Type: org.eclipse.elk.alg.force.stress.StressMajorization$Dimension (Enum)   Possible Values: XY
+X
+Y   Default Value: Dimension.XY (as defined in org.eclipse.elk.stress)   Applies To: parents    Description Dimensions that are permitted to be altered during layout.</description>
     </item>
     
     <item>
@@ -1522,7 +1600,10 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodeFlexibility (Enum)   Possible Values: NONEPORT_POSITIONNODE_SIZE_WHERE_SPACE_PERMITS (@ExperimentalPropertyValue)NODE_SIZE   Applies To: nodes   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.NETWORK_SIMPLEX)   Containing Group: nodePlacement -&amp;gt; networkSimplex    Description Aims at shorter and straighter edges. Two configurations are possible: (a) allow ports to move freely on the side they are assigned to (the order is always defined beforehand), (b) additionally allow to enlarge a node wherever it helps.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodeFlexibility (Enum)   Possible Values: NONE
+PORT_POSITION
+NODE_SIZE_WHERE_SPACE_PERMITS (@ExperimentalPropertyValue)
+NODE_SIZE   Applies To: nodes   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.NETWORK_SIMPLEX)   Containing Group: nodePlacement -&amp;gt; networkSimplex    Description Aims at shorter and straighter edges. Two configurations are possible: (a) allow ports to move freely on the side they are assigned to (the order is always defined beforehand), (b) additionally allow to enlarge a node wherever it helps.</description>
     </item>
     
     <item>
@@ -1531,7 +1612,10 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility-default.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodeFlexibility (Enum)   Possible Values: NONEPORT_POSITIONNODE_SIZE_WHERE_SPACE_PERMITS (@ExperimentalPropertyValue)NODE_SIZE   Default Value: NodeFlexibility.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.NETWORK_SIMPLEX)   Containing Group: nodePlacement -&amp;gt; networkSimplex -&amp;gt; nodeFlexibility    Description Default value of the &amp;lsquo;nodeFlexibility&amp;rsquo; option for the children of a hierarchical node.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodeFlexibility (Enum)   Possible Values: NONE
+PORT_POSITION
+NODE_SIZE_WHERE_SPACE_PERMITS (@ExperimentalPropertyValue)
+NODE_SIZE   Default Value: NodeFlexibility.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.NETWORK_SIMPLEX)   Containing Group: nodePlacement -&amp;gt; networkSimplex -&amp;gt; nodeFlexibility    Description Default value of the &amp;lsquo;nodeFlexibility&amp;rsquo; option for the children of a hierarchical node.</description>
     </item>
     
     <item>
@@ -1540,7 +1624,7 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeLabels-padding.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.nodeLabels.padding   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.ElkPadding   Default Value: new ElkPadding(5) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeLabels    Description Define padding for node labels that are placed inside of a node.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.nodeLabels.padding   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.math.ElkPadding   Default Value: new ElkPadding(5) (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: nodeLabels    Description Define padding for node labels that are placed inside of a node.</description>
     </item>
     
     <item>
@@ -1549,7 +1633,15 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeLabels-placement.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.nodeLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.NodeLabelPlacement&amp;gt;   Possible Values: H_LEFTH_CENTERH_RIGHTV_TOPV_CENTERV_BOTTOMINSIDEOUTSIDEH_PRIORITY   Default Value: NodeLabelPlacement.fixed() (as defined in org.eclipse.elk)   Applies To: nodes, labels   Containing Group: nodeLabels    Description Hints for where node labels are to be placed; if empty, the node label&amp;rsquo;s position is not modified.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.nodeLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.NodeLabelPlacement&amp;gt;   Possible Values: H_LEFT
+H_CENTER
+H_RIGHT
+V_TOP
+V_CENTER
+V_BOTTOM
+INSIDE
+OUTSIDE
+H_PRIORITY   Default Value: NodeLabelPlacement.fixed() (as defined in org.eclipse.elk)   Applies To: nodes, labels   Containing Group: nodeLabels    Description Hints for where node labels are to be placed; if empty, the node label&amp;rsquo;s position is not modified.</description>
     </item>
     
     <item>
@@ -1558,7 +1650,12 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.layering.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.LayeringStrategy (Enum)   Possible Values: NETWORK_SIMPLEXLONGEST_PATHCOFFMAN_GRAHAM (@AdvancedPropertyValue)INTERACTIVE (@AdvancedPropertyValue)STRETCH_WIDTH (@ExperimentalPropertyValue)MIN_WIDTH (@ExperimentalPropertyValue)   Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: layering    Description Strategy for node layering.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.layering.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.LayeringStrategy (Enum)   Possible Values: NETWORK_SIMPLEX
+LONGEST_PATH
+COFFMAN_GRAHAM (@AdvancedPropertyValue)
+INTERACTIVE (@AdvancedPropertyValue)
+STRETCH_WIDTH (@ExperimentalPropertyValue)
+MIN_WIDTH (@ExperimentalPropertyValue)   Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: layering    Description Strategy for node layering.</description>
     </item>
     
     <item>
@@ -1576,7 +1673,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.nodePlacement.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodePlacementStrategy (Enum)   Possible Values: SIMPLEINTERACTIVE (@AdvancedPropertyValue)LINEAR_SEGMENTSBRANDES_KOEPFNETWORK_SIMPLEX   Default Value: NodePlacementStrategy.BRANDES_KOEPF (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: nodePlacement    Description Strategy for node placement.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.nodePlacement.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodePlacementStrategy (Enum)   Possible Values: SIMPLE
+INTERACTIVE (@AdvancedPropertyValue)
+LINEAR_SEGMENTS
+BRANDES_KOEPF
+NETWORK_SIMPLEX   Default Value: NodePlacementStrategy.BRANDES_KOEPF (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: nodePlacement    Description Strategy for node placement.</description>
     </item>
     
     <item>
@@ -1585,7 +1686,14 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodePromotion-strategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.nodePromotion.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodePromotionStrategy (Enum)   Possible Values: NONENIKOLOVNIKOLOV_PIXELNIKOLOV_IMPROVED (@AdvancedPropertyValue)NIKOLOV_IMPROVED_PIXEL (@AdvancedPropertyValue)DUMMYNODE_PERCENTAGE (@AdvancedPropertyValue)NODECOUNT_PERCENTAGE (@AdvancedPropertyValue)NO_BOUNDARY (@AdvancedPropertyValue)   Default Value: NodePromotionStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: layering -&amp;gt; nodePromotion    Description Reduces number of dummy nodes after layering phase (if possible).</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.layering.nodePromotion.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.NodePromotionStrategy (Enum)   Possible Values: NONE
+NIKOLOV
+NIKOLOV_PIXEL
+NIKOLOV_IMPROVED (@AdvancedPropertyValue)
+NIKOLOV_IMPROVED_PIXEL (@AdvancedPropertyValue)
+DUMMYNODE_PERCENTAGE (@AdvancedPropertyValue)
+NODECOUNT_PERCENTAGE (@AdvancedPropertyValue)
+NO_BOUNDARY (@AdvancedPropertyValue)   Default Value: NodePromotionStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: layering -&amp;gt; nodePromotion    Description Reduces number of dummy nodes after layering phase (if possible).</description>
     </item>
     
     <item>
@@ -1603,7 +1711,10 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-constraints.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.nodeSize.constraints   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.SizeConstraint&amp;gt;   Possible Values: PORTSPORT_LABELSNODE_LABELSMINIMUM_SIZE   Default Value: EnumSet.noneOf(SizeConstraint) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeSize    Description What should be taken into account when calculating a node&amp;rsquo;s size. Empty size constraints specify that a node&amp;rsquo;s size is already fixed and should not be changed.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.nodeSize.constraints   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.SizeConstraint&amp;gt;   Possible Values: PORTS
+PORT_LABELS
+NODE_LABELS
+MINIMUM_SIZE   Default Value: EnumSet.noneOf(SizeConstraint) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeSize    Description What should be taken into account when calculating a node&amp;rsquo;s size. Empty size constraints specify that a node&amp;rsquo;s size is already fixed and should not be changed.</description>
     </item>
     
     <item>
@@ -1621,7 +1732,15 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-options.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.nodeSize.options   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.SizeOptions&amp;gt;   Possible Values: DEFAULT_MINIMUM_SIZEMINIMUM_SIZE_ACCOUNTS_FOR_PADDINGCOMPUTE_PADDINGOUTSIDE_NODE_LABELS_OVERHANGPORTS_OVERHANGUNIFORM_PORT_SPACINGSPACE_EFFICIENT_PORT_LABELS (@Deprecated)FORCE_TABULAR_NODE_LABELSASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeSize    Description Options modifying the behavior of the size constraints set on a node. Each member of the set specifies something that should be taken into account when calculating node sizes.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.nodeSize.options   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.SizeOptions&amp;gt;   Possible Values: DEFAULT_MINIMUM_SIZE
+MINIMUM_SIZE_ACCOUNTS_FOR_PADDING
+COMPUTE_PADDING
+OUTSIDE_NODE_LABELS_OVERHANG
+PORTS_OVERHANG
+UNIFORM_PORT_SPACING
+SPACE_EFFICIENT_PORT_LABELS (@Deprecated)
+FORCE_TABULAR_NODE_LABELS
+ASYMMETRICAL   Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: nodeSize    Description Options modifying the behavior of the size constraints set on a node.</description>
     </item>
     
     <item>
@@ -1720,7 +1839,9 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationGoal.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.optimizationGoal   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.rectpacking.options.OptimizationGoal (Enum)   Possible Values: ASPECT_RATIO_DRIVENMAX_SCALE_DRIVENAREA_DRIVEN   Default Value: OptimizationGoal.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Optimization goal for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.rectpacking.optimizationGoal   Meta Data Provider: options.RectPackingMetaDataProvider   Value Type: org.eclipse.elk.alg.rectpacking.options.OptimizationGoal (Enum)   Possible Values: ASPECT_RATIO_DRIVEN
+MAX_SCALE_DRIVEN
+AREA_DRIVEN   Default Value: OptimizationGoal.MAX_SCALE_DRIVEN (as defined in org.eclipse.elk.rectpacking)   Applies To: nodes    Description Optimization goal for approximation of the bounding box given by the first iteration. Determines whether layout is sorted by the maximum scaling, aspect ratio, or area.</description>
     </item>
     
     <item>
@@ -1747,7 +1868,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapMode.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.graphviz.overlapMode   Meta Data Provider: layouter.GraphvizMetaDataProvider   Value Type: org.eclipse.elk.alg.graphviz.dot.transform.OverlapMode (Enum)   Possible Values: NONESCALESCALEXYPRISMCOMPRESS   Default Value: OverlapMode.PRISM (as defined in org.eclipse.elk.graphviz)   Applies To: parents    Description Determines if and how node overlaps should be removed.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.graphviz.overlapMode   Meta Data Provider: layouter.GraphvizMetaDataProvider   Value Type: org.eclipse.elk.alg.graphviz.dot.transform.OverlapMode (Enum)   Possible Values: NONE
+SCALE
+SCALEXY
+PRISM
+COMPRESS   Default Value: OverlapMode.PRISM (as defined in org.eclipse.elk.graphviz)   Applies To: parents    Description Determines if and how node overlaps should be removed.</description>
     </item>
     
     <item>
@@ -1792,7 +1917,8 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-highLevelSort.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.polyomino.highLevelSort   Meta Data Provider: options.PolyominoOptions   Value Type: org.eclipse.elk.alg.common.compaction.options.HighLevelSortingCriterion (Enum)   Possible Values: NUM_OF_EXTERNAL_SIDES_THAN_NUM_OF_EXTENSIONS_LASTCORNER_CASES_THAN_SINGLE_SIDE_LAST   Default Value: HighLevelSortingCriterion.NUM_OF_EXTERNAL_SIDES_THAN_NUM_OF_EXTENSIONS_LAST (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: polyomino    Description Possible primary sorting criteria for the processing order of polyominoes.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.polyomino.highLevelSort   Meta Data Provider: options.PolyominoOptions   Value Type: org.eclipse.elk.alg.common.compaction.options.HighLevelSortingCriterion (Enum)   Possible Values: NUM_OF_EXTERNAL_SIDES_THAN_NUM_OF_EXTENSIONS_LAST
+CORNER_CASES_THAN_SINGLE_SIDE_LAST   Default Value: HighLevelSortingCriterion.NUM_OF_EXTERNAL_SIDES_THAN_NUM_OF_EXTENSIONS_LAST (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: polyomino    Description Possible primary sorting criteria for the processing order of polyominoes.</description>
     </item>
     
     <item>
@@ -1801,7 +1927,8 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-lowLevelSort.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.polyomino.lowLevelSort   Meta Data Provider: options.PolyominoOptions   Value Type: org.eclipse.elk.alg.common.compaction.options.LowLevelSortingCriterion (Enum)   Possible Values: BY_SIZEBY_SIZE_AND_SHAPE   Default Value: LowLevelSortingCriterion.BY_SIZE_AND_SHAPE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: polyomino    Description Possible secondary sorting criteria for the processing order of polyominoes. They are used when polyominoes are equal according to the primary sorting criterion HighLevelSortingCriterion.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.polyomino.lowLevelSort   Meta Data Provider: options.PolyominoOptions   Value Type: org.eclipse.elk.alg.common.compaction.options.LowLevelSortingCriterion (Enum)   Possible Values: BY_SIZE
+BY_SIZE_AND_SHAPE   Default Value: LowLevelSortingCriterion.BY_SIZE_AND_SHAPE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: polyomino    Description Possible secondary sorting criteria for the processing order of polyominoes. They are used when polyominoes are equal according to the primary sorting criterion HighLevelSortingCriterion.</description>
     </item>
     
     <item>
@@ -1810,7 +1937,15 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-traversalStrategy.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.polyomino.traversalStrategy   Meta Data Provider: options.PolyominoOptions   Value Type: org.eclipse.elk.alg.common.compaction.options.TraversalStrategy (Enum)   Possible Values: SPIRALLINE_BY_LINEMANHATTANJITTERQUADRANTS_LINE_BY_LINEQUADRANTS_MANHATTANQUADRANTS_JITTERCOMBINE_LINE_BY_LINE_MANHATTANCOMBINE_JITTER_MANHATTAN   Default Value: TraversalStrategy.QUADRANTS_LINE_BY_LINE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: polyomino    Description Traversal strategy for trying different candidate positions for polyominoes.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.polyomino.traversalStrategy   Meta Data Provider: options.PolyominoOptions   Value Type: org.eclipse.elk.alg.common.compaction.options.TraversalStrategy (Enum)   Possible Values: SPIRAL
+LINE_BY_LINE
+MANHATTAN
+JITTER
+QUADRANTS_LINE_BY_LINE
+QUADRANTS_MANHATTAN
+QUADRANTS_JITTER
+COMBINE_LINE_BY_LINE_MANHATTAN
+COMBINE_JITTER_MANHATTAN   Default Value: TraversalStrategy.QUADRANTS_LINE_BY_LINE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: polyomino    Description Traversal strategy for trying different candidate positions for polyominoes.</description>
     </item>
     
     <item>
@@ -1828,7 +1963,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-default.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.portAlignment.default   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTEDJUSTIFIEDBEGINCENTEREND   Default Value: PortAlignment.DISTRIBUTED (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portAlignment    Description Defines the default port distribution for a node. May be overridden for each side individually.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.portAlignment.default   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTED
+JUSTIFIED
+BEGIN
+CENTER
+END   Default Value: PortAlignment.DISTRIBUTED (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portAlignment    Description Defines the default port distribution for a node. May be overridden for each side individually.</description>
     </item>
     
     <item>
@@ -1837,7 +1976,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-east.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.portAlignment.east   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTEDJUSTIFIEDBEGINCENTEREND   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the eastern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.portAlignment.east   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTED
+JUSTIFIED
+BEGIN
+CENTER
+END   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the eastern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
     </item>
     
     <item>
@@ -1846,7 +1989,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-north.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.portAlignment.north   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTEDJUSTIFIEDBEGINCENTEREND   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the northern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.portAlignment.north   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTED
+JUSTIFIED
+BEGIN
+CENTER
+END   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the northern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
     </item>
     
     <item>
@@ -1855,7 +2002,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-south.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.portAlignment.south   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTEDJUSTIFIEDBEGINCENTEREND   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the southern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.portAlignment.south   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTED
+JUSTIFIED
+BEGIN
+CENTER
+END   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the southern side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
     </item>
     
     <item>
@@ -1864,7 +2015,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portAlignment-west.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.portAlignment.west   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTEDJUSTIFIEDBEGINCENTEREND   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the western side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.portAlignment.west   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortAlignment (Enum)   Possible Values: DISTRIBUTED
+JUSTIFIED
+BEGIN
+CENTER
+END   Applies To: nodes   Containing Group: portAlignment    Description Defines how ports on the western side are placed, overriding the node&amp;rsquo;s general port alignment.</description>
     </item>
     
     <item>
@@ -1891,7 +2046,12 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portConstraints.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.portConstraints   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortConstraints (Enum)   Possible Values: UNDEFINEDFREEFIXED_SIDEFIXED_ORDERFIXED_RATIOFIXED_POS   Default Value: PortConstraints.UNDEFINED (as defined in org.eclipse.elk)   Applies To: nodes    Description Defines constraints of the position of the ports of a node.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.portConstraints   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortConstraints (Enum)   Possible Values: UNDEFINED
+FREE
+FIXED_SIDE
+FIXED_ORDER
+FIXED_RATIO
+FIXED_POS   Default Value: PortConstraints.UNDEFINED (as defined in org.eclipse.elk)   Applies To: nodes    Description Defines constraints of the position of the ports of a node.</description>
     </item>
     
     <item>
@@ -1909,7 +2069,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portLabels-placement.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.portLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.PortLabelPlacement&amp;gt;   Possible Values: OUTSIDEINSIDENEXT_TO_PORT_IF_POSSIBLEALWAYS_SAME_SIDESPACE_EFFICIENT   Default Value: PortLabelPlacement.outside() (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portLabels    Description Decides on a placement method for port labels; if empty, the node label&amp;rsquo;s position is not modified.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.portLabels.placement   Meta Data Provider: core.options.CoreOptions   Value Type: java.util.EnumSet&amp;lt;org.eclipse.elk.core.options.PortLabelPlacement&amp;gt;   Possible Values: OUTSIDE
+INSIDE
+NEXT_TO_PORT_IF_POSSIBLE
+ALWAYS_SAME_SIDE
+SPACE_EFFICIENT   Default Value: PortLabelPlacement.outside() (as defined in org.eclipse.elk)   Applies To: nodes   Containing Group: portLabels    Description Decides on a placement method for port labels; if empty, the node label&amp;rsquo;s position is not modified.</description>
     </item>
     
     <item>
@@ -1927,7 +2091,11 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-side.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.port.side   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortSide (Enum)   Possible Values: UNDEFINEDNORTHEASTSOUTHWEST   Default Value: PortSide.UNDEFINED (as defined in org.eclipse.elk)   Applies To: ports   Containing Group: port    Description The side of a node on which a port is situated. This option must be set if &amp;lsquo;Port Constraints&amp;rsquo; is set to FIXED_SIDE or FIXED_ORDER and no specific positions are given for the ports.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.port.side   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.PortSide (Enum)   Possible Values: UNDEFINED
+NORTH
+EAST
+SOUTH
+WEST   Default Value: PortSide.UNDEFINED (as defined in org.eclipse.elk)   Applies To: ports   Containing Group: port    Description The side of a node on which a port is situated. This option must be set if &amp;lsquo;Port Constraints&amp;rsquo; is set to FIXED_SIDE or FIXED_ORDER and no specific positions are given for the ports.</description>
     </item>
     
     <item>
@@ -1936,7 +2104,8 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-portSortingStrategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.portSortingStrategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.PortSortingStrategy (Enum)   Possible Values: INPUT_ORDERPORT_DEGREE   Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Only relevant for nodes with FIXED_SIDE port constraints. Determines the way a node&amp;rsquo;s ports are distributed on the sides of a node if their order is not prescribed.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.portSortingStrategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.PortSortingStrategy (Enum)   Possible Values: INPUT_ORDER
+PORT_DEGREE   Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.eclipse.elk.layered)   Applies To: parents    Description Only relevant for nodes with FIXED_SIDE port constraints. Determines the way a node&amp;rsquo;s ports are distributed on the sides of a node if their order is not prescribed.</description>
     </item>
     
     <item>
@@ -1999,7 +2168,8 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-constraints.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.postCompaction.constraints   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ConstraintCalculationStrategy (Enum)   Possible Values: QUADRATICSCANLINE   Default Value: ConstraintCalculationStrategy.SCANLINE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: compaction -&amp;gt; postCompaction    Description Specifies whether and how post-process compaction is applied.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.postCompaction.constraints   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ConstraintCalculationStrategy (Enum)   Possible Values: QUADRATIC
+SCANLINE   Default Value: ConstraintCalculationStrategy.SCANLINE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: compaction -&amp;gt; postCompaction    Description Specifies whether and how post-process compaction is applied.</description>
     </item>
     
     <item>
@@ -2008,7 +2178,12 @@ Additional Documentation Most parts of the algorithm do not support this yet.</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-strategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.postCompaction.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.GraphCompactionStrategy (Enum)   Possible Values: NONELEFTRIGHTLEFT_RIGHT_CONSTRAINT_LOCKINGLEFT_RIGHT_CONNECTION_LOCKINGEDGE_LENGTH   Default Value: GraphCompactionStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: compaction -&amp;gt; postCompaction    Description Specifies whether and how post-process compaction is applied.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.compaction.postCompaction.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.GraphCompactionStrategy (Enum)   Possible Values: NONE
+LEFT
+RIGHT
+LEFT_RIGHT_CONSTRAINT_LOCKING
+LEFT_RIGHT_CONNECTION_LOCKING
+EDGE_LENGTH   Default Value: GraphCompactionStrategy.NONE (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: compaction -&amp;gt; postCompaction    Description Specifies whether and how post-process compaction is applied.</description>
     </item>
     
     <item>
@@ -2138,7 +2313,8 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingOrder-rootSelection.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.rootSelection   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.RootSelection (Enum)   Possible Values: FIXEDCENTER_NODE   Default Value: RootSelection.CENTER_NODE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description This sets the method used to select a root node for the construction of a spanning tree</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.rootSelection   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.RootSelection (Enum)   Possible Values: FIXED
+CENTER_NODE   Default Value: RootSelection.CENTER_NODE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description This sets the method used to select a root node for the construction of a spanning tree</description>
     </item>
     
     <item>
@@ -2156,7 +2332,8 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-searchOrder.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.mrtree.searchOrder   Meta Data Provider: options.MrTreeMetaDataProvider   Value Type: org.eclipse.elk.alg.mrtree.options.TreeifyingOrder (Enum)   Possible Values: DFSBFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree)   Applies To: parents    Description Which search order to use when computing a spanning tree.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.mrtree.searchOrder   Meta Data Provider: options.MrTreeMetaDataProvider   Value Type: org.eclipse.elk.alg.mrtree.options.TreeifyingOrder (Enum)   Possible Values: DFS
+BFS   Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree)   Applies To: parents    Description Which search order to use when computing a spanning tree.</description>
     </item>
     
     <item>
@@ -2165,7 +2342,9 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopDistribution.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopDistribution   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopDistributionStrategy (Enum)   Possible Values: EQUALLYNORTHNORTH_SOUTH   Default Value: SelfLoopDistributionStrategy.NORTH (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: edgeRouting    Description Alter the distribution of the loops around the node. It only takes effect for PortConstraints.FREE.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopDistribution   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopDistributionStrategy (Enum)   Possible Values: EQUALLY
+NORTH
+NORTH_SOUTH   Default Value: SelfLoopDistributionStrategy.NORTH (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: edgeRouting    Description Alter the distribution of the loops around the node. It only takes effect for PortConstraints.FREE.</description>
     </item>
     
     <item>
@@ -2174,7 +2353,8 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopOrdering.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopOrdering   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopOrderingStrategy (Enum)   Possible Values: STACKEDSEQUENCED   Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: edgeRouting    Description Alter the ordering of the loops they can either be stacked or sequenced. It only takes effect for PortConstraints.FREE.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopOrdering   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SelfLoopOrderingStrategy (Enum)   Possible Values: STACKED
+SEQUENCED   Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: edgeRouting    Description Alter the ordering of the loops they can either be stacked or sequenced. It only takes effect for PortConstraints.</description>
     </item>
     
     <item>
@@ -2246,7 +2426,9 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-sorter.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.radial.sorter   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.SortingStrategy (Enum)   Possible Values: NONEPOLAR_COORDINATE (@AdvancedPropertyValue)ID   Default Value: SortingStrategy.NONE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description Sort the nodes per radius according to the sorting algorithm. The strategies are none, by the given order id, or sorting them by polar coordinates.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.radial.sorter   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.SortingStrategy (Enum)   Possible Values: NONE
+POLAR_COORDINATE (@AdvancedPropertyValue)
+ID   Default Value: SortingStrategy.NONE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description Sort the nodes per radius according to the sorting algorithm. The strategies are none, by the given order id, or sorting them by polar coordinates.</description>
     </item>
     
     <item>
@@ -2282,7 +2464,9 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-splines-mode.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.mode   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SplineRoutingMode (Enum)   Possible Values: CONSERVATIVECONSERVATIVE_SOFTSLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting (EdgeRouting.SPLINES)   Containing Group: edgeRouting -&amp;gt; splines    Description Specifies the way control points are assembled for each individual edge. CONSERVATIVE ensures that edges are properly routed around the nodes but feels rather orthogonal at times.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.edgeRouting.splines.mode   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.SplineRoutingMode (Enum)   Possible Values: CONSERVATIVE
+CONSERVATIVE_SOFT
+SLOPPY   Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.edgeRouting (EdgeRouting.SPLINES)   Containing Group: edgeRouting -&amp;gt; splines    Description Specifies the way control points are assembled for each individual edge.</description>
     </item>
     
     <item>
@@ -2345,7 +2529,10 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-optimizationCriteria.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.radial.optimizationCriteria   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.RadialTranslationStrategy (Enum)   Possible Values: NONEEDGE_LENGTHEDGE_LENGTH_BY_POSITION (@AdvancedPropertyValue)CROSSING_MINIMIZATION_BY_POSITION   Default Value: RadialTranslationStrategy.NONE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description Find the optimal translation of the nodes of the first radii according to this criteria. For example edge crossings can be minimized.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.radial.optimizationCriteria   Meta Data Provider: options.RadialMetaDataProvider   Value Type: org.eclipse.elk.alg.radial.options.RadialTranslationStrategy (Enum)   Possible Values: NONE
+EDGE_LENGTH
+EDGE_LENGTH_BY_POSITION (@AdvancedPropertyValue)
+CROSSING_MINIMIZATION_BY_POSITION   Default Value: RadialTranslationStrategy.NONE (as defined in org.eclipse.elk.radial)   Applies To: parents    Description Find the optimal translation of the nodes of the first radii according to this criteria. For example edge crossings can be minimized.</description>
     </item>
     
     <item>
@@ -2363,7 +2550,8 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingOrder-treeConstruction.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.treeConstruction   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.TreeConstructionStrategy (Enum)   Possible Values: MINIMUM_SPANNING_TREEMAXIMUM_SPANNING_TREE   Default Value: TreeConstructionStrategy.MINIMUM_SPANNING_TREE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description Whether a minimum spanning tree or a maximum spanning tree should be constructed.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.processingOrder.treeConstruction   Meta Data Provider: options.SporeMetaDataProvider   Value Type: org.eclipse.elk.alg.spore.options.TreeConstructionStrategy (Enum)   Possible Values: MINIMUM_SPANNING_TREE
+MAXIMUM_SPANNING_TREE   Default Value: TreeConstructionStrategy.MINIMUM_SPANNING_TREE (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: processingOrder    Description Whether a minimum spanning tree or a maximum spanning tree should be constructed.</description>
     </item>
     
     <item>
@@ -2435,7 +2623,9 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-strategy.html</guid>
-      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.validify.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ValidifyStrategy (Enum)   Possible Values: NOGREEDYLOOK_BACK   Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; validify    Description When wrapping graphs, one can specify indices that are not allowed as split points.</description>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.validify.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ValidifyStrategy (Enum)   Possible Values: NO
+GREEDY
+LOOK_BACK   Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; validify    Description When wrapping graphs, one can specify indices that are not allowed as split points.</description>
     </item>
     
     <item>
@@ -2444,7 +2634,8 @@ Additional Documentation Priorities set on nodes determine the order in which co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-weighting.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.mrtree.weighting   Meta Data Provider: options.MrTreeMetaDataProvider   Value Type: org.eclipse.elk.alg.mrtree.options.OrderWeighting (Enum)   Possible Values: DESCENDANTSFAN   Default Value: OrderWeighting.DESCENDANTS (as defined in org.eclipse.elk.mrtree)   Applies To: parents    Description Which weighting to use when computing a node order.</description>
+      <description>Property Value     Identifier: org.eclipse.elk.mrtree.weighting   Meta Data Provider: options.MrTreeMetaDataProvider   Value Type: org.eclipse.elk.alg.mrtree.options.OrderWeighting (Enum)   Possible Values: DESCENDANTS
+FAN   Default Value: OrderWeighting.DESCENDANTS (as defined in org.eclipse.elk.mrtree)   Applies To: parents    Description Which weighting to use when computing a node order.</description>
     </item>
     
     <item>

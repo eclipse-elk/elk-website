@@ -112,7 +112,7 @@
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level. If it is set to INCLUDE_CHILDREN, the algorithm is responsible to process all hierarchy levels that are contained in the associated parent node. If the root node is set to inherit (or not set at all), the default behavior is SEPARATE_CHILDREN.</p>
+<p>Determines whether separate layout runs are triggered for different compound nodes in a hierarchical graph. Setting a node&rsquo;s hierarchy handling to <code>INCLUDE_CHILDREN</code> will lay out that node and all of its descendants in a single layout run, until a descendant is encountered which has its hierarchy handling set to <code>SEPARATE_CHILDREN</code>. In general, <code>SEPARATE_CHILDREN</code> will ensure that a new layout run is triggered for a node with that setting. Including multiple levels of hierarchy in a single layout run may allow cross-hierarchical edges to be laid out properly. If the root node is set to <code>INHERIT</code> (or not set at all), the default behavior is <code>SEPARATE_CHILDREN</code>.</p>
 <h2 id="additional-documentation">Additional Documentation</h2>
 <p>If activated, the whole hierarchical graph is passed to dot as a whole. Note however that dot performs a &lsquo;compound&rsquo; layout where it somewhat flattens the hierarchy and performs a layout on the flattened graph. As a consequence, padding information of hierarchical child nodes is discarded.</p>
 

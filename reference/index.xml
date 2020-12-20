@@ -1085,7 +1085,7 @@ OFF   Default Value: GreedySwitchType.OFF (as defined in org.eclipse.elk.layered
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyHandling.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.hierarchyHandling   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.HierarchyHandling (Enum)   Possible Values: INHERIT
 INCLUDE_CHILDREN
-SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
+SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description Determines whether separate layout runs are triggered for different compound nodes in a hierarchical graph. Setting a node&amp;rsquo;s hierarchy handling to INCLUDE_CHILDREN will lay out that node and all of its descendants in a single layout run, until a descendant is encountered which has its hierarchy handling set to SEPARATE_CHILDREN.</description>
     </item>
     
     <item>
@@ -1096,7 +1096,7 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hierarchyHandling_org-eclipse-elk-graphviz-dot.html</guid>
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.hierarchyHandling   Meta Data Provider: core.options.CoreOptions   Value Type: org.eclipse.elk.core.options.HierarchyHandling (Enum)   Possible Values: INHERIT
 INCLUDE_CHILDREN
-SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description If this option is set to SEPARATE_CHILDREN, each hierarchy level of the graph is processed independently, possibly by different layout algorithms, beginning with the lowest level.</description>
+SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.eclipse.elk)   Applies To: parents, nodes    Description Determines whether separate layout runs are triggered for different compound nodes in a hierarchical graph. Setting a node&amp;rsquo;s hierarchy handling to INCLUDE_CHILDREN will lay out that node and all of its descendants in a single layout run, until a descendant is encountered which has its hierarchy handling set to SEPARATE_CHILDREN.</description>
     </item>
     
     <item>

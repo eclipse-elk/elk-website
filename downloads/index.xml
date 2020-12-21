@@ -136,6 +136,16 @@ View the release at Eclipse for links to the list of closed issues.</description
     </item>
     
     <item>
+      <title>0.7.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.7.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.7.1.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
+New Features and Enhancements  #713: The Stress and Force layout algorithms now properly place inline edge labels.  Bugfixes  #701, #732: Space is now properly reserved around port labels with fixed position.</description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

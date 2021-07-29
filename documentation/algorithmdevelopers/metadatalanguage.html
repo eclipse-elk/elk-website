@@ -124,7 +124,7 @@ bundle {
 <li>Which layout algorithm categories your plug-in contributes, and which of them your algorithms belong to.</li>
 </ul>
 <p>The basic layout of a metadata file looks something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">&lt;package declaration&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">&lt;package declaration&gt;
 
 &lt;imports section&gt;
 
@@ -273,7 +273,7 @@ bundle {
 </code></pre><p>Groups do not just make the metadata file more readable, but also have an effect on the identifiers of your options: all the names of groups your options are in will be placed between the option ID prefix and the option&rsquo;s actual name, thus reflecting the grouping in option IDs as well.</p>
 <h4 id="a-note-on-enumerations">A Note on Enumerations</h4>
 <p>Layout options may well have an enumeration value type. Just as layout options can be declared to be advanced, this may also be true for enumeration values. Take for example a layout algorithm that offers different implementations of a certain feature. The implementation to be used is specified through a layout option that enumerates all possibilities. However, let us assume that some of the implementations are not quite ready for the public. (Homework assignment: work out five reasons why this could be the case.) The corresponding enumeration values can be annotated to make this clear:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> Strategy <span style="color:#f92672">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> Strategy <span style="color:#f92672">{</span>
     WORKS_ALWAYS<span style="color:#f92672">,</span>
     WORKS_ON_SUNDAYS<span style="color:#f92672">,</span>
     <span style="color:#a6e22e">@AdvancedPropertyValue</span>

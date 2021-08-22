@@ -85,7 +85,7 @@
 <p>The best way to invoke automatic layout is through a fully-fledged implementation of <code>IGraphLayoutEngine</code>. ELK provides a convenient implementation: the <code>RecursiveGraphLayoutEngine</code>.</p>
 <h2 id="using-the-recursive-graph-layout-engines">Using the Recursive Graph Layout Engines</h2>
 <p>When using the recursive graph layout engine, there is exactly one important method to be aware of:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>KNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor progressMonitor<span style="color:#f92672">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>KNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor progressMonitor<span style="color:#f92672">);</span>
 </code></pre></div><p>This method provides the entry point to automatic layout and applies the layout algorithms as configured in the layout graph (more details below). To get everything working, follow these steps after you have populated the layout meta data service:</p>
 <ol>
 <li>

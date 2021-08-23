@@ -113,7 +113,7 @@
 <p>Writing unit tests isn&rsquo;t too hard. This page should walk you through writing and running them.</p>
 <h2 id="adding-a-test-class">Adding a Test Class</h2>
 <p>Unit tests should be placed in a plug-in inside the <code>test</code> folder that depends on our <code>org.eclipse.elk.alg.test</code> plug-in. All class names that end with <code>Test</code> are executed during the automatic build. A minimal test class then looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>LayoutTestRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>LayoutTestRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAlgorithmTest</span> <span style="color:#f92672">{</span>
 
 <span style="color:#f92672">}</span>
@@ -122,13 +122,13 @@
 <p>There are several way to specify test graphs. There can be arbitrarily many sources for graphs, and all of the ways to specify test graphs can be combined.</p>
 <h3 id="supply-graphs-directly">Supply Graphs Directly</h3>
 <p>You can specify methods that supply graphs built directly in your test class, like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@GraphProvider</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@GraphProvider</span>
 <span style="color:#66d9ef">public</span> ElkNode <span style="color:#a6e22e">produceGraph</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     <span style="color:#75715e">// Build a graph here...
 </span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
 </code></pre></div><h3 id="load-graphs-from-disk">Load Graphs From Disk</h3>
 <p>Graphs stored in ELK&rsquo;s <a href="https://github.com/eclipse/elk-models">models repository</a> can be used directly in tests. You specify graphs to be loaded through lists of <code>ModelResourcePath</code>, which accepts paths relative to the models repository:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@GraphResourceProvider</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@GraphResourceProvider</span>
 <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>AbstractResourcePath<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">provideGraphs</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     List<span style="color:#f92672">&lt;</span>AbstractResourcePath<span style="color:#f92672">&gt;</span> paths <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
 
@@ -154,7 +154,7 @@
 <ol>
 <li>
 <p>A method or a field can supply an instance of <code>GeneratorOptions</code> which is used to configure the random graph generator:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RandomGeneratorOptions</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RandomGeneratorOptions</span>
 <span style="color:#66d9ef">public</span> GeneratorOptions <span style="color:#a6e22e">generatorOptions</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     GeneratorOptions options <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GeneratorOptions<span style="color:#f92672">();</span>
 
@@ -166,7 +166,7 @@
 </code></pre></div></li>
 <li>
 <p>An <code>.elkr</code> file that specifies options can be loaded, similar to how graphs can be loaded:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RandomGeneratorFile</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RandomGeneratorFile</span>
 <span style="color:#66d9ef">public</span> AbstractResourcePath <span style="color:#a6e22e">loadRandomGraph</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ModelResourcePath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;path/to/random/graph/file.elkr&#34;</span><span style="color:#f92672">);</span>
 <span style="color:#f92672">}</span>
@@ -176,7 +176,7 @@
 <p>If you simply want to layout the graphs as specified and then run your tests on the results, you can skip this step. However, to test particular features and algorithms it is often necessary to customize layout properties. Again, there are several ways to do so.</p>
 <h3 id="supply-layout-configurators">Supply Layout Configurators</h3>
 <p>Layout configurators are objects that can apply properties to graph objects. You can supply them like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@ConfiguratorProvider</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@ConfiguratorProvider</span>
 <span style="color:#66d9ef">public</span> LayoutConfigurator <span style="color:#a6e22e">configurator</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     LayoutConfigurator layoutConfig <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LayoutConfigurator<span style="color:#f92672">();</span>
 
@@ -187,19 +187,19 @@
 <span style="color:#f92672">}</span>
 </code></pre></div><h3 id="configure-graphs-dynamically">Configure Graphs Dynamically</h3>
 <p>You can also define a method that expects a graph and configures that graph dynamically. That allows you to set your properties only if certain conditions are met, for example.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configurator</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configurator</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configureStuff</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
     graph<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span>SOME_PROPERTY<span style="color:#f92672">,</span> SOME_PROPERTY_VALUE<span style="color:#f92672">);</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><h3 id="specify-layout-algorithms">Specify Layout Algorithms</h3>
 <p>Since specifying a layout algorithm is a common scenario, there are special annotations to do so that can be added to a class. To test one or more specific algorithms, use one or more <code>@Algorithm</code> annotations:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>LayoutTestRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>LayoutTestRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@Algorithm</span><span style="color:#f92672">(</span>MyTestClassOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">ALGORITHM_ID</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAlgorithmTest</span> <span style="color:#f92672">{</span>
 
 <span style="color:#f92672">}</span>
 </code></pre></div><p>To test all known algorithms, you can use the <code>@AllAlgorithms</code> annotation instead having to specify all algorithms explicitly:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>LayoutTestRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>LayoutTestRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@AllAlgorithms</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAlgorithmTest</span> <span style="color:#f92672">{</span>
 
@@ -207,7 +207,7 @@
 </code></pre></div><p>Each graph with each configuration is laid out once with each specified algorithm.</p>
 <h3 id="default-configurations">Default Configurations</h3>
 <p>Many graphs in our models repository refrain from specifying explicit sizes and labels for diagram elements. Often, however, tests need nodes to have a size and labels. Thus, your test class can specify to apply default configurations to all diagram elements:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>LayoutTestRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>LayoutTestRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@Algorithm</span><span style="color:#f92672">(</span>MyTestClassOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">ALGORITHM_ID</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@DefaultConfiguration</span><span style="color:#f92672">(</span>nodes <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> ports <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> edges <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> edgeLabels <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAlgorithmTest</span> <span style="color:#f92672">{</span>
@@ -242,7 +242,7 @@
 <p>The options default to the values shown in the code fragment.</p>
 <h2 id="black-box-tests">Black Box Tests</h2>
 <p>Now that graphs are loaded and configured, black box test methods can examine the layout result:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testGraphSizeSet</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
     Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span>
         <span style="color:#e6db74">&#34;The graph size has not been set by the layout algorithm.&#34;</span><span style="color:#f92672">,</span>
@@ -251,7 +251,7 @@
 </code></pre></div><h2 id="white-box-tests">White Box Tests</h2>
 <p>White box tests ensure that an algorithm&rsquo;s internal state matches the developer&rsquo;s expectations. Here we not only examine the overall layout result, but can look inside intermediate results produced as the algorithm progresses.</p>
 <p>A white box test method needs to specify which layout processor(s) it wants to run before or after. It does so like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@TestBeforeProcessor</span><span style="color:#f92672">(</span>NetworkSimplexLayerer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@TestBeforeProcessor</span><span style="color:#f92672">(</span>NetworkSimplexLayerer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@TestAfterProcessor</span><span style="color:#f92672">(</span>NetworkSimplexLayerer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testNetworkSimplexLayerer</span><span style="color:#f92672">(</span>Object graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
     LGraph lGraph <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>LGraph<span style="color:#f92672">)</span> graph<span style="color:#f92672">;</span>

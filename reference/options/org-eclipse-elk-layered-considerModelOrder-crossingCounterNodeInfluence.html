@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Consider model order (ELK)</title>
+    <title>Crossing Counter Node Order Influence (ELK)</title>
 
     
     
@@ -71,7 +71,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Consider model order</h1>
+    <h1>Crossing Counter Node Order Influence</h1>
 
     <table>
 <thead>
@@ -82,12 +82,8 @@
 </thead>
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.considerModelOrder</code></td>
+<td><code>org.eclipse.elk.layered.considerModelOrder.crossingCounterNodeInfluence</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
@@ -95,24 +91,28 @@
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>org.eclipse.elk.alg.layered.options.OrderingStrategy</code> (Enum)</td>
-</tr>
-<tr>
-<td><em>Possible Values:</em></td>
-<td><code>NONE</code><br><code>NODES_AND_EDGES</code><br><code>PREFER_EDGES</code></td>
+<td><code>double</code></td>
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>OrderingStrategy.NONE</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+<td><code>0</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
 <td>parents</td>
 </tr>
+<tr>
+<td><em>Dependencies:</em></td>
+<td><a href="../../reference/options/org-eclipse-elk-layered-considerModelOrder-strategy.html">org.eclipse.elk.layered.considerModelOrder.strategy</a></td>
+</tr>
+<tr>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-layered-considerModelOrder.html">considerModelOrder</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>Preserves the order of nodes and edges in the model file if this does not lead to edge crossings or conflicts between the ordering or edges and nodes.</p>
+<p>Indicates with what percentage (1 for 100%) violations of the node model order are weighted against the crossings e.g. a value of 0.5 means two model order violations are as important as on edge crossing. This allows some edge crossings in favor of preserving the model order. It is advised to set this value to a very small positive value (e.g. 0.001) to have minimal crossing and a optimal node order. Defaults to no influence (0).</p>
 
   </div>
 
@@ -522,9 +522,9 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-layered-considerModelOrder.html">
-    <li class="navlevel-2 active">
-      Consider model order
+  <a href="../../reference/options/org-eclipse-elk-layered-considerModelOrder-strategy.html">
+    <li class="navlevel-2">
+      Consider Model Order
     </li>
   </a>
   
@@ -549,6 +549,22 @@
   <a href="../../reference/options/org-eclipse-elk-processingOrder-spanningTreeCostFunction.html">
     <li class="navlevel-2">
       Cost Function for Spanning Tree
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-considerModelOrder-crossingCounterNodeInfluence.html">
+    <li class="navlevel-2 active">
+      Crossing Counter Node Order Influence
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-considerModelOrder-crossingCounterPortInfluence.html">
+    <li class="navlevel-2">
+      Crossing Counter Port Order Influence
     </li>
   </a>
   
@@ -1189,6 +1205,14 @@
   <a href="../../reference/options/org-eclipse-elk-disco-debug-discoPolys.html">
     <li class="navlevel-2">
       List of Polyominoes
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-layered-considerModelOrder-longEdgeStrategy.html">
+    <li class="navlevel-2">
+      Long Edge Ordering Strategy
     </li>
   </a>
   
@@ -2021,6 +2045,14 @@
   <a href="../../reference/groups/org-eclipse-elk-disco-componentCompaction.html">
     <li class="navlevel-2">
       componentCompaction
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-layered-considerModelOrder.html">
+    <li class="navlevel-2">
+      considerModelOrder
     </li>
   </a>
   

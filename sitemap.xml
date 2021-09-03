@@ -112,7 +112,9 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-strategy.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-contentAlignment.html</loc>
   </url><url>
@@ -123,6 +125,10 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingOrder-spanningTreeCostFunction.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/creatinganewproject.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-crossingCounterNodeInfluence.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-crossingCounterPortInfluence.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-strategy.html</loc>
   </url><url>
@@ -393,6 +399,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-linearSegments-deflectionDampening.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-debug-discoPolys.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-longEdgeStrategy.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-cutting-cuts.html</loc>
   </url><url>

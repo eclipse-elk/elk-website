@@ -94,182 +94,182 @@
 <p>This example already highlights a difference between layout phases and layout processors: layout phases can request layout processors to be executed in a specific processing slot. Of course, different layout phase implementations can request different processors, resulting in different pipelines. Also, if multiple processors are to be executed in a pipeline, they usually need to be sorted according to their dependencies. A processor that calculates the amount of space around a node required by labels will need a processor that places these labels to have finished executing.</p>
 <h2 id="the-implementation">The Implementation</h2>
 <p>ELK contains everything required to implement layout algorithms this way in its <code>org.eclipse.elk.core.alg</code> package. To use that, the first thing you should start with is to write an enumeration that lists all the phases your algorithm will consist of. For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> LayoutPhases <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    P1_TREEIFICATION<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>    P2_NODE_ORDERING<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>    P3_NODE_PLACEMENT<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>    P4_EDGE_ROUTING<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h3 id="layout-phases">Layout Phases</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> LayoutPhases <span style="color:#f92672">{</span>
+
+    P1_TREEIFICATION<span style="color:#f92672">,</span>
+    P2_NODE_ORDERING<span style="color:#f92672">,</span>
+    P3_NODE_PLACEMENT<span style="color:#f92672">,</span>
+    P4_EDGE_ROUTING<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="layout-phases">Layout Phases</h3>
 <p>It is now time to start writing your phases. Implementing a layout phase is, in principle, easy: simply have your phase class implement the <code>ILayoutPhase&lt;P, G&gt;</code> interface, where <code>P</code> is the enumeration of layout phases you just wrote, and <code>G</code> is the type of the graph processed by the phase. For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NodeOrderer</span> <span style="color:#66d9ef">implements</span> ILayoutPhase<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getLayoutProcessorConfiguration</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// To start with, the phase won&#39;t require any layout processors
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">process</span><span style="color:#f92672">(</span>ElkNode ElkNode<span style="color:#f92672">,</span> IElkProgressMonitor progressMonitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// This will be the entry point to your phase
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Besides the actual implementation in its <code>process(...)</code> method, a layout phase has one other interesting method: <code>getLayoutProcessorConfiguration(...)</code>. We will take a closer look at that a bit later. Before we can do that, we need to take a look at how to implement intermediate processors.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NodeOrderer</span> <span style="color:#66d9ef">implements</span> ILayoutPhase<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getLayoutProcessorConfiguration</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// To start with, the phase won&#39;t require any layout processors
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">process</span><span style="color:#f92672">(</span>ElkNode ElkNode<span style="color:#f92672">,</span> IElkProgressMonitor progressMonitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// This will be the entry point to your phase
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</code></pre></div><p>Besides the actual implementation in its <code>process(...)</code> method, a layout phase has one other interesting method: <code>getLayoutProcessorConfiguration(...)</code>. We will take a closer look at that a bit later. Before we can do that, we need to take a look at how to implement intermediate processors.</p>
 <h3 id="intermediate-processors">Intermediate Processors</h3>
 <p>Implementing a layout processor is, again, easy: simply have your processor class implement the <code>ILayoutProcessor&lt;G&gt;</code> interface, where <code>G</code> is the type of the graph processed by the processor. For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RatherExcellentProcessor</span> <span style="color:#66d9ef">implements</span> ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">process</span><span style="color:#f92672">(</span>ElkNode theGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// This will be the entry point to your processor
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h3 id="specifying-dependencies-from-phases-to-processors">Specifying Dependencies from Phases to Processors</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RatherExcellentProcessor</span> <span style="color:#66d9ef">implements</span> ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">process</span><span style="color:#f92672">(</span>ElkNode theGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// This will be the entry point to your processor
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="specifying-dependencies-from-phases-to-processors">Specifying Dependencies from Phases to Processors</h3>
 <p>Before we can specify dependencies, we will need an enumeration of all available layout processors. In fact, we will need factories to instantiate those processors, but using an enumeration can give us a simple way to implement those. For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> IntermediateProcessorStrategy <span style="color:#66d9ef">implements</span> ILayoutProcessorFactory<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Before Phase 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ROOT_PROC<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>    FAN_PROC<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>    NEIGHBORS_PROC<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Before Phase 3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    LEVEL_HEIGHT<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Before Phase 4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    NODE_POSITION_PROC<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// After Phase 4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    DETREEIFYING_PROC<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> ROOT_PROC<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> RootProcessor<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> FAN_PROC<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> FanProcessor<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> NEIGHBORS_PROC<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> NeighborsProcessor<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> LEVEL_HEIGHT<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> LevelHeightProcessor<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> NODE_POSITION_PROC<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> NodePositionProcessor<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> DETREEIFYING_PROC<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Untreeifyer<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        default:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;No implementation is available for the layout processor &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>We are now ready to specify which layout processors a layout phase needs to be executed in which intermediate processing slots. This is what the phase&rsquo;s <code>getLayoutProcessorConfiguration(...)</code> method is for. That method returns an instance of <code>LayoutProcessorConfiguration&lt;P, G&gt;</code>, which specifies exactly that: the intermediate processors to add to the different processing slots. Which processors are required may well depend on the input graph, which explains why that graph is passed to the method. A simple implementation could look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> INTERMEDIATE_PROCESSING_CONFIG <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>        LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">addBefore</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P2_NODE_ORDERING</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">ROOT_PROC</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">addBefore</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P2_NODE_ORDERING</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">FAN_PROC</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getLayoutProcessorConfiguration</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> INTERMEDIATE_PROCESSING_CONFIG<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>This implementation specifies that the processing slot before phase 2 should contain the <code>ROOT_PROC</code> and the <code>FAN_PROC</code> intermediate processors (whatever those are). If multiple processors should be added to the same slots, the following provides a marginally easier way to do so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> INTERMEDIATE_PROCESSING_CONFIG <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>        LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">before</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P2_NODE_ORDERING</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">ROOT_PROC</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">FAN_PROC</span><span style="color:#f92672">);</span>
-</span></span></code></pre></div><p>It can be necessary to keep different configurations in our phase and assemble them depending on different graph features. <code>LayoutProcessorConfiguration</code> provides a way to do so, using the <code>addAll(...)</code> method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> FOO_PROCESSING_ADDITIONS <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>        LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">addBefore</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P3_NODE_PLACEMENT</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">LEVEL_HEIGHT</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">addBefore</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P4_EDGE_ROUTING</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">NODE_POSITION_PROC</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getLayoutProcessorConfiguration</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Basic configuration
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> configuration <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>            LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>createFrom<span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>                    INTERMEDIATE_PROCESSING_CONFIG<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Additional dependencies
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>foo<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        configuration<span style="color:#f92672">.</span><span style="color:#a6e22e">addAll</span><span style="color:#f92672">(</span>FOO_PROCESSING_ADDITIONS<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> configuration<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h3 id="assembling-the-algorithm">Assembling the Algorithm</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> IntermediateProcessorStrategy <span style="color:#66d9ef">implements</span> ILayoutProcessorFactory<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">// Before Phase 2
+</span><span style="color:#75715e"></span>    ROOT_PROC<span style="color:#f92672">,</span>
+    FAN_PROC<span style="color:#f92672">,</span>
+    NEIGHBORS_PROC<span style="color:#f92672">,</span>
+
+    <span style="color:#75715e">// Before Phase 3
+</span><span style="color:#75715e"></span>    LEVEL_HEIGHT<span style="color:#f92672">,</span>
+
+    <span style="color:#75715e">// Before Phase 4
+</span><span style="color:#75715e"></span>    NODE_POSITION_PROC<span style="color:#f92672">,</span>
+
+    <span style="color:#75715e">// After Phase 4
+</span><span style="color:#75715e"></span>    DETREEIFYING_PROC<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">case</span> ROOT_PROC<span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> RootProcessor<span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">case</span> FAN_PROC<span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> FanProcessor<span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">case</span> NEIGHBORS_PROC<span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> NeighborsProcessor<span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">case</span> LEVEL_HEIGHT<span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> LevelHeightProcessor<span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">case</span> NODE_POSITION_PROC<span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> NodePositionProcessor<span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">case</span> DETREEIFYING_PROC<span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Untreeifyer<span style="color:#f92672">();</span>
+
+        default:
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
+                    <span style="color:#e6db74">&#34;No implementation is available for the layout processor &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We are now ready to specify which layout processors a layout phase needs to be executed in which intermediate processing slots. This is what the phase&rsquo;s <code>getLayoutProcessorConfiguration(...)</code> method is for. That method returns an instance of <code>LayoutProcessorConfiguration&lt;P, G&gt;</code>, which specifies exactly that: the intermediate processors to add to the different processing slots. Which processors are required may well depend on the input graph, which explains why that graph is passed to the method. A simple implementation could look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> INTERMEDIATE_PROCESSING_CONFIG <span style="color:#f92672">=</span>
+        LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">addBefore</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P2_NODE_ORDERING</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">ROOT_PROC</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">addBefore</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P2_NODE_ORDERING</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">FAN_PROC</span><span style="color:#f92672">);</span>
+
+<span style="color:#a6e22e">@Override</span>
+<span style="color:#66d9ef">public</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getLayoutProcessorConfiguration</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> INTERMEDIATE_PROCESSING_CONFIG<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This implementation specifies that the processing slot before phase 2 should contain the <code>ROOT_PROC</code> and the <code>FAN_PROC</code> intermediate processors (whatever those are). If multiple processors should be added to the same slots, the following provides a marginally easier way to do so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> INTERMEDIATE_PROCESSING_CONFIG <span style="color:#f92672">=</span>
+        LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">before</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P2_NODE_ORDERING</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">ROOT_PROC</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">FAN_PROC</span><span style="color:#f92672">);</span>
+</code></pre></div><p>It can be necessary to keep different configurations in our phase and assemble them depending on different graph features. <code>LayoutProcessorConfiguration</code> provides a way to do so, using the <code>addAll(...)</code> method:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> FOO_PROCESSING_ADDITIONS <span style="color:#f92672">=</span>
+        LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">addBefore</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P3_NODE_PLACEMENT</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">LEVEL_HEIGHT</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">addBefore</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P4_EDGE_ROUTING</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">NODE_POSITION_PROC</span><span style="color:#f92672">);</span>
+
+<span style="color:#66d9ef">public</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getLayoutProcessorConfiguration</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// Basic configuration
+</span><span style="color:#75715e"></span>    LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> configuration <span style="color:#f92672">=</span>
+            LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>createFrom<span style="color:#f92672">(</span>
+                    INTERMEDIATE_PROCESSING_CONFIG<span style="color:#f92672">);</span>
+
+    <span style="color:#75715e">// Additional dependencies
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>foo<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        configuration<span style="color:#f92672">.</span><span style="color:#a6e22e">addAll</span><span style="color:#f92672">(</span>FOO_PROCESSING_ADDITIONS<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">return</span> configuration<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="assembling-the-algorithm">Assembling the Algorithm</h3>
 <p>By now, we have phases, processors, a processor enumeration, and dependencies from phases to processors. What we do not have yet is a way to turn those configurations into a pipeline of layout processors that we can execute to compute a layout. What we are looking for is the <code>AlgorithmAssembler</code> class. But before we can use that, we need factories to create our layout phases.</p>
 <p>Again, enumerations are a good way to implement those factories. For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> NodeOrderStrategy <span style="color:#66d9ef">implements</span> ILayoutPhaseFactory<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    NODE_ORDERER<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>    ORDER_BALANCER<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ILayoutPhase<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> NODE_ORDERER<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> NodeOrderer<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> ORDER_BALANCER<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OrderBalancer<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        default:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;No implementation is available for the node orderer &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Turning this into a separate enumeration allows this enumeration to be used as a layout option value for clients to specify which implementation they want.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> NodeOrderStrategy <span style="color:#66d9ef">implements</span> ILayoutPhaseFactory<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    NODE_ORDERER<span style="color:#f92672">,</span>
+    ORDER_BALANCER<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> ILayoutPhase<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">case</span> NODE_ORDERER<span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> NodeOrderer<span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">case</span> ORDER_BALANCER<span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OrderBalancer<span style="color:#f92672">();</span>
+
+        default:
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span>
+                    <span style="color:#e6db74">&#34;No implementation is available for the node orderer &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Turning this into a separate enumeration allows this enumeration to be used as a layout option value for clients to specify which implementation they want.</p>
 <p>We are now ready to assemble the whole algorithm, for example like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> OTHER_PROCESSORS <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>        LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">addAfter</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P4_EDGE_ROUTING</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">DETREEIFYING_PROC</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> AlgorithmAssembler<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> algorithmAssembler <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    AlgorithmAssembler<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">,</span> IElkProgressMonitor progressMonitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;&gt;</span> algorithm <span style="color:#f92672">=</span> assembleAlgorithm<span style="color:#f92672">(</span>graph<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tree layout&#34;</span><span style="color:#f92672">,</span> algorithm<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> processor <span style="color:#f92672">:</span> algorithm<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        processor<span style="color:#f92672">.</span><span style="color:#a6e22e">process</span><span style="color:#f92672">(</span>graph<span style="color:#f92672">,</span> progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">assembleAlgorithm</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Configure phases
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhase</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P1_TREEIFICATION</span><span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>            graph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>MrTreeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">TREEIFICATION_STRATEGY</span><span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhase</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P2_NODE_ORDERING</span><span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>            graph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>MrTreeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">NODE_ORDERING_STRATEGY</span><span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhase</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P3_NODE_PLACEMENT</span><span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>            graph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>MrTreeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">NODE_PLACEMENT_STRATEGY</span><span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhase</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P4_EDGE_ROUTING</span><span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>            graph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>MrTreeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">EDGE_ROUTING_STRATEGY</span><span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Some algorithms need to add custom processors, independent of
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// layout phases
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">addProcessorConfiguration</span><span style="color:#f92672">(</span>OTHER_PROCESSORS<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Assemble the algorithm
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span>graph<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h2 id="going-further">Going Further</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> LayoutProcessorConfiguration<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> OTHER_PROCESSORS <span style="color:#f92672">=</span>
+        LayoutProcessorConfiguration<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">addAfter</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P4_EDGE_ROUTING</span><span style="color:#f92672">,</span> IntermediateProcessorStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">DETREEIFYING_PROC</span><span style="color:#f92672">);</span>
+
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> AlgorithmAssembler<span style="color:#f92672">&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span> algorithmAssembler <span style="color:#f92672">=</span>
+    AlgorithmAssembler<span style="color:#f92672">.&lt;</span>LayoutPhases<span style="color:#f92672">,</span> ElkNode<span style="color:#f92672">&gt;</span>create<span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">,</span> IElkProgressMonitor progressMonitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    List<span style="color:#f92672">&lt;</span>ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;&gt;</span> algorithm <span style="color:#f92672">=</span> assembleAlgorithm<span style="color:#f92672">(</span>graph<span style="color:#f92672">);</span>
+
+    progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tree layout&#34;</span><span style="color:#f92672">,</span> algorithm<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">());</span>
+
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;</span> processor <span style="color:#f92672">:</span> algorithm<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        processor<span style="color:#f92672">.</span><span style="color:#a6e22e">process</span><span style="color:#f92672">(</span>graph<span style="color:#f92672">,</span> progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+
+    progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>ILayoutProcessor<span style="color:#f92672">&lt;</span>ElkNode<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">assembleAlgorithm</span><span style="color:#f92672">(</span>ElkNode graph<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span>
+
+    <span style="color:#75715e">// Configure phases
+</span><span style="color:#75715e"></span>    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhase</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P1_TREEIFICATION</span><span style="color:#f92672">,</span>
+            graph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>MrTreeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">TREEIFICATION_STRATEGY</span><span style="color:#f92672">));</span>
+    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhase</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P2_NODE_ORDERING</span><span style="color:#f92672">,</span>
+            graph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>MrTreeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">NODE_ORDERING_STRATEGY</span><span style="color:#f92672">));</span>
+    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhase</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P3_NODE_PLACEMENT</span><span style="color:#f92672">,</span>
+            graph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>MrTreeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">NODE_PLACEMENT_STRATEGY</span><span style="color:#f92672">));</span>
+    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhase</span><span style="color:#f92672">(</span>LayoutPhases<span style="color:#f92672">.</span><span style="color:#a6e22e">P4_EDGE_ROUTING</span><span style="color:#f92672">,</span>
+            graph<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span>MrTreeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">EDGE_ROUTING_STRATEGY</span><span style="color:#f92672">));</span>
+
+    <span style="color:#75715e">// Some algorithms need to add custom processors, independent of
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// layout phases
+</span><span style="color:#75715e"></span>    algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">addProcessorConfiguration</span><span style="color:#f92672">(</span>OTHER_PROCESSORS<span style="color:#f92672">);</span>
+
+    <span style="color:#75715e">// Assemble the algorithm
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> algorithmAssembler<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span>graph<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="going-further">Going Further</h2>
 <p>There are still some subtle points that we have left out so far. The following are a few pointers for things that are possible:</p>
 <ul>
 <li>The question of what should be a phase and what should be an intermediate processor is a somewhat philosophical one. A rough guideline is whether something is <em>always</em> part of the algorithm. If so, it might be a good candidate for a phase. As another rough guideline, ask yourself whether different implementations are possible for something. If so, it should probably be a phase.</li>

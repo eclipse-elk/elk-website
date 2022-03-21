@@ -94,7 +94,7 @@
 <li>
 <p>The ELK SDK needs some basic information in your file to generate your
 <code>ILayoutMetaDataProvider</code>:</p>
-<pre><code class="language-melk" data-lang="melk">package package.the.melk.file.is.in
+<pre tabindex="0"><code class="language-melk" data-lang="melk">package package.the.melk.file.is.in
 
 bundle {
     // Change the following line according to what you want the
@@ -135,7 +135,7 @@ bundle {
 <p><strong>Note:</strong> Feel free to use comments. The metadata language supports Java-style single-line comments (<code>//</code>) and multi-line comments (<code>/* */</code>).</p>
 <h3 id="bundle-information">Bundle Information</h3>
 <p>To be able to turn your metadata file into an <code>ILayoutMetaDataProvider</code>, ELK needs some basic information. This is what the bundle information section is all about. Here&rsquo;s what it would look like for a typical metadata file:</p>
-<pre><code class="language-melk" data-lang="melk">/**
+<pre tabindex="0"><code class="language-melk" data-lang="melk">/**
  * An optional bunch of Javadoc that will end up as the Javadoc for the
  * generated class.
  */
@@ -152,7 +152,7 @@ bundle {
 }
 </code></pre><h3 id="options">Options</h3>
 <p>While <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">this section of our documentation</a> describes what layout options are and how to use them, this section focuses on making their mere existence known to the world. Doing so will cause the ELK SDK to generate <code>IProperty</code> constants in your generated <code>ILayoutMetaDataProvider</code> that you can use <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">as described</a> to set layout option values. An option declaration can become rather complex, so here&rsquo;s what it generally looks like (we will go into the missing details below):</p>
-<pre><code class="language-melk" data-lang="melk">// The option's ID, appended to the idPrefix declared in the bundle information
+<pre tabindex="0"><code class="language-melk" data-lang="melk">// The option's ID, appended to the idPrefix declared in the bundle information
 &lt;deprecated&gt; &lt;modifier&gt; option myLayoutOptionId : &lt;type&gt; {
     // A user-readable label for the layout option
     label &quot;Wobblyness Factor&quot;
@@ -267,7 +267,7 @@ bundle {
 </ul>
 <h4 id="grouping-layout-options">Grouping Layout Options</h4>
 <p>Everyone likes things to be neat and tidy. Well, alright, <em>we</em> like things to be neat and tidy, which is why related options can be grouped together:</p>
-<pre><code class="language-melk" data-lang="melk">group thegroupname {
+<pre tabindex="0"><code class="language-melk" data-lang="melk">group thegroupname {
     // Your options and nested groups go here
 }
 </code></pre><p>Groups do not just make the metadata file more readable, but also have an effect on the identifiers of your options: all the names of groups your options are in will be placed between the option ID prefix and the option&rsquo;s actual name, thus reflecting the grouping in option IDs as well.</p>
@@ -283,7 +283,7 @@ bundle {
 <span style="color:#f92672">}</span>
 </code></pre></div><h3 id="categories">Categories</h3>
 <p>Each layout algorithm can be assigned to a layout algorithm category. The categorization is for example used by the layout algorithm selection dialog or the documentation. While ELK already provides a number of predefined categories, this is how you would define your own:</p>
-<pre><code class="language-melk" data-lang="melk">// The category's ID, appended to the idPrefix declared in the bundle information
+<pre tabindex="0"><code class="language-melk" data-lang="melk">// The category's ID, appended to the idPrefix declared in the bundle information
 category awesome {
     // A short category label that can be shown to users.
     label &quot;Awesome Algorithms&quot;
@@ -294,7 +294,7 @@ category awesome {
 }
 </code></pre><h3 id="algorithms">Algorithms</h3>
 <p>Of course, everything we have done so far was simply in support of the main act: declaring the layout algorithms you have worked hard to develop (just to find out that there&rsquo;s hundreds of little details you got wrong; we&rsquo;ve been there&hellip;). Here&rsquo;s what an algorithm declaration looks like:</p>
-<pre><code class="language-melk" data-lang="melk">// The algorithm's ID
+<pre tabindex="0"><code class="language-melk" data-lang="melk">// The algorithm's ID
 algorithm algorithmid(&lt;class&gt;) {
     // User-readable short name and description for the algorithm
     label &quot;Excellent Algorithm&quot;
@@ -330,7 +330,7 @@ algorithm algorithmid(&lt;class&gt;) {
 <li>
 <p><code>class</code></p>
 <p>The main class that provides the entry to your layout algorithm. This must be a subclass of <code>AbstractLayoutProvider</code> and may have to be imported in your metadata file&rsquo;s import section. <code>AbstractLayoutProvider</code> has an <code>initialize(String)</code> method that expects a <code>String</code> parameter to customize its behavior. You can define that parameter&rsquo;s value for your algorithm like this:</p>
-<pre><code class="language-melk" data-lang="melk">algorithm myAlgorithm(TheAbstractLayoutProviderSubclass#TheParamterValue)
+<pre tabindex="0"><code class="language-melk" data-lang="melk">algorithm myAlgorithm(TheAbstractLayoutProviderSubclass#TheParamterValue)
 </code></pre></li>
 <li>
 <p><code>metadataClass</code></p>
@@ -390,13 +390,13 @@ algorithm algorithmid(&lt;class&gt;) {
 <p><code>supportedOptions</code></p>
 <p>Algorithms declare which layout options they support, either with their default values as originally declared or with overridden default values. Each supported option ends up as an <code>IProperty</code> constant in the algorithm&rsquo;s layout meta data provider, complete with correct default values. These constants should be used to retrieve option values from within the algorithm code.</p>
 <p>An option support declaration looks like this:</p>
-<pre><code class="language-melk" data-lang="melk">supports the.option.id          // Standard default value
+<pre tabindex="0"><code class="language-melk" data-lang="melk">supports the.option.id          // Standard default value
 supports the.option.id = 42     // Overridden default value
 </code></pre></li>
 </ul>
 <h2 id="example">Example</h2>
 <p>The following is an example metadata file for a very simple layout algorithm:</p>
-<pre><code class="language-melk" data-lang="melk">package cds.layout.simple
+<pre tabindex="0"><code class="language-melk" data-lang="melk">package cds.layout.simple
 
 import cds.layout.simple.SimpleLayoutProvider
 import org.eclipse.elk.core.math.ElkPadding

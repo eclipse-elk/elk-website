@@ -411,7 +411,7 @@ NONE   Default Value: CrossingMinimizationStrategy.LAYER_SWEEP (as defined in or
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingMinimization.html</guid>
-      <description>   Property Value     Identifier: org.eclipse.elk.layered.crossingMinimization    Options  Crossing Minimization Strategy Hierarchical Sweepiness Semi-Interactive Crossing Minimization Position Choice Constraint Position ID  Subgroups  greedySwitch greedySwitchHierarchical  </description>
+      <description>   Property Value     Identifier: org.eclipse.elk.layered.crossingMinimization    Options  Crossing Minimization Strategy Force Node Model Order Hierarchical Sweepiness Semi-Interactive Crossing Minimization Position Choice Constraint Position ID  Subgroups  greedySwitch greedySwitchHierarchical  </description>
     </item>
     
     <item>
@@ -999,12 +999,30 @@ FRUCHTERMAN_REINGOLD   Default Value: ForceModelStrategy.FRUCHTERMAN_REINGOLD (a
     </item>
     
     <item>
+      <title>Force Node Model Order</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-forceNodeModelOrder.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-forceNodeModelOrder.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.crossingMinimization.forceNodeModelOrder   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: crossingMinimization    Description The node order given by the model does not change to produce a better layout. E.g. if node A is before node B in the model this is not changed during crossing minimization.</description>
+    </item>
+    
+    <item>
       <title>FR Temperature</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-temperature.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-temperature.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.force.temperature   Meta Data Provider: options.ForceMetaDataProvider   Value Type: double   Default Value: 0.001 (as defined in org.eclipse.elk.force)   Lower Bound: ExclusiveBounds.greaterThan(0)   Applies To: parents   Dependencies: org.eclipse.elk.force.model (ForceModelStrategy.FRUCHTERMAN_REINGOLD)    Description The temperature is used as a scaling factor for particle displacements.</description>
+    </item>
+    
+    <item>
+      <title>Generate Position and Layer IDs</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-generatePositionAndLayerIds.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-generatePositionAndLayerIds.html</guid>
+      <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.generatePositionAndLayerIds   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents    Description If enabled position id and layer id are generated, which are usually only used internally when setting the interactiveLayout option. This option should be specified on the root node.</description>
     </item>
     
     <item>
@@ -1162,6 +1180,15 @@ SEPARATE_CHILDREN   Default Value: HierarchyHandling.INHERIT (as defined in org.
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-highDegreeNodes.html</guid>
       <description>   Property Value     Identifier: org.eclipse.elk.layered.highDegreeNodes    Options  High Degree Node Treatment High Degree Node Threshold High Degree Node Maximum Tree Height  </description>
+    </item>
+    
+    <item>
+      <title>Horizontal spacing between Label and Port</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPortHorizontal.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPortHorizontal.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.labelPortHorizontal   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 1 (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: spacing    Description Horizontal spacing to be preserved between labels and the ports they are associated with. Note that the placement of a label is influenced by the &amp;lsquo;portlabels.</description>
     </item>
     
     <item>
@@ -1348,15 +1375,6 @@ TOP_LEFT   Default Value: InteractiveReferencePoint.CENTER (as defined in org.ec
     </item>
     
     <item>
-      <title>Label Port Spacing</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPort.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPort.html</guid>
-      <description>Property Value     Identifier: org.eclipse.elk.spacing.labelPort   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 1 (as defined in org.eclipse.elk)   Lower Bound: 0.0   Applies To: parents   Containing Group: spacing    Description Spacing to be preserved between labels and the ports they are associated with. Note that the placement of a label is influenced by the &amp;lsquo;portlabels.</description>
-    </item>
-    
-    <item>
       <title>Label Spacing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelLabel.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1402,7 +1420,7 @@ LAST_SEPARATE   Default Value: LayerConstraint.NONE (as defined in org.eclipse.e
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerId.html</guid>
-      <description>Property Value     Type: output   Identifier: org.eclipse.elk.layered.layering.layerId   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: nodes   Containing Group: layering    Description Layer identifier that was calculated by ELK Layered for a node</description>
+      <description>Property Value     Type: output   Identifier: org.eclipse.elk.layered.layering.layerId   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: nodes   Containing Group: layering    Description Layer identifier that was calculated by ELK Layered for a node. This is only generated if interactiveLayot or generatePositionAndLayerIds is set.</description>
     </item>
     
     <item>
@@ -2199,7 +2217,7 @@ PORT_DEGREE   Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-positionId.html</guid>
-      <description>Property Value     Type: output   Identifier: org.eclipse.elk.layered.crossingMinimization.positionId   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: nodes   Containing Group: crossingMinimization    Description Position within a layer that was determined by ELK Layered for a node.</description>
+      <description>Property Value     Type: output   Identifier: org.eclipse.elk.layered.crossingMinimization.positionId   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: int   Default Value: -1 (as defined in org.eclipse.elk.layered)   Lower Bound: -1   Applies To: nodes   Containing Group: crossingMinimization    Description Position within a layer that was determined by ELK Layered for a node. This is only generated if interactiveLayot or generatePositionAndLayerIds is set.</description>
     </item>
     
     <item>
@@ -2486,7 +2504,7 @@ ID   Default Value: SortingStrategy.NONE (as defined in org.eclipse.elk.radial) 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-spacing.html</guid>
-      <description>   Property Value     Identifier: org.eclipse.elk.spacing    Options  Comment Comment Spacing Comment Node Spacing Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Label Port Spacing Node Spacing Node Self Loop Spacing Port Spacing Individual Spacing Additional Port Space  </description>
+      <description>   Property Value     Identifier: org.eclipse.elk.spacing    Options  Comment Comment Spacing Comment Node Spacing Components Spacing Edge Spacing Edge Label Spacing Edge Node Spacing Label Spacing Label Node Spacing Horizontal spacing between Label and Port Vertical spacing between Label and Port Node Spacing Node Self Loop Spacing Port Spacing Individual Spacing Additional Port Space  </description>
     </item>
     
     <item>
@@ -2666,6 +2684,15 @@ MAXIMUM_SPANNING_TREE   Default Value: TreeConstructionStrategy.MINIMUM_SPANNING
       <description>Property Value     Type: advanced   Identifier: org.eclipse.elk.layered.wrapping.validify.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.ValidifyStrategy (Enum)   Possible Values: NO
 GREEDY
 LOOK_BACK   Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.SINGLE_EDGE), org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE)   Containing Group: wrapping -&amp;gt; validify    Description When wrapping graphs, one can specify indices that are not allowed as split points.</description>
+    </item>
+    
+    <item>
+      <title>Vertical spacing between Label and Port</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPortVertical.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPortVertical.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.spacing.labelPortVertical   Meta Data Provider: core.options.CoreOptions   Value Type: double   Default Value: 1 (as defined in org.eclipse.elk)   Applies To: parents   Containing Group: spacing    Description Vertical spacing to be preserved between labels and the ports they are associated with. Note that the placement of a label is influenced by the &amp;lsquo;portlabels.</description>
     </item>
     
     <item>

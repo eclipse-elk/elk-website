@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="img/elk_fav.svg">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    <title>Spacing Options (ELK)</title>
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">
+    <img src="img/elk_small_light.svg" height="30" class="d-inline-block align-top mr-1" alt="">
+    Eclipse Layout Kernel
+  </a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../downloads.html">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="../../../documentation.html">Documentation <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../reference.html">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../support.html">Support</a>
+        </li>
+      
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Spacing Options</h1>
+
+    <h2 id="space-able-elements">Space-able elements</h2>
+<p>As far as the ELK core is concerned, the following elements can have spacing:</p>
+<ol>
+<li>Nodes</li>
+<li>Ports</li>
+<li>Labels</li>
+<li>Edges</li>
+<li>Comments</li>
+<li>Connected components</li>
+</ol>
+<p>The first three can be thought of as boxes with some space to be left around them. Edges are not boxes, and connected components may be more complex than simple boxes.</p>
+<p>ELK Layered adds the concept of <em>layers</em>, which leads to a few additional spacing values as described later.</p>
+<h2 id="spacing-combinations">Spacing Combinations</h2>
+<p>Spacings are always defined between pairs of things. All spacings in this section are influenced by the <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-baseValue.html"><em>base value for spacings</em></a>. We define spacings between the following pairs of things (ordered lexicographically):</p>
+<ol>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentComment.html">Comment-Comment</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentNode.html">Comment-Node</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-componentComponent.html">Component-Component</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeEdge.html">Edge-Edge</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeLabel.html">Edge-Label</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeNode.html">Edge-Node</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelLabel.html">Label-Label</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelNode.html">Label-Node</a></li>
+<li>Label-Port Vertical (a positive value means further away from the node)</li>
+<li>Label-Port Horizontal (a positive value means further away from the node)</li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeNode.html">Node-Node</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portPort.html">Port-Port</a></li>
+</ol>
+<p>Since ELK Layered adds the concept of layers, it interprets many of the spacings above as being spacings active inside each layer (as vertical spacings, if the layout direction is right). To control spacing between layers (horizontal spacing), ELK Layered adds the following pairs:</p>
+<ol>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeEdgeBetweenLayers.html">Edge-Edge-BetweenLayers</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeNodeBetweenLayers.html">Edge-Node-BetweenLayers</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-nodeNodeBetweenLayers.html">Node-Node-BetweenLayers</a></li>
+</ol>
+<p>Additionally the following spacing values were introduced to handle special cases:</p>
+<ol>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsSurrounding.html">Additional Port Space</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html">Additional Wrapped Edges Spacing</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individual.html">Individual Spacing</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individual_org-eclipse-elk-layered.html">Individual Spacing (ELK Layered)</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeSelfLoop.html">Node Self Loop Spacing</a></li>
+</ol>
+<p>Examples how these spacings influence layout can be found <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html">here</a>.</p>
+<h2 id="other-spacings">Other Spacings</h2>
+<p>Spacing that do not use the base value for spacings but are still called spacing:</p>
+<ol>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-layerSpacingFactor.html">Layer Spacing Factor (ELK Graphviz)</a></li>
+<li><a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-splines-sloppy-layerSpacingFactor.html">Sloppy Spline Layer Spacing Factor (ELK Layered, Edge Routing)</a></li>
+</ol>
+<h2 id="individual-spacings">Individual Spacings</h2>
+<p>Spacings are generally set on compound nodes and affect their direct children. There may be times, though, when a particular element wants to override the spacing settings. This could be solved by simply setting the appropriate spacing properties on that element. If that element is itself a compound node, however, we would introduce ambiguity: should the spacings be applied to the node&rsquo;s children or to the node itself?</p>
+<p>The solution is to provide a <em>individual spacings</em> property whose value is a property holder on which the spacing options that should be overridden can be set.</p>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>Insets / paddings / border spacing are an orthogonal concept and thus do not appear here.</li>
+<li>Node spacings do not begin at the border of a node, but at the border of its margin. The margin of a node is the bounding box around a node which includes the node itself, its ports, and its various kinds of labels.</li>
+<li>Edge spacings or spacing that somehow involve edges do not consider edges to have a thickness. Therefore, spacing from a node to an edge is always between the node bounding box and the center of the edge.</li>
+</ul>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers.html">
+    <li class="navlevel-1">
+      Tool Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure.html">
+    <li class="navlevel-2">
+      Graph Data Structure
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/coordinatesystem.html">
+    <li class="navlevel-3">
+      Coordinate System
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">
+    <li class="navlevel-3">
+      Layout Options
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/layoutoptions/spacingdocumentation.html">
+    <li class="navlevel-4">
+      Spacing Options
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/spacingdocumentation.html">
+    <li class="navlevel-3 active">
+      Spacing Options
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/jsonformat.html">
+    <li class="navlevel-3">
+      JSON Format
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/graphdatastructure/elktextformat.html">
+    <li class="navlevel-3">
+      ELK Text Format
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingalgorithmsdirectly.html">
+    <li class="navlevel-2">
+      Using Algorithms Directly
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingplainjavalayout.html">
+    <li class="navlevel-2">
+      Using Plain Java Layout
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout.html">
+    <li class="navlevel-2">
+      Using Eclipse Layout
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">
+    <li class="navlevel-3">
+      Connecting to ELK
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html">
+    <li class="navlevel-3">
+      Advanced Configuration
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html">
+    <li class="navlevel-3">
+      Layout View Support
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html">
+    <li class="navlevel-3">
+      Dependency Injection
+    </li>
+  </a>
+  
+
+
+  
+
+
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers.html">
+    <li class="navlevel-1">
+      Algorithm Developers
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/algorithmdevelopers/gettingeclipseready.html">
+    <li class="navlevel-2">
+      Getting Eclipse Ready
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/creatinganewproject.html">
+    <li class="navlevel-2">
+      Creating a New Project
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/metadatalanguage.html">
+    <li class="navlevel-2">
+      ELK Metadata Language
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/algorithmdevelopers/metadatalanguage/automaticbuilds.html">
+    <li class="navlevel-3">
+      Automatic Builds
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/algorithmimplementation.html">
+    <li class="navlevel-2">
+      Algorithm Implementation
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html">
+    <li class="navlevel-3">
+      Structuring Algorithms
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/algorithmdebugging.html">
+    <li class="navlevel-2">
+      Algorithm Debugging
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/randomgraphs.html">
+    <li class="navlevel-2">
+      Random Graph Generation
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/algorithmdevelopers/unittesting.html">
+    <li class="navlevel-2">
+      Unit Tests
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/contributors.html">
+    <li class="navlevel-1">
+      ELK Contributors
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/contributors/developmentsetup.html">
+    <li class="navlevel-2">
+      Development Setup
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../documentation/contributors/developmentworkflow.html">
+    <li class="navlevel-2">
+      Development Workflow
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../documentation/contributors/developmentworkflow/installingwithoomph.html">
+    <li class="navlevel-3">
+      Installing With Oomph
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../documentation/contributors/buildingelk.html">
+    <li class="navlevel-2">
+      Building ELK
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+      
+    
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo" class="footer">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <span class="hidden-print">
+                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="../../../img/eclipse_foundation_logo.svg"/></a>
+              </span>
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+        <div class="row">
+          <div class="col hidden-print">
+            <a href="http://www.eclipse.org/">Eclipse Foundation</a><br/>
+            <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a><br/>
+            <a href="http://www.eclipse.org/legal/termsofuse.php">Website Terms of Use</a><br/>
+            <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a><br/>
+            <a href="http://www.eclipse.org/legal">Legal</a>
+          </div>
+          <div class="col">
+              <p class="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

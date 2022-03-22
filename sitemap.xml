@@ -272,7 +272,11 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-model.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-forceNodeModelOrder.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-temperature.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-generatePositionAndLayerIds.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/gettingeclipseready.html</loc>
   </url><url>
@@ -311,6 +315,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-highDegreeNodes-treatment.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-highDegreeNodes.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPortHorizontal.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hypernode.html</loc>
   </url><url>
@@ -355,8 +361,6 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-labels-labelManager.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelNode.html</loc>
-  </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPort.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelLabel.html</loc>
   </url><url>
@@ -596,6 +600,10 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-baseValue.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions/spacingdocumentation.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/spacingdocumentation.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-splines-mode.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-priority-straightness.html</loc>
@@ -647,6 +655,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-validateOptions.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-validify-strategy.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPortVertical.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-weighting.html</loc>
   </url><url>

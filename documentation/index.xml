@@ -241,6 +241,28 @@ To get started, create a file with the file ending .elkr. Now Eclipse will offer
     </item>
     
     <item>
+      <title>Spacing Options</title>
+      <link>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions/spacingdocumentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/layoutoptions/spacingdocumentation.html</guid>
+      <description>Space-able elements As far as the ELK core is concerned, the following elements can have spacing:
+ Nodes Ports Labels Edges Comments Connected components  The first three can be thought of as boxes with some space to be left around them. Edges are not boxes, and connected components may be more complex than simple boxes.
+ELK Layered adds the concept of layers, which leads to a few additional spacing values as described later.</description>
+    </item>
+    
+    <item>
+      <title>Spacing Options</title>
+      <link>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/spacingdocumentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/spacingdocumentation.html</guid>
+      <description>Space-able elements As far as the ELK core is concerned, the following elements can have spacing:
+ Nodes Ports Labels Edges Comments Connected components  The first three can be thought of as boxes with some space to be left around them. Edges are not boxes, and connected components may be more complex than simple boxes.
+ELK Layered adds the concept of layers, which leads to a few additional spacing values as described later.</description>
+    </item>
+    
+    <item>
       <title>Structuring Algorithms</title>
       <link>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

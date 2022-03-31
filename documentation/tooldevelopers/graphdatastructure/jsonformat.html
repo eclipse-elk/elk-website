@@ -85,7 +85,7 @@ The id can be a string or an integer.
 All elements furthermore can have <a href="../../../reference/options.html"><em>layout options</em></a>.
 Layout options are basically a list of key-value pairs that are used to
 assign layout option values to the element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">id*:</span> <span style="color:#f92672">&#34;ID&#34;</span>,
   <span style="color:#960050;background-color:#1e0010">layoutOptions:</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#960050;background-color:#1e0010">..object</span> <span style="color:#960050;background-color:#1e0010">with</span> <span style="color:#960050;background-color:#1e0010">key</span> <span style="color:#960050;background-color:#1e0010">value</span> <span style="color:#960050;background-color:#1e0010">pairs..</span> }
 <span style="color:#960050;background-color:#1e0010">}</span>
@@ -94,7 +94,7 @@ assign layout option values to the element.</p>
 can also have an arbitrary number of labels to describe them properly. Yes, even labels can
 have labels, although it depends on the layout algorithm whether or not it supports labeled
 labels.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">x:</span> <span style="color:#960050;background-color:#1e0010">...,</span>
   <span style="color:#960050;background-color:#1e0010">y:</span> <span style="color:#960050;background-color:#1e0010">...,</span>
   <span style="color:#960050;background-color:#1e0010">width:</span> <span style="color:#960050;background-color:#1e0010">...,</span>
@@ -108,7 +108,7 @@ is actually nothing more than a simple node whose children are the top-level nod
 Finally, a node can contain edges. These edges do not necessarily connect to the node, but will
 usually connect its children. The edge coordinates will be interpreted relative to the upper
 left corner of the node which contains it.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">ports:</span> <span style="color:#960050;background-color:#1e0010">[</span> <span style="color:#960050;background-color:#1e0010">..array</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">port</span> <span style="color:#960050;background-color:#1e0010">objects..</span> <span style="color:#960050;background-color:#1e0010">],</span>
   <span style="color:#960050;background-color:#1e0010">children:</span> <span style="color:#960050;background-color:#1e0010">[</span> <span style="color:#960050;background-color:#1e0010">..array</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">child</span> <span style="color:#960050;background-color:#1e0010">node</span> <span style="color:#960050;background-color:#1e0010">objects..</span> <span style="color:#960050;background-color:#1e0010">],</span>
   <span style="color:#960050;background-color:#1e0010">edges:</span> <span style="color:#960050;background-color:#1e0010">[</span> <span style="color:#960050;background-color:#1e0010">..array</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">edge</span> <span style="color:#960050;background-color:#1e0010">objects..</span> <span style="color:#960050;background-color:#1e0010">]</span>
@@ -119,7 +119,7 @@ left corner of the node which contains it.</p>
 <p>Labels can additionally contain text. Note that layout algorithms
 generally don&rsquo;t perform any size estimation of the text.
 Therefore you should specify a reasonable width and height.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">text:</span> <span style="color:#f92672">&#34;A magnificent text&#34;</span>
 }
 </code></pre></div><h2 id="edges">Edges</h2>
@@ -130,7 +130,7 @@ of edges support labels.</p>
 <h3 id="primitive-edges">Primitive Edges</h3>
 <p>Primitive edges have a source and target node and can optionally connect
 to a source port and target port.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">source*:</span> <span style="color:#960050;background-color:#1e0010">node</span> <span style="color:#960050;background-color:#1e0010">identifier,</span>
   <span style="color:#960050;background-color:#1e0010">sourcePort:</span> <span style="color:#960050;background-color:#1e0010">port</span> <span style="color:#960050;background-color:#1e0010">identifier,</span>
   <span style="color:#960050;background-color:#1e0010">target*:</span> <span style="color:#960050;background-color:#1e0010">node</span> <span style="color:#960050;background-color:#1e0010">identifier,</span>
@@ -147,7 +147,7 @@ connect more than one source to more than one target, making them hyperedges.
 Note that many layout algorithms don&rsquo;t support hyperedges.
 If an edge has a layout, it can specify an arbitrary number of edge sections
 that define said layout. A simple edge with one source and one target only needs a single section.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">sources*:</span> <span style="color:#960050;background-color:#1e0010">[</span> <span style="color:#960050;background-color:#1e0010">..array</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">node</span> <span style="color:#960050;background-color:#1e0010">and</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">or</span> <span style="color:#960050;background-color:#1e0010">port</span> <span style="color:#960050;background-color:#1e0010">identifiers..</span> <span style="color:#960050;background-color:#1e0010">],</span>
   <span style="color:#960050;background-color:#1e0010">targets*:</span> <span style="color:#960050;background-color:#1e0010">[</span> <span style="color:#960050;background-color:#1e0010">..array</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">node</span> <span style="color:#960050;background-color:#1e0010">and</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">or</span> <span style="color:#960050;background-color:#1e0010">port</span> <span style="color:#960050;background-color:#1e0010">identifiers..</span> <span style="color:#960050;background-color:#1e0010">],</span>
   <span style="color:#960050;background-color:#1e0010">sections:</span> <span style="color:#960050;background-color:#1e0010">[</span> <span style="color:#960050;background-color:#1e0010">..array</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">edge</span> <span style="color:#960050;background-color:#1e0010">sections..</span> <span style="color:#960050;background-color:#1e0010">],</span>
@@ -164,7 +164,7 @@ outgoing edge sections). In the simplest case, an edge only has a single edge se
 runs from the edge&rsquo;s single source to its single target. In this case, it is enough to define
 the section&rsquo;s start and end point and possibly bendpoints.
 Incoming and outgoing shapes are then filled in automatically by the importer.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">startPoint*:</span> <span style="color:#960050;background-color:#1e0010">{x,</span> <span style="color:#960050;background-color:#1e0010">y</span>}<span style="color:#960050;background-color:#1e0010">,</span>
   <span style="color:#960050;background-color:#1e0010">endPoint*:</span> {<span style="color:#960050;background-color:#1e0010">x,</span> <span style="color:#960050;background-color:#1e0010">y</span>}<span style="color:#960050;background-color:#1e0010">,</span>
   <span style="color:#960050;background-color:#1e0010">bendPoints:</span> [ <span style="color:#960050;background-color:#1e0010">..array</span> <span style="color:#960050;background-color:#1e0010">of</span> {<span style="color:#960050;background-color:#1e0010">x,</span> <span style="color:#960050;background-color:#1e0010">y</span>} <span style="color:#960050;background-color:#1e0010">pairs..</span> ]<span style="color:#960050;background-color:#1e0010">,</span>
@@ -180,12 +180,12 @@ such that a rendering framework can use them to position visual cues,
 for instance, small circles.
 In case an algorithm computes junction points,
 an edge&rsquo;s representation might look like the following after layout.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">id:</span> <span style="color:#f92672">&#34;edge0&#34;</span>,
   <span style="color:#960050;background-color:#1e0010">junctionPoints:</span> <span style="color:#960050;background-color:#1e0010">[</span> <span style="color:#960050;background-color:#1e0010">..array</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">{x,</span> <span style="color:#960050;background-color:#1e0010">y</span>} <span style="color:#960050;background-color:#1e0010">pairs..</span> <span style="color:#960050;background-color:#1e0010">]</span>
 <span style="color:#960050;background-color:#1e0010">}</span>
 </code></pre></div><h1 id="small-example">Small Example</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">id:</span> <span style="color:#f92672">&#34;root&#34;</span>,
   <span style="color:#960050;background-color:#1e0010">properties:</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#f92672">&#34;elk.direction&#34;</span>: <span style="color:#e6db74">&#34;RIGHT&#34;</span> }<span style="color:#960050;background-color:#1e0010">,</span>
   <span style="color:#960050;background-color:#1e0010">children:</span> [
@@ -201,7 +201,7 @@ an edge&rsquo;s representation might look like the following after layout.</p>
 It provides a set of methods that are outlined next.</p>
 <h2 id="json-to-elk-graph">JSON to ELK Graph</h2>
 <p>Simple import using a json string as input:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ElkNode root <span style="color:#f92672">=</span> ElkGraphJson<span style="color:#f92672">.</span><span style="color:#a6e22e">forGraph</span><span style="color:#f92672">(</span>jsonString<span style="color:#f92672">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ElkNode root <span style="color:#f92672">=</span> ElkGraphJson<span style="color:#f92672">.</span><span style="color:#a6e22e">forGraph</span><span style="color:#f92672">(</span>jsonString<span style="color:#f92672">)</span>
                            <span style="color:#f92672">.</span><span style="color:#a6e22e">toElk</span><span style="color:#f92672">();</span>
 </code></pre></div><p>Sometimes one desires to transfer the computed layout back to
 the initial json graph.
@@ -211,7 +211,7 @@ as <code>JsonObject</code>. Pass a
 the <code>JsonImporter</code> instance that has been used to
 import the json graph. Internally, the importer maintains
 several maps from json elements to ELK graph elements.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">JsonObject jsonGraph <span style="color:#f92672">=</span> <span style="color:#f92672">...;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">JsonObject jsonGraph <span style="color:#f92672">=</span> <span style="color:#f92672">...;</span>
 Maybe<span style="color:#f92672">&lt;</span>JsonImporter<span style="color:#f92672">&gt;</span> importerMaybe <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Maybe<span style="color:#f92672">&lt;&gt;();</span>
 ElkNode root <span style="color:#f92672">=</span> ElkGraphJson<span style="color:#f92672">.</span><span style="color:#a6e22e">forGraph</span><span style="color:#f92672">(</span>jsonGraph<span style="color:#f92672">)</span>
                            <span style="color:#f92672">.</span><span style="color:#a6e22e">rememberImporter</span><span style="color:#f92672">(</span>importerMaybe<span style="color:#f92672">)</span>
@@ -220,7 +220,7 @@ ElkNode root <span style="color:#f92672">=</span> ElkGraphJson<span style="color
 </span><span style="color:#75715e"></span>
 importerMaybe<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">().</span><span style="color:#a6e22e">transferLayout</span><span style="color:#f92672">(</span>root<span style="color:#f92672">);</span>
 </code></pre></div><h2 id="elk-graph-to-json">ELK Graph to JSON</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ElkNode root <span style="color:#f92672">=</span> <span style="color:#f92672">...;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ElkNode root <span style="color:#f92672">=</span> <span style="color:#f92672">...;</span>
 String json <span style="color:#f92672">=</span> ElkGraphJson<span style="color:#f92672">.</span><span style="color:#a6e22e">forGraph</span><span style="color:#f92672">(</span>root<span style="color:#f92672">)</span>
                           <span style="color:#f92672">.</span><span style="color:#a6e22e">omitLayout</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
                           <span style="color:#f92672">.</span><span style="color:#a6e22e">omitZeroDimension</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>

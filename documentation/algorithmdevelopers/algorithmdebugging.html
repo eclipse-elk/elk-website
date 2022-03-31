@@ -87,11 +87,11 @@
 </ol>
 <h2 id="logging-mechanisms">Logging Mechanisms</h2>
 <p>Layout algorithms extend the <code>AbstractLayoutProvider</code> class and thus implement the following method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
     <span style="color:#f92672">...</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>The key entry point to everything concerning logging is the <code>IElkProgressMonitor</code>. Here&rsquo;s how to use it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
     monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TestAlgorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
 
     monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Algorithm starting...&#34;</span><span style="color:#f92672">);</span>
@@ -183,7 +183,7 @@
 </li>
 </ul>
 <p>To take proper advantage of the layout time view, your algorithm must make proper use of the <code>IElkProgressMonitor</code> passed to it. The tree of progress monitors (and sub-monitors) is what gets displayed in the layout time view. Be sure to do something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;My rather good layout algorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;My rather good layout algorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
 
 <span style="color:#75715e">// Phases of your algorithm should use sub-monitors
 </span><span style="color:#75715e"></span>executePhase1<span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
@@ -375,7 +375,7 @@ monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</spa
 </li>
 </ul>
 <p>If automatic layout is not used from inside Eclipse, the progress monitors must be configured manually before being passed to the <a href="../../documentation/tooldevelopers/usingplainjavalayout.html">graph layout engine</a> or directly to the <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">layout algorithm</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">new</span> BasicProgressMonitor<span style="color:#f92672">()</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">new</span> BasicProgressMonitor<span style="color:#f92672">()</span>
     <span style="color:#f92672">.</span><span style="color:#a6e22e">withLogging</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
     <span style="color:#f92672">.</span><span style="color:#a6e22e">withLogPersistence</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
     <span style="color:#f92672">.</span><span style="color:#a6e22e">withExecutionTimeMeasurement</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>

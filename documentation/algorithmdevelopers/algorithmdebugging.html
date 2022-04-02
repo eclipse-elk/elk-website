@@ -87,30 +87,30 @@
 </ol>
 <h2 id="logging-mechanisms">Logging Mechanisms</h2>
 <p>Layout algorithms extend the <code>AbstractLayoutProvider</code> class and thus implement the following method:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    <span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>The key entry point to everything concerning logging is the <code>IElkProgressMonitor</code>. Here&rsquo;s how to use it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TestAlgorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
-
-    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Algorithm starting...&#34;</span><span style="color:#f92672">);</span>
-            
-    <span style="color:#75715e">// As with assertions, lengthy computations should only be done if logging
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// is in fact enabled
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">isLoggingEnabled</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-        <span style="color:#75715e">// Perform some lengthy computation
-</span><span style="color:#75715e"></span>        monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Found...&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">// You can log snapshots of the layout graph
-</span><span style="color:#75715e"></span>    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">logGraph</span><span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;No node placed yet&#34;</span><span style="color:#f92672">);</span>
-    placeNodes<span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">);</span>
-    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">logGraph</span><span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;All nodes placed&#34;</span><span style="color:#f92672">);</span>
-
-    progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>When logging graphs, each graph is supplied with a tag: a string that allows a developer to make sense of the graph in the logs later on. There are two ways to log graphs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The key entry point to everything concerning logging is the <code>IElkProgressMonitor</code>. Here&rsquo;s how to use it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">layout</span><span style="color:#f92672">(</span>ElkNode layoutGraph<span style="color:#f92672">,</span> IElkProgressMonitor monitor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TestAlgorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Algorithm starting...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// As with assertions, lengthy computations should only be done if logging
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// is in fact enabled
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">isLoggingEnabled</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Perform some lengthy computation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Found...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// You can log snapshots of the layout graph
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">logGraph</span><span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;No node placed yet&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    placeNodes<span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">logGraph</span><span style="color:#f92672">(</span>layoutGraph<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;All nodes placed&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    progressMonitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>When logging graphs, each graph is supplied with a tag: a string that allows a developer to make sense of the graph in the logs later on. There are two ways to log graphs:</p>
 <ul>
 <li>
 <p><code>logGraph(ElkNode graph, String tag)</code></p>
@@ -183,14 +183,14 @@
 </li>
 </ul>
 <p>To take proper advantage of the layout time view, your algorithm must make proper use of the <code>IElkProgressMonitor</code> passed to it. The tree of progress monitors (and sub-monitors) is what gets displayed in the layout time view. Be sure to do something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;My rather good layout algorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
-
-<span style="color:#75715e">// Phases of your algorithm should use sub-monitors
-</span><span style="color:#75715e"></span>executePhase1<span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
-executePhase2<span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
-
-monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
-</code></pre></div><h3 id="layout-log-view">Layout Log View</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;My rather good layout algorithm&#34;</span><span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Phases of your algorithm should use sub-monitors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>executePhase1<span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>executePhase2<span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">subTask</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</span><span style="color:#f92672">();</span>
+</span></span></code></pre></div><h3 id="layout-log-view">Layout Log View</h3>
 <p>
   <img
     class="img-fluid"
@@ -375,11 +375,11 @@ monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">done</spa
 </li>
 </ul>
 <p>If automatic layout is not used from inside Eclipse, the progress monitors must be configured manually before being passed to the <a href="../../documentation/tooldevelopers/usingplainjavalayout.html">graph layout engine</a> or directly to the <a href="../../documentation/tooldevelopers/usingalgorithmsdirectly.html">layout algorithm</a>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">new</span> BasicProgressMonitor<span style="color:#f92672">()</span>
-    <span style="color:#f92672">.</span><span style="color:#a6e22e">withLogging</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
-    <span style="color:#f92672">.</span><span style="color:#a6e22e">withLogPersistence</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
-    <span style="color:#f92672">.</span><span style="color:#a6e22e">withExecutionTimeMeasurement</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">new</span> BasicProgressMonitor<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">withLogging</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">withLogPersistence</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">withExecutionTimeMeasurement</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div>
   </div>
 
   <div class="secnav col-sm-3">

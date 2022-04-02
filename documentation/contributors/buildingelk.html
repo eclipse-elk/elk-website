@@ -76,12 +76,12 @@
     <p>ELK is built using <a href="https://maven.apache.org/">Apache Maven</a> in conjunction with <a href="https://eclipse.org/tycho/">Tycho</a> to tell Maven how to build Eclipse projects. There are two parts that can be built: the Eclipse Layout Kernel itself, and the metadata compiler used by the main ELK build. The remainder of this page assumes that you have opened a shell in the <code>build/</code> directory inside your clone of the ELK repository.</p>
 <h2 id="building-elk">Building ELK</h2>
 <p>Execute Maven using the following command line (note that the command line is split in order to improve readability):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn
-    --define elk.metadata.documentation.outputPath<span style="color:#f92672">=</span>/ELK_FOLDER/docs
-    -Dmaven.repo.local<span style="color:#f92672">=</span>./mvnrepo
-    clean
-    package
-</code></pre></div><p>A few notes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn
+</span></span><span style="display:flex;"><span>    --define elk.metadata.documentation.outputPath<span style="color:#f92672">=</span>/ELK_FOLDER/docs
+</span></span><span style="display:flex;"><span>    -Dmaven.repo.local<span style="color:#f92672">=</span>./mvnrepo
+</span></span><span style="display:flex;"><span>    clean
+</span></span><span style="display:flex;"><span>    package
+</span></span></code></pre></div><p>A few notes:</p>
 <ul>
 <li>The <code>maven.repo.local</code> property is not required, but can be helpful to keep builds self-contained. Once built, the <code>-o</code> option is helpful to keep Maven from accessing online repositories.</li>
 </ul>
@@ -91,28 +91,28 @@
 <p>Due to some tycho/surefire issue the unit tests cannot be executed with Java 9 and 10.</p>
 </div>
 <p>The unit tests require our <a href="https://github.com/eclipse/elk-models">models repository</a> to be checked out as well. If it is, the following command line will run the tests (note that the command line is split in order to improve readability):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn
-    --define elk.metadata.documentation.outputPath<span style="color:#f92672">=</span>/ELK_FOLDER/docs
-    --define tests.paths.elk-repo<span style="color:#f92672">=</span>/ELK_FOLDER
-    --define tests.paths.models-repo<span style="color:#f92672">=</span>/ELK_MODELS_FOLDER
-    -Dmaven.repo.local<span style="color:#f92672">=</span>./mvnrepo
-    clean
-    integration-test
-</code></pre></div><p>The <code>TEST_RESULTS_FOLDER</code> is a folder where tests can save data about tests that have failed for later inspection.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn
+</span></span><span style="display:flex;"><span>    --define elk.metadata.documentation.outputPath<span style="color:#f92672">=</span>/ELK_FOLDER/docs
+</span></span><span style="display:flex;"><span>    --define tests.paths.elk-repo<span style="color:#f92672">=</span>/ELK_FOLDER
+</span></span><span style="display:flex;"><span>    --define tests.paths.models-repo<span style="color:#f92672">=</span>/ELK_MODELS_FOLDER
+</span></span><span style="display:flex;"><span>    -Dmaven.repo.local<span style="color:#f92672">=</span>./mvnrepo
+</span></span><span style="display:flex;"><span>    clean
+</span></span><span style="display:flex;"><span>    integration-test
+</span></span></code></pre></div><p>The <code>TEST_RESULTS_FOLDER</code> is a folder where tests can save data about tests that have failed for later inspection.</p>
 <h2 id="building-the-metadata-compiler">Building the Metadata Compiler</h2>
 <p>Execute Maven using the following command line to build the metadata compiler locally (note that the command line is split in order to improve readability):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn
-    -P elk-meta
-    -Dmaven.repo.local<span style="color:#f92672">=</span>./mvnrepo
-    clean
-    install
-</code></pre></div><h2 id="building-the-website-and-documentation">Building the Website and Documentation</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn
+</span></span><span style="display:flex;"><span>    -P elk-meta
+</span></span><span style="display:flex;"><span>    -Dmaven.repo.local<span style="color:#f92672">=</span>./mvnrepo
+</span></span><span style="display:flex;"><span>    clean
+</span></span><span style="display:flex;"><span>    install
+</span></span></code></pre></div><h2 id="building-the-website-and-documentation">Building the Website and Documentation</h2>
 <p>The documentation website is our source of documentation. The main build produces reference documentation which is part of the website from our metadata files. The documentation website itself is then built with <a href="https://gohugo.io/">Hugo</a>, a static website generator. The website is setup in a way to be browsable both online and offline.</p>
 <p>To actually build the documentation website, go to the repository&rsquo;s <code>docs/</code> folder and simply execute the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo
-</code></pre></div><p>To edit the website, start a Hugo server instance in the repository&rsquo;s <code>docs/</code> folder:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server
-</code></pre></div><p>You can then direct your browser to <a href="http://localhost:1313/elk/">http://localhost:1313/elk/</a>. As you edit the website&rsquo;s files and save them, the browser&rsquo;s content is dynamically updated.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><p>To edit the website, start a Hugo server instance in the repository&rsquo;s <code>docs/</code> folder:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div><p>You can then direct your browser to <a href="http://localhost:1313/elk/">http://localhost:1313/elk/</a>. As you edit the website&rsquo;s files and save them, the browser&rsquo;s content is dynamically updated.</p>
 
   </div>
 

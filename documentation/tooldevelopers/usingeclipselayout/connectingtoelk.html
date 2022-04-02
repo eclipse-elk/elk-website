@@ -82,55 +82,55 @@
 <p>The rest of this page will look at each of these in turn.</p>
 <h2 id="the-layout-setup">The Layout Setup</h2>
 <p>An <code>ILayoutSetup</code> implementation consists of just two methods:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span>Object object<span style="color:#f92672">);</span>
-Injector <span style="color:#a6e22e">createInjector</span><span style="color:#f92672">(</span>Module defaultModule<span style="color:#f92672">);</span>
-</code></pre></div><p>To be able to implement the interface, you may have to add a dependency to <code>org.eclipse.elk.core.service</code> to your project. Then register your layout setup with the <code>org.eclipse.elk.core.service.layoutConnectors</code> extension point.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span>Object object<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>Injector <span style="color:#a6e22e">createInjector</span><span style="color:#f92672">(</span>Module defaultModule<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>To be able to implement the interface, you may have to add a dependency to <code>org.eclipse.elk.core.service</code> to your project. Then register your layout setup with the <code>org.eclipse.elk.core.service.layoutConnectors</code> extension point.</p>
 <h3 id="the-supports-method">The <code>supports(...)</code> Method</h3>
 <p>This method is called by the diagram layout engine to determine if a given setup instance supports extracting an ElkGraph from the given object. The question now of course becomes what that object is. There are two cases. In the first case, it will be an implementation of <code>IWorkbenchPart</code>. This is the case if layout is invoked on a diagram editor. If the setup states that it supports that workbench part, the diagram layout connector it supplies knows how to get its hands at the editor&rsquo;s content and how to turn that content into an ElkGraph. In the second case, the object passed to <code>supports(...)</code> will be an object from that editor&rsquo;s content. For GMF editors, this will be an implementation of <code>IGraphicalEditPart</code>.</p>
 <p>A typical implementation of this method will look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Object object<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">// This method may be invoked on a whole collection of elements selected
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// in an editor
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>object <span style="color:#66d9ef">instanceof</span> Collection<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#75715e">// Check if we support layout on at least one of the selected objects
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Object o <span style="color:#f92672">:</span> <span style="color:#f92672">(</span>Collection<span style="color:#f92672">&lt;?&gt;)</span> object<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>o <span style="color:#66d9ef">instanceof</span> SomeDiagramElementClassWeSupport<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">// If it is not a collection, it may be either a workbench part we support
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// or the diagram element class we already checked for above
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> object <span style="color:#66d9ef">instanceof</span> WorkbenchPartImplementation
-        <span style="color:#f92672">||</span> object <span style="color:#66d9ef">instanceof</span> SomeDiagramClassWeSupport<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="the-createinjector-method">The <code>createInjector(...)</code> Method</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Object object<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// This method may be invoked on a whole collection of elements selected
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// in an editor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>object <span style="color:#66d9ef">instanceof</span> Collection<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Check if we support layout on at least one of the selected objects
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Object o <span style="color:#f92672">:</span> <span style="color:#f92672">(</span>Collection<span style="color:#f92672">&lt;?&gt;)</span> object<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>o <span style="color:#66d9ef">instanceof</span> SomeDiagramElementClassWeSupport<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// If it is not a collection, it may be either a workbench part we support
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// or the diagram element class we already checked for above
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> object <span style="color:#66d9ef">instanceof</span> WorkbenchPartImplementation
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">||</span> object <span style="color:#66d9ef">instanceof</span> SomeDiagramClassWeSupport<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="the-createinjector-method">The <code>createInjector(...)</code> Method</h3>
 <p>If the diagram layout engine has determined which setup supports layout on a given object, it will use that setup to get its hands on an injector that can supply implementations of the different components involved in the layout process. The most important of these is an implementation of <code>IDiagramLayoutConnector</code>, which we will look at in a minute. A typical implementation will look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> Injector <span style="color:#a6e22e">createInjector</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Module defaultModule<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">// Modules basically provide a mapping between types and implementations
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// to instantiate whenever an instance of the type is requested. We use
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// the default module supplied by ELK and override that with custom
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// overrides to get our IDiagramLayoutConnector to enter the picture.
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> Guice<span style="color:#f92672">.</span><span style="color:#a6e22e">createInjector</span><span style="color:#f92672">(</span>
-        Modules<span style="color:#f92672">.</span><span style="color:#a6e22e">override</span><span style="color:#f92672">(</span>defaultModule<span style="color:#f92672">).</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> AwesomeLayoutModule<span style="color:#f92672">()));</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AwesomeLayoutModule</span> <span style="color:#66d9ef">implements</span> Module <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Binder binder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#75715e">// This is the most important binding
-</span><span style="color:#75715e"></span>        binder<span style="color:#f92672">.</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span>IDiagramLayoutConnector<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
-              <span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">(</span>MyAwesomeDiagramLayoutConnector<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>An implementation can of course add more bindings. See our section on dependency injection for more information on what makes sense here.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> Injector <span style="color:#a6e22e">createInjector</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Module defaultModule<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Modules basically provide a mapping between types and implementations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// to instantiate whenever an instance of the type is requested. We use
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// the default module supplied by ELK and override that with custom
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// overrides to get our IDiagramLayoutConnector to enter the picture.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> Guice<span style="color:#f92672">.</span><span style="color:#a6e22e">createInjector</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>        Modules<span style="color:#f92672">.</span><span style="color:#a6e22e">override</span><span style="color:#f92672">(</span>defaultModule<span style="color:#f92672">).</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> AwesomeLayoutModule<span style="color:#f92672">()));</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AwesomeLayoutModule</span> <span style="color:#66d9ef">implements</span> Module <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Binder binder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// This is the most important binding
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        binder<span style="color:#f92672">.</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span>IDiagramLayoutConnector<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">(</span>MyAwesomeDiagramLayoutConnector<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>An implementation can of course add more bindings. See our section on dependency injection for more information on what makes sense here.</p>
 <h2 id="the-layout-connector">The Layout Connector</h2>
 <p>An <code>IDiagramLayoutConnector</code> implementation consists of the following methods:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">LayoutMapping <span style="color:#a6e22e">buildLayoutGraph</span><span style="color:#f92672">(</span>IWorkbenchPart workbenchPart<span style="color:#f92672">,</span> Object diagramPart<span style="color:#f92672">);</span>
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">applyLayout</span><span style="color:#f92672">(</span>LayoutMapping mapping<span style="color:#f92672">,</span> IPropertyHolder settings<span style="color:#f92672">);</span>
-</code></pre></div><p>These methods pretty much correspond to the beginning and the end of the layout process: extracting the layout graph from whatever layout is invoked on, and applying the layout information back to the diagram. Let&rsquo;s take a look at how these methods should be implemented.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>LayoutMapping <span style="color:#a6e22e">buildLayoutGraph</span><span style="color:#f92672">(</span>IWorkbenchPart workbenchPart<span style="color:#f92672">,</span> Object diagramPart<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">applyLayout</span><span style="color:#f92672">(</span>LayoutMapping mapping<span style="color:#f92672">,</span> IPropertyHolder settings<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>These methods pretty much correspond to the beginning and the end of the layout process: extracting the layout graph from whatever layout is invoked on, and applying the layout information back to the diagram. Let&rsquo;s take a look at how these methods should be implemented.</p>
 <h3 id="the-buildlayoutgraph-method">The <code>buildLayoutGraph(...)</code> Method</h3>
 <p>This is the method that turns a diagram into an ElkGraph that ELK can then work with. It produces an instance of the <code>LayoutMapping</code> class, which contains information so important to the layout process that we should list them all:</p>
 <ul>

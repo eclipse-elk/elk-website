@@ -332,12 +332,21 @@ PREFER_EDGES   Default Value: OrderingStrategy.NONE (as defined in org.eclipse.e
     </item>
     
     <item>
+      <title>Consider Model Order for Components</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-components.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-components.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.considerModelOrder.components   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: parents   Dependencies: org.eclipse.elk.separateConnectedComponents   Containing Group: considerModelOrder    Description If enabled orders components by their minimal node model order.</description>
+    </item>
+    
+    <item>
       <title>considerModelOrder</title>
       <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder.html</guid>
-      <description>   Property Value     Identifier: org.eclipse.elk.layered.considerModelOrder    Options  Consider Model Order Long Edge Ordering Strategy Crossing Counter Node Order Influence Crossing Counter Port Order Influence  </description>
+      <description>   Property Value     Identifier: org.eclipse.elk.layered.considerModelOrder    Options  Consider Model Order No Model Order Consider Model Order for Components Long Edge Ordering Strategy Crossing Counter Node Order Influence Crossing Counter Port Order Influence  </description>
     </item>
     
     <item>
@@ -1650,6 +1659,15 @@ EQUAL   Default Value: LongEdgeOrderingStrategy.DUMMY_NODE_OVER (as defined in o
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-noLayout.html</guid>
       <description>Property Value     Identifier: org.eclipse.elk.noLayout   Meta Data Provider: core.options.CoreOptions   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk)   Applies To: nodes, edges, ports, labels    Description No layout is done for the associated element. This is used to mark parts of a diagram to avoid their inclusion in the layout graph, or to mark parts of the layout graph to prevent layout engines from processing them.</description>
+    </item>
+    
+    <item>
+      <title>No Model Order</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-noModelOrder.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-noModelOrder.html</guid>
+      <description>Property Value     Identifier: org.eclipse.elk.layered.considerModelOrder.noModelOrder   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: boolean   Default Value: false (as defined in org.eclipse.elk.layered)   Applies To: nodes   Containing Group: considerModelOrder    Description Set on a node to not set a model order for this node even though it is a real node.</description>
     </item>
     
     <item>

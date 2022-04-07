@@ -91,11 +91,15 @@
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>boolean</code></td>
+<td><code>org.eclipse.elk.alg.layered.components.ComponentOrderingStrategy</code> (Enum)</td>
+</tr>
+<tr>
+<td><em>Possible Values:</em></td>
+<td><code>NONE</code><br><code>INSIDE_PORT_SIDE_GROUPS</code><br><code>FORCE_MODEL_ORDER</code></td>
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>false</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+<td><code>ComponentOrderingStrategy.NONE</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
@@ -112,7 +116,7 @@
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>If enabled orders components by their minimal node model order.</p>
+<p>If set to NONE the usual ordering strategy (by cumulative node priority and size of nodes) is used. INSIDE_PORT_SIDES orders the components with external ports only inside the groups with the same port side. FORCE_MODEL_ORDER enforces the mode order on components. This option might produce bad alignments and sub optimal drawings in terms of used area since the ordering should be respected.</p>
 
   </div>
 

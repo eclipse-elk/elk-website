@@ -146,6 +146,16 @@ New Features and Enhancements  #713: The Stress and Force layout algorithms now 
     </item>
     
     <item>
+      <title>0.8.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.8.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.8.0.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
+New Features and Enhancements  #672, #674, #675, #677: Build systems is simplified. #690, #691: Improved documentation of position and layer choice constrains. #695, #698: Support node micro layout with further layout algorithms.</description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

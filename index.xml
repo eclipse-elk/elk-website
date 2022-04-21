@@ -715,7 +715,8 @@ MANUAL   Default Value: CuttingStrategy.MSD (as defined in org.eclipse.elk.layer
       <description>Property Value     Identifier: org.eclipse.elk.layered.cycleBreaking.strategy   Meta Data Provider: options.LayeredMetaDataProvider   Value Type: org.eclipse.elk.alg.layered.options.CycleBreakingStrategy (Enum)   Possible Values: GREEDY
 DEPTH_FIRST
 INTERACTIVE (@AdvancedPropertyValue)
-MODEL_ORDER   Default Value: CycleBreakingStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: cycleBreaking    Description Strategy for cycle breaking. Cycle breaking looks for cycles in the graph and determines which edges to reverse to break the cycles.</description>
+MODEL_ORDER
+GREEDY_MODEL_ORDER   Default Value: CycleBreakingStrategy.GREEDY (as defined in org.eclipse.elk.layered)   Applies To: parents   Containing Group: cycleBreaking    Description Strategy for cycle breaking. Cycle breaking looks for cycles in the graph and determines which edges to reverse to break the cycles.</description>
     </item>
     
     <item>

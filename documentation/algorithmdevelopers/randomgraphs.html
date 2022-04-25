@@ -76,10 +76,10 @@
     <p>If you need to quickly create random graphs in <code>.elkt</code> or <code>.elkg</code> format, you can use our random graph creation DSL. This way you can save, store, comment and diff your random graph configurations easily!</p>
 <p>To get started, create a file with the file ending <code>.elkr</code>. Now Eclipse will offer the usual features you know and love, such as code completion, syntax highlighting and validation. So remember Eclipse rule number 1: Ctrl+Space is your friend!</p>
 <p>Now let&rsquo;s generate some random graphs. The following configuration would generates 5 trees and two graphs using the default predefined values:</p>
-<pre><code>generate 5 trees
+<pre tabindex="0"><code>generate 5 trees
 generate 2 graphs
 </code></pre><p>Right-clicking the saved file in the package explorer and choosing <em>Generate Random Graphs</em> will result in seven graph files to be created. You can further specify how the graphs are created. For example:</p>
-<pre><code>generate 2 graphs {
+<pre tabindex="0"><code>generate 2 graphs {
     // Gaussian distribution: mean +/- standard deviation
     nodes = 20 +/- 5 {
         // With ports and extra options block
@@ -103,7 +103,7 @@ generate 2 graphs
         self loops
     }
 
-    filename = &quot;whatABeautifulGraph&quot;
+    filename = &#34;whatABeautifulGraph&#34;
 }
 </code></pre><p>There are a lot more options to be found. Again, use Ctrl-Space to find out more.</p>
 

@@ -156,6 +156,16 @@ New Features and Enhancements  #672, #674, #675, #677: Build systems is simplifi
     </item>
     
     <item>
+      <title>0.8.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.8.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.8.1.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
+New Features and Enhancements  #827: Added Greedy Model Order cycle breaker. #842: Added a port label placement option to place the label always on the other same side.  Bugfixes  #828: Node order violations are only counted for real nodes.</description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

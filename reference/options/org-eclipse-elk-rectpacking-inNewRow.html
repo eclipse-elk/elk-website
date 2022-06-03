@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Root selection for spanning tree (ELK)</title>
+    <title>In new Row (ELK)</title>
 
     
     
@@ -71,7 +71,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Root selection for spanning tree</h1>
+    <h1>In new Row</h1>
 
     <table>
 <thead>
@@ -82,41 +82,29 @@
 </thead>
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.processingOrder.rootSelection</code></td>
+<td><code>org.eclipse.elk.rectpacking.inNewRow</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>options.SporeMetaDataProvider</code></td>
+<td><code>options.RectPackingMetaDataProvider</code></td>
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>org.eclipse.elk.alg.spore.options.RootSelection</code> (Enum)</td>
-</tr>
-<tr>
-<td><em>Possible Values:</em></td>
-<td><code>FIXED</code><br><code>CENTER_NODE</code></td>
+<td><code>boolean</code></td>
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>RootSelection.CENTER_NODE</code> (as defined in <code>org.eclipse.elk</code>)</td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk.rectpacking</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
-<td>parents</td>
-</tr>
-<tr>
-<td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-processingOrder.html">processingOrder</a></td>
+<td>nodes</td>
 </tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>This sets the method used to select a root node for the construction of a spanning tree</p>
+<p>If set to true this node begins in a new row. Consequently this node cannot be moved in a previous layer during compaction. Width approximation does does not take this into account.</p>
 
   </div>
 
@@ -1007,7 +995,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-rectpacking-inNewRow.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       In new Row
     </li>
   </a>
@@ -1767,7 +1755,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-processingOrder-rootSelection.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Root selection for spanning tree
     </li>
   </a>

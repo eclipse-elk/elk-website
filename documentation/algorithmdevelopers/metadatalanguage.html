@@ -124,14 +124,14 @@ bundle {
 <li>Which layout algorithm categories your plug-in contributes, and which of them your algorithms belong to.</li>
 </ul>
 <p>The basic layout of a metadata file looks something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">&lt;package declaration&gt;
-
-&lt;imports section&gt;
-
-&lt;bundle information&gt;
-
-&lt;metadata declarations&gt;
-</code></pre></div><p>The package declaration and imports section work the same way as they do in Java: the package declaration indicates where the metadata file lies, and the imports import classes used in the file&rsquo;s declarations.The rest of this page will walk you through the remaining parts.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>&lt;package declaration&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;imports section&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;bundle information&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;metadata declarations&gt;
+</span></span></code></pre></div><p>The package declaration and imports section work the same way as they do in Java: the package declaration indicates where the metadata file lies, and the imports import classes used in the file&rsquo;s declarations.The rest of this page will walk you through the remaining parts.</p>
 <p><strong>Note:</strong> Feel free to use comments. The metadata language supports Java-style single-line comments (<code>//</code>) and multi-line comments (<code>/* */</code>).</p>
 <h3 id="bundle-information">Bundle Information</h3>
 <p>To be able to turn your metadata file into an <code>ILayoutMetaDataProvider</code>, ELK needs some basic information. This is what the bundle information section is all about. Here&rsquo;s what it would look like for a typical metadata file:</p>
@@ -152,24 +152,24 @@ bundle {
 }
 </code></pre><h3 id="options">Options</h3>
 <p>While <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">this section of our documentation</a> describes what layout options are and how to use them, this section focuses on making their mere existence known to the world. Doing so will cause the ELK SDK to generate <code>IProperty</code> constants in your generated <code>ILayoutMetaDataProvider</code> that you can use <a href="../../documentation/tooldevelopers/graphdatastructure/layoutoptions.html">as described</a> to set layout option values. An option declaration can become rather complex, so here&rsquo;s what it generally looks like (we will go into the missing details below):</p>
-<pre tabindex="0"><code class="language-melk" data-lang="melk">// The option's ID, appended to the idPrefix declared in the bundle information
+<pre tabindex="0"><code class="language-melk" data-lang="melk">// The option&#39;s ID, appended to the idPrefix declared in the bundle information
 &lt;deprecated&gt; &lt;modifier&gt; option myLayoutOptionId : &lt;type&gt; {
     // A user-readable label for the layout option
-    label &quot;Wobblyness Factor&quot;
+    label &#34;Wobblyness Factor&#34;
 
     // A short user-readable description. This will also become the property
-    // constant's Javadoc comment.
+    // constant&#39;s Javadoc comment.
     description
-        &quot;Controls the overall wobblyness of edges when connected
-         to wobbles.&quot;
+        &#34;Controls the overall wobblyness of edges when connected
+         to wobbles.&#34;
 
     // An optional default value used when the option is not configured
     // for a given graph. Of course, the given expression must evaluate
-    // to the layout option's type as specified above.
+    // to the layout option&#39;s type as specified above.
     default = Direction.UNDEFINED
 
     // Optional lower and upper bounds option values must satisfy to be
-    // valid. These must be comparable to the layout option's type as
+    // valid. These must be comparable to the layout option&#39;s type as
     // specified above.
     lowerBound = 3
     upperBound = 5
@@ -186,7 +186,7 @@ bundle {
               the.second.old.id.of.our.option
 
     // Some layout options only make sense if another option has a certain
-    // value. Add a 'requires' declaration to each such dependency.
+    // value. Add a &#39;requires&#39; declaration to each such dependency.
     requires some.other.layout.option.id == 42
 }
 </code></pre><p>Let&rsquo;s go through what the sample code didn&rsquo;t explain:</p>
@@ -273,35 +273,35 @@ bundle {
 </code></pre><p>Groups do not just make the metadata file more readable, but also have an effect on the identifiers of your options: all the names of groups your options are in will be placed between the option ID prefix and the option&rsquo;s actual name, thus reflecting the grouping in option IDs as well.</p>
 <h4 id="a-note-on-enumerations">A Note on Enumerations</h4>
 <p>Layout options may well have an enumeration value type. Just as layout options can be declared to be advanced, this may also be true for enumeration values. Take for example a layout algorithm that offers different implementations of a certain feature. The implementation to be used is specified through a layout option that enumerates all possibilities. However, let us assume that some of the implementations are not quite ready for the public. (Homework assignment: work out five reasons why this could be the case.) The corresponding enumeration values can be annotated to make this clear:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> Strategy <span style="color:#f92672">{</span>
-    WORKS_ALWAYS<span style="color:#f92672">,</span>
-    WORKS_ON_SUNDAYS<span style="color:#f92672">,</span>
-    <span style="color:#a6e22e">@AdvancedPropertyValue</span>
-    WORKS_IF_YOU_ARE_CAREFUL<span style="color:#f92672">,</span>
-    <span style="color:#a6e22e">@ExperimentalPropertyValue</span>
-    WORKS_IN_EXPERIMENTAL_CONDITIONS
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="categories">Categories</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> Strategy <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    WORKS_ALWAYS<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>    WORKS_ON_SUNDAYS<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@AdvancedPropertyValue</span>
+</span></span><span style="display:flex;"><span>    WORKS_IF_YOU_ARE_CAREFUL<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ExperimentalPropertyValue</span>
+</span></span><span style="display:flex;"><span>    WORKS_IN_EXPERIMENTAL_CONDITIONS
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="categories">Categories</h3>
 <p>Each layout algorithm can be assigned to a layout algorithm category. The categorization is for example used by the layout algorithm selection dialog or the documentation. While ELK already provides a number of predefined categories, this is how you would define your own:</p>
-<pre tabindex="0"><code class="language-melk" data-lang="melk">// The category's ID, appended to the idPrefix declared in the bundle information
+<pre tabindex="0"><code class="language-melk" data-lang="melk">// The category&#39;s ID, appended to the idPrefix declared in the bundle information
 category awesome {
     // A short category label that can be shown to users.
-    label &quot;Awesome Algorithms&quot;
+    label &#34;Awesome Algorithms&#34;
 
     description
-        &quot;A not-too-long but totally meaningful description of what this category
-         of layout algorithms is all about. Will be shown to users.&quot;
+        &#34;A not-too-long but totally meaningful description of what this category
+         of layout algorithms is all about. Will be shown to users.&#34;
 }
 </code></pre><h3 id="algorithms">Algorithms</h3>
 <p>Of course, everything we have done so far was simply in support of the main act: declaring the layout algorithms you have worked hard to develop (just to find out that there&rsquo;s hundreds of little details you got wrong; we&rsquo;ve been there&hellip;). Here&rsquo;s what an algorithm declaration looks like:</p>
-<pre tabindex="0"><code class="language-melk" data-lang="melk">// The algorithm's ID
+<pre tabindex="0"><code class="language-melk" data-lang="melk">// The algorithm&#39;s ID
 algorithm algorithmid(&lt;class&gt;) {
     // User-readable short name and description for the algorithm
-    label &quot;Excellent Algorithm&quot;
+    label &#34;Excellent Algorithm&#34;
 
     description
-        &quot;A brief and completely sensible description of what this algorithm
-         does. Will be shown to users.&quot;
+        &#34;A brief and completely sensible description of what this algorithm
+         does. Will be shown to users.&#34;
 
     // Optional name of the ILayoutMetaDataProvider class generated for this
     // algorithm
@@ -312,7 +312,7 @@ algorithm algorithmid(&lt;class&gt;) {
     validator &lt;validatorClass&gt;
 
     // Optional path to an image that provides a preview of the kinds of
-    // layouts this algorithm will produce. Relative to the plug-in's
+    // layouts this algorithm will produce. Relative to the plug-in&#39;s
     // root folder.
     preview path/to/preview/image.png
 
@@ -407,18 +407,18 @@ bundle {
 }
 
 option reverseInput : boolean {
-    label &quot;Reverse Input&quot;
+    label &#34;Reverse Input&#34;
     description
-        &quot;True if nodes should be placed in reverse order of their
-        appearance in the graph.&quot;
+        &#34;True if nodes should be placed in reverse order of their
+        appearance in the graph.&#34;
     default = false
     targets parents
 }
 
 algorithm simple(SimpleLayoutProvider) {
-    label &quot;Simple Layout Algorithm&quot;
+    label &#34;Simple Layout Algorithm&#34;
     description
-        &quot;This layout provider places nodes along a horizontal or a vertical line.&quot;
+        &#34;This layout provider places nodes along a horizontal or a vertical line.&#34;
     metadataClass options.SimpleOptions
 
     supports reverseInput

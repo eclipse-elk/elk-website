@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.0.html</guid>
-      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler) Details The initial release under the new Eclipse umbrella.
+      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  Details The initial release under the new Eclipse umbrella.
 View the release at Eclipse for links to the list of closed issues.</description>
     </item>
     
@@ -22,8 +22,8 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.1.1.html</guid>
-      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler) Details A bugfix release.
-Fixed a problem where edges with labels end up being routed in an ambiguous way. (#96). View the release at Eclipse for links to the list of closed issues.</description>
+      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  Details A bugfix release.
+ Fixed a problem where edges with labels end up being routed in an ambiguous way. (#96).  View the release at Eclipse for links to the list of closed issues.</description>
     </item>
     
     <item>
@@ -32,8 +32,8 @@ Fixed a problem where edges with labels end up being routed in an ambiguous way.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</guid>
-      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler) DEtails A major overhaul of ELK&amp;rsquo;s infrastructure. This is an API breaking release. The following are probably the biggest issues we tackled:
-Refactored the central graph data structure. This is a biggie: we made the whole graph data structure easier to understand and easier to use, but of course broke compatibility with old diagram layout connectors in the process.</description>
+      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  DEtails A major overhaul of ELK&amp;rsquo;s infrastructure. This is an API breaking release. The following are probably the biggest issues we tackled:
+ Refactored the central graph data structure. This is a biggie: we made the whole graph data structure easier to understand and easier to use, but of course broke compatibility with old diagram layout connectors in the process.</description>
     </item>
     
     <item>
@@ -42,7 +42,7 @@ Refactored the central graph data structure. This is a biggie: we made the whole
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.1.html</guid>
-      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler) Details A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.
+      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  Details A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.
 View the release at Eclipse for links to the list of closed issues.</description>
     </item>
     
@@ -52,7 +52,7 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.2.html</guid>
-      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler) Details A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.
+      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  Details A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.
 View the release at Eclipse for links to the list of closed issues.</description>
     </item>
     
@@ -62,7 +62,7 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.3.html</guid>
-      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler) Details A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.
+      <description>Release log Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  Details A bug fix release that fixes bugs introduced during the overhaul of ELK&amp;rsquo;s infrastructure. This release should not be API-breaking.
 View the release at Eclipse for links to the list of closed issues.</description>
     </item>
     
@@ -72,7 +72,7 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.3.0.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler) Details After the major overhaul of the project&amp;rsquo;s main data structure for the previous release, this release concentrates on fixing bugs and adding major new features. This includes a complete rewrite of the code responsible for placing ports and labels and calculating the size of nodes, the addition of new layout algorithms, and various improvements to the flagship layout algorithm, ELK Layered.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven Repository (for meta data language compiler)  Details After the major overhaul of the project&amp;rsquo;s main data structure for the previous release, this release concentrates on fixing bugs and adding major new features. This includes a complete rewrite of the code responsible for placing ports and labels and calculating the size of nodes, the addition of new layout algorithms, and various improvements to the flagship layout algorithm, ELK Layered.</description>
     </item>
     
     <item>
@@ -81,7 +81,7 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.4.0.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven) Details This release concentrates on bug fixes and enhancements concerning many details of the layout algorithms, but also introduces compaction and overlap removal algorithms.
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details This release concentrates on bug fixes and enhancements concerning many details of the layout algorithms, but also introduces compaction and overlap removal algorithms.
 Some changes may cause clients to break and may change layout results.
 View the release at Eclipse for links to the list of closed issues.</description>
     </item>
@@ -92,7 +92,7 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.4.1.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven) Details A bug fix release that fixes two small bugs. This release should not be API-breaking.
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details A bug fix release that fixes two small bugs. This release should not be API-breaking.
 View the release at Eclipse for links to the list of closed issues.</description>
     </item>
     
@@ -102,8 +102,8 @@ View the release at Eclipse for links to the list of closed issues.</description
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.5.0.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven) Details Besides the usual bunch of bug fixes, this release adds a number of neat enhancements and feature requests, among them the following:
-ELK Layered&amp;rsquo;s support for self loops has been improved a lot. A new box layout algorithm improves how nodes can be packed.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details Besides the usual bunch of bug fixes, this release adds a number of neat enhancements and feature requests, among them the following:
+ ELK Layered&amp;rsquo;s support for self loops has been improved a lot. A new box layout algorithm improves how nodes can be packed.</description>
     </item>
     
     <item>
@@ -112,8 +112,8 @@ ELK Layered&amp;rsquo;s support for self loops has been improved a lot. A new bo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.6.0.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven) Details Besides the usual bunch of bug fixes, this release adds a number of neat enhancements and feature requests, among them the following:
-A complete re-implementation of how ELK Layered routes self loops which should fix all of the problems we saw in release 0.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Meta data language compiler (for building layout algorithms with Maven)  Details Besides the usual bunch of bug fixes, this release adds a number of neat enhancements and feature requests, among them the following:
+ A complete re-implementation of how ELK Layered routes self loops which should fix all of the problems we saw in release 0.</description>
     </item>
     
     <item>
@@ -122,8 +122,8 @@ A complete re-implementation of how ELK Layered routes self loops which should f
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.6.1.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details Besides the usual bunch of bug fixes, this release is unusual for a minor release in that we decided to include two major features as well:
-The rectangle packing algorithm, which is finally included, got a major rewrite. Port label placement now supports next-to-port labels for outside port labels as well, with some configurability.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details Besides the usual bunch of bug fixes, this release is unusual for a minor release in that we decided to include two major features as well:
+ The rectangle packing algorithm, which is finally included, got a major rewrite. Port label placement now supports next-to-port labels for outside port labels as well, with some configurability.</description>
     </item>
     
     <item>
@@ -132,7 +132,7 @@ The rectangle packing algorithm, which is finally included, got a major rewrite.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.7.0.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This is a major release which comes with quite a number of changes. Some of those are breaking changes, either in the usual API-breaking sense or in the sense that default layouts might look different. Those issues and pull requests are now labeled with &amp;ldquo;breaking&amp;rdquo; to make such changes easier to spot.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details This is a major release which comes with quite a number of changes. Some of those are breaking changes, either in the usual API-breaking sense or in the sense that default layouts might look different. Those issues and pull requests are now labeled with &amp;ldquo;breaking&amp;rdquo; to make such changes easier to spot.</description>
     </item>
     
     <item>
@@ -141,8 +141,8 @@ The rectangle packing algorithm, which is finally included, got a major rewrite.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.7.1.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
-New Features and Enhancements #713: The Stress and Force layout algorithms now properly place inline edge labels. Bugfixes #701, #732: Space is now properly reserved around port labels with fixed position. #682, #683: With non-standard layout directions (other than left-to-right), node label paddings were not applied correctly.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
+New Features and Enhancements  #713: The Stress and Force layout algorithms now properly place inline edge labels.  Bugfixes  #701, #732: Space is now properly reserved around port labels with fixed position.</description>
     </item>
     
     <item>
@@ -151,8 +151,8 @@ New Features and Enhancements #713: The Stress and Force layout algorithms now p
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.8.0.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
-New Features and Enhancements #672, #674, #675, #677: Build systems is simplified. #690, #691: Improved documentation of position and layer choice constrains. #695, #698: Support node micro layout with further layout algorithms. #688, #711: Better documentation for content alignment.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
+New Features and Enhancements  #672, #674, #675, #677: Build systems is simplified. #690, #691: Improved documentation of position and layer choice constrains. #695, #698: Support node micro layout with further layout algorithms.</description>
     </item>
     
     <item>
@@ -161,8 +161,8 @@ New Features and Enhancements #672, #674, #675, #677: Build systems is simplifie
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.8.1.html</guid>
-      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
-New Features and Enhancements #827: Added Greedy Model Order cycle breaker. #842: Added a port label placement option to place the label always on the other same side. Bugfixes #828: Node order violations are only counted for real nodes.</description>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK)  Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
+New Features and Enhancements  #827: Added Greedy Model Order cycle breaker. #842: Added a port label placement option to place the label always on the other same side.  Bugfixes  #828: Node order violations are only counted for real nodes.</description>
     </item>
     
     <item>

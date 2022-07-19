@@ -108,7 +108,7 @@
 <p>If your editor is based on Graphiti, you&rsquo;re in a similar situation as the GMF people: it may just work out of the box. However, the GraphitiDiagramLayoutManager that comes with ELK may not always make the right choices. In fact, you will most likely need to subclass it to customize how exactly the ElkGraph is built, and then register it with ELK so your custom manager is used for your editor. See the next section for how that is done.</p>
 <h3 id="custom-editors">Custom Editors</h3>
 <p>If your editor is based on some other technology, ELK doesn&rsquo;t have a pre-built layout connection for you; you will have to build it yourself. To do so, create a class <a href="./documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">that implements the <code>IDiagramLayoutManager</code> interface</a>. Your class needs to be registered with ELK:</p>
-<pre tabindex="0"><code>&lt;extension
+<pre><code>&lt;extension
    point=&quot;org.eclipse.elk.core.service.layoutManagers&quot;&gt;
 
    &lt;manager

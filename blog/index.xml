@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog Posts on Eclipse Layout Kernel</title>
+    <link>https://www.eclipse.org/elk/blog.html</link>
+    <description>Recent content in Blog Posts on Eclipse Layout Kernel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://www.eclipse.org/elk/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022</title>
+      <link>https://www.eclipse.org/elk/blog/2022.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/2022.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rectpacking</title>
+      <link>https://www.eclipse.org/elk/blog/posts/2022/22-08-31-rectpacking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/posts/2022/22-08-31-rectpacking.html</guid>
+      <description>The rectpacking algorithm was introduced to solved common problems with the box algorithm, which cannot stack boxes in a row. The idea is to form stacks with subrows inside rows, while the size of a row is always dominated by a highest rectangle to provide a visual anchor point to &amp;ldquo;read&amp;rdquo; the rows from left to right.
+Since it was a common use case of the box algorithm to add a priority to order the rectangles rectpacking uses the model order (which corresponds to the input order of the rectangles) as a criterion.</description>
+    </item>
+    
+  </channel>
+</rss>

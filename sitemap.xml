@@ -34,6 +34,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/downloads/releasenotes/release-0.8.1.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/blog/2022.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions.html</loc>
@@ -73,6 +75,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-edgeStraightening.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/blog.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-box.html</loc>
   </url><url>
@@ -567,6 +571,8 @@
     <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/randomgraphs.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-randomSeed.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/blog/posts/2022/22-08-31-rectpacking.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference.html</loc>
   </url><url>

@@ -92,17 +92,19 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentNode.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-rowCompaction.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactor.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-compaction.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-compaction.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactor.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packing-compaction-iterations.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactionStepSize.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-compactionStrategy.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packing-strategy.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-compaction-postCompaction.html</loc>
   </url><url>
@@ -267,8 +269,6 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-feedbackEdges.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-polyomino-fill.html</loc>
-  </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-expandToAspectRatio.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeSize-fixedGraphSize.html</loc>
   </url><url>
@@ -482,9 +482,7 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-omitNodeMicroLayout.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-onlyFirstIteration.html</loc>
-  </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationGoal.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-optimizationGoal.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-orderId.html</loc>
   </url><url>
@@ -493,6 +491,10 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapMode.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-overlapRemoval.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-packing.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-rectpacking-packing-compaction.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-padding.html</loc>
   </url><url>
@@ -550,9 +552,9 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-strategy.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-priority.html</loc>
-  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-priority.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html</loc>
   </url><url>
@@ -586,6 +588,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingOrder-rootSelection.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packing-compaction-rowHeightReevaluation.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-scaleFactor.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-searchOrder.html</loc>
@@ -598,7 +602,7 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateConnectedComponents.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-lastPlaceShift.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-lastPlaceShift.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-priority-shortness.html</loc>
   </url><url>
@@ -634,7 +638,7 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/tags.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-targetWidth.html</loc>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-targetWidth.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-thoroughness.html</loc>
   </url><url>
@@ -645,6 +649,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portLabels-treatAsGroup.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingOrder-treeConstruction.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-trybox.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-underlyingLayoutAlgorithm.html</loc>
   </url><url>
@@ -675,6 +681,14 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-weighting.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-overlapRemoval-runScanline.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-whiteSpaceElimination-strategy.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-rectpacking-whiteSpaceElimination.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-strategy.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-rectpacking-widthApproximation.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-wrapping.html</loc>
   </url><url>

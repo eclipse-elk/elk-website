@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Target Width (ELK)</title>
+    <title>whiteSpaceElimination (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Target Width</h1>
+    <h1>whiteSpaceElimination</h1>
 
     <table>
 <thead>
@@ -87,33 +87,15 @@
 </thead>
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.rectpacking.targetWidth</code></td>
-</tr>
-<tr>
-<td><em>Meta Data Provider:</em></td>
-<td><code>options.RectPackingMetaDataProvider</code></td>
-</tr>
-<tr>
-<td><em>Value Type:</em></td>
-<td><code>double</code></td>
-</tr>
-<tr>
-<td><em>Default Value:</em></td>
-<td><code>-1</code> (as defined in <code>org.eclipse.elk.rectpacking</code>)</td>
-</tr>
-<tr>
-<td><em>Applies To:</em></td>
-<td>nodes</td>
+<td><code>org.eclipse.elk.rectpacking.whiteSpaceElimination</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="description">Description</h3>
-<p>Option to place the rectangles in the given target width instead of approximating the width using the desired aspect ratio. The padding is not included in this. Meaning a drawing will have width of targetwidth + horizontal padding.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><a href="../../reference/options/org-eclipse-elk-rectpacking-whiteSpaceElimination-strategy.html">White Space Approximation Strategy</a></li>
+</ul>
 
   </div>
 
@@ -451,17 +433,17 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-rowCompaction.html">
+  <a href="../../reference/options/org-eclipse-elk-radial-compactor.html">
     <li class="navlevel-2">
-      Compact Rows
+      Compaction
     </li>
   </a>
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-radial-compactor.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packing-compaction-iterations.html">
     <li class="navlevel-2">
-      Compaction
+      Compaction iterations
     </li>
   </a>
   
@@ -476,6 +458,14 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-compaction-compactionStrategy.html">
+    <li class="navlevel-2">
+      Compaction Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packing-strategy.html">
     <li class="navlevel-2">
       Compaction Strategy
     </li>
@@ -814,14 +804,6 @@
   <a href="../../reference/options/org-eclipse-elk-polyomino-fill.html">
     <li class="navlevel-2">
       Fill Polyominoes
-    </li>
-  </a>
-  
-
-  
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-expandToAspectRatio.html">
-    <li class="navlevel-2">
-      Fit Aspect Ratio
     </li>
   </a>
   
@@ -1451,15 +1433,7 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-onlyFirstIteration.html">
-    <li class="navlevel-2">
-      Only Area Approximation
-    </li>
-  </a>
-  
-
-  
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-optimizationGoal.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-widthApproximation-optimizationGoal.html">
     <li class="navlevel-2">
       Optimization Goal
     </li>
@@ -1771,6 +1745,14 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packing-compaction-rowHeightReevaluation.html">
+    <li class="navlevel-2">
+      Row Height Reevaluation
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-scaleFactor.html">
     <li class="navlevel-2">
       Scale Factor
@@ -1819,7 +1801,7 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-lastPlaceShift.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-widthApproximation-lastPlaceShift.html">
     <li class="navlevel-2">
       Shift Last Placed.
     </li>
@@ -1907,8 +1889,8 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-targetWidth.html">
-    <li class="navlevel-2 active">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-widthApproximation-targetWidth.html">
+    <li class="navlevel-2">
       Target Width
     </li>
   </a>
@@ -1942,6 +1924,14 @@
   <a href="../../reference/options/org-eclipse-elk-processingOrder-treeConstruction.html">
     <li class="navlevel-2">
       Tree Construction Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-trybox.html">
+    <li class="navlevel-2">
+      Try box layout first
     </li>
   </a>
   
@@ -2030,6 +2020,22 @@
   <a href="../../reference/options/org-eclipse-elk-overlapRemoval-runScanline.html">
     <li class="navlevel-2">
       Whether to run a supplementary scanline overlap check.
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-whiteSpaceElimination-strategy.html">
+    <li class="navlevel-2">
+      White Space Approximation Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-widthApproximation-strategy.html">
+    <li class="navlevel-2">
+      Width Approximation Strategy
     </li>
   </a>
   
@@ -2323,6 +2329,22 @@
   
 
   
+  <a href="../../reference/groups/org-eclipse-elk-packing.html">
+    <li class="navlevel-2">
+      packing
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-rectpacking-packing-compaction.html">
+    <li class="navlevel-2">
+      packing.compaction
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/groups/org-eclipse-elk-partitioning.html">
     <li class="navlevel-2">
       partitioning
@@ -2398,6 +2420,22 @@
   <a href="../../reference/groups/org-eclipse-elk-structure.html">
     <li class="navlevel-2">
       structure
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-rectpacking-whiteSpaceElimination.html">
+    <li class="navlevel-2 active">
+      whiteSpaceElimination
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-rectpacking-widthApproximation.html">
+    <li class="navlevel-2">
+      widthApproximation
     </li>
   </a>
   

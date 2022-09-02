@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Fit Aspect Ratio (ELK)</title>
+    <title>White Space Approximation Strategy (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Fit Aspect Ratio</h1>
+    <h1>White Space Approximation Strategy</h1>
 
     <table>
 <thead>
@@ -87,12 +87,8 @@
 </thead>
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.rectpacking.expandToAspectRatio</code></td>
+<td><code>org.eclipse.elk.rectpacking.whiteSpaceElimination.strategy</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
@@ -100,24 +96,24 @@
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>boolean</code></td>
+<td><code>org.eclipse.elk.alg.rectpacking.p3whitespaceelimination.WhiteSpaceEliminationStrategy</code> (Enum)</td>
 </tr>
 <tr>
-<td><em>Default Value:</em></td>
-<td><code>false</code> (as defined in <code>org.eclipse.elk.rectpacking</code>)</td>
+<td><em>Possible Values:</em></td>
+<td><code>EQUAL_BETWEEN_STRUCTURES</code><br><code>TO_ASPECT_RATIO</code></td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
-<td>nodes</td>
+<td>parents</td>
 </tr>
 <tr>
-<td><em>Dependencies:</em></td>
-<td><a href="../../reference/options/org-eclipse-elk-expandNodes.html">org.eclipse.elk.expandNodes</a></td>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-rectpacking-whiteSpaceElimination.html">whiteSpaceElimination</a></td>
 </tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>Expands nodes if expandNodes is true to fit the aspect ratio instead of only in their bounds. The option is only useful if the used packingStrategy is ASPECT_RATIO_DRIVEN, otherwise this may result in unreasonable ndoe expansion.</p>
+<p>Strategy for expanding nodes such that whitespace in the parent is eliminated.</p>
 
   </div>
 
@@ -455,17 +451,17 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-rowCompaction.html">
+  <a href="../../reference/options/org-eclipse-elk-radial-compactor.html">
     <li class="navlevel-2">
-      Compact Rows
+      Compaction
     </li>
   </a>
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-radial-compactor.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packing-compaction-iterations.html">
     <li class="navlevel-2">
-      Compaction
+      Compaction iterations
     </li>
   </a>
   
@@ -480,6 +476,14 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-compaction-compactionStrategy.html">
+    <li class="navlevel-2">
+      Compaction Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packing-strategy.html">
     <li class="navlevel-2">
       Compaction Strategy
     </li>
@@ -818,14 +822,6 @@
   <a href="../../reference/options/org-eclipse-elk-polyomino-fill.html">
     <li class="navlevel-2">
       Fill Polyominoes
-    </li>
-  </a>
-  
-
-  
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-expandToAspectRatio.html">
-    <li class="navlevel-2 active">
-      Fit Aspect Ratio
     </li>
   </a>
   
@@ -1455,15 +1451,7 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-onlyFirstIteration.html">
-    <li class="navlevel-2">
-      Only Area Approximation
-    </li>
-  </a>
-  
-
-  
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-optimizationGoal.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-widthApproximation-optimizationGoal.html">
     <li class="navlevel-2">
       Optimization Goal
     </li>
@@ -1775,6 +1763,14 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-packing-compaction-rowHeightReevaluation.html">
+    <li class="navlevel-2">
+      Row Height Reevaluation
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-scaleFactor.html">
     <li class="navlevel-2">
       Scale Factor
@@ -1823,7 +1819,7 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-lastPlaceShift.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-widthApproximation-lastPlaceShift.html">
     <li class="navlevel-2">
       Shift Last Placed.
     </li>
@@ -1911,7 +1907,7 @@
   
 
   
-  <a href="../../reference/options/org-eclipse-elk-rectpacking-targetWidth.html">
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-widthApproximation-targetWidth.html">
     <li class="navlevel-2">
       Target Width
     </li>
@@ -1946,6 +1942,14 @@
   <a href="../../reference/options/org-eclipse-elk-processingOrder-treeConstruction.html">
     <li class="navlevel-2">
       Tree Construction Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-trybox.html">
+    <li class="navlevel-2">
+      Try box layout first
     </li>
   </a>
   
@@ -2034,6 +2038,22 @@
   <a href="../../reference/options/org-eclipse-elk-overlapRemoval-runScanline.html">
     <li class="navlevel-2">
       Whether to run a supplementary scanline overlap check.
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-whiteSpaceElimination-strategy.html">
+    <li class="navlevel-2 active">
+      White Space Approximation Strategy
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-rectpacking-widthApproximation-strategy.html">
+    <li class="navlevel-2">
+      Width Approximation Strategy
     </li>
   </a>
   
@@ -2327,6 +2347,22 @@
   
 
   
+  <a href="../../reference/groups/org-eclipse-elk-packing.html">
+    <li class="navlevel-2">
+      packing
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-rectpacking-packing-compaction.html">
+    <li class="navlevel-2">
+      packing.compaction
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/groups/org-eclipse-elk-partitioning.html">
     <li class="navlevel-2">
       partitioning
@@ -2402,6 +2438,22 @@
   <a href="../../reference/groups/org-eclipse-elk-structure.html">
     <li class="navlevel-2">
       structure
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-rectpacking-whiteSpaceElimination.html">
+    <li class="navlevel-2">
+      whiteSpaceElimination
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/groups/org-eclipse-elk-rectpacking-widthApproximation.html">
+    <li class="navlevel-2">
+      widthApproximation
     </li>
   </a>
   

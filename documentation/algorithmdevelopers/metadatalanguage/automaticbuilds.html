@@ -80,65 +80,65 @@
 
     <p>Since <code>.melk</code> files result in code being generated, you may not want to check that code into your repository. Instead, the code should probably be generated as part of your automatic build. Indeed, the ELK metadata language compiler is available through a Maven repository. You can find the repository URLs in our Downloads section. Note that we provide a separate repository for nightly builds and for each release.</p>
 <p>To use the compiler, add the following to your <code>pom.xml</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;pluginRepositories&gt;</span>
-  <span style="color:#75715e">&lt;!-- Xtext is required to invoke our compiler. --&gt;</span>
-  <span style="color:#f92672">&lt;pluginRepository&gt;</span>
-    <span style="color:#f92672">&lt;id&gt;</span>xtend<span style="color:#f92672">&lt;/id&gt;</span>
-    <span style="color:#f92672">&lt;name&gt;</span>Xtend Maven Repository<span style="color:#f92672">&lt;/name&gt;</span>
-    <span style="color:#f92672">&lt;layout&gt;</span>default<span style="color:#f92672">&lt;/layout&gt;</span>
-    <span style="color:#f92672">&lt;url&gt;</span>http://build.eclipse.org/common/xtend/maven<span style="color:#f92672">&lt;/url&gt;</span>
-  <span style="color:#f92672">&lt;/pluginRepository&gt;</span>
-
-  <span style="color:#75715e">&lt;!-- This is where our compiler is. --&gt;</span>
-  <span style="color:#f92672">&lt;pluginRepository&gt;</span>
-    <span style="color:#f92672">&lt;id&gt;</span>eclipse-elk-meta<span style="color:#f92672">&lt;/id&gt;</span>
-    <span style="color:#f92672">&lt;name&gt;</span>ELK Meta Data Language Compiler Maven Repository<span style="color:#f92672">&lt;/name&gt;</span>
-    <span style="color:#f92672">&lt;url&gt;</span>http://the.repository.url.you.want/see.download.page.for.details<span style="color:#f92672">&lt;/url&gt;</span>
-  <span style="color:#f92672">&lt;/pluginRepository&gt;</span>
-<span style="color:#f92672">&lt;/pluginRepositories&gt;</span>
-
-<span style="color:#f92672">&lt;build&gt;</span>
-  <span style="color:#f92672">&lt;plugins&gt;</span>
-    <span style="color:#75715e">&lt;!-- Configure the Xtext plugin to invoke our compiler. --&gt;</span>
-    <span style="color:#f92672">&lt;plugin&gt;</span>
-      <span style="color:#f92672">&lt;groupId&gt;</span>org.eclipse.xtext<span style="color:#f92672">&lt;/groupId&gt;</span>
-      <span style="color:#f92672">&lt;artifactId&gt;</span>xtext-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
-      <span style="color:#f92672">&lt;version&gt;</span>2.7.2<span style="color:#f92672">&lt;/version&gt;</span>
-      <span style="color:#f92672">&lt;executions&gt;</span>
-        <span style="color:#f92672">&lt;execution&gt;</span>
-          <span style="color:#f92672">&lt;goals&gt;</span>
-            <span style="color:#f92672">&lt;goal&gt;</span>generate<span style="color:#f92672">&lt;/goal&gt;</span>
-          <span style="color:#f92672">&lt;/goals&gt;</span>
-        <span style="color:#f92672">&lt;/execution&gt;</span>
-      <span style="color:#f92672">&lt;/executions&gt;</span>
-      <span style="color:#f92672">&lt;configuration&gt;</span>
-        <span style="color:#f92672">&lt;languages&gt;</span>
-          <span style="color:#f92672">&lt;language&gt;</span>
-            <span style="color:#f92672">&lt;setup&gt;</span>org.eclipse.elk.core.meta.MetaDataStandaloneSetup<span style="color:#f92672">&lt;/setup&gt;</span>
-            <span style="color:#f92672">&lt;outputConfigurations&gt;</span>
-              <span style="color:#f92672">&lt;outputConfiguration&gt;</span>
-                <span style="color:#f92672">&lt;outputDirectory&gt;</span>${basedir}/src-gen/<span style="color:#f92672">&lt;/outputDirectory&gt;</span>
-              <span style="color:#f92672">&lt;/outputConfiguration&gt;</span>
-            <span style="color:#f92672">&lt;/outputConfigurations&gt;</span>
-          <span style="color:#f92672">&lt;/language&gt;</span>
-        <span style="color:#f92672">&lt;/languages&gt;</span>
-      <span style="color:#f92672">&lt;/configuration&gt;</span>
-      <span style="color:#f92672">&lt;dependencies&gt;</span>
-        <span style="color:#f92672">&lt;dependency&gt;</span>
-          <span style="color:#f92672">&lt;groupId&gt;</span>org.eclipse.elk<span style="color:#f92672">&lt;/groupId&gt;</span>
-          <span style="color:#f92672">&lt;artifactId&gt;</span>org.eclipse.elk.graph<span style="color:#f92672">&lt;/artifactId&gt;</span>
-          <span style="color:#f92672">&lt;version&gt;</span>THE_VERSION_YOU_WANT-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
-        <span style="color:#f92672">&lt;/dependency&gt;</span>
-        <span style="color:#f92672">&lt;dependency&gt;</span>
-          <span style="color:#f92672">&lt;groupId&gt;</span>org.eclipse.elk<span style="color:#f92672">&lt;/groupId&gt;</span>
-          <span style="color:#f92672">&lt;artifactId&gt;</span>org.eclipse.elk.core.meta<span style="color:#f92672">&lt;/artifactId&gt;</span>
-          <span style="color:#f92672">&lt;version&gt;</span>THE_VERSION_YOU_WANT-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
-        <span style="color:#f92672">&lt;/dependency&gt;</span>
-      <span style="color:#f92672">&lt;/dependencies&gt;</span>
-    <span style="color:#f92672">&lt;/plugin&gt;</span>
-  <span style="color:#f92672">&lt;/plugins&gt;</span>
-<span style="color:#f92672">&lt;/build&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;pluginRepositories&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Xtext is required to invoke our compiler. --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;pluginRepository&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;id&gt;</span>xtend<span style="color:#f92672">&lt;/id&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;name&gt;</span>Xtend Maven Repository<span style="color:#f92672">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;layout&gt;</span>default<span style="color:#f92672">&lt;/layout&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;url&gt;</span>http://build.eclipse.org/common/xtend/maven<span style="color:#f92672">&lt;/url&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/pluginRepository&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- This is where our compiler is. --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;pluginRepository&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;id&gt;</span>eclipse-elk-meta<span style="color:#f92672">&lt;/id&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;name&gt;</span>ELK Meta Data Language Compiler Maven Repository<span style="color:#f92672">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;url&gt;</span>http://the.repository.url.you.want/see.download.page.for.details<span style="color:#f92672">&lt;/url&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/pluginRepository&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/pluginRepositories&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;build&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;plugins&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- Configure the Xtext plugin to invoke our compiler. --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;groupId&gt;</span>org.eclipse.xtext<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;artifactId&gt;</span>xtext-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>2.7.2<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;executions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;execution&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;goals&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;goal&gt;</span>generate<span style="color:#f92672">&lt;/goal&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/goals&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/execution&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/executions&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;languages&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;language&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;setup&gt;</span>org.eclipse.elk.core.meta.MetaDataStandaloneSetup<span style="color:#f92672">&lt;/setup&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;outputConfigurations&gt;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;outputConfiguration&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;outputDirectory&gt;</span>${basedir}/src-gen/<span style="color:#f92672">&lt;/outputDirectory&gt;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;/outputConfiguration&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/outputConfigurations&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/language&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/languages&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;groupId&gt;</span>org.eclipse.elk<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;artifactId&gt;</span>org.eclipse.elk.graph<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;version&gt;</span>THE_VERSION_YOU_WANT-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;groupId&gt;</span>org.eclipse.elk<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;artifactId&gt;</span>org.eclipse.elk.core.meta<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;version&gt;</span>THE_VERSION_YOU_WANT-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/plugins&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/build&gt;</span>
+</span></span></code></pre></div>
   </div>
 
   <div class="secnav col-sm-3">

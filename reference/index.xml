@@ -84,6 +84,15 @@ CENTER Default Value: Alignment.AUTOMATIC (as defined in org.eclipse.elk) Applie
     </item>
     
     <item>
+      <title>Angle Penalty</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-anglePenalty.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-anglePenalty.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.alg.libavoid.anglePenalty Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 0 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This penalty is applied in its full amount to tight acute bends in the connector path. A smaller portion of the penalty is applied for slight bends, i.e., where the bend is close to 180 degrees. This is useful for polyline routing where there is some evidence that tighter corners are worse for readability, but that slight bends might not be so bad, especially when smoothed by curves.</description>
+    </item>
+    
+    <item>
       <title>Animate</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -172,6 +181,15 @@ BALANCED Default Value: FixedAlignment.NONE (as defined in org.eclipse.elk.layer
 GROUP_DEC
 GROUP_MIXED
 GROUP_INC Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in org.eclipse.elk) Applies To: parents Containing Group: box Description Configures the packing mode used by the {@link BoxLayoutProvider}. If SIMPLE is not required (neither priorities are used nor the interactive mode), GROUP_DEC can improve the packing and decrease the area. GROUP_MIXED and GROUP_INC may, in very specific scenarios, work better.</description>
+    </item>
+    
+    <item>
+      <title>Cluster Crossing Penalty</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-clusterCrossingPenalty.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-clusterCrossingPenalty.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.clusterCrossingPenalty Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 4000 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This penalty is applied whenever a connector path crosses a cluster boundary.</description>
     </item>
     
     <item>
@@ -425,6 +443,15 @@ MINIMUM_ROOT_DISTANCE Default Value: SpanningTreeCostFunction.CIRCLE_UNDERLAP (a
       <description>Property Value Identifier: org.eclipse.elk.layered.crossingMinimization.strategy Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.CrossingMinimizationStrategy (Enum) Possible Values: LAYER_SWEEP
 INTERACTIVE (@AdvancedPropertyValue)
 NONE Default Value: CrossingMinimizationStrategy.LAYER_SWEEP (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: crossingMinimization Description Strategy for crossing minimization.</description>
+    </item>
+    
+    <item>
+      <title>Crossing Penalty</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-crossingPenalty.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-crossingPenalty.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.crossingPenalty Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 0 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This penalty is applied whenever a connector path crosses another connector path. It takes shared paths into consideration and the penalty is only applied if there is an actual crossing.</description>
     </item>
     
     <item>
@@ -977,6 +1004,15 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
     </item>
     
     <item>
+      <title>Fixed Shared Path Penalty</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-fixedSharedPathPenalty.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-fixedSharedPathPenalty.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.fixedSharedPathPenalty Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 0 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This penalty is applied whenever a connector path shares some segments with an immovable portion of an existing connector route (such as the first or last segment of a connector).</description>
+    </item>
+    
+    <item>
       <title>font</title>
       <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-font.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1218,12 +1254,39 @@ SEPARATE_CHILDREN Default Value: HierarchyHandling.INHERIT (as defined in org.ec
     </item>
     
     <item>
+      <title>Ideal Nudging Distance</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-idealNudgingDistance.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-idealNudgingDistance.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.alg.libavoid.idealNudgingDistance Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 4 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This parameter defines the spacing distance that will be used for nudging apart overlapping corners and line segments of connectors. By default, this distance is set to a value of 4.</description>
+    </item>
+    
+    <item>
       <title>Improve Cuts</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveCuts.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveCuts.html</guid>
       <description>Property Value Type: advanced Identifier: org.eclipse.elk.layered.wrapping.multiEdge.improveCuts Meta Data Provider: options.LayeredMetaDataProvider Value Type: boolean Default Value: true (as defined in org.eclipse.elk.layered) Applies To: parents Dependencies: org.eclipse.elk.layered.wrapping.strategy (WrappingStrategy.MULTI_EDGE) Containing Group: wrapping -&amp;gt; multiEdge Description For general graphs it is important that not too many edges wrap backwards. Thus a compromise between evenly-distributed cuts and the total number of cut edges is sought.</description>
+    </item>
+    
+    <item>
+      <title>Improve Hyperedge Routes</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingJunctions.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingJunctions.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.alg.libavoid.improveHyperedgeRoutesMovingJunctions Meta Data Provider: options.LibavoidMetaDataProvider Value Type: boolean Default Value: true (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This option causes hyperedge routes to be locally improved fixing obviously bad paths. As part of this process libavoid will effectively move junctions, setting new ideal positions ( JunctionRef::recommendedPosition() ) for each junction.</description>
+    </item>
+    
+    <item>
+      <title>Improve Hyperedge Routes Add Delete</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingAddingAndDeletingJunctions.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingAddingAndDeletingJunctions.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.improveHyperedgeRoutesMovingAddingAndDeletingJunctions Meta Data Provider: options.LibavoidMetaDataProvider Value Type: boolean Default Value: true (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This option causes hyperedge routes to be locally improved fixing obviously bad paths.</description>
     </item>
     
     <item>
@@ -1557,6 +1620,17 @@ Y Default Value: Dimension.XY (as defined in org.eclipse.elk.stress) Applies To:
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-partitioning-activate.html</guid>
       <description>Property Value Type: advanced Identifier: org.eclipse.elk.partitioning.activate Meta Data Provider: core.options.CoreOptions Value Type: java.lang.Boolean Default Value: false (as defined in org.eclipse.elk) Applies To: parents Containing Group: partitioning Description Whether to activate partitioned layout. This will allow to group nodes through the Layout Partition option. a pair of nodes with different partition indices is then placed such that the node with lower index is placed to the left of the other node (with left-to-right layout direction).</description>
+    </item>
+    
+    <item>
+      <title>Libavoid</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-alg-libavoid.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-alg-libavoid.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.alg.libavoid Meta Data Provider: options.LibavoidMetaDataProvider Description libavoid is a cross-platform C++ library providing fast, object-avoiding orthogonal and polyline connector routing for use in interactive diagram editors.
+Category: Edge Routing Only route the edges without touching the node&#39;s positions.
+Supported Options Option Default Value Angle Penalty 0 Cluster Crossing Penalty 4000 Crossing Penalty 0 Debug Mode false Direction Direction.UNDEFINED Edge Routing EdgeRouting.ORTHOGONAL Fixed Shared Path Penalty 0 Ideal Nudging Distance 4 Improve Hyperedge Routes true Improve Hyperedge Routes Add Delete true Nudge Orthogonal Segments false Nudge Orthogonal Touching Colinear Segments false Penalise Orthogonal Shared Paths false Perform Unifying Nudging Preprocessing true Port Constraints PortConstraints.</description>
     </item>
     
     <item>
@@ -1910,6 +1984,24 @@ ASYMMETRICAL Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as def
     </item>
     
     <item>
+      <title>Nudge Orthogonal Segments</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-nudgeOrthogonalSegmentsConnectedToShapes.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-nudgeOrthogonalSegmentsConnectedToShapes.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.alg.libavoid.nudgeOrthogonalSegmentsConnectedToShapes Meta Data Provider: options.LibavoidMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This option causes the final segments of connectors, which are attached to shapes, to be nudged apart. Usually these segments are fixed, since they are considered to be attached to ports. This option is not set by default.</description>
+    </item>
+    
+    <item>
+      <title>Nudge Orthogonal Touching Colinear Segments</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-nudgeOrthogonalTouchingColinearSegments.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-nudgeOrthogonalTouchingColinearSegments.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.alg.libavoid.nudgeOrthogonalTouchingColinearSegments Meta Data Provider: options.LibavoidMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This option can be used to control whether colinear line segments that touch just at their ends will be nudged apart. The overlap will usually be resolved in the other dimension, so this is not usually required and is not set by default.</description>
+    </item>
+    
+    <item>
       <title>Omit Node Micro Layout</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-omitNodeMicroLayout.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2004,6 +2096,24 @@ COMPRESS Default Value: OverlapMode.PRISM (as defined in org.eclipse.elk.graphvi
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-partitioning.html</guid>
       <description> Property Value Identifier: org.eclipse.elk.partitioning Options Layout Partition Layout Partitioning </description>
+    </item>
+    
+    <item>
+      <title>Penalise Orthogonal Shared Paths</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-penaliseOrthogonalSharedPathsAtConnEnds.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-penaliseOrthogonalSharedPathsAtConnEnds.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.penaliseOrthogonalSharedPathsAtConnEnds Meta Data Provider: options.LibavoidMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This option penalises and attempts to reroute orthogonal shared connector paths terminating at a common junction or shape connection pin. When multiple connector paths enter or leave the same side of a junction (or shape pin), the router will attempt to reroute these to different sides of the junction or different shape pins.</description>
+    </item>
+    
+    <item>
+      <title>Perform Unifying Nudging Preprocessing</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-performUnifyingNudgingPreprocessingStep.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-performUnifyingNudgingPreprocessingStep.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.performUnifyingNudgingPreprocessingStep Meta Data Provider: options.LibavoidMetaDataProvider Value Type: boolean Default Value: true (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This option can be used to control whether the router performs a preprocessing step before orthogonal nudging where is tries to unify segments and centre them in free space. This generally results in better quality ordering and nudging.</description>
     </item>
     
     <item>
@@ -2156,6 +2266,15 @@ FIXED_SIDE
 FIXED_ORDER
 FIXED_RATIO
 FIXED_POS Default Value: PortConstraints.UNDEFINED (as defined in org.eclipse.elk) Applies To: nodes Description Defines constraints of the position of the ports of a node.</description>
+    </item>
+    
+    <item>
+      <title>Port Direction Penalty</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-portDirectionPenalty.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-portDirectionPenalty.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.portDirectionPenalty Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 100 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This penalty is applied to port selection choice when the other end of the connector being routed does not appear in any of the 90 degree visibility cones centered on the visibility directions for the port.</description>
     </item>
     
     <item>
@@ -2451,6 +2570,15 @@ BFS Default Value: TreeifyingOrder.DFS (as defined in org.eclipse.elk.mrtree) Ap
     </item>
     
     <item>
+      <title>Segment Penalty</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-segmentPenalty.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-segmentPenalty.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.alg.libavoid.segmentPenalty Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 10 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This penalty is applied for each segment in the connector path beyond the first. This should always normally be set when doing orthogonal routing to prevent step-like connector paths.</description>
+    </item>
+    
+    <item>
       <title>Self-Loop Distribution</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopDistribution.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2487,6 +2615,15 @@ SEQUENCED Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.ecl
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateConnectedComponents.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.separateConnectedComponents Meta Data Provider: core.options.CoreOptions Value Type: boolean Applies To: parents Description Whether each connected component should be processed separately.</description>
+    </item>
+    
+    <item>
+      <title>Shape Buffer Distance</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-shapeBufferDistance.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-shapeBufferDistance.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.alg.libavoid.shapeBufferDistance Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 4 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This parameter defines the spacing distance that will be added to the sides of each shape when determining obstacle sizes for routing. This controls how closely connectors pass shapes, and can be used to prevent connectors overlapping with shape boundaries. By default, this distance is set to a value of 4.</description>
     </item>
     
     <item>

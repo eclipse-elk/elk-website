@@ -60,6 +60,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-allowNonFlowPortsToSwitchSides.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-anglePenalty.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animate.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-animTimeFactor.html</loc>
@@ -85,6 +87,8 @@
     <loc>https://www.eclipse.org/elk/documentation/contributors/buildingelk.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/categories.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-clusterCrossingPenalty.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-commentBox.html</loc>
   </url><url>
@@ -143,6 +147,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-crossingCounterPortInfluence.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-strategy.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-crossingPenalty.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingMinimization.html</loc>
   </url><url>
@@ -274,6 +280,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-fixed.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-fixedSharedPathPenalty.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-font.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-font-name.html</loc>
@@ -330,7 +338,13 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-hypernode.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-idealNudgingDistance.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveCuts.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingJunctions.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingAddingAndDeletingJunctions.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveWrappedEdges.html</loc>
   </url><url>
@@ -412,6 +426,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-alg-libavoid.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-linearSegments-deflectionDampening.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-disco-debug-discoPolys.html</loc>
@@ -480,6 +496,10 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodeSize.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-nudgeOrthogonalSegmentsConnectedToShapes.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-nudgeOrthogonalTouchingColinearSegments.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-omitNodeMicroLayout.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-optimizationGoal.html</loc>
@@ -499,6 +519,10 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-padding.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-partitioning.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-penaliseOrthogonalSharedPathsAtConnEnds.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-performUnifyingNudgingPreprocessingStep.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-polyomino.html</loc>
   </url><url>
@@ -525,6 +549,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-borderOffset.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portConstraints.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-portDirectionPenalty.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-port-index2.html</loc>
   </url><url>
@@ -594,6 +620,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-searchOrder.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-segmentPenalty.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopDistribution.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopOrdering.html</loc>
@@ -601,6 +629,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-semiInteractive.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateConnectedComponents.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-shapeBufferDistance.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-lastPlaceShift.html</loc>
   </url><url>

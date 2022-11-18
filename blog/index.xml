@@ -16,12 +16,23 @@
     </item>
     
     <item>
+      <title>Edge Routing with Libavoid</title>
+      <link>https://www.eclipse.org/elk/blog/posts/2022/22-11-17-libavoid.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/posts/2022/22-11-17-libavoid.html</guid>
+      <description>By Miro Spönemann, November 17, 2022
+I&amp;rsquo;m happy to announce the availability of a new Maven module / Eclipse plug-in org.eclipse.elk.alg.libavoid that offers orthogonal edge routing with fixed nodes. Credits for this work go to Ulf Rüegg, a former employee of the Real-Time and Embedded Systems group, where most of the development on ELK is happening. My contribution is merely to revive this code and include it in the building and publishing process of the ELK project.</description>
+    </item>
+    
+    <item>
       <title>Rectpacking</title>
       <link>https://www.eclipse.org/elk/blog/posts/2022/22-08-31-rectpacking.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/blog/posts/2022/22-08-31-rectpacking.html</guid>
-      <description>The rectpacking algorithm was introduced to solved common problems with the box algorithm, which cannot stack boxes in a row. The idea is to form stacks with subrows inside rows, while the size of a row is always dominated by a highest rectangle to provide a visual anchor point to &amp;ldquo;read&amp;rdquo; the rows from left to right.
+      <description>By Sören Domrös, August 31, 2022
+The rectpacking algorithm was introduced to solved common problems with the box algorithm, which cannot stack boxes in a row. The idea is to form stacks with subrows inside rows, while the size of a row is always dominated by a highest rectangle to provide a visual anchor point to &amp;ldquo;read&amp;rdquo; the rows from left to right.
 Since it was a common use case of the box algorithm to add a priority to order the rectangles rectpacking uses the model order (which corresponds to the input order of the rectangles) as a criterion.</description>
     </item>
     

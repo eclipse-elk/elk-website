@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="img/elk_fav.svg">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    <title>Edge Routing with Libavoid (ELK)</title>
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">
+    <img src="img/elk_small_light.svg" height="30" class="d-inline-block align-top mr-1" alt="">
+    Eclipse Layout Kernel&trade;
+  </a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../downloads.html">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../documentation.html">Documentation</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../reference.html">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../support.html">Support</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="../../../blog.html">Blog Posts <span class="sr-only">(current)</span></a>
+        </li>
+      
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Edge Routing with Libavoid</h1>
+
+    <p><em>By Miro Spönemann, November 17, 2022</em></p>
+<p>I&rsquo;m happy to announce the availability of a new Maven module / Eclipse plug-in <code>org.eclipse.elk.alg.libavoid</code> that offers orthogonal edge routing with fixed nodes.
+Credits for this work go to Ulf Rüegg, a former employee of the <a href="https://www.rtsys.informatik.uni-kiel.de/">Real-Time and Embedded Systems group</a>, where most of the development on ELK is happening.
+My contribution is merely to revive this code and include it in the building and publishing process of the ELK project.</p>
+<p>Routing edges without changing node positions has been a highly requested feature for several years.
+This would enable users to freely move the nodes around and have the algorithm take care of the edges.
+The existing layout algorithms such as <em>ELK Layered</em> cannot do this because they have specific constraints for positioning the nodes.
+Efforts to implement a standalone routing algorithm natively in Java have been started in the past, but they have not been brought to a working condition yet.
+Therefore we decided to adopt the <a href="https://www.adaptagrams.org/documentation/libavoid.html">libavoid</a> algorithm, which is part of the <a href="http://www.adaptagrams.org">Adaptagrams</a> project.</p>
+<p>There are two challenges for the integration of libavoid into ELK:</p>
+<ul>
+<li>libavoid is written in C++ and built with <a href="https://www.gnu.org/software/automake/">Autotools</a></li>
+<li>libavoid is licensed under the GNU Lesser General Public License (LGPL) version 2.1</li>
+</ul>
+<h2 id="integrating-a-c-library-in-elk">Integrating a C++ Library in ELK</h2>
+<p>Basically there are two ways to get a C++ based layout algorithm running with a Java application:</p>
+<ul>
+<li>Use <a href="https://www.swig.org">SWIG</a> two wrap the C++ library with JNI code to be accessed directly from the Java process</li>
+<li>Compile the C++ library to an executable and communicate with it via standard I/O</li>
+</ul>
+<p>After comparing these approaches, we found the one based on standard I/O to be more stable, so that&rsquo;s what we went for.
+The <a href="https://github.com/TypeFox/libavoid-server">libavoid-server</a> project reads graph descriptions and layout options from standard input, calls the libavoid router, and writes the resulting edge bend points to standard output.
+The code is compiled with GitHub Actions for Linux, MacOS and Windows, and the generated executables are attached to <a href="https://github.com/TypeFox/libavoid-server/releases">GitHub releases</a>.
+This project could be used independently of ELK to integrate libavoid with other kinds of applications.</p>
+<h2 id="integrating-an-lgpl-library-in-elk">Integrating an LGPL Library in ELK</h2>
+<p>The Eclipse Foundation puts a strong emphasis for its projects to ensure that <a href="https://www.eclipse.org/projects/handbook/#ip">intellectual property is handled properly</a>.
+This is important to avoid legal issues and to maintain a high level of trust from the users of an Eclipse project.</p>
+<p>I went the formal path of requesting the usage of libavoid under LGPL license in an optional module of ELK.
+The request was approved, as LGPL is generally considered to be compatible with the Eclipse Public License (EPL).</p>
+<p>The new libavoid algorithm is offered as a separate feature named &ldquo;Libavoid Integration for ELK&rdquo; on the <a href="../../../downloads.html">ELK update site</a>, meaning that it is not automatically installed with the usual &ldquo;Layout Algorithms&rdquo; feature.
+If you include this feature in your application, you need to comply with the <a href="https://github.com/mjwybrow/adaptagrams/blob/master/cola/LICENSE">terms stated in the LGPL</a>, like keeping the original source code accessible and distributing proper copyright and license notices.</p>
+<h2 id="using-the-edge-router">Using the Edge Router</h2>
+<p>The new layout algorithm has the identifier <code>org.eclipse.elk.alg.libavoid</code>. Its usage is basically the same as with other ELK layout algorithms, but there are a few specialties to consider:</p>
+<ul>
+<li>Every node must have a position and a size (this algorithm won&rsquo;t move your nodes).</li>
+<li>If your graph uses ports:
+<ul>
+<li>Every port must have a position on the border of its parent node.</li>
+<li><code>org.eclipse.elk.port.side</code> must be set to either <code>NORTH</code>, <code>EAST</code>, <code>SOUTH</code> or <code>WEST</code> for each port.</li>
+<li><code>org.eclipse.elk.portConstraints</code> should be set to <code>FIXED_POS</code> for each node.</li>
+</ul>
+</li>
+</ul>
+<p>The libavoid algorithm also brings its own configuration options.
+They are included in ELK&rsquo;s <a href="../../../reference.html">reference documentation</a>, but you can find documentation on the Doxygen pages of libavoid as well:</p>
+<ul>
+<li><a href="https://www.adaptagrams.org/documentation/namespaceAvoid.html#abc707ccbd6a0a7c29c124162c864ca05">RoutingOption</a></li>
+<li><a href="https://www.adaptagrams.org/documentation/namespaceAvoid.html#a8a0154ae39129e7737d98e5a83daed19">RoutingParameter</a></li>
+</ul>
+<p>That&rsquo;s it for now. Please try this new integration and give us feedback on the <a href="https://github.com/eclipse/elk">ELK repository</a>!</p>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="../../../blog/2022.html">
+    <li class="navlevel-1">
+      2022
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2022/22-08-31-rectpacking.html">
+    <li class="navlevel-2">
+      Rectpacking
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2022/22-11-17-libavoid.html">
+    <li class="navlevel-2 active">
+      Edge Routing with Libavoid
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo" class="footer">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <span class="hidden-print">
+                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="../../../img/eclipse_foundation_logo.svg"/></a>
+              </span>
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+        <div class="row">
+          <div class="col hidden-print">
+            <a href="http://www.eclipse.org/">Eclipse Foundation</a><br/>
+            <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a><br/>
+            <a href="http://www.eclipse.org/legal/termsofuse.php">Website Terms of Use</a><br/>
+            <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a><br/>
+            <a href="http://www.eclipse.org/legal">Legal</a>
+          </div>
+          <div class="col">
+              <p class="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

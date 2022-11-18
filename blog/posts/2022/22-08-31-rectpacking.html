@@ -78,7 +78,8 @@
   <div class="col-sm-9">
     <h1>Rectpacking</h1>
 
-    <p>The <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html"><code>rectpacking</code></a> algorithm was introduced to solved common problems with the <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html"><code>box</code></a> algorithm, which cannot stack boxes in a row.
+    <p><em>By Sören Domrös, August 31, 2022</em></p>
+<p>The <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html"><code>rectpacking</code></a> algorithm was introduced to solved common problems with the <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html"><code>box</code></a> algorithm, which cannot stack boxes in a row.
 The idea is to form stacks with subrows inside rows, while the size of a row is always dominated by a highest rectangle to provide a visual anchor point to &ldquo;read&rdquo; the rows from left to right.</p>
 <p>Since it was a common use case of the <code>box</code> algorithm to add a priority to order the rectangles rectpacking uses the model order (which corresponds to the input order of the rectangles) as a criterion.
 By enabling <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-interactive.html">interactive layout</a> and setting <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-desiredPosition.html">desired positions</a> for nodes, this order can be changed without changing the order in the input graph.</p>
@@ -232,6 +233,14 @@ As a first step this problem is transformed in a strip packing problem by approx
   <a href="../../../blog/posts/2022/22-08-31-rectpacking.html">
     <li class="navlevel-2 active">
       Rectpacking
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2022/22-11-17-libavoid.html">
+    <li class="navlevel-2">
+      Edge Routing with Libavoid
     </li>
   </a>
   

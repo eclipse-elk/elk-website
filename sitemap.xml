@@ -96,11 +96,11 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentNode.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactor.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-compaction.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-compaction.html</loc>
-  </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactor.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packing-compaction-iterations.html</loc>
   </url><url>
@@ -580,9 +580,9 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-strategy.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-priority.html</loc>
-  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-priority.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html</loc>
   </url><url>

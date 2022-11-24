@@ -115,7 +115,7 @@
 </tr>
 <tr>
 <td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-clusterCrossingPenalty.html">Cluster Crossing Penalty</a></td>
-<td><code>4000</code></td>
+<td><code>0</code></td>
 </tr>
 <tr>
 <td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-crossingPenalty.html">Crossing Penalty</a></td>
@@ -146,8 +146,8 @@
 <td><code>true</code></td>
 </tr>
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingAddingAndDeletingJunctions.html">Improve Hyperedge Routes Add Delete</a></td>
-<td><code>true</code></td>
+<td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingAddingAndDeletingJunctions.html">Improve Hyperedge Routes Add/Delete</a></td>
+<td><code>false</code></td>
 </tr>
 <tr>
 <td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-nudgeOrthogonalSegmentsConnectedToShapes.html">Nudge Orthogonal Segments</a></td>
@@ -156,6 +156,10 @@
 <tr>
 <td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-nudgeOrthogonalTouchingColinearSegments.html">Nudge Orthogonal Touching Colinear Segments</a></td>
 <td><code>false</code></td>
+</tr>
+<tr>
+<td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-nudgeSharedPathsWithCommonEndPoint.html">Nudge Shared Paths With Common Endpoint</a></td>
+<td><code>true</code></td>
 </tr>
 <tr>
 <td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-penaliseOrthogonalSharedPathsAtConnEnds.html">Penalise Orthogonal Shared Paths</a></td>
@@ -171,11 +175,15 @@
 </tr>
 <tr>
 <td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-portDirectionPenalty.html">Port Direction Penalty</a></td>
-<td><code>100</code></td>
+<td><code>0</code></td>
 </tr>
 <tr>
 <td><a href="../../reference/options/org-eclipse-elk-port-side.html">Port Side</a></td>
 <td><code>PortSide.UNDEFINED</code></td>
+</tr>
+<tr>
+<td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-reverseDirectionPenalty.html">Reverse Direction Penalty</a></td>
+<td><code>0</code></td>
 </tr>
 <tr>
 <td><a href="../../reference/options/org-eclipse-elk-alg-libavoid-segmentPenalty.html">Segment Penalty</a></td>
@@ -1126,7 +1134,7 @@
   
   <a href="../../reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingAddingAndDeletingJunctions.html">
     <li class="navlevel-2">
-      Improve Hyperedge Routes Add Delete
+      Improve Hyperedge Routes Add/Delete
     </li>
   </a>
   
@@ -1596,6 +1604,14 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-alg-libavoid-nudgeSharedPathsWithCommonEndPoint.html">
+    <li class="navlevel-2">
+      Nudge Shared Paths With Common Endpoint
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-omitNodeMicroLayout.html">
     <li class="navlevel-2">
       Omit Node Micro Layout
@@ -1919,6 +1935,14 @@
   <a href="../../reference/options/org-eclipse-elk-resolvedAlgorithm.html">
     <li class="navlevel-2">
       Resolved Layout Algorithm
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-alg-libavoid-reverseDirectionPenalty.html">
+    <li class="navlevel-2">
+      Reverse Direction Penalty
     </li>
   </a>
   

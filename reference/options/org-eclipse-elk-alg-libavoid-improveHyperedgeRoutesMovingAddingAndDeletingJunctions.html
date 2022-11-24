@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Improve Hyperedge Routes Add Delete (ELK)</title>
+    <title>Improve Hyperedge Routes Add/Delete (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Improve Hyperedge Routes Add Delete</h1>
+    <h1>Improve Hyperedge Routes Add/Delete</h1>
 
     <table>
 <thead>
@@ -104,7 +104,7 @@
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>true</code> (as defined in <code>org.eclipse.elk.alg.libavoid</code>)</td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk.alg.libavoid</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
@@ -113,7 +113,7 @@
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>This option causes hyperedge routes to be locally improved fixing obviously bad paths.</p>
+<p>This option causes hyperedge routes to be locally improved fixing obviously bad paths. It can cause junctions and connectors to be added or removed from hyperedges. As part of this process libavoid will effectively move junctions by setting new ideal positions for each remaining or added junction. If set, this option overrides the improveHyperedgeRoutesMovingJunctions option.</p>
 
   </div>
 
@@ -1053,7 +1053,7 @@
   
   <a href="../../reference/options/org-eclipse-elk-alg-libavoid-improveHyperedgeRoutesMovingAddingAndDeletingJunctions.html">
     <li class="navlevel-2 active">
-      Improve Hyperedge Routes Add Delete
+      Improve Hyperedge Routes Add/Delete
     </li>
   </a>
   
@@ -1523,6 +1523,14 @@
   
 
   
+  <a href="../../reference/options/org-eclipse-elk-alg-libavoid-nudgeSharedPathsWithCommonEndPoint.html">
+    <li class="navlevel-2">
+      Nudge Shared Paths With Common Endpoint
+    </li>
+  </a>
+  
+
+  
   <a href="../../reference/options/org-eclipse-elk-omitNodeMicroLayout.html">
     <li class="navlevel-2">
       Omit Node Micro Layout
@@ -1846,6 +1854,14 @@
   <a href="../../reference/options/org-eclipse-elk-resolvedAlgorithm.html">
     <li class="navlevel-2">
       Resolved Layout Algorithm
+    </li>
+  </a>
+  
+
+  
+  <a href="../../reference/options/org-eclipse-elk-alg-libavoid-reverseDirectionPenalty.html">
+    <li class="navlevel-2">
+      Reverse Direction Penalty
     </li>
   </a>
   

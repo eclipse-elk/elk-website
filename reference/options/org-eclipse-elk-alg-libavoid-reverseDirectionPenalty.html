@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Node Label Placement (ELK)</title>
+    <title>Reverse Direction Penalty (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Node Label Placement</h1>
+    <h1>Reverse Direction Penalty</h1>
 
     <table>
 <thead>
@@ -88,36 +88,28 @@
 <tbody>
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.nodeLabels.placement</code></td>
+<td><code>org.eclipse.elk.alg.libavoid.reverseDirectionPenalty</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>core.options.CoreOptions</code></td>
+<td><code>options.LibavoidMetaDataProvider</code></td>
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>java.util.EnumSet&lt;org.eclipse.elk.core.options.NodeLabelPlacement&gt;</code></td>
-</tr>
-<tr>
-<td><em>Possible Values:</em></td>
-<td><code>H_LEFT</code><br><code>H_CENTER</code><br><code>H_RIGHT</code><br><code>V_TOP</code><br><code>V_CENTER</code><br><code>V_BOTTOM</code><br><code>INSIDE</code><br><code>OUTSIDE</code><br><code>H_PRIORITY</code></td>
+<td><code>double</code></td>
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>NodeLabelPlacement.fixed()</code> (as defined in <code>org.eclipse.elk</code>)</td>
+<td><code>0</code> (as defined in <code>org.eclipse.elk.alg.libavoid</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
-<td>nodes, labels</td>
-</tr>
-<tr>
-<td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-nodeLabels.html">nodeLabels</a></td>
+<td>parents</td>
 </tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>Hints for where node labels are to be placed; if empty, the node label&rsquo;s position is not modified.</p>
+<p>This penalty is applied whenever a connector path travels in the direction opposite of the destination from the source endpoint. By default this penalty is set to zero. This shouldn&rsquo;t be needed in most cases but can be useful if you use penalties such as crossingPenalty which cause connectors to loop around obstacles.</p>
 
   </div>
 
@@ -1432,7 +1424,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-nodeLabels-placement.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Node Label Placement
     </li>
   </a>
@@ -1864,7 +1856,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-alg-libavoid-reverseDirectionPenalty.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Reverse Direction Penalty
     </li>
   </a>

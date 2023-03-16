@@ -36,6 +36,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/blog/2022.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/blog/2023.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-insideSelfLoops-activate.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-adaptPortPositions.html</loc>
@@ -130,6 +132,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-components.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-portModelOrder.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-contentAlignment.html</loc>
@@ -206,6 +210,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeEdgeBetweenLayers.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-edgeEndTextureLength.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeLabels-placement.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeLabels-sideSelection.html</loc>
@@ -217,6 +223,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeNode.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeRouting.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-edgeRoutingMode.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/blog/posts/2022/22-11-17-libavoid.html</loc>
   </url><url>
@@ -350,6 +358,10 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-multiEdge-improveWrappedEdges.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-inLayerPredOf.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-inLayerSuccOf.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-inNewRow.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-individual.html</loc>
@@ -401,6 +413,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerId.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-layerSpacingFactor.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/blog/posts/2023/23-01-09-constraining-the-model.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering.html</loc>
   </url><url>
@@ -576,6 +590,10 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-positionChoiceConstraint.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-compaction.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-positionConstraint.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-positionId.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-constraints.html</loc>
@@ -685,6 +703,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portLabels-treatAsGroup.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingOrder-treeConstruction.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-treeLevel.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-trybox.html</loc>
   </url><url>

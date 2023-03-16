@@ -16,6 +16,15 @@
     </item>
     
     <item>
+      <title>2023</title>
+      <link>https://www.eclipse.org/elk/blog/2023.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/2023.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Edge Routing with Libavoid</title>
       <link>https://www.eclipse.org/elk/blog/posts/2022/22-11-17-libavoid.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -23,6 +32,16 @@
       <guid>https://www.eclipse.org/elk/blog/posts/2022/22-11-17-libavoid.html</guid>
       <description>By Miro Spönemann, November 17, 2022
 I&amp;rsquo;m happy to announce the availability of a new Maven module / Eclipse plug-in org.eclipse.elk.alg.libavoid that offers orthogonal edge routing with fixed nodes. Credits for this work go to Ulf Rüegg, a former employee of the Real-Time and Embedded Systems group, where most of the development on ELK is happening. My contribution is merely to revive this code and include it in the building and publishing process of the ELK project.</description>
+    </item>
+    
+    <item>
+      <title>Layered: Constraining the Model</title>
+      <link>https://www.eclipse.org/elk/blog/posts/2023/23-01-09-constraining-the-model.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/posts/2023/23-01-09-constraining-the-model.html</guid>
+      <description>By Sören Domrös, January 9, 2023
+Since it is often desired to constrain the layout in a specific way to achieve a desired layout or to increase layout stability, this post should summarize all current (ELK 0.8.1) and future (planned for 0.9.0) ways to do that. The following will focus primarily on constraining the node order. If you wish to constrain the ports have a look at the portConstraints property and this example.</description>
     </item>
     
     <item>

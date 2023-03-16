@@ -357,7 +357,8 @@ NONE Default Value: PackingStrategy.COMPACTION (as defined in org.eclipse.elk.re
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-strategy.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.strategy Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.OrderingStrategy (Enum) Possible Values: NONE
 NODES_AND_EDGES
-PREFER_EDGES Default Value: OrderingStrategy.NONE (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: considerModelOrder Description Preserves the order of nodes and edges in the model file if this does not lead to additional edge crossings. Depending on the strategy this is not always possible since the node and edge order might be conflicting.</description>
+PREFER_EDGES
+PREFER_NODES Default Value: OrderingStrategy.NONE (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: considerModelOrder Description Preserves the order of nodes and edges in the model file if this does not lead to additional edge crossings. Depending on the strategy this is not always possible since the node and edge order might be conflicting.</description>
     </item>
     
     <item>
@@ -368,7 +369,17 @@ PREFER_EDGES Default Value: OrderingStrategy.NONE (as defined in org.eclipse.elk
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-components.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.components Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.components.ComponentOrderingStrategy (Enum) Possible Values: NONE
 INSIDE_PORT_SIDE_GROUPS
-FORCE_MODEL_ORDER Default Value: ComponentOrderingStrategy.NONE (as defined in org.eclipse.elk.layered) Applies To: parents Dependencies: org.eclipse.elk.separateConnectedComponents Containing Group: considerModelOrder Description If set to NONE the usual ordering strategy (by cumulative node priority and size of nodes) is used. INSIDE_PORT_SIDES orders the components with external ports only inside the groups with the same port side. FORCE_MODEL_ORDER enforces the mode order on components.</description>
+GROUP_MODEL_ORDER
+MODEL_ORDER Default Value: ComponentOrderingStrategy.NONE (as defined in org.eclipse.elk.layered) Applies To: parents Dependencies: org.eclipse.elk.separateConnectedComponents Containing Group: considerModelOrder Description If set to NONE the usual ordering strategy (by cumulative node priority and size of nodes) is used. INSIDE_PORT_SIDES orders the components with external ports only inside the groups with the same port side. FORCE_MODEL_ORDER enforces the mode order on components.</description>
+    </item>
+    
+    <item>
+      <title>Consider Port Order</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-portModelOrder.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-portModelOrder.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.portModelOrder Meta Data Provider: options.LayeredMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: considerModelOrder Description If disabled the port order of output ports is derived from the edge order and input ports are ordered by their incoming connections. If enabled all ports are ordered by the port model order.</description>
     </item>
     
     <item>
@@ -377,7 +388,7 @@ FORCE_MODEL_ORDER Default Value: ComponentOrderingStrategy.NONE (as defined in o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder.html</guid>
-      <description> Property Value Identifier: org.eclipse.elk.layered.considerModelOrder Options Consider Model Order No Model Order Consider Model Order for Components Long Edge Ordering Strategy Crossing Counter Node Order Influence Crossing Counter Port Order Influence </description>
+      <description> Property Value Identifier: org.eclipse.elk.layered.considerModelOrder Options Consider Model Order Consider Port Order No Model Order Consider Model Order for Components Long Edge Ordering Strategy Crossing Counter Node Order Influence Crossing Counter Port Order Influence </description>
     </item>
     
     <item>
@@ -460,7 +471,7 @@ NONE Default Value: CrossingMinimizationStrategy.LAYER_SWEEP (as defined in org.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-crossingMinimization.html</guid>
-      <description> Property Value Identifier: org.eclipse.elk.layered.crossingMinimization Options Crossing Minimization Strategy Force Node Model Order Hierarchical Sweepiness Semi-Interactive Crossing Minimization Position Choice Constraint Position ID Subgroups greedySwitch greedySwitchHierarchical </description>
+      <description> Property Value Identifier: org.eclipse.elk.layered.crossingMinimization Options Crossing Minimization Strategy Force Node Model Order Hierarchical Sweepiness Semi-Interactive Crossing Minimization In Layer Predecessor of In Layer Successor of Position Choice Constraint Position ID Subgroups greedySwitch greedySwitchHierarchical </description>
     </item>
     
     <item>
@@ -673,6 +684,15 @@ CENTER_LAYER (@ExperimentalPropertyValue) Default Value: CenterEdgeLabelPlacemen
     </item>
     
     <item>
+      <title>Edge End Texture Length</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-edgeEndTextureLength.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-edgeEndTextureLength.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.mrtree.edgeEndTextureLength Meta Data Provider: options.MrTreeMetaDataProvider Value Type: double Default Value: 7 (as defined in org.eclipse.elk.mrtree) Applies To: parents Description Should be set to the length of the texture at the end of an edge. This value can be used to improve the Edge Routing.</description>
+    </item>
+    
+    <item>
       <title>Edge Label Placement</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-edgeLabels-placement.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -734,6 +754,17 @@ SMART_DOWN Default Value: EdgeLabelSideSelection.SMART_DOWN (as defined in org.e
 POLYLINE
 ORTHOGONAL
 SPLINES Default Value: EdgeRouting.UNDEFINED (as defined in org.eclipse.elk) Applies To: parents Description What kind of edge routing style should be applied for the content of a parent node. Algorithms may also set this option to single edges in order to mark them as splines. The bend point list of edges with this option set to SPLINES must be interpreted as control points for a piecewise cubic spline.</description>
+    </item>
+    
+    <item>
+      <title>Edge Routing Mode</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-edgeRoutingMode.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-edgeRoutingMode.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.mrtree.edgeRoutingMode Meta Data Provider: options.MrTreeMetaDataProvider Value Type: org.eclipse.elk.alg.mrtree.options.EdgeRoutingMode (Enum) Possible Values: NONE
+MIDDLE_TO_MIDDLE
+AVOID_OVERLAP Default Value: EdgeRoutingMode.AVOID_OVERLAP (as defined in org.eclipse.elk.mrtree) Applies To: parents Description Chooses an Edge Routing algorithm.</description>
     </item>
     
     <item>
@@ -1299,6 +1330,24 @@ SEPARATE_CHILDREN Default Value: HierarchyHandling.INHERIT (as defined in org.ec
     </item>
     
     <item>
+      <title>In Layer Predecessor of</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-inLayerPredOf.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-inLayerPredOf.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.crossingMinimization.inLayerPredOf Meta Data Provider: options.LayeredMetaDataProvider Value Type: java.lang.String Default Value: null (as defined in org.eclipse.elk.layered) Applies To: nodes Containing Group: crossingMinimization Description Allows to set a constraint which specifies of which node the current node is the predecessor. If set to &amp;rsquo;s&amp;rsquo; then the node is the predecessor of &amp;rsquo;s&amp;rsquo; and is in the same layer</description>
+    </item>
+    
+    <item>
+      <title>In Layer Successor of</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-inLayerSuccOf.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-inLayerSuccOf.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.layered.crossingMinimization.inLayerSuccOf Meta Data Provider: options.LayeredMetaDataProvider Value Type: java.lang.String Default Value: null (as defined in org.eclipse.elk.layered) Applies To: nodes Containing Group: crossingMinimization Description Allows to set a constraint which specifies of which node the current node is the successor. If set to &amp;rsquo;s&amp;rsquo; then the node is the successor of &amp;rsquo;s&amp;rsquo; and is in the same layer</description>
+    </item>
+    
+    <item>
       <title>In new Row</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-inNewRow.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1487,7 +1536,7 @@ TOP_LEFT Default Value: InteractiveReferencePoint.CENTER (as defined in org.ecli
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerChoiceConstraint.html</guid>
-      <description>Property Value Type: advanced Identifier: org.eclipse.elk.layered.layering.layerChoiceConstraint Meta Data Provider: options.LayeredMetaDataProvider Value Type: int Default Value: -1 (as defined in org.eclipse.elk.layered) Lower Bound: -1 Applies To: nodes Containing Group: layering Description Allows to set a constraint regarding the layer placement of a node. Let i be the value of teh constraint. Assumed the drawing has n layers and i &amp;lt; n. If set to i, it expresses that the node should be placed in i-th layer.</description>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.layered.layering.layerChoiceConstraint Meta Data Provider: options.LayeredMetaDataProvider Value Type: java.lang.Integer Default Value: null (as defined in org.eclipse.elk.layered) Lower Bound: -1 Applies To: nodes Containing Group: layering Description Allows to set a constraint regarding the layer placement of a node. Let i be the value of teh constraint. Assumed the drawing has n layers and i &amp;lt; n. If set to i, it expresses that the node should be placed in i-th layer.</description>
     </item>
     
     <item>
@@ -1819,10 +1868,13 @@ H_PRIORITY Default Value: NodeLabelPlacement.fixed() (as defined in org.eclipse.
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.layered.layering.strategy Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.LayeringStrategy (Enum) Possible Values: NETWORK_SIMPLEX
 LONGEST_PATH
+LONGEST_PATH_SOURCE
 COFFMAN_GRAHAM (@AdvancedPropertyValue)
 INTERACTIVE (@AdvancedPropertyValue)
 STRETCH_WIDTH (@ExperimentalPropertyValue)
-MIN_WIDTH (@ExperimentalPropertyValue) Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: layering Description Strategy for node layering.</description>
+MIN_WIDTH (@ExperimentalPropertyValue)
+BF_MODEL_ORDER
+DF_MODEL_ORDER Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: layering Description Strategy for node layering.</description>
     </item>
     
     <item>
@@ -1860,7 +1912,9 @@ NIKOLOV_IMPROVED (@AdvancedPropertyValue)
 NIKOLOV_IMPROVED_PIXEL (@AdvancedPropertyValue)
 DUMMYNODE_PERCENTAGE (@AdvancedPropertyValue)
 NODECOUNT_PERCENTAGE (@AdvancedPropertyValue)
-NO_BOUNDARY (@AdvancedPropertyValue) Default Value: NodePromotionStrategy.NONE (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: layering -&amp;gt; nodePromotion Description Reduces number of dummy nodes after layering phase (if possible).</description>
+NO_BOUNDARY (@AdvancedPropertyValue)
+MODEL_ORDER_LEFT_TO_RIGHT
+MODEL_ORDER_RIGHT_TO_LEFT Default Value: NodePromotionStrategy.NONE (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: layering -&amp;gt; nodePromotion Description Reduces number of dummy nodes after layering phase (if possible).</description>
     </item>
     
     <item>
@@ -2383,7 +2437,25 @@ PORT_DEGREE Default Value: PortSortingStrategy.INPUT_ORDER (as defined in org.ec
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-positionChoiceConstraint.html</guid>
-      <description>Property Value Type: advanced Identifier: org.eclipse.elk.layered.crossingMinimization.positionChoiceConstraint Meta Data Provider: options.LayeredMetaDataProvider Value Type: int Default Value: -1 (as defined in org.eclipse.elk.layered) Lower Bound: -1 Applies To: nodes Containing Group: crossingMinimization Description Allows to set a constraint regarding the position placement of a node in a layer. Assumed the layer in which the node placed includes n other nodes and i &amp;lt; n. If set to i, it expresses that the node should be placed at the i-th position.</description>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.layered.crossingMinimization.positionChoiceConstraint Meta Data Provider: options.LayeredMetaDataProvider Value Type: java.lang.Integer Default Value: null (as defined in org.eclipse.elk.layered) Lower Bound: -1 Applies To: nodes Containing Group: crossingMinimization Description Allows to set a constraint regarding the position placement of a node in a layer. Assumed the layer in which the node placed includes n other nodes and i &amp;lt; n. If set to i, it expresses that the node should be placed at the i-th position.</description>
+    </item>
+    
+    <item>
+      <title>Position Constraint</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-compaction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-compaction.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.mrtree.compaction Meta Data Provider: options.MrTreeMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.mrtree) Applies To: parents Description Turns on Tree compaction which decreases the size of the whole tree by placing nodes of multiple levels in one large level</description>
+    </item>
+    
+    <item>
+      <title>Position Constraint</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-positionConstraint.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-positionConstraint.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.mrtree.positionConstraint Meta Data Provider: options.MrTreeMetaDataProvider Value Type: int Default Value: -1 (as defined in org.eclipse.elk.mrtree) Applies To: nodes Description When set to a positive number this option will force the algorithm to place the node to the specified position within the trees layer if weighting is set to constraint</description>
     </item>
     
     <item>
@@ -2614,6 +2686,7 @@ NORTH_SOUTH Default Value: SelfLoopDistributionStrategy.NORTH (as defined in org
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-selfLoopOrdering.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.layered.edgeRouting.selfLoopOrdering Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.SelfLoopOrderingStrategy (Enum) Possible Values: STACKED
+REVERSE_STACKED
 SEQUENCED Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.eclipse.elk.layered) Applies To: nodes Containing Group: edgeRouting Description Alter the ordering of the loops they can either be stacked or sequenced. It only takes effect for PortConstraints.FREE.</description>
     </item>
     
@@ -2825,6 +2898,15 @@ MAXIMUM_SPANNING_TREE Default Value: TreeConstructionStrategy.MINIMUM_SPANNING_T
     </item>
     
     <item>
+      <title>Tree Level</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-treeLevel.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-treeLevel.html</guid>
+      <description>Property Value Type: output Identifier: org.eclipse.elk.mrtree.treeLevel Meta Data Provider: options.MrTreeMetaDataProvider Value Type: int Default Value: 0 (as defined in org.eclipse.elk.mrtree) Lower Bound: 0 Applies To: nodes Description The index for the tree level the node is in</description>
+    </item>
+    
+    <item>
       <title>Try box layout first</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-trybox.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2922,8 +3004,10 @@ LOOK_BACK Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-weighting.html</guid>
-      <description>Property Value Identifier: org.eclipse.elk.mrtree.weighting Meta Data Provider: options.MrTreeMetaDataProvider Value Type: org.eclipse.elk.alg.mrtree.options.OrderWeighting (Enum) Possible Values: DESCENDANTS
-FAN Default Value: OrderWeighting.DESCENDANTS (as defined in org.eclipse.elk.mrtree) Applies To: parents Description Which weighting to use when computing a node order.</description>
+      <description>Property Value Identifier: org.eclipse.elk.mrtree.weighting Meta Data Provider: options.MrTreeMetaDataProvider Value Type: org.eclipse.elk.alg.mrtree.options.OrderWeighting (Enum) Possible Values: MODEL_ORDER
+DESCENDANTS
+FAN
+CONSTRAINT Default Value: OrderWeighting.MODEL_ORDER (as defined in org.eclipse.elk.mrtree) Applies To: parents Description Which weighting to use when computing a node order.</description>
     </item>
     
     <item>

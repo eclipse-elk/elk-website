@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="img/elk_fav.svg">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    <title>Layered: Constraining the Model (ELK)</title>
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">
+    <img src="img/elk_small_light.svg" height="30" class="d-inline-block align-top mr-1" alt="">
+    Eclipse Layout Kernel&trade;
+  </a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../downloads.html">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../documentation.html">Documentation</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../reference.html">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../support.html">Support</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="../../../blog.html">Blog Posts <span class="sr-only">(current)</span></a>
+        </li>
+      
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Layered: Constraining the Model</h1>
+
+    <p><em>By Sören Domrös, January 9, 2023</em></p>
+<p>Since it is often desired to constrain the layout in a specific way to achieve a desired layout or to increase layout stability, this post should summarize all current (ELK 0.8.1) and future (planned for 0.9.0) ways to do that. The following will focus primarily on constraining the node order. If you wish to constrain the ports have a look at the <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-portConstraints.html"><code>portConstraints</code></a> property and <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=general%2Fspacing%2Fports">this</a> example.</p>
+<h2 id="layer-constraints">Layer Constraints</h2>
+<p>The <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerConstraint.html"><code>layerConstraint</code></a> property allows constraining a node to the first or last layer. This option is quite basic and should be compatible with the Partition and model order cycle breaking. Other approaches might produce unexpected results when used together.</p>
+<h2 id="interactive-constraints">Interactive Constraints</h2>
+<p>Interactive layout works by having previously defined positions and by using the following layout options for the layered algorithm:</p>
+<pre tabindex="0"><code>cycleBreaking.strategy: INTERACTIVE
+layering.strategy: INTERACTIVE
+crossingMinimization.semiInteractive: true
+separateConnectedComponents: false
+</code></pre><p>There are two different ways to get positions for your nodes.</p>
+<h4 id="using-pseudo-positions">Using Pseudo Positions</h4>
+<p>Add pseudo positions to your nodes as seen <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=user-hints%2Finteractive-constraints%2FinteractiveLayeredLayout_circle_pseudo_positions">here</a>.</p>
+<pre tabindex="0"><code>layout [position: 100, 0]
+</code></pre><h4 id="using-constraints">Using Constraints</h4>
+<p><a href="https://github.com/kieler/KLighD">KLighD</a> configures a second layout run with the interactive strategies mentioned above if the <code>interactiveLayout</code> property is set on the root.
+For the second final run the <code>layerChoiceConstraint</code>s and <code>positionsChoiceConstraint</code>s are evaluated.
+In the future relative constraint will also be supported: <code>crossingMinimization.inLayerPredOf</code>, <code>crossingMinimization.inLayerSuccOf</code>.</p>
+<p>These constraint are evaluated and translated in pseudo positions.</p>
+<p>Examples with constraints and pseudo positions can be found <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=user-hints%2Finteractive-constraints%2FinteractiveLayeredLayout_circle_pseudo_positions">here</a> and in the example in the same category. Note that the constraints are not correctly applied since no second layout run is configured.</p>
+<p>This solution requires more than ELK can deliver, ELK only specifies the corresponding constraints. Evaluating and enforcing them is not part of ELK.</p>
+<h2 id="partition">Partition</h2>
+<p>By activating partition cycle breaking as well as layer assignment can be influenced, as seen in <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=user-hints%2Flayered%2Fpartitioning">this example</a>.
+<code>partitioning.activate: true</code> is set. By setting the <code>partitioning.partition</code> layers are established.</p>
+<p>Also consider to have a look at the following example that showcase interactive constraints by pseudo positions and partition:</p>
+<p><a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=user-hints%2Flayered%2FhorizontalOrder">Horizontal Order</a>
+<a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=user-hints%2Flayered%2FverticalOrder">Vertical Order</a></p>
+<h2 id="model-order">Model Order</h2>
+<p>In the following we assume that all states and edges are ordered in their (textual) model as it is indicated by their labels.</p>
+<h4 id="cycle-breaking">Cycle Breaking</h4>
+<p>ELK 0.8.1 introduced the <code>GREEDY_MODEL_ORDER</code> and the <code>MODEL_ORDER</code> <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-cycleBreaking-strategy.html">cycleBreaking.strategy</a>.
+The greedy model order cycle breaker optimizes for backward edges but refers to the textual ordering of the nodes if no unique alternative exists.
+The model order cycle breaker only refers to the textual ordering and reverses edges that go against it.
+Both cycle breakers support <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerConstraint.html"><code>layerConstraint</code>s</a> such as <code>FIRST</code> and <code>LAST</code>.</p>
+<p>The difference between the <code>GREEDY</code> cycle breaker, the two model order cycle breakers mentioned above can be seen in the following.</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cb-greedy.svg"
+    
+     alt="Graph drawn with the greedy cycle breaker."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>The greedy cycle breaker. optimizes the number of backward edges and randomly makes a decision if no clear better alternative exists (such as for the edges between <code>n1</code> and <code>n2</code>).</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cb-greedyMO.svg"
+    
+     alt="Graph drawn with the greedy model order cycle breaker."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>The greedy model order cycle breaker optimizes the number of backward edges and uses the model order as a tie-breaker. It reverse the edges from <code>n2</code> to <code>n1</code> since <code>n2</code> is &ldquo;after&rdquo; <code>n1</code> in the model.</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cb-MO.svg"
+    
+     alt="Graph drawn with the model order cycle breaker."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>The model order cycle breaker only uses the model order and reverses all edges that go against it such as the edge from <code>n3</code> to <code>n2</code> and the edges from <code>n2</code> to <code>n1</code>.</p>
+<p>Examples can be found <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=user-hints%2Fmodel-order%2FmodelOrderCycleBreaking">here</a>.</p>
+<h4 id="layer-assignment-elk-090">Layer Assignment (ELK 0.9.0)</h4>
+<p>ELK 0.9.0 will introduce model order layer assignment by node promotion.
+Setting <code>nodePromotion</code> to <code>MODEL_ORDER_LEFT_TO_RIGHT</code> together with <code>LONGEST_PATH_SOURCE</code> (and model order cycle breaking) allows to specify the layer of each node by ordering all nodes in a breath-first order.</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/la.svg"
+    
+     alt="Intial layer assignment."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>The initial layer assignment places <code>n4</code> in the layer before <code>n3</code>, which violates their ordering.</p>
+<p>In the following <code>n4</code> is moved in the correct layer using node promotion by model order.</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/la-correct.svg"
+    
+     alt="Intial layer assignment."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<h4 id="crossing-minimization-partly-elk-090">Crossing Minimization (partly ELK 0.9.0)</h4>
+<p>ELK 0.8.1 already introduced model order as a tie-breaker with the <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-strategy.html"><code>considerModelOrder.strategy</code></a> property, which allows to sort the nodes and ports before crossing minimization by the edge order (<code>PREFER_EDGES</code>), the node and the edge order (<code>NODES_AND_EDGES</code>), and the nodes (will be added in 0.9.0, <code>PREFER_NODES</code>).</p>
+<p>The difference of the three strategies can be seen in the following drawings that were created by disabling crossing minimization:</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cm-preferEdges.svg"
+    
+     alt="Graph drawn with the preferEdges pre-crossing minimization sorting strategy."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>The <code>PREFER_EDGES</code> pre-crossing minimization sorting strategy makes sure that the edge order is preserved before crossing minimization starts (which might scramble it again). The node order is only used for nodes without incoming edges.</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cm-nodesAndEdges.svg"
+    
+     alt="Graph drawn with the nodesAndEdges pre-crossing minimization sorting strategy."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>The <code>NODES_AND_EDGES</code> pre-crossing minimization sorting strategy makes sure that the edge and node order are preserved before crossing minimization starts (which might scramble it again). Here this results in additional crossings since they are conflicting.</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cm-preferNodes.svg"
+    
+     alt="Graph drawn with the preferNodes pre-crossing minimization sorting strategy."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>The <code>PREFER_NODES</code> pre-crossing minimization sorting strategy makes sure that the node order are preserved before crossing minimization starts (which might scramble it again). The order of the edges is also determined by the node order of their targets.</p>
+<p>This allows the algorithm to consider the ordered graph during crossing minimization. Should it be crossing minimal, the ordering will always be used as the final solution.</p>
+<p>If the initial ordering is not crossing minimal, the following properties allow to weight the ordering violations against the edge crossing to use model order as a tie-breaker: <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-crossingCounterNodeInfluence.html"><code>crossingCounterNodeInfluence</code></a>, <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-crossingCounterNodeInfluence.html"><code>crossingCounterPortInfluence</code></a>. We advice setting these to a value below zero to ensure that edge crossing are still more important than the ordering. E.g. a value of 0.1 might be optimal for some use case, which means that 10 order violations are as important as one edge crossing.</p>
+<p>This allows to select the best ordered crossing minimal solution. Note that this is still limited by the number of random tries (see <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-thoroughness.html"><code>thoroughness</code></a>), therefore, the optimal solution will not always be found if the thoroughness is not increased.</p>
+<p>If one wants to only constrain the node order, this can be achieved by setting <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-forceNodeModelOrder.html"><code>forceNodeModelOrder</code></a>.</p>
+<p>If the crossing minimization strategy is set to <code>NONE</code> and the <code>greedySwitch.type</code> is set to <code>OFF</code> the ordering created by the model order sorting strategy will not change and the model order is enforced.</p>
+<p>An overview of model order as the tie-breaker, enforced node order, and no crossing minimization strategies can be seen in the following:</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cm-tiebreaker.svg"
+    
+     alt="Model order crossing minimization used as a tie-breaker."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cm-enforceNodes.svg"
+    
+     alt="Model order crossing minimization used with enforced node order."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/cm-enforceMO.svg"
+    
+     alt="Model order crossing minimization used with enforced model order by disabling crossing minimization.."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>Examples for different model order crossing minimization strategies can be found <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=user-hints%2Fmodel-order%2FmodelOrderCrossingMinimization">here</a>.</p>
+<h2 id="component-ordering-partly-elk-090">Component Ordering (partly ELK 0.9.0)</h2>
+<p>If the graph consist of several separate connected component and this <code>separateConnectedComponent</code> property is set to <code>true</code>. There are two different ways of ordering them.</p>
+<ul>
+<li>The separate components are ordered by size (default)</li>
+<li>The separate components are ordered by the sum of their <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority.html"><code>priority</code></a> property</li>
+<li>The separate components are ordered by model order using their minimal element (see <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-components.html"><code>considerModelOrder.components</code></a>). The preferred strategy (<code>MODEL_ORDER</code>) will be introduced with the 0.9.0 release delivers a compact ordering of the separate components that considers to the model order.</li>
+</ul>
+<p>I hope this helps to answer several reoccurring questions regarding ordering.</p>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="../../../blog/2022.html">
+    <li class="navlevel-1">
+      2022
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2022/22-08-31-rectpacking.html">
+    <li class="navlevel-2">
+      Rectpacking
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2022/22-11-17-libavoid.html">
+    <li class="navlevel-2">
+      Edge Routing with Libavoid
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../blog/2023.html">
+    <li class="navlevel-1">
+      2023
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2023/23-01-09-constraining-the-model.html">
+    <li class="navlevel-2 active">
+      Layered: Constraining the Model
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo" class="footer">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <span class="hidden-print">
+                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="../../../img/eclipse_foundation_logo.svg"/></a>
+              </span>
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+        <div class="row">
+          <div class="col hidden-print">
+            <a href="http://www.eclipse.org/">Eclipse Foundation</a><br/>
+            <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a><br/>
+            <a href="http://www.eclipse.org/legal/termsofuse.php">Website Terms of Use</a><br/>
+            <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a><br/>
+            <a href="http://www.eclipse.org/legal">Legal</a>
+          </div>
+          <div class="col">
+              <p class="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

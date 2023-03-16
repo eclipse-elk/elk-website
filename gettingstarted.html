@@ -78,85 +78,17 @@
   <div class="col-sm-9">
     <h1>Getting Started</h1>
 
-    <p>Automatic layout can be a complex thing, but starting to use the <em>Eclipse Layout Kernel</em> can be as easy as installing a few features from our update site.</p>
-<div class="alert alert-danger">
-  <h5>A Quick Warning</h5>
-<p>This guide refers to the pre-0.1.0 version of the Eclipse Layout Kernel. Since then, much has changed. We will try to get this guide updated as soon as possible. In the meantime, you may want to check out the rest of the documentation.</p>
-</div>
-<h2 id="installing-necessary-things">Installing Necessary Things</h2>
-<p>First off, you will have to actually install ELK. Head over to our downloads section and paste the URL of our update site into your Eclipse installation. You will discover four features:</p>
-<ul>
-<li>The core feature contains the basic layout kernel infrastructure. This one you definitely need to install.</li>
-<li>Depending on what technology your editor is based on, you may be lucky enough to find that we have already done much of the work necessary to make your editor work with ELK. We provide out-of-the-box interfaces for GMF-based editors, which work well without customization for many editors. Note that prior to release 0.7.0 there has been support for Graphiti editors as well. If you are interested, feel free to check out the old code.</li>
-<li>While ELK comes with a number of layout algorithms, you may also want to use the <a href="http://www.graphviz.org/">Graphviz</a> library. Installing the corresponding feature allows ELK to use Graphviz if it is installed on your computer.</li>
-</ul>
-<h2 id="connecting-your-editor-to-elk">Connecting Your Editor to ELK</h2>
-<p>Congratulations, you have just installed ELK! (wasn&rsquo;t that hard, I know) Now it&rsquo;s time to actually enable automatic layout for your editor. How this is done exactly differs depending on the technology your editor is based on.</p>
-<p>ELK works with a graph data structure called the ElkGraph. To enable layout, it needs to know how to extract the ElkGraph corresponding to the diagram the current editor shows. This is done by looking for an <code>IDiagramLayoutManager</code> registered for the current editor and asking it to provide the ElkGraph.</p>
-<p>What exactly you need to do to connect ELK to your editor depends on the technology your editor is based on.</p>
-<h3 id="gmf-based-editors">GMF-Based Editors</h3>
-<p>If your editor is GMF-based, you probably won&rsquo;t be having a hard time: ELK already supports GMF-based editors out of the box. In fact, there will be a new layout button on the tool bar. Click it (or press Ctrl+R, L) to check if everything works.</p>
-<p>
-  <img
-    class="img-fluid"
-    
-      src="./img/getting_started_layout_button.png"
-    
-     alt="The layout button triggers layout on your diagram."
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-
-<h3 id="graphiti-based-editors">Graphiti-Based Editors</h3>
-<p>If your editor is based on Graphiti, you&rsquo;re in a similar situation as the GMF people: it may just work out of the box. However, the GraphitiDiagramLayoutManager that comes with ELK may not always make the right choices. In fact, you will most likely need to subclass it to customize how exactly the ElkGraph is built, and then register it with ELK so your custom manager is used for your editor. See the next section for how that is done.</p>
-<h3 id="custom-editors">Custom Editors</h3>
-<p>If your editor is based on some other technology, ELK doesn&rsquo;t have a pre-built layout connection for you; you will have to build it yourself. To do so, create a class <a href="./documentation/tooldevelopers/usingeclipselayout/connectingtoelk.html">that implements the <code>IDiagramLayoutManager</code> interface</a>. Your class needs to be registered with ELK:</p>
-<pre tabindex="0"><code>&lt;extension
-   point=&#34;org.eclipse.elk.core.service.layoutManagers&#34;&gt;
-
-   &lt;manager
-      class=&#34;your.layout.manager.implementation&#34;&gt;
-   &lt;/manager&gt;
-&lt;/extension&gt;
-</code></pre><h2 id="customizing-automatic-layout">Customizing Automatic Layout</h2>
-<p>Chances are that the layouts you&rsquo;re getting at this point are not perfect for your type of diagram. That is to be expected. Luckily, most algorithms can be configured through the use of <em>layout options</em>.</p>
-<p>The first thing you will want to do is to experiment with the available options. To do so, open your editor as well as the <em>Layout View</em> provided by ELK. The view will show you the options available for the selected diagram elements and allow you to play around with them.</p>
-<p>
-  <img
-    class="img-fluid"
-    
-      src="./img/getting_started_layout_view.png"
-    
-     alt="The layout view allows you to play around with many of the available layout options."
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-
-<p>Once you have found settings you like, it&rsquo;s time to configure layout such that these settings are always applied. (You don&rsquo;t want your users having to use the layout view, now, do you?) There are different ways to do so, and we have <a href="./documentation/tooldevelopers/graphdatastructure/layoutoptions.html">more in-depth information on them</a>.</p>
-<p>The easiest way is to simply register static configurations with ELK. Static configurations are registered with the org.eclipse.elk.core.layoutConfigs extension point. Each static config consists of three parts:</p>
-<ol>
-<li>A class name. If ELK encounters an instance of this type, it will apply the static configuration to it. The class name can be the name of a domain model class, or the name of a class of your editor&rsquo;s view model.</li>
-<li>An option ID. This is the identifier of the layout option you actually want ELK to set on the element.</li>
-<li>An option value. This is the value you want ELK to set on the element for the layout option.</li>
-</ol>
-<p>Now, you may think that you don&rsquo;t have all of these information at hand, but you&rsquo;re actually wrong. You can find all of these information by selecting your diagram element, selecting the layout option in the layout view, and pressing the layout view&rsquo;s info button. The dialog that pops up will give you all the information you need.</p>
-<p>
-  <img
-    class="img-fluid"
-    
-      src="./img/getting_started_layout_view_info.png"
-    
-     alt="Finding out more about selected elements and layout options through the layout view."
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-
+    <p>Automatic layout can be a complex thing, but starting to use the <em>Eclipse Layout Kernel</em> can be easy.</p>
+<p>First of all, there are two versions of ELK. The <a href="https://github.com/eclipse/elk">Java Version</a> and the Javascript Version, which is transpiled from the Java source using <a href="https://www.gwtproject.org/">GWT</a>.</p>
+<p>Examples of ELK graphs can be found <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html">here</a> in the <a href="https://rtsys.informatik.uni-kiel.de/elklive/index.html">elklive</a> tool, which supports writing ELK graphs in the <a href="https://rtsys.informatik.uni-kiel.de/elklive/elkgraph.html">ELKT</a> and <a href="https://rtsys.informatik.uni-kiel.de/elklive/json.html">JSON</a> format, can convert between different formats, and allows browsing additional models.</p>
+<p>All layout algorithms and their options are documented <a href="https://www.eclipse.org/elk/reference.html">here</a> and further elaborated in a series of <a href="https://www.eclipse.org/elk/blog.html">blog-posts</a>.</p>
+<h2 id="issues-and-questions">Issues and Questions</h2>
+<p>Both <a href="https://github.com/eclipse/elk/issues/new">ELK</a> and <a href="https://github.com/kieler/elkjs/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=">elkjs</a> allow to report bugs and to ask questions in form of GitHub issues.</p>
+<p>Additionally, the <a href="https://gitter.im/eclipse/elk">ELK gitter</a> can be used to ask questions.</p>
+<h2 id="downloads">Downloads</h2>
+<p>ELK is published as an <a href="https://download.eclipse.org/elk/updates/releases">Eclipse update site</a> or on <a href="https://search.maven.org/search?q=g:org.eclipse.elk">Maven central</a>.</p>
+<p>The elkjs Version is available on <a href="https://www.npmjs.com/package/elkjs">npm</a>.</p>
+<p>Releases, nightly builds, and release notes are found <a href="https://www.eclipse.org/elk/downloads.html">here</a>.</p>
 
   </div>
 

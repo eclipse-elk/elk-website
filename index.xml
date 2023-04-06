@@ -422,6 +422,24 @@ Building ELK Execute Maven using the following command line (note that the comma
     </item>
     
     <item>
+      <title>Child Area Height</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-childAreaHeight.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-childAreaHeight.html</guid>
+      <description>Property Value Type: programmatic Identifier: org.eclipse.elk.childAreaHeight Meta Data Provider: core.options.CoreOptions Value Type: double Applies To: parents Description The height of the area occupied by the laid out children of a node.</description>
+    </item>
+    
+    <item>
+      <title>Child Area Width</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-childAreaWidth.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-childAreaWidth.html</guid>
+      <description>Property Value Type: programmatic Identifier: org.eclipse.elk.childAreaWidth Meta Data Provider: core.options.CoreOptions Value Type: double Applies To: parents Description The width of the area occupied by the laid out children of a node.</description>
+    </item>
+    
+    <item>
       <title>Cluster Crossing Penalty</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-clusterCrossingPenalty.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2309,6 +2327,15 @@ DF_MODEL_ORDER Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in or
     </item>
     
     <item>
+      <title>Node placement strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodePlacement-strategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodePlacement-strategy.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.topdownpacking.nodePlacement.strategy Meta Data Provider: options.TopdownpackingMetaDataProvider Value Type: org.eclipse.elk.alg.topdownpacking.NodePlacementStrategy (Enum) Possible Values: LEFT_RIGHT_TOP_DOWN_NODE_PLACER Default Value: NodePlacementStrategy.LEFT_RIGHT_TOP_DOWN_NODE_PLACER (as defined in org.eclipse.elk.topdownpacking) Applies To: parents Containing Group: nodePlacement Description Strategy for node placement. The strategy determines the size of the resulting graph.</description>
+    </item>
+    
+    <item>
       <title>Node Placement Strategy</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2412,6 +2439,15 @@ ASYMMETRICAL Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as def
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html</guid>
       <description> Property Value Identifier: org.eclipse.elk.layered.nodePlacement Options Node Placement Strategy Favor Straight Edges Over Balancing Subgroups bk linearSegments networkSimplex </description>
+    </item>
+    
+    <item>
+      <title>nodePlacement</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-nodePlacement.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-nodePlacement.html</guid>
+      <description> Property Value Identifier: org.eclipse.elk.topdownpacking.nodePlacement Options Node placement strategy </description>
     </item>
     
     <item>
@@ -3350,6 +3386,91 @@ Three Layers of Layout Goodness At its basic, ELK is structured in three layers,
     </item>
     
     <item>
+      <title>topdown</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdown.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdown.html</guid>
+      <description> Property Value Identifier: org.eclipse.elk.topdown Options Topdown Scale Factor Topdown Size Approximator Topdown Hierarchical Node Width Topdown Hierarchical Node Aspect Ratio Topdown Node Type Topdown Scale Cap </description>
+    </item>
+    
+    <item>
+      <title>Topdown Hierarchical Node Aspect Ratio</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-hierarchicalNodeAspectRatio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-hierarchicalNodeAspectRatio.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.hierarchicalNodeAspectRatio Meta Data Provider: core.options.CoreOptions Value Type: double Default Value: 1.414 (as defined in org.eclipse.elk) Applies To: parents, nodes Dependencies: org.eclipse.elk.topdown.nodeType Containing Group: topdown Description The fixed aspect ratio of a hierarchical node when using topdown layout. Default is 1/sqrt(2). If this value is set on a parallel node it applies to its children, when set on a hierarchical node it applies to the node itself.</description>
+    </item>
+    
+    <item>
+      <title>Topdown Hierarchical Node Width</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-hierarchicalNodeWidth.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-hierarchicalNodeWidth.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.hierarchicalNodeWidth Meta Data Provider: core.options.CoreOptions Value Type: double Default Value: 150 (as defined in org.eclipse.elk) Applies To: parents, nodes Dependencies: org.eclipse.elk.topdown.nodeType Containing Group: topdown Description The fixed size of a hierarchical node when using topdown layout. If this value is set on a parallel node it applies to its children, when set on a hierarchical node it applies to the node itself.</description>
+    </item>
+    
+    <item>
+      <title>Topdown Layout</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownLayout.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownLayout.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdownLayout Meta Data Provider: core.options.CoreOptions Value Type: boolean Default Value: false (as defined in org.eclipse.elk) Applies To: parents Dependencies: org.eclipse.elk.topdown.nodeType Description Turns topdown layout on and off. If this option is enabled, hierarchical layout will be computed first for the root node and then for its children recursively. Layouts are then scaled down to fit the area provided by their parents. Graphs must follow a certain structure for topdown layout to work properly.</description>
+    </item>
+    
+    <item>
+      <title>Topdown Node Type</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-nodeType.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-nodeType.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.nodeType Meta Data Provider: core.options.CoreOptions Value Type: org.eclipse.elk.core.options.TopdownNodeTypes (Enum) Possible Values: PARALLEL_NODE
+HIERARCHICAL_NODE
+ROOT_NODE Default Value: null (as defined in org.eclipse.elk) Applies To: nodes Dependencies: org.eclipse.elk.nodeSize.fixedGraphSize Containing Group: topdown Description The different node types used for topdown layout. If the node type is set to {@link TopdownNodeTypes.PARALLEL_NODE} the algorithm must be set to a {@link TopdownLayoutProvider} such as {@link TopdownPacking}. The {@link nodeSize.fixedGraphSize} option is technically only required for hierarchical nodes.</description>
+    </item>
+    
+    <item>
+      <title>Topdown Scale Cap</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-scaleCap.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-scaleCap.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.scaleCap Meta Data Provider: core.options.CoreOptions Value Type: double Default Value: 1 (as defined in org.eclipse.elk) Applies To: parents Dependencies: org.eclipse.elk.topdown.nodeType (TopdownNodeTypes.HIERARCHICAL_NODE) Containing Group: topdown Description Determines the upper limit for the topdown scale factor. The default value is 1.0 which ensures that nested children never end up appearing larger than their parents in terms of unit sizes such as the font size. If the limit is larger, nodes will fully utilize the available space, but it is counteriniuitive for inner nodes to have a larger scale than outer nodes.</description>
+    </item>
+    
+    <item>
+      <title>Topdown Scale Factor</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-scaleFactor.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-scaleFactor.html</guid>
+      <description>Property Value Type: programmatic Identifier: org.eclipse.elk.topdown.scaleFactor Meta Data Provider: core.options.CoreOptions Value Type: double Default Value: 1 (as defined in org.eclipse.elk) Lower Bound: ExclusiveBounds.greaterThan(0) Applies To: parents Dependencies: org.eclipse.elk.topdown.nodeType (TopdownNodeTypes.HIERARCHICAL_NODE) Containing Group: topdown Description The scaling factor to be applied to the nodes laid out within the node in recursive topdown layout. The difference to &amp;lsquo;Scale Factor&amp;rsquo; is that the node itself is not scaled. This value has to be set on hierarchical nodes.</description>
+    </item>
+    
+    <item>
+      <title>Topdown Size Approximator</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeApproximator.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeApproximator.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.sizeApproximator Meta Data Provider: core.options.CoreOptions Value Type: org.eclipse.elk.core.options.TopdownSizeApproximator (Enum) Possible Values: COUNT_CHILDREN
+LOOKAHEAD_LAYOUT Default Value: null (as defined in org.eclipse.elk) Applies To: nodes Dependencies: org.eclipse.elk.topdown.nodeType (TopdownNodeTypes.HIERARCHICAL_NODE) Containing Group: topdown Description The size approximator to be used to set sizes of hierarchical nodes during topdown layout. The default value is null, which results in nodes keeping whatever size is defined for them e.g. through parent parallel node or by manually setting the size.</description>
+    </item>
+    
+    <item>
+      <title>Topdownpacking</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.topdownpacking Meta Data Provider: options.TopdownpackingMetaDataProvider Description An algorithm for placing boxes of fixed sizes. Expands boxes horizontally to fill empty whitespace. This algorithm can be used standalone or specifically for {@link CoreOptions.TOPDOWN_LAYOUT}. In this use case it should be set for nodes whose {@link CoreOptions.TOPDOWN_NODE_TYPE} is set to {@link TopdownNodeTypes.PARALLEL_NODE}. This allows topdown layout to give children larger sizes based on their number of children.
+Supported Options Option Default Value Node placement strategy NodePlacementStrategy.</description>
+    </item>
+    
+    <item>
       <title>Translation Optimization</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-optimizationCriteria.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -3553,6 +3674,24 @@ CONSTRAINT Default Value: OrderWeighting.MODEL_ORDER (as defined in org.eclipse.
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-whiteSpaceElimination-strategy.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.rectpacking.whiteSpaceElimination.strategy Meta Data Provider: options.RectPackingMetaDataProvider Value Type: org.eclipse.elk.alg.rectpacking.p3whitespaceelimination.WhiteSpaceEliminationStrategy (Enum) Possible Values: EQUAL_BETWEEN_STRUCTURES
 TO_ASPECT_RATIO Applies To: parents Containing Group: whiteSpaceElimination Description Strategy for expanding nodes such that whitespace in the parent is eliminated.</description>
+    </item>
+    
+    <item>
+      <title>Whitespace elimination strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-whitespaceElimination-strategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-whitespaceElimination-strategy.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.topdownpacking.whitespaceElimination.strategy Meta Data Provider: options.TopdownpackingMetaDataProvider Value Type: org.eclipse.elk.alg.topdownpacking.WhitespaceEliminationStrategy (Enum) Possible Values: BOTTOM_ROW_EQUAL_WHITESPACE_ELIMINATOR Default Value: WhitespaceEliminationStrategy.BOTTOM_ROW_EQUAL_WHITESPACE_ELIMINATOR (as defined in org.eclipse.elk.topdownpacking) Applies To: parents Containing Group: whitespaceElimination Description Strategy for whitespace elimination.</description>
+    </item>
+    
+    <item>
+      <title>whitespaceElimination</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-whitespaceElimination.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-whitespaceElimination.html</guid>
+      <description> Property Value Identifier: org.eclipse.elk.topdownpacking.whitespaceElimination Options Whitespace elimination strategy </description>
     </item>
     
     <item>

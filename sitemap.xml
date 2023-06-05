@@ -102,11 +102,11 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-commentNode.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactor.html</loc>
-  </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-compaction.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-compaction.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-compactor.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packing-compaction-iterations.html</loc>
   </url><url>
@@ -488,9 +488,9 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-nodeNodeBetweenLayers.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html</loc>
-  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodePlacement-strategy.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-nodePromotion-strategy.html</loc>
   </url><url>
@@ -608,9 +608,9 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-strategy.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority.html</loc>
-  </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-priority.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-priority_org-eclipse-elk-box.html</loc>
   </url><url>
@@ -768,9 +768,9 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-whitespaceElimination-strategy.html</loc>
   </url><url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-rectpacking-whiteSpaceElimination.html</loc>
-  </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-whitespaceElimination.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-rectpacking-whiteSpaceElimination.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-strategy.html</loc>
   </url><url>

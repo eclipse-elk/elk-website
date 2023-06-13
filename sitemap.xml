@@ -280,6 +280,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/elktextformat.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-epsilon.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes.html</loc>
@@ -706,6 +708,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/blog/posts/2023/23-04-11-topdown-layout.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdown.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-hierarchicalNodeAspectRatio.html</loc>
@@ -721,8 +725,6 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-scaleFactor.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeApproximator.html</loc>
-  </url><url>
-    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-optimizationCriteria.html</loc>
   </url><url>

@@ -55,5 +55,16 @@ The rectpacking algorithm was introduced to solved common problems with the box 
 Since it was a common use case of the box algorithm to add a priority to order the rectangles rectpacking uses the model order (which corresponds to the input order of the rectangles) as a criterion.</description>
     </item>
     
+    <item>
+      <title>Top-down Layout: Zoom in the Layout Process</title>
+      <link>https://www.eclipse.org/elk/blog/posts/2023/23-04-11-topdown-layout.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/posts/2023/23-04-11-topdown-layout.html</guid>
+      <description>By Maximilian Kasperowski, June 9, 2023
+The coming update (ELK 0.9.0) introduces a new approach to layout hierarchical graphs. Instead of increasing the size of parent nodes to fit their content we apply scaling to the content to make it fit the parent. In this post I will go over the new properties provided to achieve this and what kinds of output can be produced using top-down layout.
+Scaling In addition to the existing data assigned to graph elements during layout such as positions, nodes can now also have the additional property org.</description>
+    </item>
+    
   </channel>
 </rss>

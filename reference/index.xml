@@ -990,6 +990,16 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
     </item>
     
     <item>
+      <title>ELK Top-down Packing</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.topdownpacking Meta Data Provider: options.TopdownpackingMetaDataProvider Description An algorithm for placing boxes of fixed sizes. Expands boxes horizontally to fill empty whitespace. This algorithm can be used standalone or specifically for {@link CoreOptions.TOPDOWN_LAYOUT}. In this use case it should be set for nodes whose {@link CoreOptions.TOPDOWN_NODE_TYPE} is set to {@link TopdownNodeTypes.PARALLEL_NODE}. This allows topdown layout to give children larger sizes based on their number of children.
+Supported Options Option Default Value Node placement strategy NodePlacementStrategy.</description>
+    </item>
+    
+    <item>
       <title>Epsilon</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-epsilon.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1697,7 +1707,7 @@ Y Default Value: Dimension.XY (as defined in org.eclipse.elk.stress) Applies To:
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-alg-libavoid.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.alg.libavoid Meta Data Provider: options.LibavoidMetaDataProvider Description libavoid is a cross-platform C++ library providing fast, object-avoiding orthogonal and polyline connector routing for use in interactive diagram editors.
 Category: Edge Routing Only route the edges without touching the node&#39;s positions.
-Supported Options Option Default Value Angle Penalty 0 Cluster Crossing Penalty 0 Crossing Penalty 0 Debug Mode false Direction Direction.UNDEFINED Edge Routing EdgeRouting.ORTHOGONAL Fixed Shared Path Penalty 0 Ideal Nudging Distance 4 Improve Hyperedge Routes true Improve Hyperedge Routes Add/Delete false Nudge Orthogonal Segments false Nudge Orthogonal Touching Colinear Segments false Nudge Shared Paths With Common Endpoint true Penalise Orthogonal Shared Paths false Perform Unifying Nudging Preprocessing true Port Constraints PortConstraints.</description>
+Supported Options Option Default Value Angle Penalty 0 Cluster Crossing Penalty 0 Crossing Penalty 0 Debug Mode false Direction Direction.UNDEFINED Edge Routing EdgeRouting.ORTHOGONAL Fixed Shared Path Penalty 0 Ideal Nudging Distance 4 Improve Hyperedge Routes true Improve Hyperedge Routes Add/Delete false Nudge Orthogonal Segments false Nudge Orthogonal Touching Colinear Segments false Nudge Shared Paths With Common Endpoint true Omit Node Micro Layout false Penalise Orthogonal Shared Paths false Perform Unifying Nudging Preprocessing true Port Constraints PortConstraints.</description>
     </item>
     
     <item>
@@ -2975,16 +2985,6 @@ ROOT_NODE Default Value: null (as defined in org.eclipse.elk) Applies To: nodes 
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeApproximator.html</guid>
       <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.sizeApproximator Meta Data Provider: core.options.CoreOptions Value Type: org.eclipse.elk.core.options.TopdownSizeApproximator (Enum) Possible Values: COUNT_CHILDREN
 LOOKAHEAD_LAYOUT Default Value: null (as defined in org.eclipse.elk) Applies To: nodes Dependencies: org.eclipse.elk.topdown.nodeType (TopdownNodeTypes.HIERARCHICAL_NODE) Containing Group: topdown Description The size approximator to be used to set sizes of hierarchical nodes during topdown layout. The default value is null, which results in nodes keeping whatever size is defined for them e.g. through parent parallel node or by manually setting the size.</description>
-    </item>
-    
-    <item>
-      <title>Topdownpacking</title>
-      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</guid>
-      <description>Property Value Identifier: org.eclipse.elk.topdownpacking Meta Data Provider: options.TopdownpackingMetaDataProvider Description An algorithm for placing boxes of fixed sizes. Expands boxes horizontally to fill empty whitespace. This algorithm can be used standalone or specifically for {@link CoreOptions.TOPDOWN_LAYOUT}. In this use case it should be set for nodes whose {@link CoreOptions.TOPDOWN_NODE_TYPE} is set to {@link TopdownNodeTypes.PARALLEL_NODE}. This allows topdown layout to give children larger sizes based on their number of children.
-Supported Options Option Default Value Node placement strategy NodePlacementStrategy.</description>
     </item>
     
     <item>

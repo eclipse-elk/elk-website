@@ -1347,6 +1347,15 @@ Supported Options Option Default Value Node placement strategy NodePlacementStra
     </item>
     
     <item>
+      <title>Enable Hyperedges From Common Source</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-enableHyperedgesFromCommonSource.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-enableHyperedgesFromCommonSource.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.enableHyperedgesFromCommonSource Meta Data Provider: options.LibavoidMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This option enables a post-processing step that creates hyperedges for all edges with the same source. Be aware that this step will significantly decrease performance.</description>
+    </item>
+    
+    <item>
       <title>Epsilon</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-epsilon.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2129,7 +2138,7 @@ It is a fair question whether users should be given access to this view or not.<
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-alg-libavoid.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.alg.libavoid Meta Data Provider: options.LibavoidMetaDataProvider Description libavoid is a cross-platform C++ library providing fast, object-avoiding orthogonal and polyline connector routing for use in interactive diagram editors.
 Category: Edge Routing Only route the edges without touching the node&#39;s positions.
-Supported Options Option Default Value Angle Penalty 0 Cluster Crossing Penalty 0 Crossing Penalty 0 Debug Mode false Direction Direction.UNDEFINED Edge Routing EdgeRouting.ORTHOGONAL Fixed Shared Path Penalty 0 Ideal Nudging Distance 4 Improve Hyperedge Routes true Improve Hyperedge Routes Add/Delete false Nudge Orthogonal Segments false Nudge Orthogonal Touching Colinear Segments false Nudge Shared Paths With Common Endpoint true Omit Node Micro Layout false Penalise Orthogonal Shared Paths false Perform Unifying Nudging Preprocessing true Port Constraints PortConstraints.</description>
+Supported Options Option Default Value Angle Penalty 0 Cluster Crossing Penalty 0 Crossing Penalty 0 Debug Mode false Direction Direction.UNDEFINED Edge Routing EdgeRouting.ORTHOGONAL Enable Hyperedges From Common Source false Fixed Shared Path Penalty 0 Ideal Nudging Distance 4 Improve Hyperedge Routes true Improve Hyperedge Routes Add/Delete false Marks a node as a cluster false Nudge Orthogonal Segments false Nudge Orthogonal Touching Colinear Segments false Nudge Shared Paths With Common Endpoint true Omit Node Micro Layout false Penalise Orthogonal Shared Paths false Perform Unifying Nudging Preprocessing true Port Constraints PortConstraints.</description>
     </item>
     
     <item>
@@ -2177,6 +2186,15 @@ EQUAL Default Value: LongEdgeOrderingStrategy.DUMMY_NODE_OVER (as defined in org
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-margins.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.margins Meta Data Provider: core.options.CoreOptions Value Type: org.eclipse.elk.core.math.ElkMargin Default Value: new ElkMargin() (as defined in org.eclipse.elk) Applies To: nodes Description Margins define additional space around the actual bounds of a graph element. For instance, ports or labels being placed on the outside of a node&amp;rsquo;s border might introduce such a margin. The margin is used to guarantee non-overlap of other graph elements with those ports or labels.</description>
+    </item>
+    
+    <item>
+      <title>Marks a node as a cluster</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-isCluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-isCluster.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.isCluster Meta Data Provider: options.LibavoidMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.alg.libavoid) Applies To: nodes Description This option marks a node as a cluster, resulting in its children being handled as relative to the graph itself while the marked node is only added as a cluster. Note that clusters are experimental and can therefore have a negative impact on performance. The cluster node cannot have: - clusters as children - outgoing or incoming connections (directly to the node) - ports Edges into or out of the cluster must be added across the cluster&amp;rsquo;s borders, without the use of hierarchical ports.</description>
     </item>
     
     <item>

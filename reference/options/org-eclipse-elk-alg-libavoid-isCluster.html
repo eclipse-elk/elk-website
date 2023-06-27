@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Connected Components Layout Algorithm (ELK)</title>
+    <title>Marks a node as a cluster (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Connected Components Layout Algorithm</h1>
+    <h1>Marks a node as a cluster</h1>
 
     <table>
 <thead>
@@ -87,29 +87,33 @@
 </thead>
 <tbody>
 <tr>
+<td><em>Type:</em></td>
+<td>advanced</td>
+</tr>
+<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.disco.componentCompaction.componentLayoutAlgorithm</code></td>
+<td><code>org.eclipse.elk.alg.libavoid.isCluster</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>options.DisCoMetaDataProvider</code></td>
+<td><code>options.LibavoidMetaDataProvider</code></td>
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>java.lang.String</code></td>
+<td><code>boolean</code></td>
+</tr>
+<tr>
+<td><em>Default Value:</em></td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk.alg.libavoid</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
-<td>parents</td>
-</tr>
-<tr>
-<td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-disco-componentCompaction.html">componentCompaction</a></td>
+<td>nodes</td>
 </tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>A layout algorithm that is to be applied to each connected component before the components themselves are compacted. If unspecified, the positions of the components&rsquo; nodes are not altered.</p>
+<p>This option marks a node as a cluster, resulting in its children being handled as relative to the graph itself while the marked node is only added as a cluster. Note that clusters are experimental and can therefore have a negative impact on performance. The cluster node cannot have: - clusters as children - outgoing or incoming connections (directly to the node) - ports Edges into or out of the cluster must be added across the cluster&rsquo;s borders, without the use of hierarchical ports.</p>
 
   </div>
 
@@ -568,7 +572,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-disco-componentCompaction-componentLayoutAlgorithm.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Connected Components Layout Algorithm
     </li>
   </a>
@@ -1400,7 +1404,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-alg-libavoid-isCluster.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Marks a node as a cluster
     </li>
   </a>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Box Layout Mode (ELK)</title>
+    <title>Center On Root (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Box Layout Mode</h1>
+    <h1>Center On Root</h1>
 
     <table>
 <thead>
@@ -88,36 +88,28 @@
 <tbody>
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.box.packingMode</code></td>
+<td><code>org.eclipse.elk.radial.centerOnRoot</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>core.options.CoreOptions</code></td>
+<td><code>options.RadialMetaDataProvider</code></td>
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>org.eclipse.elk.core.util.BoxLayoutProvider$PackingMode</code> (Enum)</td>
-</tr>
-<tr>
-<td><em>Possible Values:</em></td>
-<td><code>SIMPLE</code><br><code>GROUP_DEC</code><br><code>GROUP_MIXED</code><br><code>GROUP_INC</code></td>
+<td><code>boolean</code></td>
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>BoxLayoutProvider.PackingMode.SIMPLE</code> (as defined in <code>org.eclipse.elk</code>)</td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk.radial</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
 <td>parents</td>
 </tr>
-<tr>
-<td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-box.html">box</a></td>
-</tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>Configures the packing mode used by the {@link BoxLayoutProvider}. If SIMPLE is not required (neither priorities are used nor the interactive mode), GROUP_DEC can improve the packing and decrease the area. GROUP_MIXED and GROUP_INC may, in very specific scenarios, work better.</p>
+<p>Centers the layout on the root of the tree i.e. so that the central node is also the center node of the final layout. This introduces additional whitespace.</p>
 
   </div>
 
@@ -448,7 +440,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-box-packingMode.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Box Layout Mode
     </li>
   </a>
@@ -456,7 +448,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-radial-centerOnRoot.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Center On Root
     </li>
   </a>

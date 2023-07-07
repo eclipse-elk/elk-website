@@ -184,6 +184,15 @@ GROUP_INC Default Value: BoxLayoutProvider.PackingMode.SIMPLE (as defined in org
     </item>
     
     <item>
+      <title>Center On Root</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-centerOnRoot.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-centerOnRoot.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.radial.centerOnRoot Meta Data Provider: options.RadialMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.radial) Applies To: parents Description Centers the layout on the root of the tree i.e. so that the central node is also the center node of the final layout. This introduces additional whitespace.</description>
+    </item>
+    
+    <item>
       <title>Child Area Height</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-childAreaHeight.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

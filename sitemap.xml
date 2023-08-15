@@ -46,6 +46,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-portsSurrounding.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-computeAdditionalWedgeSpace.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/advancedconfiguration.html</loc>
@@ -484,6 +486,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-noModelOrder.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodeArrangement-strategy.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility-default.html</loc>
@@ -495,8 +499,6 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-nodeNodeBetweenLayers.html</loc>
-  </url><url>
-    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodePlacement-strategy.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html</loc>
   </url><url>
@@ -512,11 +514,11 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-nodeNode.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-nodeArrangement.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodeLabels.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html</loc>
-  </url><url>
-    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-nodePlacement.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-bk.html</loc>
   </url><url>
@@ -541,6 +543,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-orderId.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-orthogonal.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-outgoingEdgeAngles.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-overlapMode.html</loc>
   </url><url>
@@ -654,6 +658,10 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-processingOrder-rootSelection.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotate.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-radial-rotation.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packing-compaction-rowHeightReevaluation.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-scaleFactor.html</loc>
@@ -707,6 +715,8 @@
     <loc>https://www.eclipse.org/elk/support.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/tags.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-targetAngle.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-targetWidth.html</loc>
   </url><url>

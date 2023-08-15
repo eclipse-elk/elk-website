@@ -220,6 +220,15 @@ New Features and Enhancements #827: Added Greedy Model Order cycle breaker. #842
     </item>
     
     <item>
+      <title>Additional Wedge Space</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-computeAdditionalWedgeSpace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-computeAdditionalWedgeSpace.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.radial.rotation.computeAdditionalWedgeSpace Meta Data Provider: options.RadialMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.radial) Applies To: parents Dependencies: org.eclipse.elk.radial.rotate Containing Group: rotation Description If set to true, modifies the target angle by rotating further such that space is left for an edge to pass in between the nodes. This option should only be used in conjunction with top-down layout.</description>
+    </item>
+    
+    <item>
       <title>Additional Wrapped Edges Spacing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1352,7 +1361,7 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.topdownpacking Meta Data Provider: options.TopdownpackingMetaDataProvider Description An algorithm for placing boxes of fixed sizes. Expands boxes horizontally to fill empty whitespace. This algorithm can be used standalone or specifically for {@link CoreOptions.TOPDOWN_LAYOUT}. In this use case it should be set for nodes whose {@link CoreOptions.TOPDOWN_NODE_TYPE} is set to {@link TopdownNodeTypes.PARALLEL_NODE}. This allows topdown layout to give children larger sizes based on their number of children.
-Supported Options Option Default Value Node placement strategy NodePlacementStrategy.</description>
+Supported Options Option Default Value Node arrangement strategy NodeArrangementStrategy.</description>
     </item>
     
     <item>
@@ -2288,6 +2297,15 @@ EQUAL Default Value: LongEdgeOrderingStrategy.DUMMY_NODE_OVER (as defined in org
     </item>
     
     <item>
+      <title>Node arrangement strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodeArrangement-strategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodeArrangement-strategy.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.topdownpacking.nodeArrangement.strategy Meta Data Provider: options.TopdownpackingMetaDataProvider Value Type: org.eclipse.elk.alg.topdownpacking.NodeArrangementStrategy (Enum) Possible Values: LEFT_RIGHT_TOP_DOWN_NODE_PLACER Default Value: NodeArrangementStrategy.LEFT_RIGHT_TOP_DOWN_NODE_PLACER (as defined in org.eclipse.elk.topdownpacking) Applies To: parents Containing Group: nodeArrangement Description Strategy for node arrangement. The strategy determines the size of the resulting graph.</description>
+    </item>
+    
+    <item>
       <title>Node Flexibility</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2361,15 +2379,6 @@ DF_MODEL_ORDER Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in or
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-nodeNodeBetweenLayers.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers Meta Data Provider: options.LayeredMetaDataProvider Value Type: double Default Value: 20 (as defined in org.eclipse.elk.layered) Lower Bound: 0.0 Applies To: parents Containing Group: spacing Description The spacing to be preserved between any pair of nodes of two adjacent layers. Note that &amp;lsquo;spacing.nodeNode&amp;rsquo; is used for the spacing between nodes within the layer itself.</description>
-    </item>
-    
-    <item>
-      <title>Node placement strategy</title>
-      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodePlacement-strategy.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdownpacking-nodePlacement-strategy.html</guid>
-      <description>Property Value Identifier: org.eclipse.elk.topdownpacking.nodePlacement.strategy Meta Data Provider: options.TopdownpackingMetaDataProvider Value Type: org.eclipse.elk.alg.topdownpacking.NodePlacementStrategy (Enum) Possible Values: LEFT_RIGHT_TOP_DOWN_NODE_PLACER Default Value: NodePlacementStrategy.LEFT_RIGHT_TOP_DOWN_NODE_PLACER (as defined in org.eclipse.elk.topdownpacking) Applies To: parents Containing Group: nodePlacement Description Strategy for node placement. The strategy determines the size of the resulting graph.</description>
     </item>
     
     <item>
@@ -2461,6 +2470,15 @@ ASYMMETRICAL Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as def
     </item>
     
     <item>
+      <title>nodeArrangement</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-nodeArrangement.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-nodeArrangement.html</guid>
+      <description> Property Value Identifier: org.eclipse.elk.topdownpacking.nodeArrangement Options Node arrangement strategy </description>
+    </item>
+    
+    <item>
       <title>nodeLabels</title>
       <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-nodeLabels.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2476,15 +2494,6 @@ ASYMMETRICAL Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as def
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement.html</guid>
       <description> Property Value Identifier: org.eclipse.elk.layered.nodePlacement Options Node Placement Strategy Favor Straight Edges Over Balancing Subgroups bk linearSegments networkSimplex </description>
-    </item>
-    
-    <item>
-      <title>nodePlacement</title>
-      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-nodePlacement.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdownpacking-nodePlacement.html</guid>
-      <description> Property Value Identifier: org.eclipse.elk.topdownpacking.nodePlacement Options Node placement strategy </description>
     </item>
     
     <item>
@@ -2596,6 +2605,15 @@ Additional Documentation The packing strategy specifies what is most important d
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-orthogonal.html</guid>
       <description>Property Value Type: advanced Identifier: org.eclipse.elk.compaction.orthogonal Meta Data Provider: options.SporeMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk) Applies To: parents Containing Group: compaction Description Restricts the translation of nodes to orthogonal directions in the compaction phase.</description>
+    </item>
+    
+    <item>
+      <title>Outgoing Edge Angles</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-outgoingEdgeAngles.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-outgoingEdgeAngles.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.radial.rotation.outgoingEdgeAngles Meta Data Provider: options.RadialMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.radial) Applies To: parents Containing Group: rotation Description Calculate the required angle of connected nodes to leave space for an incoming edge. This option should only be used in conjunction with top-down layout.</description>
     </item>
     
     <item>
@@ -3157,6 +3175,24 @@ CENTER_NODE Default Value: RootSelection.CENTER_NODE (as defined in org.eclipse.
     </item>
     
     <item>
+      <title>Rotate</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotate.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotate.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.radial.rotate Meta Data Provider: options.RadialMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.radial) Applies To: parents Description The rotate option determines whether a rotation of the layout should be performed.</description>
+    </item>
+    
+    <item>
+      <title>rotation</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-radial-rotation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-radial-rotation.html</guid>
+      <description> Property Value Identifier: org.eclipse.elk.radial.rotation Options Target Angle Additional Wedge Space Outgoing Edge Angles </description>
+    </item>
+    
+    <item>
       <title>Row Height Reevaluation</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-packing-compaction-rowHeightReevaluation.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -3392,6 +3428,15 @@ SLOPPY Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.la
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmimplementation/algorithmstructure.html</guid>
       <description>Often enough, algorithms can be divided into a number of layout phases which, executed as a pipeline, compute a layout. If your algorithm falls into this category, read on; ELK provides things you might want to use.
 Layout Phases and Layout Processors Structuring the algorithm into phases has several advantages. First, it effectively divides the big layout problem into simpler sub problems. Second, it allows the algorithm to be more flexible.</description>
+    </item>
+    
+    <item>
+      <title>Target Angle</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-targetAngle.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-rotation-targetAngle.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.radial.rotation.targetAngle Meta Data Provider: options.RadialMetaDataProvider Value Type: double Default Value: 0 (as defined in org.eclipse.elk.radial) Applies To: parents Dependencies: org.eclipse.elk.radial.rotate Containing Group: rotation Description The angle in radians that the layout should be rotated to after layout.</description>
     </item>
     
     <item>

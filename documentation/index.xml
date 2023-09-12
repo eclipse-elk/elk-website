@@ -22,9 +22,8 @@
       
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/algorithmdebugging.html</guid>
       <description>The Eclipse Layout Kernel provides debugging support through its debugging infrastructure, which consists of three layers:
-Logging mechanisms that algorithm developers can use to generate log messages as well as log snapshots of graphs as they are laid out. The messages can optionally be written to disk.
-Viewers that algorithm developers can use to inspect all kinds of logged objects as well as the execution times of their algorithms.
-Preferences that algorithm developers and users can use to engage or disengage the production of logs.</description>
+  Logging mechanisms that algorithm developers can use to generate log messages as well as log snapshots of graphs as they are laid out. The messages can optionally be written to disk.
+  Viewers that algorithm developers can use to inspect all kinds of logged objects as well as the execution times of their algorithms.</description>
     </item>
     
     <item>
@@ -35,7 +34,7 @@ Preferences that algorithm developers and users can use to engage or disengage t
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers.html</guid>
       <description>While the layout algorithms implemented in ELK already cover a wide range of layout styles, your particular application may have more specific requirements. In these cases, it may become necessary to implement your own layout algorithm, which is what this part of the documentation is all about.
 Implementing your own layout algorithm basically consists of the following steps:
-Install the Eclipse Layout Kernel SDK into your Eclipse development environment. Create and configure a new Eclipse plug-in project.</description>
+ Install the Eclipse Layout Kernel SDK into your Eclipse development environment. Create and configure a new Eclipse plug-in project.</description>
     </item>
     
     <item>
@@ -84,8 +83,8 @@ To connect to ELK, there are two things you will have to do:</description>
       
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/coordinatesystem.html</guid>
       <description>When talking about the layout of a graph, we have to agree on how coordinates of graph elements are to be stored and interpreted. For the ELK graph, this is how it works:
-The coordinates of most elements are relative to their parent element. There are a few exceptions:
-Edge labels are relative to the coordinate system their edge is relative to. Source points, bend points, and target points of edges are relative to the edge&amp;rsquo;s containing node.</description>
+ The coordinates of most elements are relative to their parent element. There are a few exceptions:
+ Edge labels are relative to the coordinate system their edge is relative to. Source points, bend points, and target points of edges are relative to the edge&amp;rsquo;s containing node.</description>
     </item>
     
     <item>
@@ -96,10 +95,9 @@ Edge labels are relative to the coordinate system their edge is relative to. Sou
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/creatinganewproject.html</guid>
       <description>Layout algorithms are developed as Eclipse Plug-in Projects. Let&amp;rsquo;s work through creating a new project using our wizard and what that project consists of.
 Creating a New Project Follow these steps to create a new plug-in:
-From the File menu, select New - Project&amp;hellip;.
-From the Plug-in Development category, select Plug-in Project and click Next.
-Configure your project&amp;rsquo;s basic settings, in particular its name, and click Next.
-Configure the project&amp;rsquo;s properties as you see fit and click Next.</description>
+  From the File menu, select New - Project&amp;hellip;.
+  From the Plug-in Development category, select Plug-in Project and click Next.
+  Configure your project&amp;rsquo;s basic settings, in particular its name, and click Next.</description>
     </item>
     
     <item>
@@ -119,9 +117,9 @@ If you have not used dependency injection yet: ELK will ask the injector to retr
       
       <guid>https://www.eclipse.org/elk/documentation/contributors/developmentsetup.html</guid>
       <description>Before you can start development, follow this list of steps. Not doing so may result in us having to reject your contributions, which would make everyone sad.
-Register with GitHub
+  Register with GitHub
 Chances are that you already have a GitHub account. If you don&amp;rsquo;t, go to GitHub.com and click Sign up in the upper right corner.
-Register with Eclipse
+  Register with Eclipse
 You need an account at Eclipse.org. Create one by going to that site and clicking Create account in the upper right corner of the site.</description>
     </item>
     
@@ -132,7 +130,7 @@ You need an account at Eclipse.org. Create one by going to that site and clickin
       
       <guid>https://www.eclipse.org/elk/documentation/contributors/developmentworkflow.html</guid>
       <description>Once you have everything set up it is time to start getting your hands at the code. The exact steps depend on how you have set up your development environment and your taste in things (and stuff), but here&amp;rsquo;s what you will generally want to do.
-Set Up an Eclipse Installation
+  Set Up an Eclipse Installation
 This used to be rather hard, but thankfully people have seen that problem and started to do something about it.</description>
     </item>
     
@@ -143,8 +141,9 @@ This used to be rather hard, but thankfully people have seen that problem and st
       
       <guid>https://www.eclipse.org/elk/documentation/contributors.html</guid>
       <description>You want to contribute to the Eclipse Layout Kernel? Excellent! Here&amp;rsquo;s what you need to do:
-Setting Everything Up: Get necessary accounts and prepare everything for us to be able to accept your contributions.
-Development Workflow: Understand how development works at the ELK project and how to get your code submitted.</description>
+  Setting Everything Up: Get necessary accounts and prepare everything for us to be able to accept your contributions.
+  Development Workflow: Understand how development works at the ELK project and how to get your code submitted.
+  </description>
     </item>
     
     <item>
@@ -154,7 +153,7 @@ Development Workflow: Understand how development works at the ELK project and ho
       
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/metadatalanguage.html</guid>
       <description>As described in other parts of the documentation, the Eclipse Layout Kernel relies on metadata about all available layout algorithms and the layout options they support. Supplying metadata for your layout algorithm is done by writing an ELK Metadata File in our textual metadata language. The file is used by the ELK SDK to generate the following Java classes:
-An ILayoutMetaDataProvider that contains IProperty objects for each layout option you declare, along with a method that registers these options and layout algorithm categories with the LayoutMetaDataService.</description>
+ An ILayoutMetaDataProvider that contains IProperty objects for each layout option you declare, along with a method that registers these options and layout algorithm categories with the LayoutMetaDataService.</description>
     </item>
     
     <item>
@@ -173,7 +172,7 @@ An ILayoutMetaDataProvider that contains IProperty objects for each layout optio
       
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/gettingeclipseready.html</guid>
       <description>Developing layout algorithms requires you to have the Eclipse Layout Kernel SDK installed in your Eclipse installation. Follow these steps to install it:
-Start Eclipse and select Help - Install New Software&amp;hellip; from the menu. In the Work with: field, enter the address of our release or nightly update site, which you can find in our Downloads section. From the Eclipse Layout Kernel category, check Eclipse Layout Kernel (Incubation) - SDK as well as Eclipse Layout Kernel (Incubation) - SDK (sources) and click Next.</description>
+ Start Eclipse and select Help - Install New Software&amp;hellip; from the menu. In the Work with: field, enter the address of our release or nightly update site, which you can find in our Downloads section. From the Eclipse Layout Kernel category, check Eclipse Layout Kernel (Incubation) - SDK as well as Eclipse Layout Kernel (Incubation) - SDK (sources) and click Next.</description>
     </item>
     
     <item>
@@ -184,7 +183,7 @@ Start Eclipse and select Help - Install New Software&amp;hellip; from the menu. 
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure.html</guid>
       <description>To represent graphs that should be laid out, the Eclipse Layout Kernel provides a robust EMF-based data structure. This page is about describing that graph data structure.
 Terminology Graphs This is a simple example graph along with the terminology that goes with it.
-Inclusion Trees Inclusion trees capture the hierarchical structure of a graph. See below for the inclusion tree of the graph we just saw, along with the terminology that goes with it.</description>
+ Inclusion Trees Inclusion trees capture the hierarchical structure of a graph. See below for the inclusion tree of the graph we just saw, along with the terminology that goes with it.</description>
     </item>
     
     <item>
@@ -194,9 +193,9 @@ Inclusion Trees Inclusion trees capture the hierarchical structure of a graph. S
       
       <guid>https://www.eclipse.org/elk/documentation/contributors/developmentworkflow/installingwithoomph.html</guid>
       <description>Setting up an Eclipse to work on the Eclipse Layout Kernel is comparatively easy when using the Oomph Installer. Follow this step-by-step guide for great glory.
-Start the installer. This is what it will look like, more or less:
-Click on the Hamburger menu (the three stripes at the top right). A menu with additional options will magically appear:
-Click the Advanced Mode button (we&amp;rsquo;re programmers, we don&amp;rsquo;t want to deal with the simple stuff).</description>
+  Start the installer. This is what it will look like, more or less:
+   Click on the Hamburger menu (the three stripes at the top right). A menu with additional options will magically appear:
+   Click the Advanced Mode button (we&amp;rsquo;re programmers, we don&amp;rsquo;t want to deal with the simple stuff).</description>
     </item>
     
     <item>
@@ -227,7 +226,7 @@ Properties The most important type when it comes to properties is the IProperty 
       
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/layoutviewsupport.html</guid>
       <description>If UI components are installed, ELK contributes the Layout View to the workbench:
-The layout view is a kind of properties view specialized for setting layout properties. It listens to selection changes and, if it recognizes that something is an element of a graph ELK could layout, allows users to customize the layout options used to do so.
+ The layout view is a kind of properties view specialized for setting layout properties. It listens to selection changes and, if it recognizes that something is an element of a graph ELK could layout, allows users to customize the layout options used to do so.
 It is a fair question whether users should be given access to this view or not.</description>
     </item>
     
@@ -248,7 +247,7 @@ To get started, create a file with the file ending .elkr. Now Eclipse will offer
       
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/spacingdocumentation.html</guid>
       <description>Space-able elements As far as the ELK core is concerned, the following elements can have spacing:
-Nodes Ports Labels Edges Comments Connected components The first three can be thought of as boxes with some space to be left around them. Edges are not boxes, and connected components may be more complex than simple boxes.
+ Nodes Ports Labels Edges Comments Connected components  The first three can be thought of as boxes with some space to be left around them. Edges are not boxes, and connected components may be more complex than simple boxes.
 ELK Layered adds the concept of layers, which leads to a few additional spacing values as described later.</description>
     </item>
     
@@ -279,9 +278,9 @@ Three Layers of Layout Goodness At its basic, ELK is structured in three layers,
       
       <guid>https://www.eclipse.org/elk/documentation/algorithmdevelopers/unittesting.html</guid>
       <description>Layout algorithms are complex pieces of software and, thus, should probably be tested. Besides the usual plain JUnit tests, ELK provides a graph algorithm unit test framework based on JUnit 4. Tests written with that framework basically do three things:
-Load one or more graphs.
-Optionally provide a number of graph configurations. If a test class doesn&amp;rsquo;t specify configurations, a default configuration will be activated.
-Run one ore more tests on each graph.</description>
+  Load one or more graphs.
+  Optionally provide a number of graph configurations. If a test class doesn&amp;rsquo;t specify configurations, a default configuration will be activated.
+  Run one ore more tests on each graph.</description>
     </item>
     
     <item>
@@ -311,8 +310,8 @@ How Layout Works in Eclipse Layout in Eclipse revolves around the DiagramLayoutE
       
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/usingplainjavalayout.html</guid>
       <description>While layout algorithms can be called directly, it is usually a better idea not to do so except in the simplest of cases. There are several reasons for that:
-When calling a layout algorithm directly, your code is hardwired to that implementation and looses a bit of flexibility.
-Most importantly, as graphs get more complex there are more and more details to be aware of when executing layout. This is especially true for compound graphs: graphs with nodes that contain further graphs themselves.</description>
+  When calling a layout algorithm directly, your code is hardwired to that implementation and looses a bit of flexibility.
+  Most importantly, as graphs get more complex there are more and more details to be aware of when executing layout.</description>
     </item>
     
   </channel>

@@ -2368,8 +2368,8 @@ COFFMAN_GRAHAM (@AdvancedPropertyValue)
 INTERACTIVE (@AdvancedPropertyValue)
 STRETCH_WIDTH (@ExperimentalPropertyValue)
 MIN_WIDTH (@ExperimentalPropertyValue)
-BF_MODEL_ORDER
-DF_MODEL_ORDER Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: layering Description Strategy for node layering.</description>
+BF_MODEL_ORDER (@ExperimentalPropertyValue)
+DF_MODEL_ORDER (@ExperimentalPropertyValue) Default Value: LayeringStrategy.NETWORK_SIMPLEX (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: layering Description Strategy for node layering.</description>
     </item>
     
     <item>

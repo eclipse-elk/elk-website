@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>0.2.0 (ELK)</title>
+    <title>0.9.0 (ELK)</title>
 
     
     
@@ -76,23 +76,56 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>0.2.0</h1>
+    <h1>0.9.0</h1>
 
     <ul>
-<li><a href="https://projects.eclipse.org/projects/modeling.elk/releases/0.2.0">Release log</a></li>
-<li><a href="https://download.eclipse.org/elk/updates/releases/0.2.0/">Update site</a></li>
-<li><a href="https://download.eclipse.org/elk/updates/releases/0.2.0/elk-0.2.0.zip">Zipped update site</a> (for offline use)</li>
-<li><a href="https://download.eclipse.org/elk/maven/releases/0.2.0">Maven Repository</a> (for meta data language compiler)</li>
+<li><a href="https://projects.eclipse.org/projects/modeling.elk/releases/0.9.0">Release log</a></li>
+<li><a href="https://download.eclipse.org/elk/updates/releases/0.9.0/elk-0.9.0-docs.zip">Documentation</a></li>
+<li><a href="https://download.eclipse.org/elk/updates/releases/0.9.0/">Update site</a></li>
+<li><a href="https://download.eclipse.org/elk/updates/releases/0.9.0/elk-0.9.0.zip">Zipped update site</a> (for offline use)</li>
+<li><a href="https://repo.maven.apache.org/maven2/org/eclipse/elk/">Maven central</a> (for building pure Java projects that use ELK)</li>
 </ul>
-<h2 id="details">DEtails</h2>
-<p>A major overhaul of ELK&rsquo;s infrastructure. This is an API breaking release. The following are probably the biggest issues we tackled:</p>
+<h2 id="details">Details</h2>
+<p>This is mainly a bugfix release. See GitHub for the full <a href="https://github.com/eclipse/elk/milestone/15?closed=1">list of resolved issues</a>.</p>
+<h3 id="new-features-and-enhancements">New Features and Enhancements</h3>
 <ul>
-<li>Refactored the central graph data structure. This is a biggie: we made the whole graph data structure easier to understand and easier to use, but of course broke compatibility with old diagram layout connectors in the process.</li>
-<li>The layout options have been cleaned up. This means that existing code may have to be updated to use the new options.</li>
-<li>We now have generated reference documentation for layout algorithms and layout options.</li>
-<li>A textual language to specify ELK graphs is now part of the ELK SDK.</li>
+<li><a href="https://github.com/eclipse/elk/pull/962">#962</a>, <a href="https://github.com/eclipse/elk/pull/914">#914</a>: Added an experimental Depth-First and Breadth-First model order layerer.</li>
+<li><a href="https://github.com/eclipse/elk/pull/867">#867</a>, <a href="https://github.com/eclipse/elk/pull/902/">#902</a>: Added a model order layering by node promotion.</li>
+<li><a href="https://github.com/eclipse/elk/pull/956">#956</a>, <a href="https://github.com/eclipse/elk/pull/942">#942</a>, <a href="https://github.com/eclipse/elk/pull/927">#927</a>, <a href="https://github.com/eclipse/elk/pull/926">#926</a>, <a href="https://github.com/eclipse/elk/pull/921">#921</a>, <a href="https://github.com/eclipse/elk/pull/893">#893</a>, <a href="https://github.com/eclipse/elk/pull/892">#892</a>, <a href="https://github.com/eclipse/elk/pull/886">#886</a>: Added libavoid for standalone edge routing.</li>
+<li><a href="https://github.com/eclipse/elk/pull/945">#945</a>, <a href="https://github.com/eclipse/elk/pull/941">#941</a>: Added option for initial rotation of radial layout.</li>
+<li><a href="https://github.com/eclipse/elk/issues/947">#947</a>, <a href="https://github.com/eclipse/elk/pull/951">#951</a>, <a href="https://github.com/eclipse/elk/pull/940">#940</a>, <a href="https://github.com/eclipse/elk/pull/936">#936</a>, <a href="https://github.com/eclipse/elk/pull/932">#932,</a> <a href="https://github.com/eclipse/elk/pull/843">#843</a>: Added topdown layout and top-down rectangle packing algorithm.</li>
+<li><a href="https://github.com/eclipse/elk/pull/939">#939</a>, <a href="https://github.com/eclipse/elk/issues/930">#930</a>: Added port model order.</li>
+<li><a href="https://github.com/eclipse/elk/pull/922">#922</a>: KVectors now have a rotation utility method.</li>
+<li><a href="https://github.com/eclipse/elk/issues/406">#406</a>, <a href="https://github.com/eclipse/elk/pull/884">#884</a>: MrTree edge routing options + interactivity and model order.</li>
+<li><a href="https://github.com/eclipse/elk/pull/889">#889</a>: Added experimental bendpoints to force layout.</li>
+<li><a href="https://github.com/eclipse/elk/pull/877">#877:</a> Added new model order strategy.</li>
+<li><a href="https://github.com/eclipse/elk/pull/834">#834</a>, <a href="https://github.com/eclipse/elk/issues/833">#833</a>, <a href="https://github.com/eclipse/elk/pull/855">#855</a>, <a href="https://github.com/eclipse/elk/pull/843">#843</a>:  Support for fixed graphs for mrtree, force, stress, radial, and rectpacking.</li>
 </ul>
-<p>View the release <a href="https://projects.eclipse.org/projects/modeling.elk/releases/0.2.0">at Eclipse</a> for links to the list of closed issues.</p>
+<h3 id="changes">Changes</h3>
+<ul>
+<li><a href="https://github.com/eclipse/elk/pull/973">#973</a>, <a href="https://github.com/eclipse/elk/issues/702">#702</a>, <a href="https://github.com/eclipse/elk/issues/794">#794</a>, <a href="https://github.com/eclipse/elk/pull/900">#900</a>, <a href="https://github.com/eclipse/elk/issues/807">#807</a>: Moved from Java 8 to Java 11 while testing compliance with Java 17.</li>
+<li><a href="https://github.com/eclipse/elk/pull/876">#876</a>: Renamed and reworked FORCE_MODEL_ORDER component ordering strategy to MODEL_ORDER and GROUP_MODEL_ORDER component ordering strategy.</li>
+<li><a href="https://github.com/eclipse/elk/issues/651">#651</a>, <a href="https://github.com/eclipse/elk/pull/885">#885</a>: Report invalid hierarchical cross min configuration instead of fixing it.</li>
+<li><a href="https://github.com/eclipse/elk/pull/865">#865</a>, <a href="https://github.com/eclipse/elk/pull/835">#835</a>: Restructure and improve rectpacking.</li>
+</ul>
+<h3 id="bugfixes">Bugfixes</h3>
+<ul>
+<li><a href="https://github.com/eclipse/elk/pull/957">#957</a>: Corrected node node spacing usage for radial layout. The node node spacing is now halved and used as a padding around the nodes.</li>
+<li><a href="https://github.com/eclipse/elk/pull/946/">#946</a>, <a href="https://github.com/eclipse/elk/issues/944">#944</a>: Fix hyper edge segment splitter to actually save the best area after finding it.</li>
+<li><a href="https://github.com/eclipse/elk/issues/850">#850</a>, <a href="https://github.com/eclipse/elk/pull/938">#938</a>: Port labels no longer overlap with self loops.</li>
+<li><a href="https://github.com/eclipse/elk/issues/918">#918</a>, <a href="https://github.com/eclipse/elk/pull/933">#933</a>: Fix port model order comparator.</li>
+<li><a href="https://github.com/eclipse/elk/pull/923">#923</a>: Wrapping strategies do now correctly work together with model order.</li>
+<li><a href="https://github.com/eclipse/elk/pull/906">#906</a>, <a href="https://github.com/eclipse/elk/issues/905">#905</a>, <a href="https://github.com/eclipse/elk/pull/913">#913</a>: Fix tail edge labels.</li>
+<li><a href="https://github.com/eclipse/elk/issues/869">#869</a>, <a href="https://github.com/eclipse/elk/pull/911">#911</a>, <a href="https://github.com/eclipse/elk/issues/868">#868</a>:  Model order bug fixes.</li>
+<li><a href="https://github.com/eclipse/elk/issues/870">#870</a>: Fixed NoSuchElementException in network simplex node placer.</li>
+<li><a href="https://github.com/eclipse/elk/pull/890">#890</a>: Correctly check whether the layered algorithm is set.</li>
+<li><a href="https://github.com/eclipse/elk/pull/852">#852</a>, <a href="https://github.com/eclipse/elk/issues/841">#841</a>: Inline edge labels are now correctly centered (hopefully).</li>
+<li><a href="https://github.com/eclipse/elk/issues/887">#887</a>: Miscellaneous bug fixes.</li>
+</ul>
+<h3 id="cleanup">Cleanup</h3>
+<ul>
+<li><a href="https://github.com/eclipse/elk/pull/924">#924</a>: Corrected pom license for maven central.</li>
+</ul>
 
   </div>
 
@@ -121,7 +154,7 @@
 
   
   <a href="../../downloads/releasenotes/release-0.9.0.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       0.9.0
     </li>
   </a>
@@ -233,7 +266,7 @@
 
   
   <a href="../../downloads/releasenotes/release-0.2.0.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       0.2.0
     </li>
   </a>

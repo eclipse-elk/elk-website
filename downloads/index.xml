@@ -166,6 +166,16 @@ New Features and Enhancements #827: Added Greedy Model Order cycle breaker. #842
     </item>
     
     <item>
+      <title>0.9.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.9.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.9.0.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
+New Features and Enhancements #962, #914: Added an experimental Depth-First and Breadth-First model order layerer. #867, #902: Added a model order layering by node promotion. #956, #942, #927, #926, #921, #893, #892, #886: Added libavoid for standalone edge routing.</description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

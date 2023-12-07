@@ -118,6 +118,114 @@
 </table>
 <h3 id="description">Description</h3>
 <p>Turns topdown layout on and off. If this option is enabled, hierarchical layout will be computed first for the root node and then for its children recursively. Layouts are then scaled down to fit the area provided by their parents. Graphs must follow a certain structure for topdown layout to work properly. {@link TopdownNodeTypes.PARALLEL_NODE} nodes must have children of type {@link TopdownNodeTypes.HIERARCHICAL_NODE} and must define {@link topdown.hierarchicalNodeWidth} and {@link topdown.hierarchicalNodeAspectRatio} for their children. Furthermore they need to be laid out using an algorithm that is a {@link TopdownLayoutProvider}. Hierarchical nodes can also be parents of other hierarchical nodes and can optionally use a {@link TopdownSizeApproximator} to dynamically set sizes during topdown layout. In this case {@link topdown.hierarchicalNodeWidth} and {@link topdown.hierarchicalNodeAspectRatio} should be set on the node itself rather than the parent. The values are then used by the size approximator as base values. Hierarchical nodes require the layout option {@link nodeSize.fixedGraphSize} to be true to prevent the algorithm used there from resizing the hierarchical node. This option is not supported if &lsquo;Hierarchy Handling&rsquo; is set to &lsquo;INCLUDE_CHILDREN&rsquo;</p>
+<h2 id="additional-documentation">Additional Documentation</h2>
+<h2 id="summary">Summary</h2>
+<p>Topdown Layout introduces the ability to compute hierarchical layouts from the root node down rather than the existing method of performing layout bottom-up. This shakes up some paradigms and allows new types of visualizations. Instead of child nodes determining the size of their parents, child nodes can now be restricted in their size by their parent. Inner layouts are then scaled down to fit their parent available space. This has the result that nodes within a hierarchy are visually more equal.</p>
+<h2 id="features--usage">Features &amp; Usage</h2>
+<h3 id="topdown-recursive-layout">Topdown Recursive Layout</h3>
+<p>The core feature of this PR is the ability to compute a hierarchical layout from the root node down instead of up from the leaves. This is implemented within the <code>RecursiveGraphLayoutEngine</code> and the details of how to use the feature are outlined below.</p>
+<h4 id="simple-topdown-layout">Simple Topdown Layout</h4>
+<p>In general topdown layout can be used to scale down inner layouts. In the basic usage nodes on the same hierarchy level are assigned the same size regardless of their content. To get this behaviour all nodes should have the <code>org.eclipse.elk.topdownLayout</code> property set to <code>true</code>. The graph itself needs its <code>org.eclipse.elk.topdown.nodeType</code> to be set to <code>ROOT_NODE</code>. Other nodes need to set their node type to <code>HIERARCHICAL_NODE</code>, <code>org.eclipse.elk.nodeSize.fixedGraphSize</code> to true and <code>org.eclipse.elk.algorithm</code> to any algorithm that supports <code>org.eclipse.elk.nodeSize.fixedGraphSize</code>. Additionally node sizes can be dynamically determined with the the help of a size approximator.</p>
+<h4 id="topdown-layout-with-lookahead">Topdown Layout with Lookahead</h4>
+<p>Sometimes it is desirable to not layout all nodes on a hierarchy level with equal sizes, but to instead vary the node sizes depending on their content. In topdown layout the node sizes must be defined ahead of their own layout however because they need to be laid out themselves first. In order to accomplish this a <code>PARALLEL_NODE</code> node type and an <code>ITopdownLayoutProvider</code> is introduced. Layout providers that implement this interface need to be able to predict the output size of their layout before they compute the layout. In the layout these nodes will not be scaled down. Parallel nodes have the further restriction that their parent and children must all be hierarchical nodes. The following properties have to be set on a parallel node:</p>
+<ul>
+<li><code>org.eclipse.elk.topdownLayout=true</code></li>
+<li><code>org.eclipse.elk.topdown.nodeType=PARALLEL_NODE</code></li>
+<li><code>org.eclipse.elk.algorithm</code> must be set to an algorithm that implements <code>ITopdownLayoutProvider</code></li>
+<li><code>org.eclipse.elk.topdown.hierarchicalNodeWidth</code> (<em>optional: defaults work too</em>)</li>
+<li><code>org.eclipse.elk.topdown.hierarchicalNodeAspectRatio</code> (<em>optional: defaults work too</em>)</li>
+</ul>
+<h3 id="topdown-packing-algorithm">Topdown Packing Algorithm</h3>
+<p>This algorithm is a simple box packing algorithm that places equally sized nodes in a grid and eliminates any whitespace at the end by expanding nodes. It implements the <code>ITopdownLayoutProvider</code> interface and using it for topdown layout is its primary purpose although it can also be used on its own. The algorithm has two phases (Node placement and Whitespace elimination) for both of which there is currently one available strategy.</p>
+<h3 id="new-properties">New Properties</h3>
+<p>In this section the new topdown layout specific properties are explained in more detail.</p>
+<h4 id="topdown-layout">Topdown Layout</h4>
+<p><code>org.eclipse.elk.topdownLayout: boolean</code>
+Tells the recursive layout engine that a graph should be laid out using topdown layout. Must be set to the same value for all nodes of the graph. The default value is false.</p>
+<h4 id="topdown-scale-factor">Topdown Scale Factor</h4>
+<p><code>org.eclipse.elk.topdown.scaleFactor: double</code>
+This property is calculated during topdown layout and is later used to correctly render the diagram. The topdown scale factor defines the amount by which the nodes children (as a group) need to be scaled so that they fit in their available space.</p>
+<h4 id="topdown-hierarchical-node-width">Topdown Hierarchical Node Width</h4>
+<p><code>org.eclipse.elk.topdown.hierarchicalNodeWidth: boolean</code>
+This property is important when using parallel nodes. This value defines the width of each child node. This needs to be set on the parent and applies to all children. This is important so that the <code>ITopdownLayoutProvider</code> can provide a size prediction.</p>
+<h4 id="topdown-hierarchical-node-aspect-ratio">Topdown Hierarchical Node Aspect Ratio</h4>
+<p><code>org.eclipse.elk.topdown.hierarchicalNodeAspectRatio: boolean</code>
+This property is important when using parallel nodes. This value defines the aspect ratio of each child node. This is then used together with the previous property to determine the height of each node. This needs to be set on the parent and applies to all children. This is important so that the <code>ITopdownLayoutProvider</code> can provide a size prediction.</p>
+<p>With both of these properties care must be taken when setting the paddings of the children. The paddings must leave enough space for the node i.e. `padding.left + padding.right</p>
+<h4 id="topdown-node-type">Topdown Node Type</h4>
+<p><code>org.eclipse.elk.topdown.nodeType: TopdownNodeTypes</code>
+There are two node types: <code>HIERARCHICAL_NODE</code> and <code>PARALLEL_NODE</code>. Hierarchical nodes are the basic building blocks of topdown layout they can generally be used without needing to pay attention to many constraints. Parallel nodes allow constructing topdown layouts with a lookahead allowing nodes to have sizes depending on what is inside them. Using them comes with some restrictions as already outlined.</p>
+<h4 id="child-area-width-and-child-area-height">Child Area Width and Child Area Height</h4>
+<p><code>org.eclipse.elk.topdown.childAreaWidth: double</code>, <code>org.eclipse.elk.topdown.childAreaHeight: double</code>
+These properties are used internally to determine the size occupied by a layout. The properties are there so that algorithms that already compute these values can store them directly for later use. Otherwise they are computed by the recursive layout engine.</p>
+<h4 id="topdown-scale-cap">Topdown Scale Cap</h4>
+<p><code>org.eclipse.elk.topdown.scaleCap: double</code>
+This value sets an upper limit on the resulting topdown scale factor that is possible. The default value is 1, which means that child nodes will never be scaled up. This means that they may not fully use the available space, but they also do not appear larger (relative with respect to their texts, line widths etc.) than their parents as this seems like generally undesirable behaviour. This property allows some flexibility to configure this within a graph.</p>
+<h4 id="topdown-size-approximator">Topdown Size Approximator</h4>
+<p><code>org.eclipse.elk.topdown.sizeApproximator: TopdownSizeApproximator</code>
+A size approximator can only be set on hierarchical nodes and will use a given ELK node to determine a suitable size for the node before computing its layout. The <code>COUNT_CHILDREN</code> size approximator uses <code>sqrt(number_of_children)</code> as proportional factor for the node sizes. Size approximators can be made arbitrarily complex.</p>
+<h2 id="requirements">Requirements</h2>
+<p>For the result layouts to be rendered correctly the viewer must support the topdown scale factor property as demonstrated in <a href="https://github.com/kieler/klighd-vscode/tree/mka/topdown">klighd-vscode/mka/topdown</a>. When using KlighD to create topdown diagrams, hierarchical nodes require an explicit child area to be defined so that the viewer will know what part of the rendering the topdown scale factor needs to be applied to.</p>
+<h2 id="example-diagrams">Example Diagrams</h2>
+<p>The below images show some ways that topdown layout can be used.</p>
+<h3 id="layered-force-and-stress-used-in-hierarchical-nodes">Layered, Force and Stress used in hierarchical nodes</h3>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-topdownLayout_topdown_example_combined1.png"
+    
+    
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<h3 id="hierarchical-and-parallel-nodes-alternating">Hierarchical and parallel nodes alternating</h3>
+<p>SCCharts provide a practical use case for alternating hierarchical and parallel nodes because this structure is already inherent in the diagrams through the alternation of regions and states.
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-topdownLayout_hierarchical_parallel_example.png"
+    
+    
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</p>
+<h3 id="large-scchart">Large SCChart</h3>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-topdownLayout_controller.png"
+    
+    
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<h3 id="large-mixed-example">Large mixed example</h3>
+<p>All these features can be mixed quite flexibly, but it can become quite complex. Here is an example showing a mixed composition of node types and algorithms.
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../img_gen/org-eclipse-elk-topdownLayout_mixed_example.png"
+    
+    
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+</p>
 
   </div>
 

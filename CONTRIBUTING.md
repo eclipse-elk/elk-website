@@ -1,6 +1,6 @@
 # Contributing to Eclipse Layout Kernel
 
-Thanks for your interest in this project. This repository is mostly generated automatically from the (main ELK repository)[https://github.com/eclipse/elk]. Contributions to the project should go there or to the (elk-models repository)[https://github.com/eclipse/elk-models].
+Thanks for your interest in this project. This repository is mostly generated automatically from the [https://github.com/eclipse/elk](main ELK repository). Contributions to the project should go there or to the [https://github.com/eclipse/elk-models](elk-models repository).
 
 ## Project description
 

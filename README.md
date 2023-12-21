@@ -11,6 +11,11 @@ to editors and viewers.
 The layout algorithms are plain Java
 and can thus also be used outside of Eclipse.
 
+## Main Repository
+
+This repository contains the automatically generated files for the [website](http://www.eclipse.org/elk).
+The main project repository can be found [here](https://github.com/eclipse/elk).
+
 ## More Info
 
 * [The ELK homepage](http://www.eclipse.org/elk)
@@ -21,27 +26,3 @@ and can thus also be used outside of Eclipse.
 ## Example Layout
 
 ![](https://raw.githubusercontent.com/eclipse/elk/master/docs/static/img/example_layout_complexRouter.svg?sanitize=true)
-
-## Repository Structure
-
-The repository's structure is pretty straightforward. We only have a few folders:
-
-* `build`:
-  Contains all the files necessary to build ELK in all its different forms.
-* `config`:
-  Contains configuration files, such as our Checkstyle configuration.
-* `docs`:
-  Contains documentation in the form of a [Hugo](https://gohugo.io/) site.
-* `features`:
-  Contains all the Eclipse features ELK consists of.
-* `plugins`:
-  Contains all the plugins ELK consists of.
-* `setups`:
-  Contains our Oomph setup files.
-* `tests`:
-  Contains unit tests. Note that we have [a whole repository](https://github.com/eclipse/elk-models/) dedicated to test models.
-
-
-## Building ELK
-
-Information on how to build ELK and the documentation can be found [on our website](https://www.eclipse.org/elk/documentation/contributors/buildingelk.html).

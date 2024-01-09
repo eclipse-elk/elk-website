@@ -3119,12 +3119,12 @@ To get started, create a file with the file ending .elkr. Now Eclipse will offer
     </item>
     
     <item>
-      <title>Rectpacking (Updated)</title>
+      <title>Rectpacking</title>
       <link>https://www.eclipse.org/elk/blog/posts/2022/22-08-31-rectpacking.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/blog/posts/2022/22-08-31-rectpacking.html</guid>
-      <description>By Sören Domrös, August 31, 2022, updated January 4, 2024
+      <description>By Sören Domrös, August 31, 2022
 The rectpacking algorithm was introduced to solved common problems with the box algorithm, which cannot stack boxes in a row. The idea is to form stacks with subrows inside rows, while the size of a row is always dominated by a highest rectangle to provide a visual anchor point to &amp;ldquo;read&amp;rdquo; the rows from left to right.
 Since it was a common use case of the box algorithm to add a priority to order the rectangles rectpacking uses the model order (which corresponds to the input order of the rectangles) as a criterion.</description>
     </item>

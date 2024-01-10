@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Rectpacking (ELK)</title>
+    <title>Rectpacking (Updated) (ELK)</title>
 
     
     
@@ -76,9 +76,9 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Rectpacking</h1>
+    <h1>Rectpacking (Updated)</h1>
 
-    <p><em>By Sören Domrös, August 31, 2022</em></p>
+    <p><em>By Sören Domrös, August 31, 2022</em>, updated January 4, 2024</p>
 <p>The <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-rectpacking.html"><code>rectpacking</code></a> algorithm was introduced to solved common problems with the <a href="https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-box.html"><code>box</code></a> algorithm, which cannot stack boxes in a row.
 The idea is to form stacks with subrows inside rows, while the size of a row is always dominated by a highest rectangle to provide a visual anchor point to &ldquo;read&rdquo; the rows from left to right.</p>
 <p>Since it was a common use case of the <code>box</code> algorithm to add a priority to order the rectangles rectpacking uses the model order (which corresponds to the input order of the rectangles) as a criterion.
@@ -116,10 +116,10 @@ By enabling <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-e
 <h3 id="width-approximation">Width approximation</h3>
 <p>Same as the <code>box</code> algorithm <code>rectpacking</code> packs rectangles inside a given aspect ratio.
 As a first step this problem is transformed in a strip packing problem by approximating the width.</p>
-<p>The width can also be specified by setting a <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-targetWidth.html">target width</a>.</p>
-<p>Different strategies can be chosen for width approximation based on which <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationGoal.html">goal</a> the greedy algorithm should prioritize.</p>
+<p>The width can also be specified by setting a <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-targetWidth.html">target width</a> ) (ELK 0.9.0 <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-targetWidth.html">target width</a>).</p>
+<p>Different strategies can be chosen for width approximation based on which <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-optimizationGoal.html">goal</a> (ELK 0.9.0 <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-optimizationGoal.html">goal</a>) the greedy algorithm should prioritize.</p>
 <p>Since the approximated width is mainly responsible for the line breaks between the rows that are formed by rectpacking, one can make sure that a rectangle is placed <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-inNewRow.html">in a new row</a> (since ELK 0.9.0).</p>
-<p>Greedy width approximation may yield the following graph:</p>
+<p><code>GREEDY</code> <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-strategy.html">width approximation</a> (0.9.0) may yield the following graph:</p>
 <p>
   <img
     class="img-fluid"
@@ -134,8 +134,7 @@ As a first step this problem is transformed in a strip packing problem by approx
 </p>
 
 <h3 id="placement">Placement</h3>
-<p>Rectangles are placed in rows similar to the <code>box</code> algorithm. Per default the row height does not change after this step. By enabling <a href="TODO">row height re-evaluation</a> (since ELK 0.9.0) the row height might change by investing more computation time.</p>
-<p>After placement the graph looks like this:</p>
+<p>Rectangles are placed in rows similar to the <code>box</code> algorithm. Per default the row height does not change after this step. By enabling <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-rectpacking-packing-compaction-rowHeightReevaluation.html">row height re-evaluation</a> (since ELK 0.9.0) the row height might change by investing more computation time. After placement the graph looks like this:</p>
 <p>
   <img
     class="img-fluid"
@@ -150,7 +149,8 @@ As a first step this problem is transformed in a strip packing problem by approx
 </p>
 
 <h3 id="compaction">Compaction</h3>
-<p>After placement the rectangles are compacted to from stack with subrows inside the rows. This can also be <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-rowCompaction.html">disabled</a>, however, this is not recommended.</p>
+<p>After placement the rectangles are compacted to from stack with subrows inside the rows. This can also be <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-rowCompaction.html">disabled</a> (ELK &lt; 0.9.0), however, this is not recommended.</p>
+<p>In ELK 0.9.0 this step is part of the placement step and done via the default <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-rectpacking-packing-strategy.html"><code>packing.strategy</code></a>. Only placement can be done by setting the <code>packing.strategy</code> to <code>SIMPLE</code>.</p>
 <p>
   <img
     class="img-fluid"
@@ -165,7 +165,7 @@ As a first step this problem is transformed in a strip packing problem by approx
 </p>
 
 <h3 id="whitespace-elimination">Whitespace Elimination</h3>
-<p>Rectangles can <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes.html">fill potential whitespace</a>.</p>
+<p>Rectangles can <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-expandNodes.html">fill potential whitespace</a> (ELK 0.9.0 <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-rectpacking-whiteSpaceElimination-strategy.html"><code>whiteSpaceElimination.strategy</code></a> set to <code>EQUAL_BETWEEN_STRUCTURES</code>).</p>
 <p>
   <img
     class="img-fluid"
@@ -179,7 +179,7 @@ As a first step this problem is transformed in a strip packing problem by approx
   />
 </p>
 
-<p>The drawing can also be configured to fill whitespace such that the drawing has the <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-expandToAspectRatio.html">desired aspect ratio</a>.</p>
+<p>The drawing can also be configured to fill whitespace such that the drawing has the <a href="https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-expandToAspectRatio.html">desired aspect ratio</a> (ELK 0.9.0 .  <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-rectpacking-whiteSpaceElimination-strategy.html"><code>whiteSpaceElimination.strategy</code></a> set to <code>TO_ASPECT_RATIO</code>).</p>
 <p>
   <img
     class="img-fluid"
@@ -232,7 +232,7 @@ As a first step this problem is transformed in a strip packing problem by approx
   
   <a href="../../../blog/posts/2022/22-08-31-rectpacking.html">
     <li class="navlevel-2 active">
-      Rectpacking
+      Rectpacking (Updated)
     </li>
   </a>
   

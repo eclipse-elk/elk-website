@@ -176,6 +176,16 @@ New Features and Enhancements #962, #914: Added an experimental Depth-First and 
     </item>
     
     <item>
+      <title>0.9.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.9.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.9.1.html</guid>
+      <description> Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This is mainly a bugfix release. See GitHub for the full list of resolved issues.
+Bugfixes #1011, #1015: Fixes the issue that maven central plugins have poms with p2 dependencies. #972, #989, #996, #997: Fixes micro layout issues for rectpacking. </description>
+    </item>
+    
+    <item>
       <title>Releases</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

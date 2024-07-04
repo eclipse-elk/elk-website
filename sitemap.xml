@@ -186,6 +186,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-debugMode.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-processTimeout.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/usingeclipselayout/dependencyinjection.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-desiredEdgeLength.html</loc>

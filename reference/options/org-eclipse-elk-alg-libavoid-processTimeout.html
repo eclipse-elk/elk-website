@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>wrapping.cutting.msd (ELK)</title>
+    <title>Default process timeout. (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>wrapping.cutting.msd</h1>
+    <h1>Default process timeout.</h1>
 
     <table>
 <thead>
@@ -87,15 +87,33 @@
 </thead>
 <tbody>
 <tr>
+<td><em>Type:</em></td>
+<td>advanced</td>
+</tr>
+<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.wrapping.cutting.msd</code></td>
+<td><code>org.eclipse.elk.alg.libavoid.processTimeout</code></td>
+</tr>
+<tr>
+<td><em>Meta Data Provider:</em></td>
+<td><code>options.LibavoidMetaDataProvider</code></td>
+</tr>
+<tr>
+<td><em>Value Type:</em></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><em>Default Value:</em></td>
+<td><code>10000</code> (as defined in <code>org.eclipse.elk.alg.libavoid</code>)</td>
+</tr>
+<tr>
+<td><em>Applies To:</em></td>
+<td>parents</td>
 </tr>
 </tbody>
 </table>
-<h2 id="options">Options</h2>
-<ul>
-<li><a href="../../reference/options/org-eclipse-elk-layered-wrapping-cutting-msd-freedom.html">MSD Freedom</a></li>
-</ul>
+<h3 id="description">Description</h3>
+<p>Default timeout for waiting for the libavoid server to give some output. This option is read from the root of the graph.</p>
 
   </div>
 
@@ -698,7 +716,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-alg-libavoid-processTimeout.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Default process timeout.
     </li>
   </a>
@@ -2850,7 +2868,7 @@
 
   
   <a href="../../reference/groups/org-eclipse-elk-layered-wrapping-cutting-msd.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       wrapping.cutting.msd
     </li>
   </a>

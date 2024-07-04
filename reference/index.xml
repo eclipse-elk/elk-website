@@ -598,6 +598,15 @@ GREEDY_MODEL_ORDER Default Value: CycleBreakingStrategy.GREEDY (as defined in or
     </item>
     
     <item>
+      <title>Default process timeout.</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-processTimeout.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-processTimeout.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.processTimeout Meta Data Provider: options.LibavoidMetaDataProvider Value Type: int Default Value: 10000 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description Default timeout for waiting for the libavoid server to give some output. This option is read from the root of the graph.</description>
+    </item>
+    
+    <item>
       <title>Desired Edge Length</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-desiredEdgeLength.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1734,7 +1743,7 @@ Y Default Value: Dimension.XY (as defined in org.eclipse.elk.stress) Applies To:
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-alg-libavoid.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.alg.libavoid Meta Data Provider: options.LibavoidMetaDataProvider Description libavoid is a cross-platform C++ library providing fast, object-avoiding orthogonal and polyline connector routing for use in interactive diagram editors.
 Category: Edge Routing Only route the edges without touching the node&#39;s positions.
-Supported Options Option Default Value Angle Penalty 0 Cluster Crossing Penalty 0 Crossing Penalty 0 Debug Mode false Direction Direction.UNDEFINED Edge Routing EdgeRouting.ORTHOGONAL Enable Hyperedges From Common Source false Fixed Shared Path Penalty 0 Ideal Nudging Distance 4 Improve Hyperedge Routes true Improve Hyperedge Routes Add/Delete false Marks a node as a cluster false Nudge Orthogonal Segments false Nudge Orthogonal Touching Colinear Segments false Nudge Shared Paths With Common Endpoint true Omit Node Micro Layout false Penalise Orthogonal Shared Paths false Perform Unifying Nudging Preprocessing true Port Constraints PortConstraints.</description>
+Supported Options Option Default Value Angle Penalty 0 Cluster Crossing Penalty 0 Crossing Penalty 0 Debug Mode false Default process timeout. 10000 Direction Direction.UNDEFINED Edge Routing EdgeRouting.ORTHOGONAL Enable Hyperedges From Common Source false Fixed Shared Path Penalty 0 Ideal Nudging Distance 4 Improve Hyperedge Routes true Improve Hyperedge Routes Add/Delete false Marks a node as a cluster false Nudge Orthogonal Segments false Nudge Orthogonal Touching Colinear Segments false Nudge Shared Paths With Common Endpoint true Omit Node Micro Layout false Penalise Orthogonal Shared Paths false Perform Unifying Nudging Preprocessing true Port Constraints PortConstraints.</description>
     </item>
     
     <item>

@@ -3785,7 +3785,8 @@ CONSTRAINT Default Value: OrderWeighting.MODEL_ORDER (as defined in org.eclipse.
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-whiteSpaceElimination-strategy.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.rectpacking.whiteSpaceElimination.strategy Meta Data Provider: options.RectPackingMetaDataProvider Value Type: org.eclipse.elk.alg.rectpacking.p3whitespaceelimination.WhiteSpaceEliminationStrategy (Enum) Possible Values: EQUAL_BETWEEN_STRUCTURES
-TO_ASPECT_RATIO Applies To: parents Containing Group: whiteSpaceElimination Description Strategy for expanding nodes such that whitespace in the parent is eliminated.</description>
+TO_ASPECT_RATIO
+NONE Default Value: WhiteSpaceEliminationStrategy.NONE (as defined in org.eclipse.elk.rectpacking) Applies To: parents Containing Group: whiteSpaceElimination Description Strategy for expanding nodes such that whitespace in the parent is eliminated.</description>
     </item>
     
     <item>

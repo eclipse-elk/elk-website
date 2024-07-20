@@ -432,6 +432,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-layerSpacingFactor.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layerUnzipping-strategy.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/blog/posts/2023/23-01-09-constraining-the-model.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering.html</loc>
@@ -441,6 +443,8 @@
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-minWidth.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layering-nodePromotion.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layerUnzipping.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-algorithm.html</loc>
   </url><url>
@@ -656,6 +660,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-repulsivePower.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layerUnzipping-resetOnLongEdges.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-resolvedAlgorithm.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-reverseDirectionPenalty.html</loc>
@@ -761,6 +767,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-underlyingLayoutAlgorithm.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/algorithmdevelopers/unittesting.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layerUnzipping-layerSplit.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-minWidth-upperBoundOnWidth.html</loc>
   </url><url>

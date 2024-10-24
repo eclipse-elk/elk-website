@@ -3382,6 +3382,15 @@ Additional Documentation Currently only supported by the network simplex layerer
     </item>
     
     <item>
+      <title>Softwrapping Fuzziness</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-softwrappingFuzziness.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-softwrappingFuzziness.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.softwrappingFuzziness Meta Data Provider: core.options.CoreOptions Value Type: double Default Value: 0.0 (as defined in org.eclipse.elk) Applies To: labels Description Determines the amount of fuzziness to be used when performing softwrapping on labels. The value expresses the percent of overhang that is permitted for each line. If the next line would take up less space than this threshold, it is appended to the current line instead of being placed in a new line.</description>
+    </item>
+    
+    <item>
       <title>Sorter</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-sorter.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

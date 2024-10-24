@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>debug (ELK)</title>
+    <title>Softwrapping Fuzziness (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>debug</h1>
+    <h1>Softwrapping Fuzziness</h1>
 
     <table>
 <thead>
@@ -88,15 +88,28 @@
 <tbody>
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.disco.debug</code></td>
+<td><code>org.eclipse.elk.softwrappingFuzziness</code></td>
+</tr>
+<tr>
+<td><em>Meta Data Provider:</em></td>
+<td><code>core.options.CoreOptions</code></td>
+</tr>
+<tr>
+<td><em>Value Type:</em></td>
+<td><code>double</code></td>
+</tr>
+<tr>
+<td><em>Default Value:</em></td>
+<td><code>0.0</code> (as defined in <code>org.eclipse.elk</code>)</td>
+</tr>
+<tr>
+<td><em>Applies To:</em></td>
+<td>labels</td>
 </tr>
 </tbody>
 </table>
-<h2 id="options">Options</h2>
-<ul>
-<li><a href="../../reference/options/org-eclipse-elk-disco-debug-discoGraph.html">DCGraph</a></li>
-<li><a href="../../reference/options/org-eclipse-elk-disco-debug-discoPolys.html">List of Polyominoes</a></li>
-</ul>
+<h3 id="description">Description</h3>
+<p>Determines the amount of fuzziness to be used when performing softwrapping on labels. The value expresses the percent of overhang that is permitted for each line. If the next line would take up less space than this threshold, it is appended to the current line instead of being placed in a new line.</p>
 
   </div>
 
@@ -2139,7 +2152,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-softwrappingFuzziness.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Softwrapping Fuzziness
     </li>
   </a>
@@ -2539,7 +2552,7 @@
 
   
   <a href="../../reference/groups/org-eclipse-elk-disco-debug.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       debug
     </li>
   </a>

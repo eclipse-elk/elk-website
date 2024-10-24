@@ -702,6 +702,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeRouting-splines-sloppy-layerSpacingFactor.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-softwrappingFuzziness.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-radial-sorter.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-spacing.html</loc>

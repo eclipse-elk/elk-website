@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Blog Posts (ELK)</title>
+    <title>Layer Unzipping (ELK)</title>
 
     
     
@@ -33,32 +33,32 @@
       
         
         <li class="nav-item">
-          <a class="nav-link" href="./downloads.html">Downloads</a>
+          <a class="nav-link" href="../../../downloads.html">Downloads</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="./gettingstarted.html">Getting Started</a>
+          <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="./documentation.html">Documentation</a>
+          <a class="nav-link" href="../../../documentation.html">Documentation</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="./reference.html">Reference</a>
+          <a class="nav-link" href="../../../reference.html">Reference</a>
         </li>
       
         
         <li class="nav-item">
-          <a class="nav-link" href="./support.html">Support</a>
+          <a class="nav-link" href="../../../support.html">Support</a>
         </li>
       
         
         <li class="nav-item active">
-          <a class="nav-link" href="./blog.html">Blog Posts <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../../../blog.html">Blog Posts <span class="sr-only">(current)</span></a>
         </li>
       
 
@@ -76,15 +76,32 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Blog Posts</h1>
+    <h1>Layer Unzipping</h1>
 
-    <p>A place for blog posts from the ELK project team.</p>
-<p>Recent posts:</p>
+    <p><em>By Maximilian Kasperowski, December 6, 2024</em></p>
+<p>The coming update (ELK 0.9.2) introduces a new feature to control the positioning of nodes in a layer for further compaction.
+Layer Unzipping can split up the nodes of a single layer into multiple layers.
+This reduces the total height and can be helpful in certain situations.</p>
+<p>The update introduces three new properties:</p>
 <ul>
-<li><a href="./blog/posts/2022/22-08-31-rectpacking.html">Rectpacking</a> <em>by Sören Domrös</em></li>
-<li><a href="./blog/posts/2022/22-11-17-libavoid.html">Edge Routing with Libavoid</a> <em>by Miro Spönemann</em></li>
-<li><a href="./blog/posts/2023/23-01-09-constraining-the-model.html">Constraining the Model</a> <em>by Sören Domrös</em></li>
+<li><code>org.eclipse.elk.layerUnzipping.strategy</code></li>
+<li><code>org.eclipse.elk.layerUnzipping.layerSplit</code></li>
+<li><code>org.eclipse.elk.layerUnizpping.resetOnLongEdges</code></li>
 </ul>
+<p>This <a href="https://rtsys.informatik.uni-kiel.de/elklive/elkgraph.html?compressedContent=MYewdgzglgJgpgJwLIngGwPIPggdBAFwQEMC4BzATwC4ACABQCUBRAMWcYH1mARAcWYBlAFBpilRAFUwALygAHeVDDl8RUhRq0AggBkAKhwBy2-QEkjfYcLCo4tMAEZa1uDHL2ntALQA+BwBMLm4eDs5+DgDMwiGeQRFgACwx7p4ArD7+Sa6pYZkOybF5CWkpoV4JAGzWAPQ1tABmUAiEtGIIoWISCDZ2gbQA3sK0I23iUrIKSiq4CHAQcAQYYLrg5MypEHQNxGgLtHW0MFAQxABGaPbwOwCuaAS0Z3AAFsQAblAgNwi0xGAwtCIcFIbTWtFiEF+kLm5DuxB+tngEGEAF9evAooNhqMuhM5IplKpcQhBPI0FACHQAqj0Z5Ei5EekGX0wJUXMJDgtQP8xh17MTaYFnENRmNutJ8dMieMSWSKXRomjGVFnIKkqrlWA0hqWZVVWU6fl1cFcqyjXqcuUAuEsgB2E3lSI2hz2g0FZ1gV1FLUer2mvVG11q21AA">elklive example</a> demonstrates the properties and the exact behaviour of the properties is explained in the sections below.</p>
+<h2 id="layer-unzipping-strategy">Layer Unzipping Strategy</h2>
+<p>For now there is only the strategy <code>LayerUnzippingStrategy.ALTERNATING</code>.
+It evenly distributes the nodes into several sub-layers.
+The first node goes into the first sub-layer, the second goes into the second and so on.
+The default configuration is to use two sub-layers.</p>
+<h2 id="configuring-the-number-of-sub-layers">Configuring the Number of Sub-layers</h2>
+<p>The number of sub-layers is two by default and can be changed with the <code>layerSplit</code> property.
+The property applies to an entire layer.
+To use it, it must be set on any node of that layer.
+If multiple values are set, then the lowest value is used.</p>
+<h2 id="long-edge-treatment">Long Edge Treatment</h2>
+<p>Under the hood long edges are implemented using invisible dummy nodes.
+The default behaviour is begin the alternatinon anew after a long edge, but this behaviour can be disabled for a layer by setting <code>resetOnLongEdges</code> to <code>false</code> for any node in the layer.</p>
 
   </div>
 
@@ -109,7 +126,7 @@
 
 
   
-  <a href="./blog/2022.html">
+  <a href="../../../blog/2022.html">
     <li class="navlevel-1">
       2022
     </li>
@@ -122,7 +139,7 @@
 
 
   
-  <a href="./blog/posts/2022/22-08-31-rectpacking.html">
+  <a href="../../../blog/posts/2022/22-08-31-rectpacking.html">
     <li class="navlevel-2">
       Rectpacking (Updated)
     </li>
@@ -130,7 +147,7 @@
   
 
   
-  <a href="./blog/posts/2022/22-11-17-libavoid.html">
+  <a href="../../../blog/posts/2022/22-11-17-libavoid.html">
     <li class="navlevel-2">
       Edge Routing with Libavoid
     </li>
@@ -141,7 +158,7 @@
   
 
   
-  <a href="./blog/2023.html">
+  <a href="../../../blog/2023.html">
     <li class="navlevel-1">
       2023
     </li>
@@ -154,7 +171,7 @@
 
 
   
-  <a href="./blog/posts/2023/23-01-09-constraining-the-model.html">
+  <a href="../../../blog/posts/2023/23-01-09-constraining-the-model.html">
     <li class="navlevel-2">
       Layered: Constraining the Model
     </li>
@@ -162,7 +179,7 @@
   
 
   
-  <a href="./blog/posts/2023/23-04-11-topdown-layout.html">
+  <a href="../../../blog/posts/2023/23-04-11-topdown-layout.html">
     <li class="navlevel-2">
       Top-down Layout: Zoom in the Layout Process
     </li>
@@ -173,7 +190,7 @@
   
 
   
-  <a href="./blog/2024.html">
+  <a href="../../../blog/2024.html">
     <li class="navlevel-1">
       2024
     </li>
@@ -186,8 +203,8 @@
 
 
   
-  <a href="./blog/posts/2024/24-12-06-layer-unzipping.html">
-    <li class="navlevel-2">
+  <a href="../../../blog/posts/2024/24-12-06-layer-unzipping.html">
+    <li class="navlevel-2 active">
       Layer Unzipping
     </li>
   </a>
@@ -216,7 +233,7 @@
         <div class="row">
             <div class="col">
               <span class="hidden-print">
-                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="./img/eclipse_foundation_logo.svg"/></a>
+                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="../../../img/eclipse_foundation_logo.svg"/></a>
               </span>
             </div>
             <div class="col">

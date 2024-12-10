@@ -108,7 +108,7 @@
 </tr>
 <tr>
 <td><em>Dependencies:</em></td>
-<td><a href="../../reference/options/org-eclipse-elk-layered-layerUnzipping-strategy.html">org.eclipse.elk.layered.layerUnzipping.strategy</a> (<code>LayerUnzippingStrategy.N_LAYERS</code>)</td>
+<td><a href="../../reference/options/org-eclipse-elk-layered-layerUnzipping-strategy.html">org.eclipse.elk.layered.layerUnzipping.strategy</a> (<code>LayerUnzippingStrategy.ALTERNATING</code>)</td>
 </tr>
 <tr>
 <td><em>Containing Group:</em></td>
@@ -117,7 +117,7 @@
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>If set to true, nodes will always be placed in the first sublayer after a long edge. Otherwise long edge dummies are treated the same as regular nodes. The default value is true. The property can be set to the first node in a layer, which then applies the property for the layer the node belongs to.</p>
+<p>If set to true, nodes will always be placed in the first sublayer after a long edge when using the ALTERNATING strategy. Otherwise long edge dummies are treated the same as regular nodes. The default value is true. The property can be set to the nodes in a layer, which then applies the property for the layer. If any node sets the value to false, then the value is set to false for the entire layer.</p>
 
   </div>
 

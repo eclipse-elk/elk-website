@@ -2205,6 +2205,15 @@ Additional Documentation The packing strategy specifies what is most important d
     </item>
     
     <item>
+      <title>Order nodes by size</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-orderBySize.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-orderBySize.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.rectpacking.orderBySize Meta Data Provider: options.RectPackingMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.rectpacking) Applies To: parents Description If set to true the nodes will be sorted by the size of their area before computing the layout. The largest node will be in the first position.</description>
+    </item>
+    
+    <item>
       <title>Orthogonal Compaction</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-compaction-orthogonal.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

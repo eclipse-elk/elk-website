@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Compaction Step Size (ELK)</title>
+    <title>Order nodes by size (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Compaction Step Size</h1>
+    <h1>Order nodes by size</h1>
 
     <table>
 <thead>
@@ -88,36 +88,28 @@
 <tbody>
 <tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.radial.compactionStepSize</code></td>
+<td><code>org.eclipse.elk.rectpacking.orderBySize</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>options.RadialMetaDataProvider</code></td>
+<td><code>options.RectPackingMetaDataProvider</code></td>
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>int</code></td>
+<td><code>boolean</code></td>
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>1</code> (as defined in <code>org.eclipse.elk.radial</code>)</td>
-</tr>
-<tr>
-<td><em>Lower Bound:</em></td>
-<td><code>0</code></td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk.rectpacking</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
 <td>parents</td>
 </tr>
-<tr>
-<td><em>Dependencies:</em></td>
-<td><a href="../../reference/options/org-eclipse-elk-radial-compactor.html">org.eclipse.elk.radial.compactor</a></td>
-</tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>Determine the size of steps with which the compaction is done. Step size 1 correlates to a compaction of 1 pixel per Iteration.</p>
+<p>If set to true the nodes will be sorted by the size of their area before computing the layout. The largest node will be in the first position.</p>
 
   </div>
 
@@ -536,7 +528,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-radial-compactionStepSize.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Compaction Step Size
     </li>
   </a>
@@ -1680,7 +1672,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-rectpacking-orderBySize.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Order nodes by size
     </li>
   </a>

@@ -63,7 +63,7 @@
       
 
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+        <a class="nav-link" href="https://github.com/eclipse-elk/elk">GitHub</a>
       </li>
 
     </ul>
@@ -95,7 +95,7 @@
   <h5>A Quick Warning</h5>
 <p>Due to some tycho/surefire issue the unit tests cannot be executed with Java 9 and 10.</p>
 </div>
-<p>The unit tests require our <a href="https://github.com/eclipse/elk-models">models repository</a> to be checked out as well. If it is, the following command line will run the tests (note that the command line is split in order to improve readability):</p>
+<p>The unit tests require our <a href="https://github.com/eclipse-elk/elk-models">models repository</a> to be checked out as well. If it is, the following command line will run the tests (note that the command line is split in order to improve readability):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn
 </span></span><span style="display:flex;"><span>    --define elk.metadata.documentation.outputPath<span style="color:#f92672">=</span>/ELK_FOLDER/docs
 </span></span><span style="display:flex;"><span>    --define tests.paths.elk-repo<span style="color:#f92672">=</span>/ELK_FOLDER
@@ -113,7 +113,7 @@
 </span></span><span style="display:flex;"><span>    install
 </span></span></code></pre></div><h2 id="building-the-website-and-documentation">Building the Website and Documentation</h2>
 <p>The documentation website is our source of documentation. The main build produces reference documentation which is part of the website from our metadata files. The documentation website itself is then built with <a href="https://gohugo.io/">Hugo</a>, a static website generator. The website is setup in a way to be browsable both online and offline.</p>
-<p><a href="https://gitpod.io/#https://github.com/eclipse/elk"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod"></a></p>
+<p><a href="https://gitpod.io/#https://github.com/eclipse-elk/elk"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod"></a></p>
 <p>To actually build the documentation website, go to the repository&rsquo;s <code>docs/</code> folder and simply execute the following command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo
 </span></span></code></pre></div><p>To edit the website, start a Hugo server instance in the repository&rsquo;s <code>docs/</code> folder:</p>

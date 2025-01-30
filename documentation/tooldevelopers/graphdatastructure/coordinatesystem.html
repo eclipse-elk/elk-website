@@ -63,7 +63,7 @@
       
 
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+        <a class="nav-link" href="https://github.com/eclipse-elk/elk">GitHub</a>
       </li>
 
     </ul>
@@ -97,6 +97,43 @@
 <li>Edge labels are relative to the coordinate system their edge is relative to.</li>
 <li>Source points, bend points, and target points of edges are relative to the edge&rsquo;s containing node. Following the usual containment conventions (as implemented in <code>ElkGraphUtil</code>) results in what is displayed in the image above.</li>
 </ul>
+<h2 id="json">JSON</h2>
+<p>One way of using ELK is to define a graph using JSON, and then
+transfer the computed layout back to the initial JSON graph.
+See <a href="../../../documentation/tooldevelopers/graphdatastructure/jsonformat.html"><em>JSON Format</em></a>.
+When working this way, it is possible to control what type of coordinates you get,
+using the <code>org.eclipse.elk.json.shapeCoords</code> and <code>org.eclipse.elk.json.edgeCoords</code> layout options.</p>
+<h3 id="shape-coords">Shape Coords</h3>
+<p>This setting controls the coordinate system that will be used for all nodes, ports, and labels of nodes and ports.</p>
+<p>There are three possible values:</p>
+<ul>
+<li><code>INHERIT</code>: Inherit the value from the parent element.</li>
+<li><code>PARENT</code>: Coordinates are relative to the parent element.</li>
+<li><code>ROOT</code>: Coordinates are relative to the root node, i.e. global coordinates.</li>
+</ul>
+<p>The default value is <code>INHERIT</code>, except at the root node, where the default is <code>PARENT</code>.
+Thus, the default behavior is as described in the image at the top of this page.
+Setting <code>ROOT</code> allows you to instead use a &ldquo;flat&rdquo; coordinate system.</p>
+<h3 id="edge-coords">Edge Coords</h3>
+<p>This setting controls the coordinate system that will be used for all source, bend, and target points of edges,
+as well as all edge labels.</p>
+<p>There are four possible values:</p>
+<ul>
+<li><code>INHERIT</code>: Inherit the value from the parent element.</li>
+<li><code>CONTAINER</code>: Coordinates are relative to the edge&rsquo;s proper container node (see below).</li>
+<li><code>PARENT</code>: Coordinates are relative to the node in which the edge was defined in the given JSON.</li>
+<li><code>ROOT</code>: Coordinates are relative to the root node, i.e. global coordinates.</li>
+</ul>
+<p>The default value is <code>INHERIT</code>, except at the root node, where the default is (for historical reasons) <code>CONTAINER</code>.
+Thus, the default behavior is as described at the top of this page.</p>
+<p>The definition of an edge&rsquo;s proper container is given at the end of the page on the
+<a href="../../../documentation/tooldevelopers/graphdatastructure.html"><em>Graph Data Structure</em></a>.
+It involves lowest common ancestors, and can be tricky to compute correctly.
+In particular, since you are allowed to define an edge under any node whatsoever in the input JSON, the edge&rsquo;s
+<em>parent</em> node (the one it is defined under) may be different from its container.</p>
+<p>If you elect to work in <code>CONTAINER</code> mode, ELK helps you by writing a <code>container</code> property into each edge after layout,
+giving the <code>id</code> of the edge&rsquo;s container node. This can then be used to interpret the coordinates.</p>
+<p>If you elect to work in <code>PARENT</code> or <code>ROOT</code> mode instead, then you do not need to know about edge containers at all.</p>
 
   </div>
 

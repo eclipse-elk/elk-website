@@ -224,6 +224,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-edgeLabels-centerLabelPlacementStrategy.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-json-edgeCoords.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeEdgeBetweenLayers.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-mrtree-edgeEndTextureLength.html</loc>
@@ -407,6 +409,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-force-iterations.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-iterationsFactor.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-json.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/jsonformat.html</loc>
   </url><url>
@@ -697,6 +701,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-separateConnectedComponents.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-shapeBufferDistance.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-json-shapeCoords.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-widthApproximation-lastPlaceShift.html</loc>
   </url><url>

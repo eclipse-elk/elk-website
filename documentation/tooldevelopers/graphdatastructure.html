@@ -63,7 +63,7 @@
       
 
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+        <a class="nav-link" href="https://github.com/eclipse-elk/elk">GitHub</a>
       </li>
 
     </ul>
@@ -237,7 +237,9 @@
 <p>One method of particular value to layout algorithm developers is <code>firstEdgeSection(edge, reset, removeOthers)</code>, which returns the first edge section of the given edge, optionally resetting its layout data and removing all other edge sections. If the edge doesn&rsquo;t have any edge sections yet, one is created and added to it. This method is handy for applying layout results.</p>
 </li>
 <li>
-<p><strong>Edge Containment:</strong> Unless one uses one of the <code>create</code> methods to create edges, finding the node an edge should be contained in may be annoying (thus, don&rsquo;t). The <code>updateContainment(ElkEdge)</code> method automatically computes the best containment and puts the edge there. This requires at least one of the edge&rsquo;s end points to be set, since that is what determines the best containment.</p>
+<p><strong>Edge Containment:</strong> Unless one uses one of the <code>create</code> methods to create edges, finding the node an edge should be contained in may be annoying (thus, don&rsquo;t). The <code>updateContainment(ElkEdge)</code> method automatically computes the best containment and puts the edge there. This requires at least one of the edge&rsquo;s end points to be set, since that is what determines the best containment.
+Note that, when graphs are imported into ELK from JSON, <code>updateContainment()</code> is automatically called on each edge. Authors of graphs in JSON format are therefore not responsible for placing edges
+inside their proper container nodes.</p>
 <p>While computing the containment is a little intricate (hence the utility method), the actual rule that determines the best containment is rather simple: it is the lowest common ancestor of all end points, where the ancestors of a node are defined as the sequence of nodes from the node itself to the graph&rsquo;s root node. Taking the graph at the top of this page as an example, the rule has the following implications for different types of edges:</p>
 <ol>
 <li>

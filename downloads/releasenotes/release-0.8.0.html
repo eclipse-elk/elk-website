@@ -63,7 +63,7 @@
       
 
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+        <a class="nav-link" href="https://github.com/eclipse-elk/elk">GitHub</a>
       </li>
 
     </ul>
@@ -86,60 +86,60 @@
 <li><a href="https://repo.maven.apache.org/maven2/org/eclipse/elk/">Maven central</a> (for building pure Java projects that use ELK)</li>
 </ul>
 <h2 id="details">Details</h2>
-<p>This is mainly a bugfix release. See GitHub for the full <a href="https://github.com/eclipse/elk/milestone/13">list of resolved issues</a>.</p>
+<p>This is mainly a bugfix release. See GitHub for the full <a href="https://github.com/eclipse-elk/elk/milestone/13">list of resolved issues</a>.</p>
 <h3 id="new-features-and-enhancements">New Features and Enhancements</h3>
 <ul>
-<li><a href="https://github.com/eclipse/elk/issues/672">#672</a>, <a href="https://github.com/eclipse/elk/pull/674">#674</a>, <a href="https://github.com/eclipse/elk/issues/675">#675</a>, <a href="https://github.com/eclipse/elk/pull/677">#677</a>: Build systems is simplified.</li>
-<li><a href="https://github.com/eclipse/elk/issues/690">#690</a>, <a href="https://github.com/eclipse/elk/issues/691">#691</a>: Improved documentation of position and layer choice constrains.</li>
-<li><a href="https://github.com/eclipse/elk/issues/695">#695</a>, <a href="https://github.com/eclipse/elk/pull/698">#698</a>: Support node micro layout with further layout algorithms.</li>
-<li><a href="https://github.com/eclipse/elk/issues/688">#688</a>, <a href="https://github.com/eclipse/elk/pull/711">#711</a>: Better documentation for content alignment.</li>
-<li><a href="https://github.com/eclipse/elk/issues/722">#722</a>: Migrated to new build server.</li>
-<li><a href="https://github.com/eclipse/elk/pull/717">#717</a>: Model order: Property to weight model order node or port violations against edge crossings during crossing minimization. This also renames <code>considerModelOrder</code> to <code>considerModelOrder.strategy</code>.</li>
-<li><a href="https://github.com/eclipse/elk/pull/759">#759</a>: Model order: Added cycle breaker that enforces model order (but not against layerConstraints).</li>
-<li><a href="https://github.com/eclipse/elk/pull/815">#815</a>: Model order: Added option to enforce node order that existed before crossing minimization. This is to be used together with <code>considerModelOrder.strategy</code> :<code>NODES_AND_EDGES</code></li>
-<li><a href="https://github.com/eclipse/elk/pull/816">#816</a>: Model order: Added property for nodes to signal that these should not get a model order and should be handled as dummy nodes.</li>
-<li><a href="https://github.com/eclipse/elk/issues/676">#676</a>, <a href="https://github.com/eclipse/elk/pull/789">#789</a>: ServiceLoader can now be used with different class loaders.</li>
-<li><a href="https://github.com/eclipse/elk/pull/795">#795</a>: Added a crossing minimizer that does nothing instead of crossing minimization. This is to be used together to enforce the model order.</li>
-<li><a href="https://github.com/eclipse/elk/pull/804">#804</a>: Added fixed graph size support for the layered algorithm.</li>
-<li><a href="https://github.com/eclipse/elk/issues/780">#780</a>, <a href="https://github.com/eclipse/elk/pull/802">#802</a>: Added option to generate position and layer ids.</li>
-<li><a href="https://github.com/eclipse/elk/issues/335">#335</a>, <a href="https://github.com/eclipse/elk/pull/803">#803</a>: Added spacing documentation overview page to the website.</li>
-<li><a href="https://github.com/eclipse/elk/pull/819">#819</a>, <a href="https://github.com/eclipse/elk/pull/822">#822</a>, <a href="https://github.com/eclipse/elk/pull/823">#823</a>: Added option to order components with external ports not by their port connections but truly by model order.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/672">#672</a>, <a href="https://github.com/eclipse-elk/elk/pull/674">#674</a>, <a href="https://github.com/eclipse-elk/elk/issues/675">#675</a>, <a href="https://github.com/eclipse-elk/elk/pull/677">#677</a>: Build systems is simplified.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/690">#690</a>, <a href="https://github.com/eclipse-elk/elk/issues/691">#691</a>: Improved documentation of position and layer choice constrains.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/695">#695</a>, <a href="https://github.com/eclipse-elk/elk/pull/698">#698</a>: Support node micro layout with further layout algorithms.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/688">#688</a>, <a href="https://github.com/eclipse-elk/elk/pull/711">#711</a>: Better documentation for content alignment.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/722">#722</a>: Migrated to new build server.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/717">#717</a>: Model order: Property to weight model order node or port violations against edge crossings during crossing minimization. This also renames <code>considerModelOrder</code> to <code>considerModelOrder.strategy</code>.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/759">#759</a>: Model order: Added cycle breaker that enforces model order (but not against layerConstraints).</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/815">#815</a>: Model order: Added option to enforce node order that existed before crossing minimization. This is to be used together with <code>considerModelOrder.strategy</code> :<code>NODES_AND_EDGES</code></li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/816">#816</a>: Model order: Added property for nodes to signal that these should not get a model order and should be handled as dummy nodes.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/676">#676</a>, <a href="https://github.com/eclipse-elk/elk/pull/789">#789</a>: ServiceLoader can now be used with different class loaders.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/795">#795</a>: Added a crossing minimizer that does nothing instead of crossing minimization. This is to be used together to enforce the model order.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/804">#804</a>: Added fixed graph size support for the layered algorithm.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/780">#780</a>, <a href="https://github.com/eclipse-elk/elk/pull/802">#802</a>: Added option to generate position and layer ids.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/335">#335</a>, <a href="https://github.com/eclipse-elk/elk/pull/803">#803</a>: Added spacing documentation overview page to the website.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/819">#819</a>, <a href="https://github.com/eclipse-elk/elk/pull/822">#822</a>, <a href="https://github.com/eclipse-elk/elk/pull/823">#823</a>: Added option to order components with external ports not by their port connections but truly by model order.</li>
 </ul>
 <h3 id="changes">Changes</h3>
 <ul>
-<li><a href="https://github.com/eclipse/elk/pull/717">#717</a>: Renamed <code>considerModelOrder</code> to <code>considerModelOrder.strategy</code>.</li>
-<li><a href="https://github.com/eclipse/elk/pull/697">#697</a>: Changed default node label stacking direction for UNDEFINED direction from horizontal to vertical.</li>
-<li><a href="https://github.com/eclipse/elk/issues/757">#757</a>, <a href="https://github.com/eclipse/elk/pull/761">#761</a>, <a href="https://github.com/eclipse/elk/issues/720">#720</a>, <a href="https://github.com/eclipse/elk/pull/730">#730</a>: Bump guava version and remove upper bound.</li>
-<li><a href="https://github.com/eclipse/elk/pull/774">#774</a>: Update Eclipse download URL from <a href="http://build.eclipse.org/modeling/elk/updates">http://build.eclipse.org/modeling/elk/updates</a> to <a href="https://download.eclipse.org/elk/updates">https://download.eclipse.org/elk/updates</a>.</li>
-<li><a href="https://github.com/eclipse/elk/issues/651">#651</a>, <a href="https://github.com/eclipse/elk/pull/790">#790</a>: Report invalid hierarchical crossing minimization instead of fixing it.</li>
-<li><a href="https://github.com/eclipse/elk/pull/791">#791</a>, <a href="https://github.com/eclipse/elk/issues/714">#714</a>: Hierarchical edge orientation now uses the same in/out degree mechanism as the non-hierarchical layered algorithm.</li>
-<li><a href="https://github.com/eclipse/elk/issues/766">#766</a>, <a href="https://github.com/eclipse/elk/pull/801">#801</a>, Hierarchical port dummies are considered to take no size, same as other port dummies.</li>
-<li><a href="https://github.com/eclipse/elk/pull/788">#788</a>: Individual spacings for vertical and horizontal label port spacing. <code>spacing.portLabel</code> is split into <code>spacing.labelPortHorizontal</code> and <code>spacing.labelPortVertical</code>.</li>
-<li><a href="https://github.com/eclipse/elk/pull/817">#817</a>, <a href="https://github.com/eclipse/elk/pull/818">#818</a>: Separate connected components are no longer implicitly ordered my minimal model order of the component if a model order strategy is set but require a separate option.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/717">#717</a>: Renamed <code>considerModelOrder</code> to <code>considerModelOrder.strategy</code>.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/697">#697</a>: Changed default node label stacking direction for UNDEFINED direction from horizontal to vertical.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/757">#757</a>, <a href="https://github.com/eclipse-elk/elk/pull/761">#761</a>, <a href="https://github.com/eclipse-elk/elk/issues/720">#720</a>, <a href="https://github.com/eclipse-elk/elk/pull/730">#730</a>: Bump guava version and remove upper bound.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/774">#774</a>: Update Eclipse download URL from <a href="http://build.eclipse.org/modeling/elk/updates">http://build.eclipse.org/modeling/elk/updates</a> to <a href="https://download.eclipse.org/elk/updates">https://download.eclipse.org/elk/updates</a>.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/651">#651</a>, <a href="https://github.com/eclipse-elk/elk/pull/790">#790</a>: Report invalid hierarchical crossing minimization instead of fixing it.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/791">#791</a>, <a href="https://github.com/eclipse-elk/elk/issues/714">#714</a>: Hierarchical edge orientation now uses the same in/out degree mechanism as the non-hierarchical layered algorithm.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/766">#766</a>, <a href="https://github.com/eclipse-elk/elk/pull/801">#801</a>, Hierarchical port dummies are considered to take no size, same as other port dummies.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/788">#788</a>: Individual spacings for vertical and horizontal label port spacing. <code>spacing.portLabel</code> is split into <code>spacing.labelPortHorizontal</code> and <code>spacing.labelPortVertical</code>.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/817">#817</a>, <a href="https://github.com/eclipse-elk/elk/pull/818">#818</a>: Separate connected components are no longer implicitly ordered my minimal model order of the component if a model order strategy is set but require a separate option.</li>
 </ul>
 <h3 id="removal">Removal</h3>
 <ul>
-<li><a href="https://github.com/eclipse/elk/issues/526">#526</a>, <a href="https://github.com/eclipse/elk/pull/760">#760</a>: Removed <code>layoutProvider</code> extension point.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/526">#526</a>, <a href="https://github.com/eclipse-elk/elk/pull/760">#760</a>: Removed <code>layoutProvider</code> extension point.</li>
 </ul>
 <h3 id="bugfixes">Bugfixes</h3>
 <ul>
-<li><a href="https://github.com/eclipse/elk/pull/679">#679</a>: Prevent repeated registration of layout options during PlainJavaInitialization.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/679">#679</a>: Prevent repeated registration of layout options during PlainJavaInitialization.</li>
 </ul>
 <ul>
-<li><a href="https://github.com/eclipse/elk/pull/706">#706</a>: Workaround for broken eclipse.urischeme dependency. Should be removed in next release once Eclipse dependencies are updated.</li>
-<li><a href="https://github.com/eclipse/elk/issues/718">#718</a>, <a href="https://github.com/eclipse/elk/pull/721">#721</a>, <a href="https://github.com/eclipse/elk/issues/727">#727</a>, <a href="https://github.com/eclipse/elk/issues/728">#728</a>: Various fixes for the website.</li>
-<li><a href="https://github.com/eclipse/elk/issues/684">#684</a>, <a href="https://github.com/eclipse/elk/pull/729">#729</a>: Adjusted melk file to show that a padding has to be applied to nodes.</li>
-<li><a href="https://github.com/eclipse/elk/pull/756">#756</a>: Model order is also set for hierarchical graphs.</li>
-<li><a href="https://github.com/eclipse/elk/issues/781">#781</a>, <a href="https://github.com/eclipse/elk/pull/782">#782</a>: Clone mutable values instead of potentially sharing the same instance over multiple elements.</li>
-<li><a href="https://github.com/eclipse/elk/pull/784">#784</a>: Backward edges are correctly handled for <code>considerModelOrder</code>.</li>
-<li><a href="https://github.com/eclipse/elk/pull/775">#775</a>, <a href="https://github.com/eclipse/elk/issues/776">#776</a>: Improved edge containment for JSON graphs.</li>
-<li><a href="https://github.com/eclipse/elk/issues/744">#744</a>, <a href="https://github.com/eclipse/elk/pull/793">#793</a>: Radial layout now correctly calculates the radii im one radius is changed since nodes should not overlap.</li>
-<li><a href="https://github.com/eclipse/elk/issues/754">#754</a>, <a href="https://github.com/eclipse/elk/pull/792">#792</a>: Dummy ports in hierarchical layered graphs get a default position of 0,0 to prevent an NPE.</li>
-<li><a href="https://github.com/eclipse/elk/pull/796">#796</a>: Graphviz no longer calls eclipse.ui if no platform is running.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/706">#706</a>: Workaround for broken eclipse.urischeme dependency. Should be removed in next release once Eclipse dependencies are updated.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/718">#718</a>, <a href="https://github.com/eclipse-elk/elk/pull/721">#721</a>, <a href="https://github.com/eclipse-elk/elk/issues/727">#727</a>, <a href="https://github.com/eclipse-elk/elk/issues/728">#728</a>: Various fixes for the website.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/684">#684</a>, <a href="https://github.com/eclipse-elk/elk/pull/729">#729</a>: Adjusted melk file to show that a padding has to be applied to nodes.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/756">#756</a>: Model order is also set for hierarchical graphs.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/781">#781</a>, <a href="https://github.com/eclipse-elk/elk/pull/782">#782</a>: Clone mutable values instead of potentially sharing the same instance over multiple elements.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/784">#784</a>: Backward edges are correctly handled for <code>considerModelOrder</code>.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/775">#775</a>, <a href="https://github.com/eclipse-elk/elk/issues/776">#776</a>: Improved edge containment for JSON graphs.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/744">#744</a>, <a href="https://github.com/eclipse-elk/elk/pull/793">#793</a>: Radial layout now correctly calculates the radii im one radius is changed since nodes should not overlap.</li>
+<li><a href="https://github.com/eclipse-elk/elk/issues/754">#754</a>, <a href="https://github.com/eclipse-elk/elk/pull/792">#792</a>: Dummy ports in hierarchical layered graphs get a default position of 0,0 to prevent an NPE.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/796">#796</a>: Graphviz no longer calls eclipse.ui if no platform is running.</li>
 </ul>
 <h3 id="cleanup">Cleanup</h3>
 <ul>
-<li><a href="https://github.com/eclipse/elk/pull/694">#694</a>, <a href="https://github.com/eclipse/elk/pull/704">#704:</a> Cleanup.</li>
+<li><a href="https://github.com/eclipse-elk/elk/pull/694">#694</a>, <a href="https://github.com/eclipse-elk/elk/pull/704">#704:</a> Cleanup.</li>
 </ul>
 <h3 id="known-bugs">Known Bugs</h3>
 <ul>

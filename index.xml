@@ -1056,6 +1056,18 @@ CENTER_LAYER (@ExperimentalPropertyValue) Default Value: CenterEdgeLabelPlacemen
     </item>
     
     <item>
+      <title>Edge Coords</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-json-edgeCoords.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-json-edgeCoords.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.json.edgeCoords Meta Data Provider: core.options.CoreOptions Value Type: org.eclipse.elk.core.options.EdgeCoords (Enum) Possible Values: INHERIT
+CONTAINER
+PARENT
+ROOT Default Value: EdgeCoords.INHERIT (as defined in org.eclipse.elk) Applies To: parents Containing Group: json Description For layouts transferred into JSON graphs, specify the coordinate system to be used for edge route points and edge labels.</description>
+    </item>
+    
+    <item>
       <title>Edge Edge Between Layer Spacing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeEdgeBetweenLayers.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1929,6 +1941,15 @@ TOP_LEFT Default Value: InteractiveReferencePoint.CENTER (as defined in org.ecli
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-iterationsFactor.html</guid>
       <description>Property Value Type: advanced Identifier: org.eclipse.elk.graphviz.iterationsFactor Meta Data Provider: layouter.GraphvizMetaDataProvider Value Type: double Lower Bound: ExclusiveBounds.greaterThan(0) Applies To: parents Description Multiplicative scale factor for the maximal number of iterations used during crossing minimization, node ranking, and node positioning.</description>
+    </item>
+    
+    <item>
+      <title>json</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-json.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-json.html</guid>
+      <description> Property Value Identifier: org.eclipse.elk.json Options Shape Coords Edge Coords </description>
     </item>
     
     <item>
@@ -3363,6 +3384,17 @@ SEQUENCED Default Value: SelfLoopOrderingStrategy.STACKED (as defined in org.ecl
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-shapeBufferDistance.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.alg.libavoid.shapeBufferDistance Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 4 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This parameter defines the spacing distance that will be added to the sides of each shape when determining obstacle sizes for routing. This controls how closely connectors pass shapes, and can be used to prevent connectors overlapping with shape boundaries.</description>
+    </item>
+    
+    <item>
+      <title>Shape Coords</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-json-shapeCoords.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-json-shapeCoords.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.json.shapeCoords Meta Data Provider: core.options.CoreOptions Value Type: org.eclipse.elk.core.options.ShapeCoords (Enum) Possible Values: INHERIT
+PARENT
+ROOT Default Value: ShapeCoords.INHERIT (as defined in org.eclipse.elk) Applies To: parents Containing Group: json Description For layouts transferred into JSON graphs, specify the coordinate system to be used for nodes, ports, and labels of nodes and ports.</description>
     </item>
     
     <item>

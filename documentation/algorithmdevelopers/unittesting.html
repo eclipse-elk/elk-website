@@ -63,7 +63,7 @@
       
 
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/eclipse/elk">GitHub</a>
+        <a class="nav-link" href="https://github.com/eclipse-elk/elk">GitHub</a>
       </li>
 
     </ul>
@@ -132,7 +132,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Build a graph here...
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h3 id="load-graphs-from-disk">Load Graphs From Disk</h3>
-<p>Graphs stored in ELK&rsquo;s <a href="https://github.com/eclipse/elk-models">models repository</a> can be used directly in tests. You specify graphs to be loaded through lists of <code>ModelResourcePath</code>, which accepts paths relative to the models repository:</p>
+<p>Graphs stored in ELK&rsquo;s <a href="https://github.com/eclipse-elk/elk-models">models repository</a> can be used directly in tests. You specify graphs to be loaded through lists of <code>ModelResourcePath</code>, which accepts paths relative to the models repository:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@GraphResourceProvider</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>AbstractResourcePath<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">provideGraphs</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>AbstractResourcePath<span style="color:#f92672">&gt;</span> paths <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>

@@ -2704,7 +2704,7 @@ Additional Documentation The packing strategy specifies what is most important d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-rectpacking-orderBySize.html</guid>
-      <description>Property Value Identifier: org.eclipse.elk.rectpacking.orderBySize Meta Data Provider: options.RectPackingMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.rectpacking) Applies To: parents Description If set to true the nodes will be sorted by their height before computing the layout. The highest node will be in the first position.</description>
+      <description>Property Value Identifier: org.eclipse.elk.rectpacking.orderBySize Meta Data Provider: options.RectPackingMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.rectpacking) Applies To: parents Description If set to true the nodes will be sorted by their height before computing the layout. The largest node will be in the first position.</description>
     </item>
     
     <item>

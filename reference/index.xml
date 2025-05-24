@@ -2196,6 +2196,15 @@ ASYMMETRICAL Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as def
     </item>
     
     <item>
+      <title>Number of size categories</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeCategories.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeCategories.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.sizeCategories Meta Data Provider: core.options.CoreOptions Value Type: int Default Value: 3 (as defined in org.eclipse.elk) Lower Bound: 1 Applies To: parents Dependencies: org.eclipse.elk.topdown.sizeApproximator (TopdownSizeApproximator.FIXED_INTEGER_RATIO_BOXES) Containing Group: topdown Description Defines the number of categories to use for the FIXED_INTEGER_RATIO_BOXES size approximator.</description>
+    </item>
+    
+    <item>
       <title>Omit Node Micro Layout</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-omitNodeMicroLayout.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -3077,7 +3086,7 @@ SLOPPY Default Value: SplineRoutingMode.SLOPPY (as defined in org.eclipse.elk.la
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-topdown.html</guid>
-      <description> Property Value Identifier: org.eclipse.elk.topdown Options Topdown Scale Factor Topdown Size Approximator Topdown Hierarchical Node Width Topdown Hierarchical Node Aspect Ratio Topdown Node Type Topdown Scale Cap </description>
+      <description> Property Value Identifier: org.eclipse.elk.topdown Options Number of size categories Weight of a node containing children for determining the graph size Topdown Scale Factor Topdown Size Approximator Topdown Hierarchical Node Width Topdown Hierarchical Node Aspect Ratio Topdown Node Type Topdown Scale Cap </description>
     </item>
     
     <item>
@@ -3142,8 +3151,7 @@ ROOT_NODE Default Value: null (as defined in org.eclipse.elk) Applies To: nodes 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeApproximator.html</guid>
-      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.sizeApproximator Meta Data Provider: core.options.CoreOptions Value Type: org.eclipse.elk.core.options.TopdownSizeApproximator (Enum) Possible Values: COUNT_CHILDREN
-LOOKAHEAD_LAYOUT Default Value: null (as defined in org.eclipse.elk) Applies To: nodes Dependencies: org.eclipse.elk.topdown.nodeType (TopdownNodeTypes.HIERARCHICAL_NODE) Containing Group: topdown Description The size approximator to be used to set sizes of hierarchical nodes during topdown layout. The default value is null, which results in nodes keeping whatever size is defined for them e.g. through parent parallel node or by manually setting the size.</description>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.sizeApproximator Meta Data Provider: core.options.CoreOptions Value Type: org.eclipse.elk.core.options.ITopdownSizeApproximator Default Value: null (as defined in org.eclipse.elk) Applies To: nodes Dependencies: org.eclipse.elk.topdown.nodeType (TopdownNodeTypes.HIERARCHICAL_NODE) Containing Group: topdown Description The size approximator to be used to set sizes of hierarchical nodes during topdown layout. The default value is null, which results in nodes keeping whatever size is defined for them e.g. through parent parallel node or by manually setting the size.</description>
     </item>
     
     <item>
@@ -3285,6 +3293,15 @@ LOOK_BACK Default Value: ValidifyStrategy.GREEDY (as defined in org.eclipse.elk.
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-labelPortVertical.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.spacing.labelPortVertical Meta Data Provider: core.options.CoreOptions Value Type: double Default Value: 1 (as defined in org.eclipse.elk) Applies To: parents Containing Group: spacing Description Vertical spacing to be preserved between labels and the ports they are associated with. Note that the placement of a label is influenced by the &amp;lsquo;portlabels.placement&amp;rsquo; option.</description>
+    </item>
+    
+    <item>
+      <title>Weight of a node containing children for determining the graph size</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeCategoriesHierarchicalNodeWeight.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-topdown-sizeCategoriesHierarchicalNodeWeight.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.topdown.sizeCategoriesHierarchicalNodeWeight Meta Data Provider: core.options.CoreOptions Value Type: int Default Value: 4 (as defined in org.eclipse.elk) Lower Bound: 1 Applies To: parents Dependencies: org.eclipse.elk.topdown.sizeCategories Containing Group: topdown Description When determining the graph size for the size categorisation, this value determines how many times a node containing children is weighted more than a simple node. For example setting this value to four would result in a graph containing a simple node and a hierarchical node to be counted as having a size of five.</description>
     </item>
     
     <item>

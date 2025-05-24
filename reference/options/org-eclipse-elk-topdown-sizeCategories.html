@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>ELK Radial (ELK)</title>
+    <title>Number of size categories (ELK)</title>
 
     
     
@@ -76,22 +76,9 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>ELK Radial</h1>
+    <h1>Number of size categories</h1>
 
-    <p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-radial_preview_radial_layout.png"
-    
-     alt="Preview Image"
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-
-<table>
+    <table>
 <thead>
 <tr>
 <th>Property</th>
@@ -100,205 +87,45 @@
 </thead>
 <tbody>
 <tr>
+<td><em>Type:</em></td>
+<td>advanced</td>
+</tr>
+<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.radial</code></td>
+<td><code>org.eclipse.elk.topdown.sizeCategories</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>options.RadialMetaDataProvider</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="description">Description</h2>
-<p>A radial layout provider which is based on the algorithm of Peter Eades published in &ldquo;Drawing free trees.&rdquo;, published by International Institute for Advanced Study of Social Information Science, Fujitsu Limited in 1991. The radial layouter takes a tree and places the nodes in radial order around the root. The nodes of the same tree level are placed on the same radius.</p>
-<h2 id="category-radial">Category: Radial</h2>
-<p>Radial layout algorithms usually position the nodes of the graph on concentric circles.</p>
-<h2 id="additional-documentation">Additional Documentation</h2>
-<p>The Radial layouter which provides an enviroment for individiual radial layout algorithms is devided in different phases of layout.</p>
-<h2 id="phases">Phases</h2>
-<p>The algorithm we implemented is dividable in 5 consecutive steps, two phases and three alternative intermediate processors.
-The difference between phases and processors is that phases are essential for the layouter and need an implementation (which is also exchangeable)
-while processors are optional.
-The given phases are the node placement phase and the edge routing phase, these suffice to gain a radial layout.
-The steps of overlap removal, compaction and graph size calculation are the optional steps of the algorithm.
-In the following all these steps are explained in more detail.
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-radial_Phases.png"
-    
-    
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-</p>
-<h3 id="node-placement">Node placement</h3>
-<p>The essential phase of the layouter is the node placement, where the nodes are assigned a position.
-Currently only one node placement algorithm is implemented that is the one of Eades.
-As mentioned before it would be possible to swap the node placement algorithm by another one.
-But it also possible to customize the given algorithm of Eades, but beforehand you should know how the algorithm of Eades works.</p>
-<h4 id="the-algorithm-of-eades">The Algorithm of Eades</h4>
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-radial_EadesTree.png"
-    
-    
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-
-<p>As mentioned Eades provides an algorithm for drawing radial layouts. It was published in &ldquo;Drawing free trees.&rdquo;, (published by
-International Institute for Advanced Study of Social Information Science, Fujitsu Limited in 1991).
-The algorithm he provided can layout trees with nodes of no size. The distance between the single radii is given as a constant input.
-But how does Eades&rsquo;s algorithm work:
-The algorithm starts placing the root node and then continues with placing each node of each subtree.
-Each subtree is assigned to an annulus wedge, a part of the circle. Each node is then placed in the center of its wedge.<br>
-To estimate how big the wedge of each subtree will be, Eades counts the numbers of leaves.
-The node which shall be placed gets space according to the number of leaves it has compared to the number of leaves all nodes of the same layer have.
-The first wedge starts at the right of the circle, because polar coordinates are used and there is degree zero.
-The following examples shall clarify this process:
-<p>
-  <img
-    class="img-fluid"
-    
-      src="../../img_gen/org-eclipse-elk-radial_EadesWedgeExample.png"
-    
-    
-    style = "max-height: 500px; display: block;
-    margin-left: auto;
-    margin-right: auto;"
-  />
-</p>
-</p>
-<p>The right lower nodes receives one quarter of the space, because he has (and is) one leaf.
-The right upper node has one leaf and receives one quarter and the left node has two leaves that is why it receives two quarters.</p>
-<h4 id="customizations">Customizations</h4>
-<p>As mentioned the algorithm of Eades do not consider node sizes, therefore we provided an annulus wedge criteria which does.
-Therefore the available space is not calculated by the number of leaves but by the maximum sum of the length of all node diagonals of a wedge.
-Another customization is that the first wedge does not start on the right of the circle but on a position which gives a better layout.
-This means that each node is translated for some degree on the radius. This movement can be used to minimize the edge length or even more valuable, the number of edge crossings.</p>
-<h3 id="overlap-removal">Overlap Removal</h3>
-<p>The overlap removal intermediate processor can be started after the node placement.
-Due to the node sizes it is still not guaranteed that no overlaps occur, because the radius can be chosen too small.
-The processor starts with the innermost radius and widens it until no more overlaps on the radius occur.
-This is repeated for each radius.</p>
-<h3 id="compaction">Compaction</h3>
-<p>The compaction processor strieves to maintain a more compact layout. There are two different approaches implemented.
-The first is the radial compaction which alters the radii such as the overlap removal. Each radius is contracted as long as no overlap occurs.
-The second approach is the wedge compaction strategy which compacts nodes of each wedge as much as possible. For each wedge the radii are contracted as much as possible.
-This leads to the loss of the radius alignment property, but may provide a much more compact layout.</p>
-<h3 id="graph-size-calculation">Graph Size Calculation</h3>
-<p>To determine the size needed for displaying the graph, it is post-processed. Therefore all nodes are moved into the positive area
-(beforehand the root node was placed in the origin) and the size of the graph is calculated.</p>
-<h3 id="edge-routing">Edge routing</h3>
-<p>The last phase is the one of edge routing, which provides a layout for the edges of the graph.
-Edges are drawn from the center of the source to the center of the target and then clipped such that they do no not overlap the nodes.</p>
-<h3 id="advanced-options">Advanced options</h3>
-<p>There are some advanced options which shouldn&rsquo;t stay uncommented.
-There are advanced options for the node placement optimization strategy as well as for sorting the nodes.
-The options are marked as advanced because they require additional information to work properly.
-The current options require the position option(org.eclipse.elk.position) to be set.
-The original use is given by assuming there exists a relation between nodes in the parent node and the children.
-Therefore, the position reflects the position of the nodes in the parent node.
-These options may be adapted to other purposes.</p>
-<h2 id="supported-options">Supported Options</h2>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-rotation-computeAdditionalWedgeSpace.html">Additional Wedge Space</a></td>
-<td><code>false</code></td>
+<td><code>core.options.CoreOptions</code></td>
 </tr>
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-wedgeCriteria.html">Annulus Wedge Criteria</a></td>
-<td><code>AnnulusWedgeCriteria.NODE_SIZE</code></td>
+<td><em>Value Type:</em></td>
+<td><code>int</code></td>
 </tr>
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-centerOnRoot.html">Center On Root</a></td>
-<td><code>false</code></td>
+<td><em>Default Value:</em></td>
+<td><code>3</code> (as defined in <code>org.eclipse.elk</code>)</td>
 </tr>
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-compactor.html">Compaction</a></td>
-<td><code>CompactionStrategy.NONE</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-compactionStepSize.html">Compaction Step Size</a></td>
+<td><em>Lower Bound:</em></td>
 <td><code>1</code></td>
 </tr>
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-nodeLabels-placement.html">Node Label Placement</a></td>
-<td><code>NodeLabelPlacement.fixed()</code></td>
+<td><em>Applies To:</em></td>
+<td>parents</td>
 </tr>
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-nodeSize-constraints.html">Node Size Constraints</a></td>
-<td><code>EnumSet.noneOf(SizeConstraint)</code></td>
+<td><em>Dependencies:</em></td>
+<td><a href="../../reference/options/org-eclipse-elk-topdown-sizeApproximator.html">org.eclipse.elk.topdown.sizeApproximator</a> (<code>TopdownSizeApproximator.FIXED_INTEGER_RATIO_BOXES</code>)</td>
 </tr>
 <tr>
-<td><a href="../../reference/options/org-eclipse-elk-nodeSize-minimum.html">Node Size Minimum</a></td>
-<td><code>new KVector(0, 0)</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-nodeSize-options.html">Node Size Options</a></td>
-<td><code>EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE)</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-spacing-nodeNode.html">Node Spacing</a></td>
-<td><code>20</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-omitNodeMicroLayout.html">Omit Node Micro Layout</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-orderId.html">Order ID </a></td>
-<td><code>0</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-rotation-outgoingEdgeAngles.html">Outgoing Edge Angles</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-portLabels-placement.html">Port Label Placement</a></td>
-<td><code>PortLabelPlacement.outside()</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-position.html">Position</a></td>
-<td><code>&lt;not defined&gt;</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-radius.html">Radius</a></td>
-<td><code>0.0</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-rotate.html">Rotate</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-sorter.html">Sorter</a></td>
-<td><code>SortingStrategy.NONE</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-rotation-targetAngle.html">Target Angle</a></td>
-<td><code>0</code></td>
-</tr>
-<tr>
-<td><a href="../../reference/options/org-eclipse-elk-radial-optimizationCriteria.html">Translation Optimization</a></td>
-<td><code>RadialTranslationStrategy.NONE</code></td>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-topdown.html">topdown</a></td>
 </tr>
 </tbody>
 </table>
+<h3 id="description">Description</h3>
+<p>Defines the number of categories to use for the FIXED_INTEGER_RATIO_BOXES size approximator.</p>
 
   </div>
 
@@ -389,7 +216,7 @@ These options may be adapted to other purposes.</p>
 
   
   <a href="../../reference/algorithms/org-eclipse-elk-radial.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       ELK Radial
     </li>
   </a>
@@ -1845,7 +1672,7 @@ These options may be adapted to other purposes.</p>
 
   
   <a href="../../reference/options/org-eclipse-elk-topdown-sizeCategories.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Number of size categories
     </li>
   </a>

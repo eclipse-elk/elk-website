@@ -424,7 +424,16 @@ MODEL_ORDER Default Value: ComponentOrderingStrategy.NONE (as defined in org.ecl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder.html</guid>
-      <description> Property Value Identifier: org.eclipse.elk.layered.considerModelOrder Options Consider Model Order Consider Port Order No Model Order Consider Model Order for Components Long Edge Ordering Strategy Crossing Counter Node Order Influence Crossing Counter Port Order Influence </description>
+      <description> Property Value Identifier: org.eclipse.elk.layered.considerModelOrder Options Consider Model Order Consider Port Order No Model Order Consider Model Order for Components Long Edge Ordering Strategy Crossing Counter Node Order Influence Crossing Counter Port Order Influence Subgroups groupModelOrder </description>
+    </item>
+    
+    <item>
+      <title>considerModelOrder.groupModelOrder</title>
+      <link>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder-groupModelOrder.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder-groupModelOrder.html</guid>
+      <description> Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder Options Group ID of the Node Type Group ID of the Node Type Group ID of the Node Type Cycle Breaking Group Ordering Strategy Cycle Breaking Preferred Source Id Cycle Breaking Preferred Target Id Crossing Minimization Group Ordering Strategy Crossing Minimization Enforced Group Orders </description>
     </item>
     
     <item>
@@ -479,6 +488,26 @@ MINIMUM_ROOT_DISTANCE Default Value: SpanningTreeCostFunction.CIRCLE_UNDERLAP (a
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-crossingCounterPortInfluence.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.crossingCounterPortInfluence Meta Data Provider: options.LayeredMetaDataProvider Value Type: double Default Value: 0 (as defined in org.eclipse.elk.layered) Applies To: parents Dependencies: org.eclipse.elk.layered.considerModelOrder.strategy Containing Group: considerModelOrder Description Indicates with what percentage (1 for 100%) violations of the port model order are weighted against the crossings e.g. a value of 0.5 means two model order violations are as important as on edge crossing. This allows some edge crossings in favor of preserving the model order.</description>
+    </item>
+    
+    <item>
+      <title>Crossing Minimization Enforced Group Orders</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cmEnforcedGroupOrders.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cmEnforcedGroupOrders.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmEnforcedGroupOrders Meta Data Provider: options.LayeredMetaDataProvider Value Type: java.util.List&amp;lt;java.lang.Integer&amp;gt; Default Value: #[1, 2, 6, 7, 10, 11] (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: considerModelOrder -&amp;gt; groupModelOrder Description Holds all group ids which are enforcing their order during crossing minimization strategies. E.g. if only groups 2 and -1 (default) enforce their ordering. Other groups e.g. the group of timer nodes can be ordered arbitrarily if it helps and the mentioned groups may not change their order.</description>
+    </item>
+    
+    <item>
+      <title>Crossing Minimization Group Ordering Strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cmGroupOrderStrategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cmGroupOrderStrategy.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.GroupOrderStrategy (Enum) Possible Values: ONLY_WITHIN_GROUP
+MODEL_ORDER
+ENFORCED Default Value: GroupOrderStrategy.ONLY_WITHIN_GROUP (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: considerModelOrder -&amp;gt; groupModelOrder Description Determines how to count ordering violations during crossing minimization. NONE: They do not count. ENFORCED: A group with a lower id is before a group with a higher id. MODEL_ORDER: The model order counts instead of the model order group id ordering.</description>
     </item>
     
     <item>
@@ -549,6 +578,35 @@ MANUAL Default Value: CuttingStrategy.MSD (as defined in org.eclipse.elk.layered
     </item>
     
     <item>
+      <title>Cycle Breaking Group Ordering Strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cbGroupOrderStrategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cbGroupOrderStrategy.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.GroupOrderStrategy (Enum) Possible Values: ONLY_WITHIN_GROUP
+MODEL_ORDER
+ENFORCED Default Value: GroupOrderStrategy.ONLY_WITHIN_GROUP (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: considerModelOrder -&amp;gt; groupModelOrder Description Determines how to count ordering violations during cycle breaking. NONE: They do not count. ENFORCED: A group with a higher model order is before a node with a smaller. MODEL_ORDER: The model order counts instead of the model order group id ordering.</description>
+    </item>
+    
+    <item>
+      <title>Cycle Breaking Preferred Source Id</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cbPreferredSourceId.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cbPreferredSourceId.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbPreferredSourceId Meta Data Provider: options.LayeredMetaDataProvider Value Type: int Applies To: parents Dependencies: org.eclipse.elk.layered.cycleBreaking.strategy (CycleBreakingStrategy.SCC_NODE_TYPE) Containing Group: considerModelOrder -&amp;gt; groupModelOrder Description The model order group id for which should be preferred as a source if possible.</description>
+    </item>
+    
+    <item>
+      <title>Cycle Breaking Preferred Target Id</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cbPreferredTargetId.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cbPreferredTargetId.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbPreferredTargetId Meta Data Provider: options.LayeredMetaDataProvider Value Type: int Applies To: parents Dependencies: org.eclipse.elk.layered.cycleBreaking.strategy (CycleBreakingStrategy.SCC_NODE_TYPE) Containing Group: considerModelOrder -&amp;gt; groupModelOrder Description The model order group id for which should be preferred as a target if possible.</description>
+    </item>
+    
+    <item>
       <title>Cycle Breaking Strategy</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-cycleBreaking-strategy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -558,7 +616,11 @@ MANUAL Default Value: CuttingStrategy.MSD (as defined in org.eclipse.elk.layered
 DEPTH_FIRST
 INTERACTIVE (@AdvancedPropertyValue)
 MODEL_ORDER
-GREEDY_MODEL_ORDER Default Value: CycleBreakingStrategy.GREEDY (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: cycleBreaking Description Strategy for cycle breaking. Cycle breaking looks for cycles in the graph and determines which edges to reverse to break the cycles. Reversed edges will end up pointing to the opposite direction of regular edges (that is, reversed edges will point left if edges usually point right).</description>
+GREEDY_MODEL_ORDER
+SCC_CONNECTIVITY
+SCC_NODE_TYPE
+DFS_NODE_ORDER
+BFS_NODE_ORDER Default Value: CycleBreakingStrategy.GREEDY (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: cycleBreaking Description Strategy for cycle breaking. Cycle breaking looks for cycles in the graph and determines which edges to reverse to break the cycles. Reversed edges will end up pointing to the opposite direction of regular edges (that is, reversed edges will point left if edges usually point right).</description>
     </item>
     
     <item>
@@ -1273,6 +1335,33 @@ OFF Default Value: GreedySwitchType.TWO_SIDED (as defined in org.eclipse.elk.lay
       <description>Property Value Type: advanced Identifier: org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.GreedySwitchType (Enum) Possible Values: ONE_SIDED
 TWO_SIDED
 OFF Default Value: GreedySwitchType.OFF (as defined in org.eclipse.elk.layered) Applies To: parents Dependencies: org.eclipse.elk.layered.crossingMinimization.strategy (CrossingMinimizationStrategy.LAYER_SWEEP), org.eclipse.elk.hierarchyHandling (HierarchyHandling.INCLUDE_CHILDREN) Containing Group: crossingMinimization -&amp;gt; greedySwitchHierarchical Description Activates the greedy switch heuristic in case hierarchical layout is used. The differences to the non-hierarchical case (see &amp;lsquo;greedySwitch.type&amp;rsquo;) are: 1) greedy switch is inactive by default, 3) only the option value set on the node at which hierarchical layout starts is relevant, and 2) if it&amp;rsquo;s activated by the user, it properly addresses hierarchy-crossing edges.</description>
+    </item>
+    
+    <item>
+      <title>Group ID of the Node Type</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-componentGroupId.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-componentGroupId.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder.componentGroupId Meta Data Provider: options.LayeredMetaDataProvider Value Type: int Default Value: 0 (as defined in org.eclipse.elk.layered) Applies To: nodes, edges, ports Dependencies: org.eclipse.elk.layered.considerModelOrder.noModelOrder (false) Containing Group: considerModelOrder -&amp;gt; groupModelOrder Description Used to define partial ordering groups during component packing. A lower group id means that the group is sorted before other groups. A group model order of 0 is the default group.</description>
+    </item>
+    
+    <item>
+      <title>Group ID of the Node Type</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-crossingMinimizationId.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-crossingMinimizationId.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder.crossingMinimizationId Meta Data Provider: options.LayeredMetaDataProvider Value Type: int Default Value: 0 (as defined in org.eclipse.elk.layered) Applies To: nodes, edges, ports Dependencies: org.eclipse.elk.layered.considerModelOrder.noModelOrder (false) Containing Group: considerModelOrder -&amp;gt; groupModelOrder Description Used to define partial ordering groups during crossing minimization. A lower group id means that the group is sorted before other groups. A group model order of 0 is the default group.</description>
+    </item>
+    
+    <item>
+      <title>Group ID of the Node Type</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cycleBreakingId.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-groupModelOrder-cycleBreakingId.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cycleBreakingId Meta Data Provider: options.LayeredMetaDataProvider Value Type: int Default Value: 0 (as defined in org.eclipse.elk.layered) Applies To: nodes Dependencies: org.eclipse.elk.layered.considerModelOrder.noModelOrder (false) Containing Group: considerModelOrder -&amp;gt; groupModelOrder Description Used to define partial ordering groups during cycle breaking. A lower group id means that the group is sorted before other groups. A group model order of 0 is the default group.</description>
     </item>
     
     <item>

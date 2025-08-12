@@ -517,6 +517,7 @@ ENFORCED Default Value: GroupOrderStrategy.ONLY_WITHIN_GROUP (as defined in org.
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-strategy.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.layered.crossingMinimization.strategy Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.CrossingMinimizationStrategy (Enum) Possible Values: LAYER_SWEEP
+MEDIAN_LAYER_SWEEP
 INTERACTIVE (@AdvancedPropertyValue)
 NONE Default Value: CrossingMinimizationStrategy.LAYER_SWEEP (as defined in org.eclipse.elk.layered) Applies To: parents Containing Group: crossingMinimization Description Strategy for crossing minimization.</description>
     </item>
@@ -1796,7 +1797,7 @@ ALTERNATING Default Value: LayerUnzippingStrategy.NONE (as defined in org.eclips
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-layerUnzipping.html</guid>
-      <description> Property Value Identifier: org.eclipse.elk.layered.layerUnzipping Options Layer Unzipping Strategy Unzipping Layer Split Reset Alternation on Long Edges </description>
+      <description> Property Value Identifier: org.eclipse.elk.layered.layerUnzipping Options Layer Unzipping Strategy Minimize Edge Length Heuristic Unzipping Layer Split Reset Alternation on Long Edges </description>
     </item>
     
     <item>
@@ -1983,6 +1984,15 @@ EQUAL Default Value: LongEdgeOrderingStrategy.DUMMY_NODE_OVER (as defined in org
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-minAnimTime.html</guid>
       <description>Property Value Type: global Identifier: org.eclipse.elk.minAnimTime Meta Data Provider: core.options.CoreOptions Value Type: int Default Value: 400 (as defined in org.eclipse.elk) Lower Bound: 0 Applies To: parents Description The minimal time for animations, in milliseconds.</description>
+    </item>
+    
+    <item>
+      <title>Minimize Edge Length Heuristic</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layerUnzipping-minimizeEdgeLength.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layerUnzipping-minimizeEdgeLength.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.layered.layerUnzipping.minimizeEdgeLength Meta Data Provider: options.LayeredMetaDataProvider Value Type: boolean Default Value: false (as defined in org.eclipse.elk.layered) Applies To: nodes Dependencies: org.eclipse.elk.layered.layerUnzipping.layerSplit (2) Containing Group: layerUnzipping Description Use a heuristic to decide whether or not to actually perform the layer split with the goal of minimizing the total edge length. This option only works when layerSplit is set to 2. The property can be set to the nodes in a layer, which then applies the property for the layer.</description>
     </item>
     
     <item>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Additional Wrapped Edges Spacing (ELK)</title>
+    <title>Minimize Edge Length Heuristic (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Additional Wrapped Edges Spacing</h1>
+    <h1>Minimize Edge Length Heuristic</h1>
 
     <table>
 <thead>
@@ -87,12 +87,8 @@
 </thead>
 <tbody>
 <tr>
-<td><em>Type:</em></td>
-<td>advanced</td>
-</tr>
-<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.layered.wrapping.additionalEdgeSpacing</code></td>
+<td><code>org.eclipse.elk.layered.layerUnzipping.minimizeEdgeLength</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
@@ -100,28 +96,28 @@
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>double</code></td>
+<td><code>boolean</code></td>
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>10</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
+<td><code>false</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
-<td>parents</td>
+<td>nodes</td>
 </tr>
 <tr>
 <td><em>Dependencies:</em></td>
-<td><a href="../../reference/options/org-eclipse-elk-layered-wrapping-strategy.html">org.eclipse.elk.layered.wrapping.strategy</a> (<code>WrappingStrategy.SINGLE_EDGE</code>), <a href="../../reference/options/org-eclipse-elk-layered-wrapping-strategy.html">org.eclipse.elk.layered.wrapping.strategy</a> (<code>WrappingStrategy.MULTI_EDGE</code>)</td>
+<td><a href="../../reference/options/org-eclipse-elk-layered-layerUnzipping-layerSplit.html">org.eclipse.elk.layered.layerUnzipping.layerSplit</a> (<code>2</code>)</td>
 </tr>
 <tr>
 <td><em>Containing Group:</em></td>
-<td><a href="../../reference/groups/org-eclipse-elk-layered-wrapping.html">wrapping</a></td>
+<td><a href="../../reference/groups/org-eclipse-elk-layered-layerUnzipping.html">layerUnzipping</a></td>
 </tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>To visually separate edges that are wrapped from regularly routed edges an additional spacing value can be specified in form of this layout option. The spacing is added to the regular edgeNode spacing.</p>
+<p>Use a heuristic to decide whether or not to actually perform the layer split with the goal of minimizing the total edge length. This option only works when layerSplit is set to 2. The property can be set to the nodes in a layer, which then applies the property for the layer. If any node sets the value to true, then the value is set to true for the entire layer.</p>
 
   </div>
 
@@ -372,7 +368,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-wrapping-additionalEdgeSpacing.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Additional Wrapped Edges Spacing
     </li>
   </a>
@@ -1572,7 +1568,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-layerUnzipping-minimizeEdgeLength.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Minimize Edge Length Heuristic
     </li>
   </a>

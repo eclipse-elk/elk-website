@@ -697,6 +697,15 @@ MODEL_ORDER Default Value: ComponentOrderingStrategy.NONE (as defined in org.ecl
     </item>
     
     <item>
+      <title>Consider node model order</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-considerNodeModelOrder.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-considerNodeModelOrder.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.vertiflex.considerNodeModelOrder Meta Data Provider: options.VertiFlexMetaDataProvider Value Type: boolean Default Value: true (as defined in org.eclipse.elk.vertiflex) Applies To: parents Description Consider node model as a secondary criterion when using straight line routing.</description>
+    </item>
+    
+    <item>
       <title>Consider Port Order</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-portModelOrder.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1193,6 +1202,16 @@ SMART_DOWN Default Value: EdgeLabelSideSelection.SMART_DOWN (as defined in org.e
     </item>
     
     <item>
+      <title>Edge layout strategy</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-layoutStrategy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-layoutStrategy.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.vertiflex.layoutStrategy Meta Data Provider: options.VertiFlexMetaDataProvider Value Type: org.eclipse.elk.alg.vertiflex.EdgeRoutingStrategy (Enum) Possible Values: STRAIGHT
+BEND Default Value: EdgeRoutingStrategy.STRAIGHT (as defined in org.eclipse.elk.vertiflex) Applies To: nodes Description Strategy for the layout of the children. &amp;lsquo;straight&amp;rsquo; for straight line drawings, &amp;lsquo;bend&amp;rsquo; for a possible bend. When straight edges are prioritized the nodes will be reordered in order to guarantee that straight edges are possible. If bend points are enabled on the other hand, the given model order of the nodes is maintained and bend points are introduced to prevent edge node overlaps.</description>
+    </item>
+    
+    <item>
       <title>Edge Node Between Layers Spacing</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeNodeBetweenLayers.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1474,7 +1493,8 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/elktextformat.html</guid>
-      <description>Documentation is coming soon. For the moment you can find an example on github.</description>
+      <description>The ELK text format has five basic elements: nodes, ports, labels, edges and edge sections. Details about each element can be found below. Note that the ELK text format uses default node sizes if they are not specified to make writing elkt files more convenient. This is different from the JSON format, where no such defaults are assumed.
+Nodes, Ports, Labels, Edges, and Edge Sections Nodes and ports must have an id that uniquely identifies them.</description>
     </item>
     
     <item>
@@ -1485,6 +1505,17 @@ Category: Force Layout algorithms that follow physical analogies by simulating a
       <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</guid>
       <description>Property Value Identifier: org.eclipse.elk.topdownpacking Meta Data Provider: options.TopdownpackingMetaDataProvider Description An algorithm for placing boxes of fixed sizes. Expands boxes horizontally to fill empty whitespace. This algorithm can be used standalone or specifically for {@link CoreOptions.TOPDOWN_LAYOUT}. In this use case it should be set for nodes whose {@link CoreOptions.TOPDOWN_NODE_TYPE} is set to {@link TopdownNodeTypes.PARALLEL_NODE}. This allows topdown layout to give children larger sizes based on their number of children.
 Supported Options Option Default Value Node arrangement strategy NodeArrangementStrategy.</description>
+    </item>
+    
+    <item>
+      <title>ELK VertiFlex</title>
+      <link>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-vertiflex.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-vertiflex.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.vertiflex Meta Data Provider: options.VertiFlexMetaDataProvider Description Tree layout algorithm that allows defining set vertical positions for nodes rather than automatically placing nodes on levels according to their topology.
+Category: Tree Specialized layout methods for trees, i.e. acyclic graphs. The regular structure of graphs that have no undirected cycles can be emphasized using an algorithm of this type.
+Supported Graph Features Name Description Multi Edges Multiple edges with the same source and target node.</description>
     </item>
     
     <item>
@@ -1566,6 +1597,15 @@ Supported Options Option Default Value Node arrangement strategy NodeArrangement
       
       <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-fixedSharedPathPenalty.html</guid>
       <description>Property Value Type: advanced Identifier: org.eclipse.elk.alg.libavoid.fixedSharedPathPenalty Meta Data Provider: options.LibavoidMetaDataProvider Value Type: double Default Value: 0 (as defined in org.eclipse.elk.alg.libavoid) Applies To: parents Description This penalty is applied whenever a connector path shares some segments with an immovable portion of an existing connector route (such as the first or last segment of a connector).</description>
+    </item>
+    
+    <item>
+      <title>Fixed vertical position</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-verticalConstraint.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-verticalConstraint.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.vertiflex.verticalConstraint Meta Data Provider: options.VertiFlexMetaDataProvider Value Type: double Applies To: nodes Description The Y position that the node should be fixed at.</description>
     </item>
     
     <item>
@@ -2154,6 +2194,15 @@ FIRST
 FIRST_SEPARATE
 LAST
 LAST_SEPARATE Default Value: LayerConstraint.NONE (as defined in org.eclipse.elk.layered) Applies To: nodes Containing Group: layering Description Determines a constraint on the placement of the node regarding the layering.</description>
+    </item>
+    
+    <item>
+      <title>Layer distance</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-layerDistance.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-layerDistance.html</guid>
+      <description>Property Value Identifier: org.eclipse.elk.vertiflex.layerDistance Meta Data Provider: options.VertiFlexMetaDataProvider Value Type: double Default Value: 50.0 (as defined in org.eclipse.elk.vertiflex) Applies To: parents Description The distance to use between nodes of different layers if no vertical constraints are set.</description>
     </item>
     
     <item>

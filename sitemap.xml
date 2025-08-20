@@ -148,6 +148,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-components.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-considerNodeModelOrder.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-considerModelOrder-portModelOrder.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-considerModelOrder.html</loc>
@@ -250,6 +252,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeLabel.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-layoutStrategy.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-spacing-edgeNodeBetweenLayers.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-spacing-edgeNode.html</loc>
@@ -310,6 +314,8 @@
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-topdownpacking.html</loc>
   </url><url>
+    <loc>https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-vertiflex.html</loc>
+  </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-enableHyperedgesFromCommonSource.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-graphviz-epsilon.html</loc>
@@ -327,6 +333,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-stress-fixed.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-alg-libavoid-fixedSharedPathPenalty.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-verticalConstraint.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-font.html</loc>
   </url><url>
@@ -453,6 +461,8 @@
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerChoiceConstraint.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerConstraint.html</loc>
+  </url><url>
+    <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-vertiflex-layerDistance.html</loc>
   </url><url>
     <loc>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-layerId.html</loc>
   </url><url>

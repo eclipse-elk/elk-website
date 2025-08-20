@@ -163,7 +163,8 @@ An ILayoutMetaDataProvider that contains IProperty objects for each layout optio
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/documentation/tooldevelopers/graphdatastructure/elktextformat.html</guid>
-      <description>Documentation is coming soon. For the moment you can find an example on github.</description>
+      <description>The ELK text format has five basic elements: nodes, ports, labels, edges and edge sections. Details about each element can be found below. Note that the ELK text format uses default node sizes if they are not specified to make writing elkt files more convenient. This is different from the JSON format, where no such defaults are assumed.
+Nodes, Ports, Labels, Edges, and Edge Sections Nodes and ports must have an id that uniquely identifies them.</description>
     </item>
     
     <item>

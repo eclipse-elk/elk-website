@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="img/elk_fav.svg">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    <title>Layered (overview) (ELK)</title>
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">
+    <img src="img/elk_small_light.svg" height="30" class="d-inline-block align-top mr-1" alt="">
+    Eclipse Layout Kernel&trade;
+  </a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../downloads.html">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../documentation.html">Documentation</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../reference.html">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../support.html">Support</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="../../../blog.html">Blog Posts <span class="sr-only">(current)</span></a>
+        </li>
+      
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse-elk/elk">GitHub</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Layered (overview)</h1>
+
+    <p><em>By Sören Domrös, August 21, 2025</em></p>
+<p>The layered algorithm or Sugiyama algorithm is in its implementation in ELK divided into five phases with intermediate processing slots: Cycle Breaking, Layer Assignment, Crossing Minimization, Node Placement, and Edge Routing.</p>
+<p>
+  <img
+    class="img-fluid"
+    
+      src="../../../img/layered-algorithm-structure.svg"
+    
+     alt="ELK Layered phases."
+    style = "max-height: 500px; display: block;
+    margin-left: auto;
+    margin-right: auto;"
+  />
+</p>
+
+<p>Using the occasion of the upcoming ELK 0.11.0 release, I want to shed more light on the ELK Layered algorithm and how to find the correct layout phase to configure.</p>
+<p>In the following, I will assume that the layout direction is left-to-right, or speaking in ELK layout options <code>elk.direction: RIGHT</code> since this makes talking about coordinates easier and allows me to use horizontal and vertical as well as left and right without discussion potential alternatives.</p>
+<h2 id="cycle-breaking">Cycle Breaking</h2>
+<p>The <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-cycleBreaking-strategy.html">cycle breaking</a> phase (<code>cycleBreaking.strategy</code>) of the ELK layered algorithm makes a graph acyclic by reversing edges such that they go from right-to-left instead of left-to-right creating <em>backward edges</em>. However, in its implementation in ELK, it does a lot more than that since this phase typically also handles constraints that somehow determine the horizontal ordering of connected nodes.</p>
+<p>This phase is implemented by the following strategies:</p>
+<ul>
+<li><code>GREEDY</code> (default): Aims to minimize the number of backward edges and uses random decisions on ties</li>
+<li><code>INTERACTIVE</code>: Use the ordering given by the positions of nodes (e.g. from a previous layout run) to determine the direction of edges</li>
+<li><code>MODEL_ORDER</code>: Use the ordering of nodes in the input model to determine the direction of edges</li>
+<li><code>DEPTH_FIRST</code>: Traverse the graph depth-first beginning with the first source in the list of nodes and using the edge order as the depth-first visiting order. All edges that lead back to already visited nodes will be reversed</li>
+<li><code>GREEDY_MODEL_ORDER</code>: The <code>GREEDY</code> approach but using the model order as a tie-breaker</li>
+<li><code>SCC_CONNECTIVITY</code>: Determines the strongly connected components using Tarjan&rsquo;s algorithm while using the in-out degree to determine edges to reverse, which results in quadratic runtime compared to the other approaches</li>
+<li><code>SCC_NODE_TYPE</code>: Same as <code>SCC_CONNECTIVITY</code> but reverses edges going out of or going to specifically marked nodes using group model order</li>
+<li><code>DFS_NODE_ORDER</code>: Same as <code>DEPTH_FIRST</code> but uses the node model order instead of the edge order to traverse the graph depth-first.</li>
+<li><code>BFS_NODE_ORDER</code>: Same as <code>DFS_NODE_ORDER</code> but breadth-first.</li>
+</ul>
+<p>Moreover, the following options might constrain the cycle breaking step:</p>
+<ul>
+<li>Partitioning: <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-partitioning-activate.html">Activating partitioning</a> and <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-partitioning-partition.html">partitions</a> not only determine partitions in the graph but also determine the direction of edges</li>
+<li>Layer constraints: Setting <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-layering-layerConstraint.html">layer constraints</a> to <code>FIRST</code> or <code>LAST</code> also influences the direction of edges to make this possible</li>
+<li>Direction priority: Setting <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-priority-direction.html"><code>priority.direction</code></a> makes it possible to weight the importance of edges being not reversed</li>
+</ul>
+<h2 id="layer-assignment">Layer Assignment</h2>
+<p>The <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html">layer assignment</a> phase (<code>layering.strategy</code>) assigns each node (and also each edge label, which is essentially only a special kind of node) a vertical layer. I.e., using the acyclic graph created by cycle breaking, it aims to create a minimal width assignment of nodes and edge labels to layers, which may create desired vertical alignment.</p>
+<p>This phase supports the following strategies:</p>
+<ul>
+<li><code>NETWORK_SIMPLEX</code> (default): Encodes the layering problem as a network simplex problem as proposed by <a href="https://doi.org/10.1109/32.221135">Gansner et al.</a></li>
+<li><code>LONGEST_PATH</code>: Start from the sinks and greedily assign nodes to layers</li>
+<li><code>LONGEST_PATH_SOURCE</code>: Start from the sources and greedily assign nodes to layers</li>
+<li><code>COFFMAN_GRAHAM</code>: Uses a precedence-constraints scheduling approach by <a href="https://doi.org/10.1007/BF00288685">Coffman and Graham</a> to find a layer assignment bounded by the <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-layering-coffmanGraham-layerBound.html">number of nodes in a layer</a></li>
+<li><code>INTERACTIVE</code>: Uses previously set positions of nodes to determine non-overlapping vertical layers</li>
+<li><code>STRETCH_WIDTH</code>  (Experimental): Similar to <code>LONGEST_PATH</code> but tries to reduce the maximum number of nodes in a layer. This is based on the work of <a href="https://doi.org/10.1145/1064546.1180618">Nikolov et al.</a></li>
+<li><code>MIN_WIDTH</code> (Experimental): A heuristic to solve the NP-hard minimum-width layering problem while considering dummy nodes create for routing edges. This is based on the work of <a href="https://doi.org/10.1007/978-3-540-24838-5_42">Tarassov et al.</a></li>
+<li><code>BF_MODEL_ORDER</code> (Experimental): Assign nodes to layers breadth-first based on their model order. This assumes that the cycle breaking was also done by model order.</li>
+<li><code>DF_MODEL_ORDER</code> (Experimental): Same as <code>BF_MODEL_ORDER</code> but depth-first. I must note here that this is not a very efficient solution and that <code>LONGEST_PATH_SOURCE</code> is typically a better alternative.</li>
+</ul>
+<p>Moreover, the following options can be used to constrain, configure, or post-process the layering:</p>
+<ul>
+<li>Partitioning: See partitioning explained above</li>
+<li>Layer constraints: See layer constraints explained above</li>
+<li>Node promotion: Uses <a href="http://doi.acm.org/10.1145/1064546.1180618">Nikolov et al.&rsquo;s</a> node promotion strategy to achieve a layering with fewer dummy nodes</li>
+<li>Layer splitting: Split a very high layer into multiple uses using <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-layerUnzipping-strategy.html">layer unzipping</a>.</li>
+</ul>
+<h2 id="crossing-minimization">Crossing Minimization</h2>
+<p>The <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-strategy.html">crossing minimization</a> phase (<code>crossingMinimization.strategy</code>) determines the vertical ordering of nodes and the relative routes by also ordering the dummy nodes associated with them. Therefore, this phase ensures that the drawing has fewer edge crossings and conforms to relative vertical constraints and also determines the ordering of ports/edges.</p>
+<p>It supports the following strategies:</p>
+<ul>
+<li><code>LAYER_SWEEP</code> (default): This strategy uses the barycenter heuristic proposed by <a href="https://doi.org/10.1109/TSMC.1981.4308636">Sugiyama et al.</a> to find a crossing minimal ordering for nodes and the ports edges connect to</li>
+<li><code>MEDIAN_LAYER_SWEEP</code>: This strategy uses the median heuristic proposed by Di Battista et al. instead of the barycenter heuristic</li>
+<li><code>INTERACTIVE</code>: This strategy uses previously calculated node positions to determine the ordering of nodes in a layer</li>
+<li><code>NONE</code>: This does no crossing minimization but only executes desired pre- and post-processing steps. It is useful to constrain the order of nodes and edges</li>
+</ul>
+<p>This strategy can be constrained as explained in detail in the <a href="https://eclipse.dev/elk/blog/posts/2023/23-01-09-constraining-the-model.html">Layered: Constraining the Model blog post</a>.</p>
+<p>Additionally, one can greedily post-process the ordering to reduce edge crossings using the <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-crossingMinimization-greedySwitch-type.html">greedy switch heuristic</a>.</p>
+<h2 id="node-placement">Node Placement</h2>
+<p>The <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html">node placement</a> phase (<code>nodePlacement.strategy</code>) determines the concrete <code>y</code> coordinates of nodes since vertical routing segments created during edge routing might change <code>x</code> coordinates later on. Moreover, this phase determine horizontal alignment and centering of nodes on its connections.</p>
+<p>Node placement supports the following strategies:</p>
+<ul>
+<li><code>SIMPLE</code>: Center all nodes and edges in their respective layer, separating them by their spacing. This strategy is not intended for a serious use case</li>
+<li><code>INTERACTIVE</code>: Leaves the previously calculated <code>y</code> coordinates of the nodes untouched</li>
+<li><code>LINEAR_SEGMENTS</code>: Align nodes edges using linear segments and nodes using the pendulum method proposed by <a href="https://doi.org/10.1007/BFb0021828">Sander</a>. This can be additionally configured by setting <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-nodePlacement-linearSegments-deflectionDampening.html">the dampening</a>.</li>
+<li><code>BRANDES_KOEPF</code> (default): Use <a href="https://doi.org/10.1007/3-540-45848-4_3">Brandes &amp; Köpf&rsquo;s</a> method for node placement. Per default it orients nodes to the top-left but this can be <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-nodePlacement-bk-fixedAlignment.html">configured to balance nodes based on their connections</a>.</li>
+<li><code>NETWORK_SIMPLEX</code>: Uses a network simplex approach by <a href="https://doi.org/10.1109/32.221135">Gansner et al.</a> to determine node positions.</li>
+</ul>
+<p>Notable options to configure this are the following:</p>
+<ul>
+<li><a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-compaction-postCompaction-strategy.html">Post compaction</a>: Squishes the whole layout together to save space</li>
+<li><a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html">Network simplex node flexibility</a>: Dynamically increase the node height to straighten edges</li>
+</ul>
+<h2 id="edge-routing">Edge Routing</h2>
+<p>ELK layered&rsquo;s <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-edgeRouting.html">edge routing</a> phases supports different drawing styles and finally determines the <code>x</code> coordinates of nodes and the routes for edges. This can be used to create edge control points for polyline, orthogonal, or spline edge routing.</p>
+<p>I hope this helps readers by giving an overview of the different strategies without having to dig through different layers of documentation, or at least helps by highlighting the layout phase that is responsible for a problem.</p>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="../../../blog/2022.html">
+    <li class="navlevel-1">
+      2022
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2022/22-08-31-rectpacking.html">
+    <li class="navlevel-2">
+      Rectpacking (Updated)
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2022/22-11-17-libavoid.html">
+    <li class="navlevel-2">
+      Edge Routing with Libavoid
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../blog/2023.html">
+    <li class="navlevel-1">
+      2023
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2023/23-01-09-constraining-the-model.html">
+    <li class="navlevel-2">
+      Layered: Constraining the Model
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2023/23-04-11-topdown-layout.html">
+    <li class="navlevel-2">
+      Top-down Layout: Zoom in the Layout Process
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../blog/2024.html">
+    <li class="navlevel-1">
+      2024
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2024/24-12-06-layer-unzipping.html">
+    <li class="navlevel-2">
+      Layered: Layer Unzipping
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../blog/2025.html">
+    <li class="navlevel-1">
+      2025
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2025/25-08-21-layered.html">
+    <li class="navlevel-2 active">
+      Layered (overview)
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2025/25-08-22-node-labels.html">
+    <li class="navlevel-2">
+      Node Labels
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo" class="footer">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <span class="hidden-print">
+                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="../../../img/eclipse_foundation_logo.svg"/></a>
+              </span>
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+        <div class="row">
+          <div class="col hidden-print">
+            <a href="http://www.eclipse.org/">Eclipse Foundation</a><br/>
+            <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a><br/>
+            <a href="http://www.eclipse.org/legal/termsofuse.php">Website Terms of Use</a><br/>
+            <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a><br/>
+            <a href="http://www.eclipse.org/legal">Legal</a>
+          </div>
+          <div class="col">
+              <p class="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

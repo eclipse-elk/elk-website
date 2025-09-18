@@ -34,6 +34,15 @@
     </item>
     
     <item>
+      <title>2025</title>
+      <link>https://www.eclipse.org/elk/blog/2025.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/2025.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Edge Routing with Libavoid</title>
       <link>https://www.eclipse.org/elk/blog/posts/2022/22-11-17-libavoid.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -44,7 +53,29 @@ I&amp;rsquo;m happy to announce the availability of a new Maven module / Eclipse
     </item>
     
     <item>
-      <title>Layer Unzipping</title>
+      <title>Layered (overview)</title>
+      <link>https://www.eclipse.org/elk/blog/posts/2025/25-08-21-layered.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/posts/2025/25-08-21-layered.html</guid>
+      <description>By Sören Domrös, August 21, 2025
+The layered algorithm or Sugiyama algorithm is in its implementation in ELK divided into five phases with intermediate processing slots: Cycle Breaking, Layer Assignment, Crossing Minimization, Node Placement, and Edge Routing.
+Using the occasion of the upcoming ELK 0.11.0 release, I want to shed more light on the ELK Layered algorithm and how to find the correct layout phase to configure.
+In the following, I will assume that the layout direction is left-to-right, or speaking in ELK layout options elk.</description>
+    </item>
+    
+    <item>
+      <title>Layered: Constraining the Model</title>
+      <link>https://www.eclipse.org/elk/blog/posts/2023/23-01-09-constraining-the-model.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/blog/posts/2023/23-01-09-constraining-the-model.html</guid>
+      <description>By Sören Domrös, January 9, 2023
+Since it is often desired to constrain the layout in a specific way to achieve a desired layout or to increase layout stability, this post should summarize all current (ELK 0.8.1) and future (planned for 0.9.0) ways to do that. The following will focus primarily on constraining the node order. If you wish to constrain the ports have a look at the portConstraints property and this example.</description>
+    </item>
+    
+    <item>
+      <title>Layered: Layer Unzipping</title>
       <link>https://www.eclipse.org/elk/blog/posts/2024/24-12-06-layer-unzipping.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -56,13 +87,15 @@ org.eclipse.elk.layerUnzipping.strategy org.eclipse.elk.layerUnzipping.layerSpli
     </item>
     
     <item>
-      <title>Layered: Constraining the Model</title>
-      <link>https://www.eclipse.org/elk/blog/posts/2023/23-01-09-constraining-the-model.html</link>
+      <title>Node Labels</title>
+      <link>https://www.eclipse.org/elk/blog/posts/2025/25-08-22-node-labels.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.eclipse.org/elk/blog/posts/2023/23-01-09-constraining-the-model.html</guid>
-      <description>By Sören Domrös, January 9, 2023
-Since it is often desired to constrain the layout in a specific way to achieve a desired layout or to increase layout stability, this post should summarize all current (ELK 0.8.1) and future (planned for 0.9.0) ways to do that. The following will focus primarily on constraining the node order. If you wish to constrain the ports have a look at the portConstraints property and this example.</description>
+      <guid>https://www.eclipse.org/elk/blog/posts/2025/25-08-22-node-labels.html</guid>
+      <description>By Sören Domrös, August 22, 2025
+I always seem to forget how to properly add node labels in ELK such that it adjusts its size based on them. Therefore, this little guide should solve your problems with node labels and help me remember all the required options and configurations.
+The full example model I will show in the following, can be found here.
+My error in properly letting a parent node consider the size of a node label is that just setting nodeSize.</description>
     </item>
     
     <item>

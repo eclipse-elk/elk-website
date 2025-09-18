@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="img/elk_fav.svg">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
+
+    <title>Node Labels (ELK)</title>
+
+    
+    
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="https://www.eclipse.org/elk/">
+    <img src="img/elk_small_light.svg" height="30" class="d-inline-block align-top mr-1" alt="">
+    Eclipse Layout Kernel&trade;
+  </a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../downloads.html">Downloads</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../gettingstarted.html">Getting Started</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../documentation.html">Documentation</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../reference.html">Reference</a>
+        </li>
+      
+        
+        <li class="nav-item">
+          <a class="nav-link" href="../../../support.html">Support</a>
+        </li>
+      
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="../../../blog.html">Blog Posts <span class="sr-only">(current)</span></a>
+        </li>
+      
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse-elk/elk">GitHub</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container px-3 py-5">
+
+
+<div class="row">
+  <div class="col-sm-9">
+    <h1>Node Labels</h1>
+
+    <p><em>By Sören Domrös, August 22, 2025</em></p>
+<p>I always seem to forget how to properly add node labels in ELK such that it adjusts its size based on them. Therefore, this little guide should solve your problems with node labels and help me remember all the required options and configurations.</p>
+<p>The full example model I will show in the following, can be found <a href="https://rtsys.informatik.uni-kiel.de/elklive/examples.html?e=labels%2FnodeLabelAndParentSize">here</a>.</p>
+<p>My error in properly letting a parent node consider the size of a node label is that just setting <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-nodeSize-constraints.html"><code>nodeSize.constraints</code></a> to an EnumSet containing <code>NODE_LABELS</code> is not enough.
+Additionally, one needs to specify the <a href="https://eclipse.dev/elk/reference/options/org-eclipse-elk-nodeLabels-placement.html"><code>nodeLabels.placement</code></a>.</p>
+<h3 id="node-labels-and-node-size-for-child-nodes">Node Labels and Node Size for Child Nodes</h3>
+<p>This model results in a node that does not consider the size of the node labels, which is not what we want.</p>
+<div style="display: flex; flex-direction: row; gap: 2em; align-items: flex-start;">
+  <div style="flex: 2; min-width: 0;">
+    <pre><code>node childWithLabelCenter {
+    layout [size: 10, 10]
+    nodeSize.constraints: "NODE_LABELS MINIMUM_SIZE"
+    label "childWithLabelCenter"
+    label "childWithLabelCenter2"
+}
+</code></pre>
+  </div>
+  <div style="flex: 1; min-width: 0; margin:auto;">
+    <p>
+      <img
+        class="img-fluid"
+        
+          src="../../../img/nodeLabelPlacement-bad.svg"
+        
+         alt="The node&#39;s size without specified node label placement."
+        style = "max-height: 500px; display: block;
+        margin-left: auto;
+        margin-right: auto;"
+      />
+    </p>
+
+  </div>
+</div>
+<p>The following model, however, does work as expected and results in a node that considers the size of the node labels.</p>
+<div style="display: flex; flex-direction: row; gap: 2em; align-items: flex-start;">
+  <div style="flex: 2; min-width: 0;">
+    <pre><code>node childWithLabelCenter {
+    layout [size: 10, 10]
+    nodeLabels.placement: "INSIDE H_CENTER V_CENTER"
+    nodeSize.constraints: "NODE_LABELS MINIMUM_SIZE"
+    label "childWithLabelCenter"
+    label "childWithLabelCenter2"
+}
+</code></pre>
+  </div>
+  <div style="flex: 1; min-width: 0; margin:auto;">
+    <p>
+      <img
+        class="img-fluid"
+        
+          src="../../../img/nodeLabelPlacement-correct.svg"
+        
+         alt="The node&#39;s size with specified node label placement."
+        style = "max-height: 500px; display: block;
+        margin-left: auto;
+        margin-right: auto;"
+      />
+    </p>
+
+  </div>
+</div>
+<p>If labels are not centered, the node will additionally reserve space on the opposite side of the label to be symmetrical.
+This can be disabled by setting <code>nodeLabels.options</code> to <code>ASYMMETRICAL</code>.</p>
+<p>The following example shows the symmetrical space reservation for node labels.</p>
+<div style="display: flex; flex-direction: row; gap: 2em; align-items: flex-start;">
+  <div style="flex: 2; min-width: 0;">
+    <pre><code>node childWithLabelTopLeft {
+    nodeLabels.placement: "INSIDE H_LEFT V_TOP"
+    nodeSize.constraints: "NODE_LABELS"
+    label "childWithLabelTopLeft"
+    label "childWithLabelTopLeft2"
+}
+</code></pre>
+  </div>
+  <div style="flex: 1; min-width: 0; margin:auto;">
+    <p>
+      <img
+        class="img-fluid"
+        
+          src="../../../img/nodeLabelPlacement-symmetrical.svg"
+        
+         alt="The node&#39;s size with symmetrical space reservation for node labels."
+        style = "max-height: 500px; display: block;
+        margin-left: auto;
+        margin-right: auto;"
+      />
+    </p>
+
+  </div>
+</div>
+<p>While this example shows how to disable it.</p>
+<div style="display: flex; flex-direction: row; gap: 2em; align-items: flex-start;">
+  <div style="flex: 2; min-width: 0;">
+    <pre><code>node childWithLabelTopLeftAsymmetric {
+    nodeLabels.placement: "INSIDE H_LEFT V_TOP"
+    nodeSize.options: ASYMMETRICAL
+    nodeSize.constraints: "NODE_LABELS"
+    label "childWithLabelTopLeftAsymmetric"
+    label "childWithLabelTopLeftAsymmetric2"
+}
+</code></pre>
+  </div>
+  <div style="flex: 1; min-width: 0; margin:auto;">
+    <p>
+      <img
+        class="img-fluid"
+        
+          src="../../../img/nodeLabelPlacement-asymmetrical.svg"
+        
+         alt="The node&#39;s size with asymmetrical space reservation for node labels."
+        style = "max-height: 500px; display: block;
+        margin-left: auto;
+        margin-right: auto;"
+      />
+    </p>
+
+  </div>
+</div>
+<h3 id="node-labels-and-node-size-for-parent-nodes">Node Labels and Node Size for Parent Nodes</h3>
+<p>The key difference between node labels for child and parent nodes is that the node label placement for parent nodes depends on the <code>elk.algorithm</code> set on the parent node.
+In this case, only the <code>layered</code> algorithm supports all possible node label placements and will reserve space for the node labels to not intersect with potential child nodes.</p>
+<p>This model adds a top and a left padding for the child nodes.
+Note, however, that the <code>ASYMMETRICAL</code> option is not supported for parent nodes since there is no symmetrical space reservation for parent nodes.</p>
+<div style="display: flex; flex-direction: row; gap: 2em; align-items: flex-start;">
+  <div style="flex: 2; min-width: 0;">
+    <pre><code>node parentWithLabelSpaceTopLeft {
+    nodeLabels.placement: "INSIDE H_LEFT V_TOP"
+    nodeSize.constraints: "NODE_LABELS MINIMUM_SIZE"
+    nodeSize.options: ASYMMETRICAL
+    label "parentWithLabelSpaceTopLeft"
+    label "parentWithLabelSpaceTopLeft2"
+    node n1
+    node n2
+}
+</code></pre>
+  </div>
+  <div style="flex: 1; min-width: 0; margin:auto;">
+    <p>
+      <img
+        class="img-fluid"
+        
+          src="../../../img/nodeLabelPlacement-parent.svg"
+        
+         alt="The parent node&#39;s size with node label placement."
+        style = "max-height: 500px; display: block;
+        margin-left: auto;
+        margin-right: auto;"
+      />
+    </p>
+
+  </div>
+</div>
+<p>Also note that aligning the label top-left will reserve seemingly unnecessary space on the left.
+Here, it would be enough to only reserve space on the top, which is a downside of the algorithm.
+Typically, this is solved by estimating the size of the label and reserving space by setting a <code>padding</code> on the node.
+This, however, has to be solved outside of ELK.</p>
+
+  </div>
+
+  <div class="secnav col-sm-3">
+  <ul>
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+
+
+
+
+  
+  <a href="../../../blog/2022.html">
+    <li class="navlevel-1">
+      2022
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2022/22-08-31-rectpacking.html">
+    <li class="navlevel-2">
+      Rectpacking (Updated)
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2022/22-11-17-libavoid.html">
+    <li class="navlevel-2">
+      Edge Routing with Libavoid
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../blog/2023.html">
+    <li class="navlevel-1">
+      2023
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2023/23-01-09-constraining-the-model.html">
+    <li class="navlevel-2">
+      Layered: Constraining the Model
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2023/23-04-11-topdown-layout.html">
+    <li class="navlevel-2">
+      Top-down Layout: Zoom in the Layout Process
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../blog/2024.html">
+    <li class="navlevel-1">
+      2024
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2024/24-12-06-layer-unzipping.html">
+    <li class="navlevel-2">
+      Layered: Layer Unzipping
+    </li>
+  </a>
+  
+
+
+  
+
+  
+  <a href="../../../blog/2025.html">
+    <li class="navlevel-1">
+      2025
+    </li>
+  </a>
+  
+    
+    
+
+
+
+
+  
+  <a href="../../../blog/posts/2025/25-08-21-layered.html">
+    <li class="navlevel-2">
+      Layered (overview)
+    </li>
+  </a>
+  
+
+  
+  <a href="../../../blog/posts/2025/25-08-22-node-labels.html">
+    <li class="navlevel-2 active">
+      Node Labels
+    </li>
+  </a>
+  
+
+
+  
+
+
+      
+    
+  </ul>
+
+  <div class="incubation-egg">
+    <a href="https://www.eclipse.org/projects/what-is-incubation.php">
+      <img src="https://www.eclipse.org/images/egg-incubation.png" alt="Incubation" />
+    </a>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <footer role="contentinfo" class="footer">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <span class="hidden-print">
+                <a href="https://www.eclipse.org"><img class="logo-eclipse-white img-responsive" alt="logo" src="../../../img/eclipse_foundation_logo.svg"/></a>
+              </span>
+            </div>
+            <div class="col">
+              
+            </div>
+          </div>
+        <div class="row">
+          <div class="col hidden-print">
+            <a href="http://www.eclipse.org/">Eclipse Foundation</a><br/>
+            <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a><br/>
+            <a href="http://www.eclipse.org/legal/termsofuse.php">Website Terms of Use</a><br/>
+            <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a><br/>
+            <a href="http://www.eclipse.org/legal">Legal</a>
+          </div>
+          <div class="col">
+              <p class="copyright-text">Copyright &copy; Eclipse Foundation, Inc. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.eclipse.org/elk/js/prism.js"></script>
+
+    
+    <script>$(function() { $('table').addClass('table'); })</script>
+  </body>
+</html>

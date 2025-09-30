@@ -37,6 +37,16 @@ New Features and Enhancements #1071, #1012, #901: Provide new properties for JSO
     </item>
     
     <item>
+      <title>0.11.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.11.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.11.0.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This release concentrates on bug fixes and enhancements concerning many details of the layout algorithms as well as some cleanup and upgrades under the hood. See GitHub for the full list of resolved issues.
+New Features and Enhancements #861, #960: Add new algorithm &amp;lsquo;VertiFlex&amp;rsquo; to layout trees with vertical position constraints for nodes.</description>
+    </item>
+    
+    <item>
       <title>0.2.0</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

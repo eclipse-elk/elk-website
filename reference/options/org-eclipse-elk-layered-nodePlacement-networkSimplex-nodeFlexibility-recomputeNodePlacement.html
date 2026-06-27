@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/elk.css">
     <link rel="stylesheet" href="https://www.eclipse.org/elk/css/prism.css">
 
-    <title>Compaction (ELK)</title>
+    <title>Node Flexibility Recompute Node Placement (ELK)</title>
 
     
     
@@ -76,7 +76,7 @@
 
 <div class="row">
   <div class="col-sm-9">
-    <h1>Compaction</h1>
+    <h1>Node Flexibility Recompute Node Placement</h1>
 
     <table>
 <thead>
@@ -87,33 +87,45 @@
 </thead>
 <tbody>
 <tr>
+<td><em>Type:</em></td>
+<td>advanced</td>
+</tr>
+<tr>
 <td><em>Identifier:</em></td>
-<td><code>org.eclipse.elk.radial.compactor</code></td>
+<td><code>org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement</code></td>
 </tr>
 <tr>
 <td><em>Meta Data Provider:</em></td>
-<td><code>options.RadialMetaDataProvider</code></td>
+<td><code>options.LayeredMetaDataProvider</code></td>
 </tr>
 <tr>
 <td><em>Value Type:</em></td>
-<td><code>org.eclipse.elk.alg.radial.options.CompactionStrategy</code> (Enum)</td>
+<td><code>org.eclipse.elk.alg.layered.options.NodePlacementStrategy</code> (Enum)</td>
 </tr>
 <tr>
 <td><em>Possible Values:</em></td>
-<td><code>NONE</code><br><code>RADIAL_COMPACTION</code><br><code>WEDGE_COMPACTION</code></td>
+<td><code>SIMPLE</code><br><code>INTERACTIVE</code> (<em><code>@AdvancedPropertyValue</code></em>)<br><code>LINEAR_SEGMENTS</code><br><code>BRANDES_KOEPF</code><br><code>NETWORK_SIMPLEX</code></td>
 </tr>
 <tr>
 <td><em>Default Value:</em></td>
-<td><code>CompactionStrategy.NONE</code> (as defined in <code>org.eclipse.elk.radial</code>)</td>
+<td><code>null</code> (as defined in <code>org.eclipse.elk.layered</code>)</td>
 </tr>
 <tr>
 <td><em>Applies To:</em></td>
 <td>parents</td>
 </tr>
+<tr>
+<td><em>Dependencies:</em></td>
+<td><a href="../../reference/options/org-eclipse-elk-layered-nodePlacement-strategy.html">org.eclipse.elk.layered.nodePlacement.strategy</a> (<code>NodePlacementStrategy.NETWORK_SIMPLEX</code>)</td>
+</tr>
+<tr>
+<td><em>Containing Group:</em></td>
+<td><a href="../../reference/groups/org-eclipse-elk-layered-nodePlacement.html">nodePlacement</a> -&gt; <a href="../../reference/groups/org-eclipse-elk-layered-nodePlacement-networkSimplex.html">networkSimplex</a> -&gt; <a href="../../reference/groups/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html">nodeFlexibility</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="description">Description</h3>
-<p>With the compacter option it can be determined how compaction on the graph is done. It can be chosen between none, the radial compaction or the compaction of wedges separately.</p>
+<p>Run a second node placement algorithm after the initial network simplex with node flexibility. In the second run, node flexibility is disabled and a different node placer can be used. The node sizes determined by the node flexibility option are used as fixed node sizes in the second run. If set to null (default) no second run is performed.</p>
 
   </div>
 
@@ -524,7 +536,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-radial-compactor.html">
-    <li class="navlevel-2 active">
+    <li class="navlevel-2">
       Compaction
     </li>
   </a>
@@ -1660,7 +1672,7 @@
 
   
   <a href="../../reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility-recomputeNodePlacement.html">
-    <li class="navlevel-2">
+    <li class="navlevel-2 active">
       Node Flexibility Recompute Node Placement
     </li>
   </a>

@@ -2609,6 +2609,19 @@ NODE_SIZE Default Value: NodeFlexibility.NONE (as defined in org.eclipse.elk.lay
     </item>
     
     <item>
+      <title>Node Flexibility Recompute Node Placement</title>
+      <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility-recomputeNodePlacement.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility-recomputeNodePlacement.html</guid>
+      <description>Property Value Type: advanced Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement Meta Data Provider: options.LayeredMetaDataProvider Value Type: org.eclipse.elk.alg.layered.options.NodePlacementStrategy (Enum) Possible Values: SIMPLE
+INTERACTIVE (@AdvancedPropertyValue)
+LINEAR_SEGMENTS
+BRANDES_KOEPF
+NETWORK_SIMPLEX Default Value: null (as defined in org.eclipse.elk.layered) Applies To: parents Dependencies: org.eclipse.elk.layered.nodePlacement.strategy (NodePlacementStrategy.NETWORK_SIMPLEX) Containing Group: nodePlacement -&amp;gt; networkSimplex -&amp;gt; nodeFlexibility Description Run a second node placement algorithm after the initial network simplex with node flexibility. In the second run, node flexibility is disabled and a different node placer can be used.</description>
+    </item>
+    
+    <item>
       <title>Node Label Padding</title>
       <link>https://www.eclipse.org/elk/reference/options/org-eclipse-elk-nodeLabels-padding.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2820,7 +2833,7 @@ ASYMMETRICAL Default Value: EnumSet.of(SizeOptions.DEFAULT_MINIMUM_SIZE) (as def
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.eclipse.org/elk/reference/groups/org-eclipse-elk-layered-nodePlacement-networkSimplex-nodeFlexibility.html</guid>
-      <description> Property Value Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility Options Node Flexibility Default </description>
+      <description> Property Value Identifier: org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility Options Node Flexibility Default Node Flexibility Recompute Node Placement </description>
     </item>
     
     <item>

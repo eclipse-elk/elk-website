@@ -47,6 +47,16 @@ New Features and Enhancements #861, #960: Add new algorithm &amp;lsquo;VertiFlex
     </item>
     
     <item>
+      <title>0.12.0</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.12.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.12.0.html</guid>
+      <description>Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This release concentrates on bug fixes and enhancements concerning many details of the layout algorithms as well as some cleanup and upgrades under the hood. See GitHub for the full list of resolved issues.
+New Features and Enhancements #1194: Add option to run a second node placer after using the Network node flexibility option.</description>
+    </item>
+    
+    <item>
       <title>0.2.0</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

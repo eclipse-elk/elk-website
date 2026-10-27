@@ -57,6 +57,16 @@ New Features and Enhancements #1194: Add option to run a second node placer afte
     </item>
     
     <item>
+      <title>0.12.1</title>
+      <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.12.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.eclipse.org/elk/downloads/releasenotes/release-0.12.1.html</guid>
+      <description> Release log Documentation Update site Zipped update site (for offline use) Maven central (for building pure Java projects that use ELK) Details This release is a minor patch containing some bugfixes as well as some cleanup and upgrades under the hood. See GitHub for the full list of resolved issues.
+Bugfixes #1188: Use deterministic side ordering for opposing self-loops. </description>
+    </item>
+    
+    <item>
       <title>0.2.0</title>
       <link>https://www.eclipse.org/elk/downloads/releasenotes/release-0.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
